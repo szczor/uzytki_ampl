@@ -1,0 +1,16 @@
+#reset the ampl environment
+reset;
+
+#load the model
+
+model uzytki.mod;
+
+#load the data
+
+data uzytki_data.dat;
+
+#solve
+
+solve;
+
+
