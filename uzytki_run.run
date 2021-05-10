@@ -1,3 +1,6 @@
+# Use slover that respetcs integer variables domain
+option solver cplex;
+
 #reset the ampl environment
 reset;
 
