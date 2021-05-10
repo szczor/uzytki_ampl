@@ -59,7 +59,7 @@ def plot(df, name):
     if not os.path.exists('wykresy'):
         os.makedirs('wykresy')
     cwd = os.getcwd()
-    fig.savefig(os.path.join(cwd, "wykresy", name + 'png'))
+    fig.savefig(os.path.join(cwd, "wykresy", name + '.png'))
 
 
 if __name__ == '__main__':
