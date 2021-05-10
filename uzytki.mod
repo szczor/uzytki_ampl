@@ -22,12 +22,12 @@ minimize cost: 1;
 s.t. demand_shift{i in days, j in shifts}:
 sum{n in nurses}(schedule[n,i,j]) = (demand[i,j]);
 
-s.t. not_preferred_companions{i in days, j in shifts}:
-sum{n in nurses}(schedule[n,i,j]*schedule[not_preferred[n],i,j])=0;
+#s.t. not_preferred_companions{i in days, j in shifts}:
+#sum{n in nurses}(schedule[n,i,j]*schedule[not_preferred[n],i,j])=0;
 
 #this works assuming each nurse has one companion she wants to work with
-s.t. preferred_companions{i in days, j in shifts}:
-sum{n in nurses}(schedule[n,i,j]*schedule[preferred[n],i,j])=N;
+#s.t. preferred_companions{i in days, j in shifts}:
+#sum{n in nurses}(schedule[n,i,j]*schedule[preferred[n],i,j])=N;
 
 # Every nurse can work at most one shift per day
 subject to max_one_shift_daily{nurse in nurses, day in days}:
