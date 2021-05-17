@@ -6,14 +6,14 @@ reset;
 
 #load the model
 
-model uzytki.mod;
+model Model.mod;
 
 #load the data
 
-data uzytki_data.dat;
+data TestMini.dat;
 
 #solve
 
 solve;
 
-
+display schedule > mysol.txt;

@@ -1,4354 +1,5499 @@
-Problem:    uzytki
-Rows:       910
-Columns:    1260 (1260 integer, 1260 binary)
-Non-zeros:  3330
+Problem:    Model
+Rows:       1890
+Columns:    855 (855 integer, 855 binary)
+Non-zeros:  4025
 Status:     INTEGER OPTIMAL
-Objective:  cost = 1 (MINimum)
+Objective:  happyness = 6 (MAXimum)
 
    No.   Row name        Activity     Lower bound   Upper bound
 ------ ------------    ------------- ------------- -------------
-     1 cost                        0                             
+     1 happyness                   6                             
      2 demand_shift[1,1]
-                                   4             4             = 
+                                   1             1             = 
      3 demand_shift[1,2]
-                                   3             3             = 
+                                   2             2             = 
      4 demand_shift[1,3]
-                                   2             2             = 
+                                   1             1             = 
      5 demand_shift[2,1]
-                                   3             3             = 
+                                   1             1             = 
      6 demand_shift[2,2]
-                                   4             4             = 
+                                   1             1             = 
      7 demand_shift[2,3]
-                                   2             2             = 
+                                   1             1             = 
      8 demand_shift[3,1]
-                                   3             3             = 
+                                   2             2             = 
      9 demand_shift[3,2]
-                                   3             3             = 
+                                   1             1             = 
     10 demand_shift[3,3]
-                                   4             4             = 
-    11 demand_shift[4,1]
-                                   4             4             = 
-    12 demand_shift[4,2]
-                                   3             3             = 
-    13 demand_shift[4,3]
-                                   2             2             = 
-    14 demand_shift[5,1]
-                                   3             3             = 
-    15 demand_shift[5,2]
-                                   2             2             = 
-    16 demand_shift[5,3]
-                                   2             2             = 
-    17 demand_shift[6,1]
-                                   3             3             = 
-    18 demand_shift[6,2]
-                                   2             2             = 
-    19 demand_shift[6,3]
-                                   3             3             = 
-    20 demand_shift[7,1]
-                                   2             2             = 
-    21 demand_shift[7,2]
-                                   2             2             = 
-    22 demand_shift[7,3]
-                                   2             2             = 
-    23 demand_shift[8,1]
-                                   4             4             = 
-    24 demand_shift[8,2]
-                                   2             2             = 
-    25 demand_shift[8,3]
-                                   2             2             = 
-    26 demand_shift[9,1]
-                                   2             2             = 
-    27 demand_shift[9,2]
-                                   2             2             = 
-    28 demand_shift[9,3]
-                                   4             4             = 
-    29 demand_shift[10,1]
-                                   3             3             = 
-    30 demand_shift[10,2]
-                                   4             4             = 
-    31 demand_shift[10,3]
-                                   2             2             = 
-    32 demand_shift[11,1]
-                                   4             4             = 
-    33 demand_shift[11,2]
-                                   2             2             = 
-    34 demand_shift[11,3]
-                                   4             4             = 
-    35 demand_shift[12,1]
-                                   2             2             = 
-    36 demand_shift[12,2]
-                                   3             3             = 
-    37 demand_shift[12,3]
-                                   2             2             = 
-    38 demand_shift[13,1]
-                                   2             2             = 
-    39 demand_shift[13,2]
-                                   3             3             = 
-    40 demand_shift[13,3]
-                                   4             4             = 
-    41 demand_shift[14,1]
-                                   2             2             = 
-    42 demand_shift[14,2]
-                                   4             4             = 
-    43 demand_shift[14,3]
-                                   2             2             = 
-    44 demand_shift[15,1]
-                                   2             2             = 
-    45 demand_shift[15,2]
-                                   3             3             = 
-    46 demand_shift[15,3]
-                                   4             4             = 
-    47 demand_shift[16,1]
-                                   4             4             = 
-    48 demand_shift[16,2]
-                                   2             2             = 
-    49 demand_shift[16,3]
-                                   3             3             = 
-    50 demand_shift[17,1]
-                                   3             3             = 
-    51 demand_shift[17,2]
-                                   2             2             = 
-    52 demand_shift[17,3]
-                                   4             4             = 
-    53 demand_shift[18,1]
-                                   3             3             = 
-    54 demand_shift[18,2]
-                                   2             2             = 
-    55 demand_shift[18,3]
-                                   2             2             = 
-    56 demand_shift[19,1]
-                                   3             3             = 
-    57 demand_shift[19,2]
-                                   3             3             = 
-    58 demand_shift[19,3]
-                                   3             3             = 
-    59 demand_shift[20,1]
-                                   2             2             = 
-    60 demand_shift[20,2]
-                                   4             4             = 
-    61 demand_shift[20,3]
-                                   3             3             = 
-    62 demand_shift[21,1]
-                                   3             3             = 
-    63 demand_shift[21,2]
-                                   2             2             = 
-    64 demand_shift[21,3]
-                                   3             3             = 
-    65 demand_shift[22,1]
-                                   3             3             = 
-    66 demand_shift[22,2]
-                                   3             3             = 
-    67 demand_shift[22,3]
-                                   4             4             = 
-    68 demand_shift[23,1]
-                                   3             3             = 
-    69 demand_shift[23,2]
-                                   3             3             = 
-    70 demand_shift[23,3]
-                                   2             2             = 
-    71 demand_shift[24,1]
-                                   4             4             = 
-    72 demand_shift[24,2]
-                                   3             3             = 
-    73 demand_shift[24,3]
-                                   3             3             = 
-    74 demand_shift[25,1]
-                                   3             3             = 
-    75 demand_shift[25,2]
-                                   4             4             = 
-    76 demand_shift[25,3]
-                                   3             3             = 
-    77 demand_shift[26,1]
-                                   3             3             = 
-    78 demand_shift[26,2]
-                                   2             2             = 
-    79 demand_shift[26,3]
-                                   3             3             = 
-    80 demand_shift[27,1]
-                                   2             2             = 
-    81 demand_shift[27,2]
-                                   2             2             = 
-    82 demand_shift[27,3]
-                                   3             3             = 
-    83 demand_shift[28,1]
-                                   2             2             = 
-    84 demand_shift[28,2]
-                                   2             2             = 
-    85 demand_shift[28,3]
-                                   2             2             = 
-    86 max_one_shift_daily[1,1]
-                                   1                           1 
-    87 max_one_shift_daily[1,2]
-                                   1                           1 
-    88 max_one_shift_daily[1,3]
-                                   1                           1 
-    89 max_one_shift_daily[1,4]
-                                   1                           1 
-    90 max_one_shift_daily[1,5]
-                                   1                           1 
-    91 max_one_shift_daily[1,6]
-                                   1                           1 
-    92 max_one_shift_daily[1,7]
-                                   1                           1 
-    93 max_one_shift_daily[1,8]
-                                   1                           1 
-    94 max_one_shift_daily[1,9]
-                                   1                           1 
-    95 max_one_shift_daily[1,10]
-                                   1                           1 
-    96 max_one_shift_daily[1,11]
-                                   1                           1 
-    97 max_one_shift_daily[1,12]
-                                   1                           1 
-    98 max_one_shift_daily[1,13]
-                                   1                           1 
-    99 max_one_shift_daily[1,14]
-                                   1                           1 
-   100 max_one_shift_daily[1,15]
-                                   1                           1 
-   101 max_one_shift_daily[1,16]
-                                   1                           1 
-   102 max_one_shift_daily[1,17]
-                                   1                           1 
-   103 max_one_shift_daily[1,18]
-                                   1                           1 
-   104 max_one_shift_daily[1,19]
-                                   1                           1 
-   105 max_one_shift_daily[1,20]
-                                   1                           1 
-   106 max_one_shift_daily[1,21]
-                                   1                           1 
-   107 max_one_shift_daily[1,22]
-                                   1                           1 
-   108 max_one_shift_daily[1,23]
-                                   1                           1 
-   109 max_one_shift_daily[1,24]
-                                   1                           1 
-   110 max_one_shift_daily[1,25]
-                                   1                           1 
-   111 max_one_shift_daily[1,26]
-                                   1                           1 
-   112 max_one_shift_daily[1,27]
-                                   1                           1 
-   113 max_one_shift_daily[1,28]
-                                   1                           1 
-   114 max_one_shift_daily[2,1]
-                                   1                           1 
-   115 max_one_shift_daily[2,2]
-                                   1                           1 
-   116 max_one_shift_daily[2,3]
-                                   1                           1 
-   117 max_one_shift_daily[2,4]
-                                   1                           1 
-   118 max_one_shift_daily[2,5]
-                                   1                           1 
-   119 max_one_shift_daily[2,6]
-                                   1                           1 
-   120 max_one_shift_daily[2,7]
-                                   1                           1 
-   121 max_one_shift_daily[2,8]
-                                   1                           1 
-   122 max_one_shift_daily[2,9]
-                                   1                           1 
-   123 max_one_shift_daily[2,10]
-                                   1                           1 
-   124 max_one_shift_daily[2,11]
-                                   1                           1 
-   125 max_one_shift_daily[2,12]
-                                   1                           1 
-   126 max_one_shift_daily[2,13]
-                                   1                           1 
-   127 max_one_shift_daily[2,14]
-                                   1                           1 
-   128 max_one_shift_daily[2,15]
-                                   1                           1 
-   129 max_one_shift_daily[2,16]
-                                   1                           1 
-   130 max_one_shift_daily[2,17]
-                                   1                           1 
-   131 max_one_shift_daily[2,18]
-                                   1                           1 
-   132 max_one_shift_daily[2,19]
-                                   1                           1 
-   133 max_one_shift_daily[2,20]
-                                   1                           1 
-   134 max_one_shift_daily[2,21]
-                                   1                           1 
-   135 max_one_shift_daily[2,22]
-                                   1                           1 
-   136 max_one_shift_daily[2,23]
-                                   1                           1 
-   137 max_one_shift_daily[2,24]
-                                   1                           1 
-   138 max_one_shift_daily[2,25]
-                                   1                           1 
-   139 max_one_shift_daily[2,26]
-                                   1                           1 
-   140 max_one_shift_daily[2,27]
-                                   1                           1 
-   141 max_one_shift_daily[2,28]
-                                   1                           1 
-   142 max_one_shift_daily[3,1]
-                                   1                           1 
-   143 max_one_shift_daily[3,2]
-                                   1                           1 
-   144 max_one_shift_daily[3,3]
-                                   1                           1 
-   145 max_one_shift_daily[3,4]
-                                   1                           1 
-   146 max_one_shift_daily[3,5]
-                                   1                           1 
-   147 max_one_shift_daily[3,6]
-                                   1                           1 
-   148 max_one_shift_daily[3,7]
-                                   1                           1 
-   149 max_one_shift_daily[3,8]
-                                   1                           1 
-   150 max_one_shift_daily[3,9]
-                                   1                           1 
-   151 max_one_shift_daily[3,10]
-                                   1                           1 
-   152 max_one_shift_daily[3,11]
-                                   1                           1 
-   153 max_one_shift_daily[3,12]
-                                   1                           1 
-   154 max_one_shift_daily[3,13]
-                                   1                           1 
-   155 max_one_shift_daily[3,14]
-                                   1                           1 
-   156 max_one_shift_daily[3,15]
-                                   1                           1 
-   157 max_one_shift_daily[3,16]
-                                   1                           1 
-   158 max_one_shift_daily[3,17]
-                                   1                           1 
-   159 max_one_shift_daily[3,18]
-                                   1                           1 
-   160 max_one_shift_daily[3,19]
-                                   1                           1 
-   161 max_one_shift_daily[3,20]
-                                   1                           1 
-   162 max_one_shift_daily[3,21]
-                                   1                           1 
-   163 max_one_shift_daily[3,22]
-                                   1                           1 
-   164 max_one_shift_daily[3,23]
-                                   1                           1 
-   165 max_one_shift_daily[3,24]
-                                   1                           1 
-   166 max_one_shift_daily[3,25]
-                                   1                           1 
-   167 max_one_shift_daily[3,26]
-                                   1                           1 
-   168 max_one_shift_daily[3,27]
-                                   1                           1 
-   169 max_one_shift_daily[3,28]
-                                   1                           1 
-   170 max_one_shift_daily[4,1]
-                                   1                           1 
-   171 max_one_shift_daily[4,2]
-                                   1                           1 
-   172 max_one_shift_daily[4,3]
-                                   1                           1 
-   173 max_one_shift_daily[4,4]
-                                   1                           1 
-   174 max_one_shift_daily[4,5]
-                                   1                           1 
-   175 max_one_shift_daily[4,6]
-                                   1                           1 
-   176 max_one_shift_daily[4,7]
-                                   0                           1 
-   177 max_one_shift_daily[4,8]
-                                   1                           1 
-   178 max_one_shift_daily[4,9]
-                                   1                           1 
-   179 max_one_shift_daily[4,10]
-                                   1                           1 
-   180 max_one_shift_daily[4,11]
-                                   1                           1 
-   181 max_one_shift_daily[4,12]
-                                   1                           1 
-   182 max_one_shift_daily[4,13]
-                                   1                           1 
-   183 max_one_shift_daily[4,14]
-                                   1                           1 
-   184 max_one_shift_daily[4,15]
-                                   1                           1 
-   185 max_one_shift_daily[4,16]
-                                   1                           1 
-   186 max_one_shift_daily[4,17]
-                                   1                           1 
-   187 max_one_shift_daily[4,18]
-                                   1                           1 
-   188 max_one_shift_daily[4,19]
-                                   1                           1 
-   189 max_one_shift_daily[4,20]
-                                   1                           1 
-   190 max_one_shift_daily[4,21]
-                                   1                           1 
-   191 max_one_shift_daily[4,22]
-                                   1                           1 
-   192 max_one_shift_daily[4,23]
-                                   1                           1 
-   193 max_one_shift_daily[4,24]
-                                   1                           1 
-   194 max_one_shift_daily[4,25]
-                                   1                           1 
-   195 max_one_shift_daily[4,26]
-                                   1                           1 
-   196 max_one_shift_daily[4,27]
-                                   1                           1 
-   197 max_one_shift_daily[4,28]
-                                   1                           1 
-   198 max_one_shift_daily[5,1]
-                                   1                           1 
-   199 max_one_shift_daily[5,2]
-                                   1                           1 
-   200 max_one_shift_daily[5,3]
-                                   1                           1 
-   201 max_one_shift_daily[5,4]
-                                   1                           1 
-   202 max_one_shift_daily[5,5]
-                                   1                           1 
-   203 max_one_shift_daily[5,6]
-                                   1                           1 
-   204 max_one_shift_daily[5,7]
-                                   1                           1 
-   205 max_one_shift_daily[5,8]
-                                   1                           1 
-   206 max_one_shift_daily[5,9]
-                                   1                           1 
-   207 max_one_shift_daily[5,10]
-                                   1                           1 
-   208 max_one_shift_daily[5,11]
-                                   1                           1 
-   209 max_one_shift_daily[5,12]
-                                   1                           1 
-   210 max_one_shift_daily[5,13]
-                                   1                           1 
-   211 max_one_shift_daily[5,14]
-                                   1                           1 
-   212 max_one_shift_daily[5,15]
-                                   1                           1 
-   213 max_one_shift_daily[5,16]
-                                   1                           1 
-   214 max_one_shift_daily[5,17]
-                                   1                           1 
-   215 max_one_shift_daily[5,18]
-                                   1                           1 
-   216 max_one_shift_daily[5,19]
-                                   1                           1 
-   217 max_one_shift_daily[5,20]
-                                   1                           1 
-   218 max_one_shift_daily[5,21]
-                                   1                           1 
-   219 max_one_shift_daily[5,22]
-                                   1                           1 
-   220 max_one_shift_daily[5,23]
-                                   1                           1 
-   221 max_one_shift_daily[5,24]
-                                   1                           1 
-   222 max_one_shift_daily[5,25]
-                                   1                           1 
-   223 max_one_shift_daily[5,26]
-                                   1                           1 
-   224 max_one_shift_daily[5,27]
-                                   1                           1 
-   225 max_one_shift_daily[5,28]
-                                   1                           1 
-   226 max_one_shift_daily[6,1]
-                                   1                           1 
-   227 max_one_shift_daily[6,2]
-                                   1                           1 
-   228 max_one_shift_daily[6,3]
-                                   1                           1 
-   229 max_one_shift_daily[6,4]
-                                   1                           1 
-   230 max_one_shift_daily[6,5]
-                                   1                           1 
-   231 max_one_shift_daily[6,6]
-                                   1                           1 
-   232 max_one_shift_daily[6,7]
-                                   0                           1 
-   233 max_one_shift_daily[6,8]
-                                   1                           1 
-   234 max_one_shift_daily[6,9]
-                                   1                           1 
-   235 max_one_shift_daily[6,10]
-                                   1                           1 
-   236 max_one_shift_daily[6,11]
-                                   1                           1 
-   237 max_one_shift_daily[6,12]
-                                   0                           1 
-   238 max_one_shift_daily[6,13]
-                                   1                           1 
-   239 max_one_shift_daily[6,14]
-                                   1                           1 
-   240 max_one_shift_daily[6,15]
-                                   1                           1 
-   241 max_one_shift_daily[6,16]
-                                   1                           1 
-   242 max_one_shift_daily[6,17]
-                                   1                           1 
-   243 max_one_shift_daily[6,18]
-                                   1                           1 
-   244 max_one_shift_daily[6,19]
-                                   1                           1 
-   245 max_one_shift_daily[6,20]
-                                   1                           1 
-   246 max_one_shift_daily[6,21]
-                                   1                           1 
-   247 max_one_shift_daily[6,22]
-                                   1                           1 
-   248 max_one_shift_daily[6,23]
-                                   1                           1 
-   249 max_one_shift_daily[6,24]
-                                   1                           1 
-   250 max_one_shift_daily[6,25]
-                                   1                           1 
-   251 max_one_shift_daily[6,26]
-                                   1                           1 
-   252 max_one_shift_daily[6,27]
-                                   0                           1 
-   253 max_one_shift_daily[6,28]
-                                   0                           1 
-   254 max_one_shift_daily[7,1]
-                                   1                           1 
-   255 max_one_shift_daily[7,2]
-                                   1                           1 
-   256 max_one_shift_daily[7,3]
-                                   1                           1 
-   257 max_one_shift_daily[7,4]
-                                   1                           1 
-   258 max_one_shift_daily[7,5]
-                                   0                           1 
-   259 max_one_shift_daily[7,6]
-                                   1                           1 
-   260 max_one_shift_daily[7,7]
-                                   1                           1 
-   261 max_one_shift_daily[7,8]
-                                   1                           1 
-   262 max_one_shift_daily[7,9]
-                                   1                           1 
-   263 max_one_shift_daily[7,10]
-                                   1                           1 
-   264 max_one_shift_daily[7,11]
-                                   1                           1 
-   265 max_one_shift_daily[7,12]
-                                   1                           1 
-   266 max_one_shift_daily[7,13]
-                                   1                           1 
-   267 max_one_shift_daily[7,14]
-                                   0                           1 
-   268 max_one_shift_daily[7,15]
-                                   1                           1 
-   269 max_one_shift_daily[7,16]
-                                   1                           1 
-   270 max_one_shift_daily[7,17]
-                                   1                           1 
-   271 max_one_shift_daily[7,18]
-                                   0                           1 
-   272 max_one_shift_daily[7,19]
-                                   1                           1 
-   273 max_one_shift_daily[7,20]
-                                   1                           1 
-   274 max_one_shift_daily[7,21]
-                                   0                           1 
-   275 max_one_shift_daily[7,22]
-                                   1                           1 
-   276 max_one_shift_daily[7,23]
-                                   1                           1 
-   277 max_one_shift_daily[7,24]
-                                   1                           1 
-   278 max_one_shift_daily[7,25]
-                                   1                           1 
-   279 max_one_shift_daily[7,26]
-                                   1                           1 
-   280 max_one_shift_daily[7,27]
-                                   1                           1 
-   281 max_one_shift_daily[7,28]
-                                   0                           1 
-   282 max_one_shift_daily[8,1]
-                                   1                           1 
-   283 max_one_shift_daily[8,2]
-                                   1                           1 
-   284 max_one_shift_daily[8,3]
-                                   1                           1 
-   285 max_one_shift_daily[8,4]
-                                   0                           1 
-   286 max_one_shift_daily[8,5]
-                                   0                           1 
-   287 max_one_shift_daily[8,6]
-                                   0                           1 
-   288 max_one_shift_daily[8,7]
-                                   0                           1 
-   289 max_one_shift_daily[8,8]
-                                   0                           1 
-   290 max_one_shift_daily[8,9]
-                                   0                           1 
-   291 max_one_shift_daily[8,10]
-                                   1                           1 
-   292 max_one_shift_daily[8,11]
-                                   1                           1 
-   293 max_one_shift_daily[8,12]
-                                   0                           1 
-   294 max_one_shift_daily[8,13]
-                                   1                           1 
-   295 max_one_shift_daily[8,14]
-                                   1                           1 
-   296 max_one_shift_daily[8,15]
-                                   1                           1 
-   297 max_one_shift_daily[8,16]
-                                   1                           1 
-   298 max_one_shift_daily[8,17]
-                                   1                           1 
-   299 max_one_shift_daily[8,18]
-                                   0                           1 
-   300 max_one_shift_daily[8,19]
-                                   1                           1 
-   301 max_one_shift_daily[8,20]
-                                   1                           1 
-   302 max_one_shift_daily[8,21]
-                                   1                           1 
-   303 max_one_shift_daily[8,22]
-                                   1                           1 
-   304 max_one_shift_daily[8,23]
-                                   0                           1 
-   305 max_one_shift_daily[8,24]
-                                   1                           1 
-   306 max_one_shift_daily[8,25]
-                                   1                           1 
-   307 max_one_shift_daily[8,26]
-                                   0                           1 
-   308 max_one_shift_daily[8,27]
-                                   0                           1 
-   309 max_one_shift_daily[8,28]
-                                   0                           1 
-   310 max_one_shift_daily[9,1]
-                                   0                           1 
-   311 max_one_shift_daily[9,2]
-                                   0                           1 
-   312 max_one_shift_daily[9,3]
-                                   1                           1 
-   313 max_one_shift_daily[9,4]
-                                   1                           1 
-   314 max_one_shift_daily[9,5]
-                                   0                           1 
-   315 max_one_shift_daily[9,6]
-                                   0                           1 
-   316 max_one_shift_daily[9,7]
-                                   0                           1 
-   317 max_one_shift_daily[9,8]
-                                   0                           1 
-   318 max_one_shift_daily[9,9]
-                                   0                           1 
-   319 max_one_shift_daily[9,10]
-                                   0                           1 
-   320 max_one_shift_daily[9,11]
-                                   1                           1 
-   321 max_one_shift_daily[9,12]
-                                   0                           1 
-   322 max_one_shift_daily[9,13]
-                                   0                           1 
-   323 max_one_shift_daily[9,14]
-                                   0                           1 
-   324 max_one_shift_daily[9,15]
-                                   0                           1 
-   325 max_one_shift_daily[9,16]
-                                   0                           1 
-   326 max_one_shift_daily[9,17]
-                                   0                           1 
-   327 max_one_shift_daily[9,18]
-                                   0                           1 
-   328 max_one_shift_daily[9,19]
-                                   0                           1 
-   329 max_one_shift_daily[9,20]
-                                   0                           1 
-   330 max_one_shift_daily[9,21]
-                                   0                           1 
-   331 max_one_shift_daily[9,22]
-                                   1                           1 
-   332 max_one_shift_daily[9,23]
-                                   0                           1 
-   333 max_one_shift_daily[9,24]
-                                   1                           1 
-   334 max_one_shift_daily[9,25]
-                                   1                           1 
-   335 max_one_shift_daily[9,26]
-                                   0                           1 
-   336 max_one_shift_daily[9,27]
-                                   0                           1 
-   337 max_one_shift_daily[9,28]
-                                   0                           1 
-   338 max_one_shift_daily[10,1]
-                                   0                           1 
-   339 max_one_shift_daily[10,2]
-                                   0                           1 
-   340 max_one_shift_daily[10,3]
-                                   0                           1 
-   341 max_one_shift_daily[10,4]
-                                   0                           1 
-   342 max_one_shift_daily[10,5]
-                                   0                           1 
-   343 max_one_shift_daily[10,6]
-                                   0                           1 
-   344 max_one_shift_daily[10,7]
-                                   0                           1 
-   345 max_one_shift_daily[10,8]
-                                   0                           1 
-   346 max_one_shift_daily[10,9]
-                                   0                           1 
-   347 max_one_shift_daily[10,10]
-                                   0                           1 
-   348 max_one_shift_daily[10,11]
-                                   0                           1 
-   349 max_one_shift_daily[10,12]
-                                   0                           1 
-   350 max_one_shift_daily[10,13]
-                                   0                           1 
-   351 max_one_shift_daily[10,14]
-                                   0                           1 
-   352 max_one_shift_daily[10,15]
-                                   0                           1 
-   353 max_one_shift_daily[10,16]
-                                   0                           1 
-   354 max_one_shift_daily[10,17]
-                                   0                           1 
-   355 max_one_shift_daily[10,18]
-                                   0                           1 
-   356 max_one_shift_daily[10,19]
-                                   0                           1 
-   357 max_one_shift_daily[10,20]
-                                   0                           1 
-   358 max_one_shift_daily[10,21]
-                                   0                           1 
-   359 max_one_shift_daily[10,22]
-                                   0                           1 
-   360 max_one_shift_daily[10,23]
-                                   0                           1 
-   361 max_one_shift_daily[10,24]
-                                   0                           1 
-   362 max_one_shift_daily[10,25]
-                                   0                           1 
-   363 max_one_shift_daily[10,26]
-                                   0                           1 
-   364 max_one_shift_daily[10,27]
-                                   0                           1 
-   365 max_one_shift_daily[10,28]
-                                   0                           1 
-   366 max_one_shift_daily[11,1]
-                                   0                           1 
-   367 max_one_shift_daily[11,2]
-                                   0                           1 
-   368 max_one_shift_daily[11,3]
-                                   0                           1 
-   369 max_one_shift_daily[11,4]
-                                   0                           1 
-   370 max_one_shift_daily[11,5]
-                                   0                           1 
-   371 max_one_shift_daily[11,6]
-                                   0                           1 
-   372 max_one_shift_daily[11,7]
-                                   0                           1 
-   373 max_one_shift_daily[11,8]
-                                   0                           1 
-   374 max_one_shift_daily[11,9]
-                                   0                           1 
-   375 max_one_shift_daily[11,10]
-                                   0                           1 
-   376 max_one_shift_daily[11,11]
-                                   0                           1 
-   377 max_one_shift_daily[11,12]
-                                   0                           1 
-   378 max_one_shift_daily[11,13]
-                                   0                           1 
-   379 max_one_shift_daily[11,14]
-                                   0                           1 
-   380 max_one_shift_daily[11,15]
-                                   0                           1 
-   381 max_one_shift_daily[11,16]
-                                   0                           1 
-   382 max_one_shift_daily[11,17]
-                                   0                           1 
-   383 max_one_shift_daily[11,18]
-                                   0                           1 
-   384 max_one_shift_daily[11,19]
-                                   0                           1 
-   385 max_one_shift_daily[11,20]
-                                   0                           1 
-   386 max_one_shift_daily[11,21]
-                                   0                           1 
-   387 max_one_shift_daily[11,22]
-                                   0                           1 
-   388 max_one_shift_daily[11,23]
-                                   0                           1 
-   389 max_one_shift_daily[11,24]
-                                   0                           1 
-   390 max_one_shift_daily[11,25]
-                                   0                           1 
-   391 max_one_shift_daily[11,26]
-                                   0                           1 
-   392 max_one_shift_daily[11,27]
-                                   0                           1 
-   393 max_one_shift_daily[11,28]
-                                   0                           1 
-   394 max_one_shift_daily[12,1]
-                                   0                           1 
-   395 max_one_shift_daily[12,2]
-                                   0                           1 
-   396 max_one_shift_daily[12,3]
-                                   0                           1 
-   397 max_one_shift_daily[12,4]
-                                   0                           1 
-   398 max_one_shift_daily[12,5]
-                                   0                           1 
-   399 max_one_shift_daily[12,6]
-                                   0                           1 
-   400 max_one_shift_daily[12,7]
-                                   0                           1 
-   401 max_one_shift_daily[12,8]
-                                   0                           1 
-   402 max_one_shift_daily[12,9]
-                                   0                           1 
-   403 max_one_shift_daily[12,10]
-                                   0                           1 
-   404 max_one_shift_daily[12,11]
-                                   0                           1 
-   405 max_one_shift_daily[12,12]
-                                   0                           1 
-   406 max_one_shift_daily[12,13]
-                                   0                           1 
-   407 max_one_shift_daily[12,14]
-                                   0                           1 
-   408 max_one_shift_daily[12,15]
-                                   0                           1 
-   409 max_one_shift_daily[12,16]
-                                   0                           1 
-   410 max_one_shift_daily[12,17]
-                                   0                           1 
-   411 max_one_shift_daily[12,18]
-                                   0                           1 
-   412 max_one_shift_daily[12,19]
-                                   0                           1 
-   413 max_one_shift_daily[12,20]
-                                   0                           1 
-   414 max_one_shift_daily[12,21]
-                                   0                           1 
-   415 max_one_shift_daily[12,22]
-                                   0                           1 
-   416 max_one_shift_daily[12,23]
-                                   0                           1 
-   417 max_one_shift_daily[12,24]
-                                   0                           1 
-   418 max_one_shift_daily[12,25]
-                                   0                           1 
-   419 max_one_shift_daily[12,26]
-                                   0                           1 
-   420 max_one_shift_daily[12,27]
-                                   0                           1 
-   421 max_one_shift_daily[12,28]
-                                   0                           1 
-   422 max_one_shift_daily[13,1]
-                                   0                           1 
-   423 max_one_shift_daily[13,2]
-                                   0                           1 
-   424 max_one_shift_daily[13,3]
-                                   0                           1 
-   425 max_one_shift_daily[13,4]
-                                   0                           1 
-   426 max_one_shift_daily[13,5]
-                                   0                           1 
-   427 max_one_shift_daily[13,6]
-                                   0                           1 
-   428 max_one_shift_daily[13,7]
-                                   0                           1 
-   429 max_one_shift_daily[13,8]
-                                   0                           1 
-   430 max_one_shift_daily[13,9]
-                                   0                           1 
-   431 max_one_shift_daily[13,10]
-                                   0                           1 
-   432 max_one_shift_daily[13,11]
-                                   0                           1 
-   433 max_one_shift_daily[13,12]
-                                   0                           1 
-   434 max_one_shift_daily[13,13]
-                                   0                           1 
-   435 max_one_shift_daily[13,14]
-                                   0                           1 
-   436 max_one_shift_daily[13,15]
-                                   0                           1 
-   437 max_one_shift_daily[13,16]
-                                   0                           1 
-   438 max_one_shift_daily[13,17]
-                                   0                           1 
-   439 max_one_shift_daily[13,18]
-                                   0                           1 
-   440 max_one_shift_daily[13,19]
-                                   0                           1 
-   441 max_one_shift_daily[13,20]
-                                   0                           1 
-   442 max_one_shift_daily[13,21]
-                                   0                           1 
-   443 max_one_shift_daily[13,22]
-                                   0                           1 
-   444 max_one_shift_daily[13,23]
-                                   0                           1 
-   445 max_one_shift_daily[13,24]
-                                   0                           1 
-   446 max_one_shift_daily[13,25]
-                                   0                           1 
-   447 max_one_shift_daily[13,26]
-                                   0                           1 
-   448 max_one_shift_daily[13,27]
-                                   0                           1 
-   449 max_one_shift_daily[13,28]
-                                   0                           1 
-   450 max_one_shift_daily[14,1]
-                                   0                           1 
-   451 max_one_shift_daily[14,2]
-                                   0                           1 
-   452 max_one_shift_daily[14,3]
-                                   0                           1 
-   453 max_one_shift_daily[14,4]
-                                   0                           1 
-   454 max_one_shift_daily[14,5]
-                                   0                           1 
-   455 max_one_shift_daily[14,6]
-                                   0                           1 
-   456 max_one_shift_daily[14,7]
-                                   0                           1 
-   457 max_one_shift_daily[14,8]
-                                   0                           1 
-   458 max_one_shift_daily[14,9]
-                                   0                           1 
-   459 max_one_shift_daily[14,10]
-                                   0                           1 
-   460 max_one_shift_daily[14,11]
-                                   0                           1 
-   461 max_one_shift_daily[14,12]
-                                   0                           1 
-   462 max_one_shift_daily[14,13]
-                                   0                           1 
-   463 max_one_shift_daily[14,14]
-                                   0                           1 
-   464 max_one_shift_daily[14,15]
-                                   0                           1 
-   465 max_one_shift_daily[14,16]
-                                   0                           1 
-   466 max_one_shift_daily[14,17]
-                                   0                           1 
-   467 max_one_shift_daily[14,18]
-                                   0                           1 
-   468 max_one_shift_daily[14,19]
-                                   0                           1 
-   469 max_one_shift_daily[14,20]
-                                   0                           1 
-   470 max_one_shift_daily[14,21]
-                                   0                           1 
-   471 max_one_shift_daily[14,22]
-                                   0                           1 
-   472 max_one_shift_daily[14,23]
-                                   0                           1 
-   473 max_one_shift_daily[14,24]
-                                   0                           1 
-   474 max_one_shift_daily[14,25]
-                                   0                           1 
-   475 max_one_shift_daily[14,26]
-                                   0                           1 
-   476 max_one_shift_daily[14,27]
-                                   0                           1 
-   477 max_one_shift_daily[14,28]
-                                   0                           1 
-   478 max_one_shift_daily[15,1]
-                                   1                           1 
-   479 max_one_shift_daily[15,2]
-                                   1                           1 
-   480 max_one_shift_daily[15,3]
-                                   1                           1 
-   481 max_one_shift_daily[15,4]
-                                   1                           1 
-   482 max_one_shift_daily[15,5]
-                                   1                           1 
-   483 max_one_shift_daily[15,6]
-                                   1                           1 
-   484 max_one_shift_daily[15,7]
-                                   1                           1 
-   485 max_one_shift_daily[15,8]
-                                   1                           1 
-   486 max_one_shift_daily[15,9]
-                                   1                           1 
-   487 max_one_shift_daily[15,10]
-                                   1                           1 
-   488 max_one_shift_daily[15,11]
-                                   1                           1 
-   489 max_one_shift_daily[15,12]
-                                   1                           1 
-   490 max_one_shift_daily[15,13]
-                                   1                           1 
-   491 max_one_shift_daily[15,14]
-                                   1                           1 
-   492 max_one_shift_daily[15,15]
-                                   1                           1 
-   493 max_one_shift_daily[15,16]
-                                   1                           1 
-   494 max_one_shift_daily[15,17]
-                                   1                           1 
-   495 max_one_shift_daily[15,18]
-                                   1                           1 
-   496 max_one_shift_daily[15,19]
-                                   1                           1 
-   497 max_one_shift_daily[15,20]
-                                   1                           1 
-   498 max_one_shift_daily[15,21]
-                                   1                           1 
-   499 max_one_shift_daily[15,22]
-                                   1                           1 
-   500 max_one_shift_daily[15,23]
-                                   1                           1 
-   501 max_one_shift_daily[15,24]
-                                   1                           1 
-   502 max_one_shift_daily[15,25]
-                                   1                           1 
-   503 max_one_shift_daily[15,26]
-                                   1                           1 
-   504 max_one_shift_daily[15,27]
-                                   1                           1 
-   505 max_one_shift_daily[15,28]
-                                   1                           1 
-   506 give_sleep_time[1,1]
-                                   1                           1 
-   507 give_sleep_time[1,2]
-                                   1                           1 
-   508 give_sleep_time[1,3]
-                                   1                           1 
-   509 give_sleep_time[1,4]
-                                   1                           1 
-   510 give_sleep_time[1,5]
-                                   1                           1 
-   511 give_sleep_time[1,6]
-                                   1                           1 
-   512 give_sleep_time[1,7]
-                                   1                           1 
-   513 give_sleep_time[1,8]
-                                   1                           1 
-   514 give_sleep_time[1,9]
-                                   1                           1 
-   515 give_sleep_time[1,10]
-                                   1                           1 
-   516 give_sleep_time[1,11]
-                                   1                           1 
-   517 give_sleep_time[1,12]
-                                   1                           1 
-   518 give_sleep_time[1,13]
-                                   1                           1 
-   519 give_sleep_time[1,14]
-                                   1                           1 
-   520 give_sleep_time[1,15]
-                                   1                           1 
-   521 give_sleep_time[1,16]
-                                   1                           1 
-   522 give_sleep_time[1,17]
-                                   1                           1 
-   523 give_sleep_time[1,18]
-                                   1                           1 
-   524 give_sleep_time[1,19]
-                                   1                           1 
-   525 give_sleep_time[1,20]
-                                   1                           1 
-   526 give_sleep_time[1,21]
-                                   1                           1 
-   527 give_sleep_time[1,22]
-                                   1                           1 
-   528 give_sleep_time[1,23]
-                                   1                           1 
-   529 give_sleep_time[1,24]
-                                   1                           1 
-   530 give_sleep_time[1,25]
-                                   1                           1 
-   531 give_sleep_time[1,26]
-                                   1                           1 
-   532 give_sleep_time[1,27]
-                                   1                           1 
-   533 give_sleep_time[2,1]
-                                   1                           1 
-   534 give_sleep_time[2,2]
-                                   1                           1 
-   535 give_sleep_time[2,3]
-                                   1                           1 
-   536 give_sleep_time[2,4]
-                                   1                           1 
-   537 give_sleep_time[2,5]
-                                   1                           1 
-   538 give_sleep_time[2,6]
-                                   1                           1 
-   539 give_sleep_time[2,7]
-                                   1                           1 
-   540 give_sleep_time[2,8]
-                                   1                           1 
-   541 give_sleep_time[2,9]
-                                   1                           1 
-   542 give_sleep_time[2,10]
-                                   1                           1 
-   543 give_sleep_time[2,11]
-                                   1                           1 
-   544 give_sleep_time[2,12]
-                                   1                           1 
-   545 give_sleep_time[2,13]
-                                   1                           1 
-   546 give_sleep_time[2,14]
-                                   1                           1 
-   547 give_sleep_time[2,15]
-                                   1                           1 
-   548 give_sleep_time[2,16]
-                                   1                           1 
-   549 give_sleep_time[2,17]
-                                   1                           1 
-   550 give_sleep_time[2,18]
-                                   1                           1 
-   551 give_sleep_time[2,19]
-                                   1                           1 
-   552 give_sleep_time[2,20]
-                                   1                           1 
-   553 give_sleep_time[2,21]
-                                   1                           1 
-   554 give_sleep_time[2,22]
-                                   1                           1 
-   555 give_sleep_time[2,23]
-                                   1                           1 
-   556 give_sleep_time[2,24]
-                                   1                           1 
-   557 give_sleep_time[2,25]
-                                   1                           1 
-   558 give_sleep_time[2,26]
-                                   1                           1 
-   559 give_sleep_time[2,27]
-                                   1                           1 
-   560 give_sleep_time[3,1]
-                                   1                           1 
-   561 give_sleep_time[3,2]
-                                   1                           1 
-   562 give_sleep_time[3,3]
-                                   1                           1 
-   563 give_sleep_time[3,4]
-                                   1                           1 
-   564 give_sleep_time[3,5]
-                                   1                           1 
-   565 give_sleep_time[3,6]
-                                   0                           1 
-   566 give_sleep_time[3,7]
-                                   1                           1 
-   567 give_sleep_time[3,8]
-                                   0                           1 
-   568 give_sleep_time[3,9]
-                                   1                           1 
-   569 give_sleep_time[3,10]
-                                   1                           1 
-   570 give_sleep_time[3,11]
-                                   0                           1 
-   571 give_sleep_time[3,12]
-                                   0                           1 
-   572 give_sleep_time[3,13]
-                                   1                           1 
-   573 give_sleep_time[3,14]
-                                   0                           1 
-   574 give_sleep_time[3,15]
-                                   1                           1 
-   575 give_sleep_time[3,16]
-                                   1                           1 
-   576 give_sleep_time[3,17]
-                                   1                           1 
-   577 give_sleep_time[3,18]
-                                   1                           1 
-   578 give_sleep_time[3,19]
-                                   0                           1 
-   579 give_sleep_time[3,20]
-                                   1                           1 
-   580 give_sleep_time[3,21]
-                                   1                           1 
-   581 give_sleep_time[3,22]
-                                   1                           1 
-   582 give_sleep_time[3,23]
-                                   1                           1 
-   583 give_sleep_time[3,24]
-                                   1                           1 
-   584 give_sleep_time[3,25]
-                                   1                           1 
-   585 give_sleep_time[3,26]
-                                   0                           1 
-   586 give_sleep_time[3,27]
-                                   1                           1 
-   587 give_sleep_time[4,1]
-                                   0                           1 
-   588 give_sleep_time[4,2]
-                                   0                           1 
-   589 give_sleep_time[4,3]
-                                   1                           1 
-   590 give_sleep_time[4,4]
-                                   0                           1 
-   591 give_sleep_time[4,5]
-                                   0                           1 
-   592 give_sleep_time[4,6]
-                                   1                           1 
-   593 give_sleep_time[4,7]
-                                   1                           1 
-   594 give_sleep_time[4,8]
-                                   0                           1 
-   595 give_sleep_time[4,9]
-                                   1                           1 
-   596 give_sleep_time[4,10]
-                                   1                           1 
-   597 give_sleep_time[4,11]
-                                   0                           1 
-   598 give_sleep_time[4,12]
-                                   0                           1 
-   599 give_sleep_time[4,13]
-                                   1                           1 
-   600 give_sleep_time[4,14]
-                                   0                           1 
-   601 give_sleep_time[4,15]
-                                   1                           1 
-   602 give_sleep_time[4,16]
-                                   1                           1 
-   603 give_sleep_time[4,17]
-                                   1                           1 
-   604 give_sleep_time[4,18]
-                                   0                           1 
-   605 give_sleep_time[4,19]
-                                   1                           1 
-   606 give_sleep_time[4,20]
-                                   1                           1 
-   607 give_sleep_time[4,21]
-                                   1                           1 
-   608 give_sleep_time[4,22]
-                                   1                           1 
-   609 give_sleep_time[4,23]
-                                   1                           1 
-   610 give_sleep_time[4,24]
-                                   0                           1 
-   611 give_sleep_time[4,25]
-                                   1                           1 
-   612 give_sleep_time[4,26]
-                                   1                           1 
-   613 give_sleep_time[4,27]
-                                   1                           1 
-   614 give_sleep_time[5,1]
-                                   0                           1 
-   615 give_sleep_time[5,2]
-                                   0                           1 
-   616 give_sleep_time[5,3]
-                                   1                           1 
-   617 give_sleep_time[5,4]
-                                   0                           1 
-   618 give_sleep_time[5,5]
-                                   1                           1 
-   619 give_sleep_time[5,6]
-                                   0                           1 
-   620 give_sleep_time[5,7]
-                                   1                           1 
-   621 give_sleep_time[5,8]
-                                   0                           1 
-   622 give_sleep_time[5,9]
-                                   1                           1 
-   623 give_sleep_time[5,10]
-                                   0                           1 
-   624 give_sleep_time[5,11]
-                                   1                           1 
-   625 give_sleep_time[5,12]
-                                   1                           1 
-   626 give_sleep_time[5,13]
-                                   0                           1 
-   627 give_sleep_time[5,14]
-                                   0                           1 
-   628 give_sleep_time[5,15]
-                                   1                           1 
-   629 give_sleep_time[5,16]
-                                   0                           1 
-   630 give_sleep_time[5,17]
-                                   1                           1 
-   631 give_sleep_time[5,18]
-                                   1                           1 
-   632 give_sleep_time[5,19]
-                                   0                           1 
-   633 give_sleep_time[5,20]
-                                   0                           1 
-   634 give_sleep_time[5,21]
-                                   0                           1 
-   635 give_sleep_time[5,22]
-                                   1                           1 
-   636 give_sleep_time[5,23]
-                                   0                           1 
-   637 give_sleep_time[5,24]
-                                   1                           1 
-   638 give_sleep_time[5,25]
-                                   0                           1 
-   639 give_sleep_time[5,26]
-                                   0                           1 
-   640 give_sleep_time[5,27]
-                                   1                           1 
-   641 give_sleep_time[6,1]
-                                   0                           1 
-   642 give_sleep_time[6,2]
-                                   0                           1 
-   643 give_sleep_time[6,3]
-                                   1                           1 
-   644 give_sleep_time[6,4]
-                                   1                           1 
-   645 give_sleep_time[6,5]
-                                   0                           1 
-   646 give_sleep_time[6,6]
-                                   1                           1 
-   647 give_sleep_time[6,7]
-                                   0                           1 
-   648 give_sleep_time[6,8]
-                                   1                           1 
-   649 give_sleep_time[6,9]
-                                   1                           1 
-   650 give_sleep_time[6,10]
-                                   0                           1 
-   651 give_sleep_time[6,11]
-                                   1                           1 
-   652 give_sleep_time[6,12]
-                                   0                           1 
-   653 give_sleep_time[6,13]
-                                   0                           1 
-   654 give_sleep_time[6,14]
-                                   1                           1 
-   655 give_sleep_time[6,15]
-                                   1                           1 
-   656 give_sleep_time[6,16]
-                                   0                           1 
-   657 give_sleep_time[6,17]
-                                   1                           1 
-   658 give_sleep_time[6,18]
-                                   0                           1 
-   659 give_sleep_time[6,19]
-                                   0                           1 
-   660 give_sleep_time[6,20]
-                                   0                           1 
-   661 give_sleep_time[6,21]
-                                   1                           1 
-   662 give_sleep_time[6,22]
-                                   0                           1 
-   663 give_sleep_time[6,23]
-                                   1                           1 
-   664 give_sleep_time[6,24]
-                                   0                           1 
-   665 give_sleep_time[6,25]
-                                   0                           1 
-   666 give_sleep_time[6,26]
-                                   1                           1 
-   667 give_sleep_time[6,27]
-                                   0                           1 
-   668 give_sleep_time[7,1]
-                                   1                           1 
-   669 give_sleep_time[7,2]
-                                   1                           1 
-   670 give_sleep_time[7,3]
-                                   0                           1 
-   671 give_sleep_time[7,4]
-                                   1                           1 
-   672 give_sleep_time[7,5]
-                                   1                           1 
-   673 give_sleep_time[7,6]
-                                   1                           1 
-   674 give_sleep_time[7,7]
-                                   1                           1 
-   675 give_sleep_time[7,8]
-                                   1                           1 
-   676 give_sleep_time[7,9]
-                                   0                           1 
-   677 give_sleep_time[7,10]
-                                   1                           1 
-   678 give_sleep_time[7,11]
-                                   1                           1 
-   679 give_sleep_time[7,12]
-                                   0                           1 
-   680 give_sleep_time[7,13]
-                                   1                           1 
-   681 give_sleep_time[7,14]
-                                   0                           1 
-   682 give_sleep_time[7,15]
-                                   1                           1 
-   683 give_sleep_time[7,16]
-                                   1                           1 
-   684 give_sleep_time[7,17]
-                                   1                           1 
-   685 give_sleep_time[7,18]
-                                   0                           1 
-   686 give_sleep_time[7,19]
-                                   1                           1 
-   687 give_sleep_time[7,20]
-                                   1                           1 
-   688 give_sleep_time[7,21]
-                                   0                           1 
-   689 give_sleep_time[7,22]
-                                   1                           1 
-   690 give_sleep_time[7,23]
-                                   0                           1 
-   691 give_sleep_time[7,24]
-                                   0                           1 
-   692 give_sleep_time[7,25]
-                                   1                           1 
-   693 give_sleep_time[7,26]
-                                   1                           1 
-   694 give_sleep_time[7,27]
-                                   0                           1 
-   695 give_sleep_time[8,1]
-                                   1                           1 
-   696 give_sleep_time[8,2]
-                                   0                           1 
-   697 give_sleep_time[8,3]
-                                   1                           1 
-   698 give_sleep_time[8,4]
-                                   0                           1 
-   699 give_sleep_time[8,5]
-                                   0                           1 
-   700 give_sleep_time[8,6]
-                                   0                           1 
-   701 give_sleep_time[8,7]
-                                   0                           1 
-   702 give_sleep_time[8,8]
-                                   0                           1 
-   703 give_sleep_time[8,9]
-                                   1                           1 
-   704 give_sleep_time[8,10]
-                                   0                           1 
-   705 give_sleep_time[8,11]
-                                   1                           1 
-   706 give_sleep_time[8,12]
-                                   1                           1 
-   707 give_sleep_time[8,13]
-                                   1                           1 
-   708 give_sleep_time[8,14]
-                                   1                           1 
-   709 give_sleep_time[8,15]
-                                   1                           1 
-   710 give_sleep_time[8,16]
-                                   1                           1 
-   711 give_sleep_time[8,17]
-                                   0                           1 
-   712 give_sleep_time[8,18]
-                                   1                           1 
-   713 give_sleep_time[8,19]
-                                   1                           1 
-   714 give_sleep_time[8,20]
-                                   1                           1 
-   715 give_sleep_time[8,21]
-                                   0                           1 
-   716 give_sleep_time[8,22]
-                                   1                           1 
-   717 give_sleep_time[8,23]
-                                   0                           1 
-   718 give_sleep_time[8,24]
-                                   1                           1 
-   719 give_sleep_time[8,25]
-                                   1                           1 
-   720 give_sleep_time[8,26]
-                                   0                           1 
-   721 give_sleep_time[8,27]
-                                   0                           1 
-   722 give_sleep_time[9,1]
-                                   0                           1 
-   723 give_sleep_time[9,2]
-                                   1                           1 
-   724 give_sleep_time[9,3]
-                                   1                           1 
-   725 give_sleep_time[9,4]
-                                   0                           1 
-   726 give_sleep_time[9,5]
-                                   0                           1 
-   727 give_sleep_time[9,6]
-                                   0                           1 
-   728 give_sleep_time[9,7]
-                                   0                           1 
-   729 give_sleep_time[9,8]
-                                   0                           1 
-   730 give_sleep_time[9,9]
-                                   0                           1 
-   731 give_sleep_time[9,10]
-                                   1                           1 
-   732 give_sleep_time[9,11]
-                                   0                           1 
-   733 give_sleep_time[9,12]
-                                   0                           1 
-   734 give_sleep_time[9,13]
-                                   0                           1 
-   735 give_sleep_time[9,14]
-                                   0                           1 
-   736 give_sleep_time[9,15]
-                                   0                           1 
-   737 give_sleep_time[9,16]
-                                   0                           1 
-   738 give_sleep_time[9,17]
-                                   0                           1 
-   739 give_sleep_time[9,18]
-                                   0                           1 
-   740 give_sleep_time[9,19]
-                                   0                           1 
-   741 give_sleep_time[9,20]
-                                   0                           1 
-   742 give_sleep_time[9,21]
-                                   1                           1 
-   743 give_sleep_time[9,22]
-                                   0                           1 
-   744 give_sleep_time[9,23]
-                                   1                           1 
-   745 give_sleep_time[9,24]
-                                   1                           1 
-   746 give_sleep_time[9,25]
-                                   0                           1 
-   747 give_sleep_time[9,26]
-                                   0                           1 
-   748 give_sleep_time[9,27]
-                                   0                           1 
-   749 give_sleep_time[10,1]
-                                   0                           1 
-   750 give_sleep_time[10,2]
-                                   0                           1 
-   751 give_sleep_time[10,3]
-                                   0                           1 
-   752 give_sleep_time[10,4]
-                                   0                           1 
-   753 give_sleep_time[10,5]
-                                   0                           1 
-   754 give_sleep_time[10,6]
-                                   0                           1 
-   755 give_sleep_time[10,7]
-                                   0                           1 
-   756 give_sleep_time[10,8]
-                                   0                           1 
-   757 give_sleep_time[10,9]
-                                   0                           1 
-   758 give_sleep_time[10,10]
-                                   0                           1 
-   759 give_sleep_time[10,11]
-                                   0                           1 
-   760 give_sleep_time[10,12]
-                                   0                           1 
-   761 give_sleep_time[10,13]
-                                   0                           1 
-   762 give_sleep_time[10,14]
-                                   0                           1 
-   763 give_sleep_time[10,15]
-                                   0                           1 
-   764 give_sleep_time[10,16]
-                                   0                           1 
-   765 give_sleep_time[10,17]
-                                   0                           1 
-   766 give_sleep_time[10,18]
-                                   0                           1 
-   767 give_sleep_time[10,19]
-                                   0                           1 
-   768 give_sleep_time[10,20]
-                                   0                           1 
-   769 give_sleep_time[10,21]
-                                   0                           1 
-   770 give_sleep_time[10,22]
-                                   0                           1 
-   771 give_sleep_time[10,23]
-                                   0                           1 
-   772 give_sleep_time[10,24]
-                                   0                           1 
-   773 give_sleep_time[10,25]
-                                   0                           1 
-   774 give_sleep_time[10,26]
-                                   0                           1 
-   775 give_sleep_time[10,27]
-                                   0                           1 
-   776 give_sleep_time[11,1]
-                                   0                           1 
-   777 give_sleep_time[11,2]
-                                   0                           1 
-   778 give_sleep_time[11,3]
-                                   0                           1 
-   779 give_sleep_time[11,4]
-                                   0                           1 
-   780 give_sleep_time[11,5]
-                                   0                           1 
-   781 give_sleep_time[11,6]
-                                   0                           1 
-   782 give_sleep_time[11,7]
-                                   0                           1 
-   783 give_sleep_time[11,8]
-                                   0                           1 
-   784 give_sleep_time[11,9]
-                                   0                           1 
-   785 give_sleep_time[11,10]
-                                   0                           1 
-   786 give_sleep_time[11,11]
-                                   0                           1 
-   787 give_sleep_time[11,12]
-                                   0                           1 
-   788 give_sleep_time[11,13]
-                                   0                           1 
-   789 give_sleep_time[11,14]
-                                   0                           1 
-   790 give_sleep_time[11,15]
-                                   0                           1 
-   791 give_sleep_time[11,16]
-                                   0                           1 
-   792 give_sleep_time[11,17]
-                                   0                           1 
-   793 give_sleep_time[11,18]
-                                   0                           1 
-   794 give_sleep_time[11,19]
-                                   0                           1 
-   795 give_sleep_time[11,20]
-                                   0                           1 
-   796 give_sleep_time[11,21]
-                                   0                           1 
-   797 give_sleep_time[11,22]
-                                   0                           1 
-   798 give_sleep_time[11,23]
-                                   0                           1 
-   799 give_sleep_time[11,24]
-                                   0                           1 
-   800 give_sleep_time[11,25]
-                                   0                           1 
-   801 give_sleep_time[11,26]
-                                   0                           1 
-   802 give_sleep_time[11,27]
-                                   0                           1 
-   803 give_sleep_time[12,1]
-                                   0                           1 
-   804 give_sleep_time[12,2]
-                                   0                           1 
-   805 give_sleep_time[12,3]
-                                   0                           1 
-   806 give_sleep_time[12,4]
-                                   0                           1 
-   807 give_sleep_time[12,5]
-                                   0                           1 
-   808 give_sleep_time[12,6]
-                                   0                           1 
-   809 give_sleep_time[12,7]
-                                   0                           1 
-   810 give_sleep_time[12,8]
-                                   0                           1 
-   811 give_sleep_time[12,9]
-                                   0                           1 
-   812 give_sleep_time[12,10]
-                                   0                           1 
-   813 give_sleep_time[12,11]
-                                   0                           1 
-   814 give_sleep_time[12,12]
-                                   0                           1 
-   815 give_sleep_time[12,13]
-                                   0                           1 
-   816 give_sleep_time[12,14]
-                                   0                           1 
-   817 give_sleep_time[12,15]
-                                   0                           1 
-   818 give_sleep_time[12,16]
-                                   0                           1 
-   819 give_sleep_time[12,17]
-                                   0                           1 
-   820 give_sleep_time[12,18]
-                                   0                           1 
-   821 give_sleep_time[12,19]
-                                   0                           1 
-   822 give_sleep_time[12,20]
-                                   0                           1 
-   823 give_sleep_time[12,21]
-                                   0                           1 
-   824 give_sleep_time[12,22]
-                                   0                           1 
-   825 give_sleep_time[12,23]
-                                   0                           1 
-   826 give_sleep_time[12,24]
-                                   0                           1 
-   827 give_sleep_time[12,25]
-                                   0                           1 
-   828 give_sleep_time[12,26]
-                                   0                           1 
-   829 give_sleep_time[12,27]
-                                   0                           1 
-   830 give_sleep_time[13,1]
-                                   0                           1 
-   831 give_sleep_time[13,2]
-                                   0                           1 
-   832 give_sleep_time[13,3]
-                                   0                           1 
-   833 give_sleep_time[13,4]
-                                   0                           1 
-   834 give_sleep_time[13,5]
-                                   0                           1 
-   835 give_sleep_time[13,6]
-                                   0                           1 
-   836 give_sleep_time[13,7]
-                                   0                           1 
-   837 give_sleep_time[13,8]
-                                   0                           1 
-   838 give_sleep_time[13,9]
-                                   0                           1 
-   839 give_sleep_time[13,10]
-                                   0                           1 
-   840 give_sleep_time[13,11]
-                                   0                           1 
-   841 give_sleep_time[13,12]
-                                   0                           1 
-   842 give_sleep_time[13,13]
-                                   0                           1 
-   843 give_sleep_time[13,14]
-                                   0                           1 
-   844 give_sleep_time[13,15]
-                                   0                           1 
-   845 give_sleep_time[13,16]
-                                   0                           1 
-   846 give_sleep_time[13,17]
-                                   0                           1 
-   847 give_sleep_time[13,18]
-                                   0                           1 
-   848 give_sleep_time[13,19]
-                                   0                           1 
-   849 give_sleep_time[13,20]
-                                   0                           1 
-   850 give_sleep_time[13,21]
-                                   0                           1 
-   851 give_sleep_time[13,22]
-                                   0                           1 
-   852 give_sleep_time[13,23]
-                                   0                           1 
-   853 give_sleep_time[13,24]
-                                   0                           1 
-   854 give_sleep_time[13,25]
-                                   0                           1 
-   855 give_sleep_time[13,26]
-                                   0                           1 
-   856 give_sleep_time[13,27]
-                                   0                           1 
-   857 give_sleep_time[14,1]
-                                   0                           1 
-   858 give_sleep_time[14,2]
-                                   0                           1 
-   859 give_sleep_time[14,3]
-                                   0                           1 
-   860 give_sleep_time[14,4]
-                                   0                           1 
-   861 give_sleep_time[14,5]
-                                   0                           1 
-   862 give_sleep_time[14,6]
-                                   0                           1 
-   863 give_sleep_time[14,7]
-                                   0                           1 
-   864 give_sleep_time[14,8]
-                                   0                           1 
-   865 give_sleep_time[14,9]
-                                   0                           1 
-   866 give_sleep_time[14,10]
-                                   0                           1 
-   867 give_sleep_time[14,11]
-                                   0                           1 
-   868 give_sleep_time[14,12]
-                                   0                           1 
-   869 give_sleep_time[14,13]
-                                   0                           1 
-   870 give_sleep_time[14,14]
-                                   0                           1 
-   871 give_sleep_time[14,15]
-                                   0                           1 
-   872 give_sleep_time[14,16]
-                                   0                           1 
-   873 give_sleep_time[14,17]
-                                   0                           1 
-   874 give_sleep_time[14,18]
-                                   0                           1 
-   875 give_sleep_time[14,19]
-                                   0                           1 
-   876 give_sleep_time[14,20]
-                                   0                           1 
-   877 give_sleep_time[14,21]
-                                   0                           1 
-   878 give_sleep_time[14,22]
-                                   0                           1 
-   879 give_sleep_time[14,23]
-                                   0                           1 
-   880 give_sleep_time[14,24]
-                                   0                           1 
-   881 give_sleep_time[14,25]
-                                   0                           1 
-   882 give_sleep_time[14,26]
-                                   0                           1 
-   883 give_sleep_time[14,27]
-                                   0                           1 
-   884 give_sleep_time[15,1]
-                                   0                           1 
-   885 give_sleep_time[15,2]
-                                   0                           1 
-   886 give_sleep_time[15,3]
-                                   0                           1 
-   887 give_sleep_time[15,4]
-                                   0                           1 
-   888 give_sleep_time[15,5]
-                                   0                           1 
-   889 give_sleep_time[15,6]
-                                   0                           1 
-   890 give_sleep_time[15,7]
-                                   0                           1 
-   891 give_sleep_time[15,8]
-                                   0                           1 
-   892 give_sleep_time[15,9]
-                                   0                           1 
-   893 give_sleep_time[15,10]
-                                   0                           1 
-   894 give_sleep_time[15,11]
-                                   0                           1 
-   895 give_sleep_time[15,12]
-                                   0                           1 
-   896 give_sleep_time[15,13]
-                                   0                           1 
-   897 give_sleep_time[15,14]
-                                   0                           1 
-   898 give_sleep_time[15,15]
-                                   0                           1 
-   899 give_sleep_time[15,16]
-                                   0                           1 
-   900 give_sleep_time[15,17]
-                                   0                           1 
-   901 give_sleep_time[15,18]
-                                   0                           1 
-   902 give_sleep_time[15,19]
-                                   0                           1 
-   903 give_sleep_time[15,20]
-                                   0                           1 
-   904 give_sleep_time[15,21]
-                                   0                           1 
-   905 give_sleep_time[15,22]
-                                   0                           1 
-   906 give_sleep_time[15,23]
-                                   0                           1 
-   907 give_sleep_time[15,24]
-                                   0                           1 
-   908 give_sleep_time[15,25]
-                                   0                           1 
-   909 give_sleep_time[15,26]
-                                   0                           1 
-   910 give_sleep_time[15,27]
-                                   0                           1 
+                                   1             1             = 
+    11 work_hours_limit[1]
+                                  16                          17 
+    12 work_hours_limit[2]
+                                   8                          10 
+    13 work_hours_limit[3]
+                                  24                          24 
+    14 work_hours_limit[4]
+                                  24                          24 
+    15 work_hours_limit[5]
+                                  16                          24 
+    16 daily_shift_limit[1,1]
+                                   0                           1 
+    17 daily_shift_limit[1,2]
+                                   1                           1 
+    18 daily_shift_limit[1,3]
+                                   1                           1 
+    19 daily_shift_limit[2,1]
+                                   1                           1 
+    20 daily_shift_limit[2,2]
+                                   0                           1 
+    21 daily_shift_limit[2,3]
+                                   0                           1 
+    22 daily_shift_limit[3,1]
+                                   1                           1 
+    23 daily_shift_limit[3,2]
+                                   1                           1 
+    24 daily_shift_limit[3,3]
+                                   1                           1 
+    25 daily_shift_limit[4,1]
+                                   1                           1 
+    26 daily_shift_limit[4,2]
+                                   1                           1 
+    27 daily_shift_limit[4,3]
+                                   1                           1 
+    28 daily_shift_limit[5,1]
+                                   1                           1 
+    29 daily_shift_limit[5,2]
+                                   0                           1 
+    30 daily_shift_limit[5,3]
+                                   1                           1 
+    31 give_sleep_time[1,1]
+                                   0                           1 
+    32 give_sleep_time[1,2]
+                                   1                           1 
+    33 give_sleep_time[2,1]
+                                   0                           1 
+    34 give_sleep_time[2,2]
+                                   0                           1 
+    35 give_sleep_time[3,1]
+                                   1                           1 
+    36 give_sleep_time[3,2]
+                                   1                           1 
+    37 give_sleep_time[4,1]
+                                   0                           1 
+    38 give_sleep_time[4,2]
+                                   1                           1 
+    39 give_sleep_time[5,1]
+                                   1                           1 
+    40 give_sleep_time[5,2]
+                                   0                           1 
+    41 vacations[1]                0            -0             = 
+    42 vacations[2]                0            -0             = 
+    43 vacations[3]                0            -0             = 
+    44 vacations[4]                0            -0             = 
+    45 vacations[5]                0            -0             = 
+    46 sched_vacation1[1,1,1]
+                                   0            -0               
+    47 sched_vacation1[1,1,2]
+                                   0            -0               
+    48 sched_vacation1[1,1,3]
+                                   0            -0               
+    49 sched_vacation1[1,2,1]
+                                   0            -0               
+    50 sched_vacation1[1,2,2]
+                                   0            -0               
+    51 sched_vacation1[1,2,3]
+                                   0            -0               
+    52 sched_vacation1[1,3,1]
+                                   0            -0               
+    53 sched_vacation1[1,3,2]
+                                   0            -0               
+    54 sched_vacation1[1,3,3]
+                                   0            -0               
+    55 sched_vacation1[2,1,1]
+                                   0            -0               
+    56 sched_vacation1[2,1,2]
+                                   0            -0               
+    57 sched_vacation1[2,1,3]
+                                   0            -0               
+    58 sched_vacation1[2,2,1]
+                                   0            -0               
+    59 sched_vacation1[2,2,2]
+                                   0            -0               
+    60 sched_vacation1[2,2,3]
+                                   0            -0               
+    61 sched_vacation1[2,3,1]
+                                   0            -0               
+    62 sched_vacation1[2,3,2]
+                                   0            -0               
+    63 sched_vacation1[2,3,3]
+                                   0            -0               
+    64 sched_vacation1[3,1,1]
+                                   0            -0               
+    65 sched_vacation1[3,1,2]
+                                   0            -0               
+    66 sched_vacation1[3,1,3]
+                                   0            -0               
+    67 sched_vacation1[3,2,1]
+                                   0            -0               
+    68 sched_vacation1[3,2,2]
+                                   0            -0               
+    69 sched_vacation1[3,2,3]
+                                   0            -0               
+    70 sched_vacation1[3,3,1]
+                                   0            -0               
+    71 sched_vacation1[3,3,2]
+                                   0            -0               
+    72 sched_vacation1[3,3,3]
+                                   0            -0               
+    73 sched_vacation1[4,1,1]
+                                   0            -0               
+    74 sched_vacation1[4,1,2]
+                                   0            -0               
+    75 sched_vacation1[4,1,3]
+                                   0            -0               
+    76 sched_vacation1[4,2,1]
+                                   0            -0               
+    77 sched_vacation1[4,2,2]
+                                   0            -0               
+    78 sched_vacation1[4,2,3]
+                                   0            -0               
+    79 sched_vacation1[4,3,1]
+                                   0            -0               
+    80 sched_vacation1[4,3,2]
+                                   0            -0               
+    81 sched_vacation1[4,3,3]
+                                   0            -0               
+    82 sched_vacation1[5,1,1]
+                                   0            -0               
+    83 sched_vacation1[5,1,2]
+                                   0            -0               
+    84 sched_vacation1[5,1,3]
+                                   0            -0               
+    85 sched_vacation1[5,2,1]
+                                   0            -0               
+    86 sched_vacation1[5,2,2]
+                                   0            -0               
+    87 sched_vacation1[5,2,3]
+                                   0            -0               
+    88 sched_vacation1[5,3,1]
+                                   0            -0               
+    89 sched_vacation1[5,3,2]
+                                   0            -0               
+    90 sched_vacation1[5,3,3]
+                                   0            -0               
+    91 sched_vacation2[1,1,1]
+                                   0            -0               
+    92 sched_vacation2[1,1,2]
+                                   0            -0               
+    93 sched_vacation2[1,1,3]
+                                   0            -0               
+    94 sched_vacation2[1,2,1]
+                                   0            -1               
+    95 sched_vacation2[1,2,2]
+                                  -1            -1               
+    96 sched_vacation2[1,2,3]
+                                   0            -1               
+    97 sched_vacation2[1,3,1]
+                                  -1            -1               
+    98 sched_vacation2[1,3,2]
+                                   0            -1               
+    99 sched_vacation2[1,3,3]
+                                   0            -1               
+   100 sched_vacation2[2,1,1]
+                                   0            -1               
+   101 sched_vacation2[2,1,2]
+                                  -1            -1               
+   102 sched_vacation2[2,1,3]
+                                   0            -1               
+   103 sched_vacation2[2,2,1]
+                                   0            -1               
+   104 sched_vacation2[2,2,2]
+                                   0            -1               
+   105 sched_vacation2[2,2,3]
+                                   0            -1               
+   106 sched_vacation2[2,3,1]
+                                   0            -0               
+   107 sched_vacation2[2,3,2]
+                                   0            -0               
+   108 sched_vacation2[2,3,3]
+                                   0            -0               
+   109 sched_vacation2[3,1,1]
+                                   0            -1               
+   110 sched_vacation2[3,1,2]
+                                  -1            -1               
+   111 sched_vacation2[3,1,3]
+                                   0            -1               
+   112 sched_vacation2[3,2,1]
+                                  -1            -1               
+   113 sched_vacation2[3,2,2]
+                                   0            -1               
+   114 sched_vacation2[3,2,3]
+                                   0            -1               
+   115 sched_vacation2[3,3,1]
+                                  -1            -1               
+   116 sched_vacation2[3,3,2]
+                                   0            -1               
+   117 sched_vacation2[3,3,3]
+                                   0            -1               
+   118 sched_vacation2[4,1,1]
+                                  -1            -1               
+   119 sched_vacation2[4,1,2]
+                                   0            -1               
+   120 sched_vacation2[4,1,3]
+                                   0            -1               
+   121 sched_vacation2[4,2,1]
+                                   0            -1               
+   122 sched_vacation2[4,2,2]
+                                   0            -1               
+   123 sched_vacation2[4,2,3]
+                                  -1            -1               
+   124 sched_vacation2[4,3,1]
+                                   0            -1               
+   125 sched_vacation2[4,3,2]
+                                   0            -1               
+   126 sched_vacation2[4,3,3]
+                                  -1            -1               
+   127 sched_vacation2[5,1,1]
+                                   0            -1               
+   128 sched_vacation2[5,1,2]
+                                   0            -1               
+   129 sched_vacation2[5,1,3]
+                                  -1            -1               
+   130 sched_vacation2[5,2,1]
+                                   0            -1               
+   131 sched_vacation2[5,2,2]
+                                   0            -1               
+   132 sched_vacation2[5,2,3]
+                                   0            -1               
+   133 sched_vacation2[5,3,1]
+                                   0            -1               
+   134 sched_vacation2[5,3,2]
+                                  -1            -1               
+   135 sched_vacation2[5,3,3]
+                                   0            -1               
+   136 interaction_1[1,1,1,1]
+                                   0                          -0 
+   137 interaction_1[1,1,1,2]
+                                   0                          -0 
+   138 interaction_1[1,1,1,3]
+                                   0                          -0 
+   139 interaction_1[1,1,2,1]
+                                   0                          -0 
+   140 interaction_1[1,1,2,2]
+                                   0                          -0 
+   141 interaction_1[1,1,2,3]
+                                   0                          -0 
+   142 interaction_1[1,1,3,1]
+                                   0                          -0 
+   143 interaction_1[1,1,3,2]
+                                   0                          -0 
+   144 interaction_1[1,1,3,3]
+                                   0                          -0 
+   145 interaction_1[1,2,1,1]
+                                   0                          -0 
+   146 interaction_1[1,2,1,2]
+                                   0                          -0 
+   147 interaction_1[1,2,1,3]
+                                   0                          -0 
+   148 interaction_1[1,2,2,1]
+                                   0                          -0 
+   149 interaction_1[1,2,2,2]
+                                  -1                          -0 
+   150 interaction_1[1,2,2,3]
+                                   0                          -0 
+   151 interaction_1[1,2,3,1]
+                                  -1                          -0 
+   152 interaction_1[1,2,3,2]
+                                   0                          -0 
+   153 interaction_1[1,2,3,3]
+                                   0                          -0 
+   154 interaction_1[1,3,1,1]
+                                   0                          -0 
+   155 interaction_1[1,3,1,2]
+                                   0                          -0 
+   156 interaction_1[1,3,1,3]
+                                   0                          -0 
+   157 interaction_1[1,3,2,1]
+                                   0                          -0 
+   158 interaction_1[1,3,2,2]
+                                  -1                          -0 
+   159 interaction_1[1,3,2,3]
+                                   0                          -0 
+   160 interaction_1[1,3,3,1]
+                                   0                          -0 
+   161 interaction_1[1,3,3,2]
+                                   0                          -0 
+   162 interaction_1[1,3,3,3]
+                                   0                          -0 
+   163 interaction_1[1,4,1,1]
+                                   0                          -0 
+   164 interaction_1[1,4,1,2]
+                                   0                          -0 
+   165 interaction_1[1,4,1,3]
+                                   0                          -0 
+   166 interaction_1[1,4,2,1]
+                                   0                          -0 
+   167 interaction_1[1,4,2,2]
+                                  -1                          -0 
+   168 interaction_1[1,4,2,3]
+                                   0                          -0 
+   169 interaction_1[1,4,3,1]
+                                  -1                          -0 
+   170 interaction_1[1,4,3,2]
+                                   0                          -0 
+   171 interaction_1[1,4,3,3]
+                                   0                          -0 
+   172 interaction_1[1,5,1,1]
+                                   0                          -0 
+   173 interaction_1[1,5,1,2]
+                                   0                          -0 
+   174 interaction_1[1,5,1,3]
+                                   0                          -0 
+   175 interaction_1[1,5,2,1]
+                                   0                          -0 
+   176 interaction_1[1,5,2,2]
+                                  -1                          -0 
+   177 interaction_1[1,5,2,3]
+                                   0                          -0 
+   178 interaction_1[1,5,3,1]
+                                  -1                          -0 
+   179 interaction_1[1,5,3,2]
+                                   0                          -0 
+   180 interaction_1[1,5,3,3]
+                                   0                          -0 
+   181 interaction_1[2,1,1,1]
+                                   0                          -0 
+   182 interaction_1[2,1,1,2]
+                                  -1                          -0 
+   183 interaction_1[2,1,1,3]
+                                   0                          -0 
+   184 interaction_1[2,1,2,1]
+                                   0                          -0 
+   185 interaction_1[2,1,2,2]
+                                   0                          -0 
+   186 interaction_1[2,1,2,3]
+                                   0                          -0 
+   187 interaction_1[2,1,3,1]
+                                   0                          -0 
+   188 interaction_1[2,1,3,2]
+                                   0                          -0 
+   189 interaction_1[2,1,3,3]
+                                   0                          -0 
+   190 interaction_1[2,2,1,1]
+                                   0                          -0 
+   191 interaction_1[2,2,1,2]
+                                   0                          -0 
+   192 interaction_1[2,2,1,3]
+                                   0                          -0 
+   193 interaction_1[2,2,2,1]
+                                   0                          -0 
+   194 interaction_1[2,2,2,2]
+                                   0                          -0 
+   195 interaction_1[2,2,2,3]
+                                   0                          -0 
+   196 interaction_1[2,2,3,1]
+                                   0                          -0 
+   197 interaction_1[2,2,3,2]
+                                   0                          -0 
+   198 interaction_1[2,2,3,3]
+                                   0                          -0 
+   199 interaction_1[2,3,1,1]
+                                   0                          -0 
+   200 interaction_1[2,3,1,2]
+                                   0                          -0 
+   201 interaction_1[2,3,1,3]
+                                   0                          -0 
+   202 interaction_1[2,3,2,1]
+                                   0                          -0 
+   203 interaction_1[2,3,2,2]
+                                   0                          -0 
+   204 interaction_1[2,3,2,3]
+                                   0                          -0 
+   205 interaction_1[2,3,3,1]
+                                   0                          -0 
+   206 interaction_1[2,3,3,2]
+                                   0                          -0 
+   207 interaction_1[2,3,3,3]
+                                   0                          -0 
+   208 interaction_1[2,4,1,1]
+                                   0                          -0 
+   209 interaction_1[2,4,1,2]
+                                  -1                          -0 
+   210 interaction_1[2,4,1,3]
+                                   0                          -0 
+   211 interaction_1[2,4,2,1]
+                                   0                          -0 
+   212 interaction_1[2,4,2,2]
+                                   0                          -0 
+   213 interaction_1[2,4,2,3]
+                                   0                          -0 
+   214 interaction_1[2,4,3,1]
+                                   0                          -0 
+   215 interaction_1[2,4,3,2]
+                                   0                          -0 
+   216 interaction_1[2,4,3,3]
+                                   0                          -0 
+   217 interaction_1[2,5,1,1]
+                                   0                          -0 
+   218 interaction_1[2,5,1,2]
+                                  -1                          -0 
+   219 interaction_1[2,5,1,3]
+                                   0                          -0 
+   220 interaction_1[2,5,2,1]
+                                   0                          -0 
+   221 interaction_1[2,5,2,2]
+                                   0                          -0 
+   222 interaction_1[2,5,2,3]
+                                   0                          -0 
+   223 interaction_1[2,5,3,1]
+                                   0                          -0 
+   224 interaction_1[2,5,3,2]
+                                   0                          -0 
+   225 interaction_1[2,5,3,3]
+                                   0                          -0 
+   226 interaction_1[3,1,1,1]
+                                   0                          -0 
+   227 interaction_1[3,1,1,2]
+                                  -1                          -0 
+   228 interaction_1[3,1,1,3]
+                                   0                          -0 
+   229 interaction_1[3,1,2,1]
+                                  -1                          -0 
+   230 interaction_1[3,1,2,2]
+                                   0                          -0 
+   231 interaction_1[3,1,2,3]
+                                   0                          -0 
+   232 interaction_1[3,1,3,1]
+                                   0                          -0 
+   233 interaction_1[3,1,3,2]
+                                   0                          -0 
+   234 interaction_1[3,1,3,3]
+                                   0                          -0 
+   235 interaction_1[3,2,1,1]
+                                   0                          -0 
+   236 interaction_1[3,2,1,2]
+                                   0                          -0 
+   237 interaction_1[3,2,1,3]
+                                   0                          -0 
+   238 interaction_1[3,2,2,1]
+                                  -1                          -0 
+   239 interaction_1[3,2,2,2]
+                                   0                          -0 
+   240 interaction_1[3,2,2,3]
+                                   0                          -0 
+   241 interaction_1[3,2,3,1]
+                                  -1                          -0 
+   242 interaction_1[3,2,3,2]
+                                   0                          -0 
+   243 interaction_1[3,2,3,3]
+                                   0                          -0 
+   244 interaction_1[3,3,1,1]
+                                   0                          -0 
+   245 interaction_1[3,3,1,2]
+                                   0                          -0 
+   246 interaction_1[3,3,1,3]
+                                   0                          -0 
+   247 interaction_1[3,3,2,1]
+                                   0                          -0 
+   248 interaction_1[3,3,2,2]
+                                   0                          -0 
+   249 interaction_1[3,3,2,3]
+                                   0                          -0 
+   250 interaction_1[3,3,3,1]
+                                   0                          -0 
+   251 interaction_1[3,3,3,2]
+                                   0                          -0 
+   252 interaction_1[3,3,3,3]
+                                   0                          -0 
+   253 interaction_1[3,4,1,1]
+                                   0                          -0 
+   254 interaction_1[3,4,1,2]
+                                  -1                          -0 
+   255 interaction_1[3,4,1,3]
+                                   0                          -0 
+   256 interaction_1[3,4,2,1]
+                                  -1                          -0 
+   257 interaction_1[3,4,2,2]
+                                   0                          -0 
+   258 interaction_1[3,4,2,3]
+                                   0                          -0 
+   259 interaction_1[3,4,3,1]
+                                  -1                          -0 
+   260 interaction_1[3,4,3,2]
+                                   0                          -0 
+   261 interaction_1[3,4,3,3]
+                                   0                          -0 
+   262 interaction_1[3,5,1,1]
+                                   0                          -0 
+   263 interaction_1[3,5,1,2]
+                                  -1                          -0 
+   264 interaction_1[3,5,1,3]
+                                   0                          -0 
+   265 interaction_1[3,5,2,1]
+                                  -1                          -0 
+   266 interaction_1[3,5,2,2]
+                                   0                          -0 
+   267 interaction_1[3,5,2,3]
+                                   0                          -0 
+   268 interaction_1[3,5,3,1]
+                                  -1                          -0 
+   269 interaction_1[3,5,3,2]
+                                   0                          -0 
+   270 interaction_1[3,5,3,3]
+                                   0                          -0 
+   271 interaction_1[4,1,1,1]
+                                  -1                          -0 
+   272 interaction_1[4,1,1,2]
+                                   0                          -0 
+   273 interaction_1[4,1,1,3]
+                                   0                          -0 
+   274 interaction_1[4,1,2,1]
+                                   0                          -0 
+   275 interaction_1[4,1,2,2]
+                                   0                          -0 
+   276 interaction_1[4,1,2,3]
+                                  -1                          -0 
+   277 interaction_1[4,1,3,1]
+                                   0                          -0 
+   278 interaction_1[4,1,3,2]
+                                   0                          -0 
+   279 interaction_1[4,1,3,3]
+                                  -1                          -0 
+   280 interaction_1[4,2,1,1]
+                                  -1                          -0 
+   281 interaction_1[4,2,1,2]
+                                   0                          -0 
+   282 interaction_1[4,2,1,3]
+                                   0                          -0 
+   283 interaction_1[4,2,2,1]
+                                   0                          -0 
+   284 interaction_1[4,2,2,2]
+                                   0                          -0 
+   285 interaction_1[4,2,2,3]
+                                  -1                          -0 
+   286 interaction_1[4,2,3,1]
+                                   0                          -0 
+   287 interaction_1[4,2,3,2]
+                                   0                          -0 
+   288 interaction_1[4,2,3,3]
+                                  -1                          -0 
+   289 interaction_1[4,3,1,1]
+                                  -1                          -0 
+   290 interaction_1[4,3,1,2]
+                                   0                          -0 
+   291 interaction_1[4,3,1,3]
+                                   0                          -0 
+   292 interaction_1[4,3,2,1]
+                                   0                          -0 
+   293 interaction_1[4,3,2,2]
+                                   0                          -0 
+   294 interaction_1[4,3,2,3]
+                                  -1                          -0 
+   295 interaction_1[4,3,3,1]
+                                   0                          -0 
+   296 interaction_1[4,3,3,2]
+                                   0                          -0 
+   297 interaction_1[4,3,3,3]
+                                  -1                          -0 
+   298 interaction_1[4,4,1,1]
+                                   0                          -0 
+   299 interaction_1[4,4,1,2]
+                                   0                          -0 
+   300 interaction_1[4,4,1,3]
+                                   0                          -0 
+   301 interaction_1[4,4,2,1]
+                                   0                          -0 
+   302 interaction_1[4,4,2,2]
+                                   0                          -0 
+   303 interaction_1[4,4,2,3]
+                                   0                          -0 
+   304 interaction_1[4,4,3,1]
+                                   0                          -0 
+   305 interaction_1[4,4,3,2]
+                                   0                          -0 
+   306 interaction_1[4,4,3,3]
+                                   0                          -0 
+   307 interaction_1[4,5,1,1]
+                                  -1                          -0 
+   308 interaction_1[4,5,1,2]
+                                   0                          -0 
+   309 interaction_1[4,5,1,3]
+                                   0                          -0 
+   310 interaction_1[4,5,2,1]
+                                   0                          -0 
+   311 interaction_1[4,5,2,2]
+                                   0                          -0 
+   312 interaction_1[4,5,2,3]
+                                  -1                          -0 
+   313 interaction_1[4,5,3,1]
+                                   0                          -0 
+   314 interaction_1[4,5,3,2]
+                                   0                          -0 
+   315 interaction_1[4,5,3,3]
+                                  -1                          -0 
+   316 interaction_1[5,1,1,1]
+                                   0                          -0 
+   317 interaction_1[5,1,1,2]
+                                   0                          -0 
+   318 interaction_1[5,1,1,3]
+                                  -1                          -0 
+   319 interaction_1[5,1,2,1]
+                                   0                          -0 
+   320 interaction_1[5,1,2,2]
+                                   0                          -0 
+   321 interaction_1[5,1,2,3]
+                                   0                          -0 
+   322 interaction_1[5,1,3,1]
+                                   0                          -0 
+   323 interaction_1[5,1,3,2]
+                                  -1                          -0 
+   324 interaction_1[5,1,3,3]
+                                   0                          -0 
+   325 interaction_1[5,2,1,1]
+                                   0                          -0 
+   326 interaction_1[5,2,1,2]
+                                   0                          -0 
+   327 interaction_1[5,2,1,3]
+                                  -1                          -0 
+   328 interaction_1[5,2,2,1]
+                                   0                          -0 
+   329 interaction_1[5,2,2,2]
+                                   0                          -0 
+   330 interaction_1[5,2,2,3]
+                                   0                          -0 
+   331 interaction_1[5,2,3,1]
+                                   0                          -0 
+   332 interaction_1[5,2,3,2]
+                                  -1                          -0 
+   333 interaction_1[5,2,3,3]
+                                   0                          -0 
+   334 interaction_1[5,3,1,1]
+                                   0                          -0 
+   335 interaction_1[5,3,1,2]
+                                   0                          -0 
+   336 interaction_1[5,3,1,3]
+                                  -1                          -0 
+   337 interaction_1[5,3,2,1]
+                                   0                          -0 
+   338 interaction_1[5,3,2,2]
+                                   0                          -0 
+   339 interaction_1[5,3,2,3]
+                                   0                          -0 
+   340 interaction_1[5,3,3,1]
+                                   0                          -0 
+   341 interaction_1[5,3,3,2]
+                                  -1                          -0 
+   342 interaction_1[5,3,3,3]
+                                   0                          -0 
+   343 interaction_1[5,4,1,1]
+                                   0                          -0 
+   344 interaction_1[5,4,1,2]
+                                   0                          -0 
+   345 interaction_1[5,4,1,3]
+                                  -1                          -0 
+   346 interaction_1[5,4,2,1]
+                                   0                          -0 
+   347 interaction_1[5,4,2,2]
+                                   0                          -0 
+   348 interaction_1[5,4,2,3]
+                                   0                          -0 
+   349 interaction_1[5,4,3,1]
+                                   0                          -0 
+   350 interaction_1[5,4,3,2]
+                                  -1                          -0 
+   351 interaction_1[5,4,3,3]
+                                   0                          -0 
+   352 interaction_1[5,5,1,1]
+                                   0                          -0 
+   353 interaction_1[5,5,1,2]
+                                   0                          -0 
+   354 interaction_1[5,5,1,3]
+                                   0                          -0 
+   355 interaction_1[5,5,2,1]
+                                   0                          -0 
+   356 interaction_1[5,5,2,2]
+                                   0                          -0 
+   357 interaction_1[5,5,2,3]
+                                   0                          -0 
+   358 interaction_1[5,5,3,1]
+                                   0                          -0 
+   359 interaction_1[5,5,3,2]
+                                   0                          -0 
+   360 interaction_1[5,5,3,3]
+                                   0                          -0 
+   361 interaction_2[1,1,1,1]
+                                   0                          -0 
+   362 interaction_2[1,1,1,2]
+                                   0                          -0 
+   363 interaction_2[1,1,1,3]
+                                   0                          -0 
+   364 interaction_2[1,1,2,1]
+                                   0                          -0 
+   365 interaction_2[1,1,2,2]
+                                   0                          -0 
+   366 interaction_2[1,1,2,3]
+                                   0                          -0 
+   367 interaction_2[1,1,3,1]
+                                   0                          -0 
+   368 interaction_2[1,1,3,2]
+                                   0                          -0 
+   369 interaction_2[1,1,3,3]
+                                   0                          -0 
+   370 interaction_2[1,2,1,1]
+                                   0                          -0 
+   371 interaction_2[1,2,1,2]
+                                  -1                          -0 
+   372 interaction_2[1,2,1,3]
+                                   0                          -0 
+   373 interaction_2[1,2,2,1]
+                                   0                          -0 
+   374 interaction_2[1,2,2,2]
+                                   0                          -0 
+   375 interaction_2[1,2,2,3]
+                                   0                          -0 
+   376 interaction_2[1,2,3,1]
+                                   0                          -0 
+   377 interaction_2[1,2,3,2]
+                                   0                          -0 
+   378 interaction_2[1,2,3,3]
+                                   0                          -0 
+   379 interaction_2[1,3,1,1]
+                                   0                          -0 
+   380 interaction_2[1,3,1,2]
+                                  -1                          -0 
+   381 interaction_2[1,3,1,3]
+                                   0                          -0 
+   382 interaction_2[1,3,2,1]
+                                  -1                          -0 
+   383 interaction_2[1,3,2,2]
+                                   0                          -0 
+   384 interaction_2[1,3,2,3]
+                                   0                          -0 
+   385 interaction_2[1,3,3,1]
+                                   0                          -0 
+   386 interaction_2[1,3,3,2]
+                                   0                          -0 
+   387 interaction_2[1,3,3,3]
+                                   0                          -0 
+   388 interaction_2[1,4,1,1]
+                                  -1                          -0 
+   389 interaction_2[1,4,1,2]
+                                   0                          -0 
+   390 interaction_2[1,4,1,3]
+                                   0                          -0 
+   391 interaction_2[1,4,2,1]
+                                   0                          -0 
+   392 interaction_2[1,4,2,2]
+                                   0                          -0 
+   393 interaction_2[1,4,2,3]
+                                  -1                          -0 
+   394 interaction_2[1,4,3,1]
+                                   0                          -0 
+   395 interaction_2[1,4,3,2]
+                                   0                          -0 
+   396 interaction_2[1,4,3,3]
+                                  -1                          -0 
+   397 interaction_2[1,5,1,1]
+                                   0                          -0 
+   398 interaction_2[1,5,1,2]
+                                   0                          -0 
+   399 interaction_2[1,5,1,3]
+                                  -1                          -0 
+   400 interaction_2[1,5,2,1]
+                                   0                          -0 
+   401 interaction_2[1,5,2,2]
+                                   0                          -0 
+   402 interaction_2[1,5,2,3]
+                                   0                          -0 
+   403 interaction_2[1,5,3,1]
+                                   0                          -0 
+   404 interaction_2[1,5,3,2]
+                                  -1                          -0 
+   405 interaction_2[1,5,3,3]
+                                   0                          -0 
+   406 interaction_2[2,1,1,1]
+                                   0                          -0 
+   407 interaction_2[2,1,1,2]
+                                   0                          -0 
+   408 interaction_2[2,1,1,3]
+                                   0                          -0 
+   409 interaction_2[2,1,2,1]
+                                   0                          -0 
+   410 interaction_2[2,1,2,2]
+                                  -1                          -0 
+   411 interaction_2[2,1,2,3]
+                                   0                          -0 
+   412 interaction_2[2,1,3,1]
+                                  -1                          -0 
+   413 interaction_2[2,1,3,2]
+                                   0                          -0 
+   414 interaction_2[2,1,3,3]
+                                   0                          -0 
+   415 interaction_2[2,2,1,1]
+                                   0                          -0 
+   416 interaction_2[2,2,1,2]
+                                   0                          -0 
+   417 interaction_2[2,2,1,3]
+                                   0                          -0 
+   418 interaction_2[2,2,2,1]
+                                   0                          -0 
+   419 interaction_2[2,2,2,2]
+                                   0                          -0 
+   420 interaction_2[2,2,2,3]
+                                   0                          -0 
+   421 interaction_2[2,2,3,1]
+                                   0                          -0 
+   422 interaction_2[2,2,3,2]
+                                   0                          -0 
+   423 interaction_2[2,2,3,3]
+                                   0                          -0 
+   424 interaction_2[2,3,1,1]
+                                   0                          -0 
+   425 interaction_2[2,3,1,2]
+                                   0                          -0 
+   426 interaction_2[2,3,1,3]
+                                   0                          -0 
+   427 interaction_2[2,3,2,1]
+                                  -1                          -0 
+   428 interaction_2[2,3,2,2]
+                                   0                          -0 
+   429 interaction_2[2,3,2,3]
+                                   0                          -0 
+   430 interaction_2[2,3,3,1]
+                                  -1                          -0 
+   431 interaction_2[2,3,3,2]
+                                   0                          -0 
+   432 interaction_2[2,3,3,3]
+                                   0                          -0 
+   433 interaction_2[2,4,1,1]
+                                  -1                          -0 
+   434 interaction_2[2,4,1,2]
+                                   0                          -0 
+   435 interaction_2[2,4,1,3]
+                                   0                          -0 
+   436 interaction_2[2,4,2,1]
+                                   0                          -0 
+   437 interaction_2[2,4,2,2]
+                                   0                          -0 
+   438 interaction_2[2,4,2,3]
+                                  -1                          -0 
+   439 interaction_2[2,4,3,1]
+                                   0                          -0 
+   440 interaction_2[2,4,3,2]
+                                   0                          -0 
+   441 interaction_2[2,4,3,3]
+                                  -1                          -0 
+   442 interaction_2[2,5,1,1]
+                                   0                          -0 
+   443 interaction_2[2,5,1,2]
+                                   0                          -0 
+   444 interaction_2[2,5,1,3]
+                                  -1                          -0 
+   445 interaction_2[2,5,2,1]
+                                   0                          -0 
+   446 interaction_2[2,5,2,2]
+                                   0                          -0 
+   447 interaction_2[2,5,2,3]
+                                   0                          -0 
+   448 interaction_2[2,5,3,1]
+                                   0                          -0 
+   449 interaction_2[2,5,3,2]
+                                  -1                          -0 
+   450 interaction_2[2,5,3,3]
+                                   0                          -0 
+   451 interaction_2[3,1,1,1]
+                                   0                          -0 
+   452 interaction_2[3,1,1,2]
+                                   0                          -0 
+   453 interaction_2[3,1,1,3]
+                                   0                          -0 
+   454 interaction_2[3,1,2,1]
+                                   0                          -0 
+   455 interaction_2[3,1,2,2]
+                                  -1                          -0 
+   456 interaction_2[3,1,2,3]
+                                   0                          -0 
+   457 interaction_2[3,1,3,1]
+                                   0                          -0 
+   458 interaction_2[3,1,3,2]
+                                   0                          -0 
+   459 interaction_2[3,1,3,3]
+                                   0                          -0 
+   460 interaction_2[3,2,1,1]
+                                   0                          -0 
+   461 interaction_2[3,2,1,2]
+                                   0                          -0 
+   462 interaction_2[3,2,1,3]
+                                   0                          -0 
+   463 interaction_2[3,2,2,1]
+                                   0                          -0 
+   464 interaction_2[3,2,2,2]
+                                   0                          -0 
+   465 interaction_2[3,2,2,3]
+                                   0                          -0 
+   466 interaction_2[3,2,3,1]
+                                   0                          -0 
+   467 interaction_2[3,2,3,2]
+                                   0                          -0 
+   468 interaction_2[3,2,3,3]
+                                   0                          -0 
+   469 interaction_2[3,3,1,1]
+                                   0                          -0 
+   470 interaction_2[3,3,1,2]
+                                   0                          -0 
+   471 interaction_2[3,3,1,3]
+                                   0                          -0 
+   472 interaction_2[3,3,2,1]
+                                   0                          -0 
+   473 interaction_2[3,3,2,2]
+                                   0                          -0 
+   474 interaction_2[3,3,2,3]
+                                   0                          -0 
+   475 interaction_2[3,3,3,1]
+                                   0                          -0 
+   476 interaction_2[3,3,3,2]
+                                   0                          -0 
+   477 interaction_2[3,3,3,3]
+                                   0                          -0 
+   478 interaction_2[3,4,1,1]
+                                  -1                          -0 
+   479 interaction_2[3,4,1,2]
+                                   0                          -0 
+   480 interaction_2[3,4,1,3]
+                                   0                          -0 
+   481 interaction_2[3,4,2,1]
+                                   0                          -0 
+   482 interaction_2[3,4,2,2]
+                                   0                          -0 
+   483 interaction_2[3,4,2,3]
+                                  -1                          -0 
+   484 interaction_2[3,4,3,1]
+                                   0                          -0 
+   485 interaction_2[3,4,3,2]
+                                   0                          -0 
+   486 interaction_2[3,4,3,3]
+                                  -1                          -0 
+   487 interaction_2[3,5,1,1]
+                                   0                          -0 
+   488 interaction_2[3,5,1,2]
+                                   0                          -0 
+   489 interaction_2[3,5,1,3]
+                                  -1                          -0 
+   490 interaction_2[3,5,2,1]
+                                   0                          -0 
+   491 interaction_2[3,5,2,2]
+                                   0                          -0 
+   492 interaction_2[3,5,2,3]
+                                   0                          -0 
+   493 interaction_2[3,5,3,1]
+                                   0                          -0 
+   494 interaction_2[3,5,3,2]
+                                  -1                          -0 
+   495 interaction_2[3,5,3,3]
+                                   0                          -0 
+   496 interaction_2[4,1,1,1]
+                                   0                          -0 
+   497 interaction_2[4,1,1,2]
+                                   0                          -0 
+   498 interaction_2[4,1,1,3]
+                                   0                          -0 
+   499 interaction_2[4,1,2,1]
+                                   0                          -0 
+   500 interaction_2[4,1,2,2]
+                                  -1                          -0 
+   501 interaction_2[4,1,2,3]
+                                   0                          -0 
+   502 interaction_2[4,1,3,1]
+                                  -1                          -0 
+   503 interaction_2[4,1,3,2]
+                                   0                          -0 
+   504 interaction_2[4,1,3,3]
+                                   0                          -0 
+   505 interaction_2[4,2,1,1]
+                                   0                          -0 
+   506 interaction_2[4,2,1,2]
+                                  -1                          -0 
+   507 interaction_2[4,2,1,3]
+                                   0                          -0 
+   508 interaction_2[4,2,2,1]
+                                   0                          -0 
+   509 interaction_2[4,2,2,2]
+                                   0                          -0 
+   510 interaction_2[4,2,2,3]
+                                   0                          -0 
+   511 interaction_2[4,2,3,1]
+                                   0                          -0 
+   512 interaction_2[4,2,3,2]
+                                   0                          -0 
+   513 interaction_2[4,2,3,3]
+                                   0                          -0 
+   514 interaction_2[4,3,1,1]
+                                   0                          -0 
+   515 interaction_2[4,3,1,2]
+                                  -1                          -0 
+   516 interaction_2[4,3,1,3]
+                                   0                          -0 
+   517 interaction_2[4,3,2,1]
+                                  -1                          -0 
+   518 interaction_2[4,3,2,2]
+                                   0                          -0 
+   519 interaction_2[4,3,2,3]
+                                   0                          -0 
+   520 interaction_2[4,3,3,1]
+                                  -1                          -0 
+   521 interaction_2[4,3,3,2]
+                                   0                          -0 
+   522 interaction_2[4,3,3,3]
+                                   0                          -0 
+   523 interaction_2[4,4,1,1]
+                                   0                          -0 
+   524 interaction_2[4,4,1,2]
+                                   0                          -0 
+   525 interaction_2[4,4,1,3]
+                                   0                          -0 
+   526 interaction_2[4,4,2,1]
+                                   0                          -0 
+   527 interaction_2[4,4,2,2]
+                                   0                          -0 
+   528 interaction_2[4,4,2,3]
+                                   0                          -0 
+   529 interaction_2[4,4,3,1]
+                                   0                          -0 
+   530 interaction_2[4,4,3,2]
+                                   0                          -0 
+   531 interaction_2[4,4,3,3]
+                                   0                          -0 
+   532 interaction_2[4,5,1,1]
+                                   0                          -0 
+   533 interaction_2[4,5,1,2]
+                                   0                          -0 
+   534 interaction_2[4,5,1,3]
+                                  -1                          -0 
+   535 interaction_2[4,5,2,1]
+                                   0                          -0 
+   536 interaction_2[4,5,2,2]
+                                   0                          -0 
+   537 interaction_2[4,5,2,3]
+                                   0                          -0 
+   538 interaction_2[4,5,3,1]
+                                   0                          -0 
+   539 interaction_2[4,5,3,2]
+                                  -1                          -0 
+   540 interaction_2[4,5,3,3]
+                                   0                          -0 
+   541 interaction_2[5,1,1,1]
+                                   0                          -0 
+   542 interaction_2[5,1,1,2]
+                                   0                          -0 
+   543 interaction_2[5,1,1,3]
+                                   0                          -0 
+   544 interaction_2[5,1,2,1]
+                                   0                          -0 
+   545 interaction_2[5,1,2,2]
+                                  -1                          -0 
+   546 interaction_2[5,1,2,3]
+                                   0                          -0 
+   547 interaction_2[5,1,3,1]
+                                  -1                          -0 
+   548 interaction_2[5,1,3,2]
+                                   0                          -0 
+   549 interaction_2[5,1,3,3]
+                                   0                          -0 
+   550 interaction_2[5,2,1,1]
+                                   0                          -0 
+   551 interaction_2[5,2,1,2]
+                                  -1                          -0 
+   552 interaction_2[5,2,1,3]
+                                   0                          -0 
+   553 interaction_2[5,2,2,1]
+                                   0                          -0 
+   554 interaction_2[5,2,2,2]
+                                   0                          -0 
+   555 interaction_2[5,2,2,3]
+                                   0                          -0 
+   556 interaction_2[5,2,3,1]
+                                   0                          -0 
+   557 interaction_2[5,2,3,2]
+                                   0                          -0 
+   558 interaction_2[5,2,3,3]
+                                   0                          -0 
+   559 interaction_2[5,3,1,1]
+                                   0                          -0 
+   560 interaction_2[5,3,1,2]
+                                  -1                          -0 
+   561 interaction_2[5,3,1,3]
+                                   0                          -0 
+   562 interaction_2[5,3,2,1]
+                                  -1                          -0 
+   563 interaction_2[5,3,2,2]
+                                   0                          -0 
+   564 interaction_2[5,3,2,3]
+                                   0                          -0 
+   565 interaction_2[5,3,3,1]
+                                  -1                          -0 
+   566 interaction_2[5,3,3,2]
+                                   0                          -0 
+   567 interaction_2[5,3,3,3]
+                                   0                          -0 
+   568 interaction_2[5,4,1,1]
+                                  -1                          -0 
+   569 interaction_2[5,4,1,2]
+                                   0                          -0 
+   570 interaction_2[5,4,1,3]
+                                   0                          -0 
+   571 interaction_2[5,4,2,1]
+                                   0                          -0 
+   572 interaction_2[5,4,2,2]
+                                   0                          -0 
+   573 interaction_2[5,4,2,3]
+                                  -1                          -0 
+   574 interaction_2[5,4,3,1]
+                                   0                          -0 
+   575 interaction_2[5,4,3,2]
+                                   0                          -0 
+   576 interaction_2[5,4,3,3]
+                                  -1                          -0 
+   577 interaction_2[5,5,1,1]
+                                   0                          -0 
+   578 interaction_2[5,5,1,2]
+                                   0                          -0 
+   579 interaction_2[5,5,1,3]
+                                   0                          -0 
+   580 interaction_2[5,5,2,1]
+                                   0                          -0 
+   581 interaction_2[5,5,2,2]
+                                   0                          -0 
+   582 interaction_2[5,5,2,3]
+                                   0                          -0 
+   583 interaction_2[5,5,3,1]
+                                   0                          -0 
+   584 interaction_2[5,5,3,2]
+                                   0                          -0 
+   585 interaction_2[5,5,3,3]
+                                   0                          -0 
+   586 interaction_3[1,1,1,1]
+                                   0            -1               
+   587 interaction_3[1,1,1,2]
+                                   0            -1               
+   588 interaction_3[1,1,1,3]
+                                   0            -1               
+   589 interaction_3[1,1,2,1]
+                                   0            -1               
+   590 interaction_3[1,1,2,2]
+                                  -1            -1               
+   591 interaction_3[1,1,2,3]
+                                   0            -1               
+   592 interaction_3[1,1,3,1]
+                                  -1            -1               
+   593 interaction_3[1,1,3,2]
+                                   0            -1               
+   594 interaction_3[1,1,3,3]
+                                   0            -1               
+   595 interaction_3[1,2,1,1]
+                                   0            -1               
+   596 interaction_3[1,2,1,2]
+                                  -1            -1               
+   597 interaction_3[1,2,1,3]
+                                   0            -1               
+   598 interaction_3[1,2,2,1]
+                                   0            -1               
+   599 interaction_3[1,2,2,2]
+                                  -1            -1               
+   600 interaction_3[1,2,2,3]
+                                   0            -1               
+   601 interaction_3[1,2,3,1]
+                                  -1            -1               
+   602 interaction_3[1,2,3,2]
+                                   0            -1               
+   603 interaction_3[1,2,3,3]
+                                   0            -1               
+   604 interaction_3[1,3,1,1]
+                                   0            -1               
+   605 interaction_3[1,3,1,2]
+                                  -1            -1               
+   606 interaction_3[1,3,1,3]
+                                   0            -1               
+   607 interaction_3[1,3,2,1]
+                                  -1            -1               
+   608 interaction_3[1,3,2,2]
+                                  -1            -1               
+   609 interaction_3[1,3,2,3]
+                                   0            -1               
+   610 interaction_3[1,3,3,1]
+                                  -1            -1               
+   611 interaction_3[1,3,3,2]
+                                   0            -1               
+   612 interaction_3[1,3,3,3]
+                                   0            -1               
+   613 interaction_3[1,4,1,1]
+                                  -1            -1               
+   614 interaction_3[1,4,1,2]
+                                   0            -1               
+   615 interaction_3[1,4,1,3]
+                                   0            -1               
+   616 interaction_3[1,4,2,1]
+                                   0            -1               
+   617 interaction_3[1,4,2,2]
+                                  -1            -1               
+   618 interaction_3[1,4,2,3]
+                                  -1            -1               
+   619 interaction_3[1,4,3,1]
+                                  -1            -1               
+   620 interaction_3[1,4,3,2]
+                                   0            -1               
+   621 interaction_3[1,4,3,3]
+                                  -1            -1               
+   622 interaction_3[1,5,1,1]
+                                   0            -1               
+   623 interaction_3[1,5,1,2]
+                                   0            -1               
+   624 interaction_3[1,5,1,3]
+                                  -1            -1               
+   625 interaction_3[1,5,2,1]
+                                   0            -1               
+   626 interaction_3[1,5,2,2]
+                                  -1            -1               
+   627 interaction_3[1,5,2,3]
+                                   0            -1               
+   628 interaction_3[1,5,3,1]
+                                  -1            -1               
+   629 interaction_3[1,5,3,2]
+                                  -1            -1               
+   630 interaction_3[1,5,3,3]
+                                   0            -1               
+   631 interaction_3[2,1,1,1]
+                                   0            -1               
+   632 interaction_3[2,1,1,2]
+                                  -1            -1               
+   633 interaction_3[2,1,1,3]
+                                   0            -1               
+   634 interaction_3[2,1,2,1]
+                                   0            -1               
+   635 interaction_3[2,1,2,2]
+                                  -1            -1               
+   636 interaction_3[2,1,2,3]
+                                   0            -1               
+   637 interaction_3[2,1,3,1]
+                                  -1            -1               
+   638 interaction_3[2,1,3,2]
+                                   0            -1               
+   639 interaction_3[2,1,3,3]
+                                   0            -1               
+   640 interaction_3[2,2,1,1]
+                                   0            -1               
+   641 interaction_3[2,2,1,2]
+                                  -1            -1               
+   642 interaction_3[2,2,1,3]
+                                   0            -1               
+   643 interaction_3[2,2,2,1]
+                                   0            -1               
+   644 interaction_3[2,2,2,2]
+                                   0            -1               
+   645 interaction_3[2,2,2,3]
+                                   0            -1               
+   646 interaction_3[2,2,3,1]
+                                   0            -1               
+   647 interaction_3[2,2,3,2]
+                                   0            -1               
+   648 interaction_3[2,2,3,3]
+                                   0            -1               
+   649 interaction_3[2,3,1,1]
+                                   0            -1               
+   650 interaction_3[2,3,1,2]
+                                  -1            -1               
+   651 interaction_3[2,3,1,3]
+                                   0            -1               
+   652 interaction_3[2,3,2,1]
+                                  -1            -1               
+   653 interaction_3[2,3,2,2]
+                                   0            -1               
+   654 interaction_3[2,3,2,3]
+                                   0            -1               
+   655 interaction_3[2,3,3,1]
+                                  -1            -1               
+   656 interaction_3[2,3,3,2]
+                                   0            -1               
+   657 interaction_3[2,3,3,3]
+                                   0            -1               
+   658 interaction_3[2,4,1,1]
+                                  -1            -1               
+   659 interaction_3[2,4,1,2]
+                                  -1            -1               
+   660 interaction_3[2,4,1,3]
+                                   0            -1               
+   661 interaction_3[2,4,2,1]
+                                   0            -1               
+   662 interaction_3[2,4,2,2]
+                                   0            -1               
+   663 interaction_3[2,4,2,3]
+                                  -1            -1               
+   664 interaction_3[2,4,3,1]
+                                   0            -1               
+   665 interaction_3[2,4,3,2]
+                                   0            -1               
+   666 interaction_3[2,4,3,3]
+                                  -1            -1               
+   667 interaction_3[2,5,1,1]
+                                   0            -1               
+   668 interaction_3[2,5,1,2]
+                                  -1            -1               
+   669 interaction_3[2,5,1,3]
+                                  -1            -1               
+   670 interaction_3[2,5,2,1]
+                                   0            -1               
+   671 interaction_3[2,5,2,2]
+                                   0            -1               
+   672 interaction_3[2,5,2,3]
+                                   0            -1               
+   673 interaction_3[2,5,3,1]
+                                   0            -1               
+   674 interaction_3[2,5,3,2]
+                                  -1            -1               
+   675 interaction_3[2,5,3,3]
+                                   0            -1               
+   676 interaction_3[3,1,1,1]
+                                   0            -1               
+   677 interaction_3[3,1,1,2]
+                                  -1            -1               
+   678 interaction_3[3,1,1,3]
+                                   0            -1               
+   679 interaction_3[3,1,2,1]
+                                  -1            -1               
+   680 interaction_3[3,1,2,2]
+                                  -1            -1               
+   681 interaction_3[3,1,2,3]
+                                   0            -1               
+   682 interaction_3[3,1,3,1]
+                                  -1            -1               
+   683 interaction_3[3,1,3,2]
+                                   0            -1               
+   684 interaction_3[3,1,3,3]
+                                   0            -1               
+   685 interaction_3[3,2,1,1]
+                                   0            -1               
+   686 interaction_3[3,2,1,2]
+                                  -1            -1               
+   687 interaction_3[3,2,1,3]
+                                   0            -1               
+   688 interaction_3[3,2,2,1]
+                                  -1            -1               
+   689 interaction_3[3,2,2,2]
+                                   0            -1               
+   690 interaction_3[3,2,2,3]
+                                   0            -1               
+   691 interaction_3[3,2,3,1]
+                                  -1            -1               
+   692 interaction_3[3,2,3,2]
+                                   0            -1               
+   693 interaction_3[3,2,3,3]
+                                   0            -1               
+   694 interaction_3[3,3,1,1]
+                                   0            -1               
+   695 interaction_3[3,3,1,2]
+                                  -1            -1               
+   696 interaction_3[3,3,1,3]
+                                   0            -1               
+   697 interaction_3[3,3,2,1]
+                                  -1            -1               
+   698 interaction_3[3,3,2,2]
+                                   0            -1               
+   699 interaction_3[3,3,2,3]
+                                   0            -1               
+   700 interaction_3[3,3,3,1]
+                                  -1            -1               
+   701 interaction_3[3,3,3,2]
+                                   0            -1               
+   702 interaction_3[3,3,3,3]
+                                   0            -1               
+   703 interaction_3[3,4,1,1]
+                                  -1            -1               
+   704 interaction_3[3,4,1,2]
+                                  -1            -1               
+   705 interaction_3[3,4,1,3]
+                                   0            -1               
+   706 interaction_3[3,4,2,1]
+                                  -1            -1               
+   707 interaction_3[3,4,2,2]
+                                   0            -1               
+   708 interaction_3[3,4,2,3]
+                                  -1            -1               
+   709 interaction_3[3,4,3,1]
+                                  -1            -1               
+   710 interaction_3[3,4,3,2]
+                                   0            -1               
+   711 interaction_3[3,4,3,3]
+                                  -1            -1               
+   712 interaction_3[3,5,1,1]
+                                   0            -1               
+   713 interaction_3[3,5,1,2]
+                                  -1            -1               
+   714 interaction_3[3,5,1,3]
+                                  -1            -1               
+   715 interaction_3[3,5,2,1]
+                                  -1            -1               
+   716 interaction_3[3,5,2,2]
+                                   0            -1               
+   717 interaction_3[3,5,2,3]
+                                   0            -1               
+   718 interaction_3[3,5,3,1]
+                                  -1            -1               
+   719 interaction_3[3,5,3,2]
+                                  -1            -1               
+   720 interaction_3[3,5,3,3]
+                                   0            -1               
+   721 interaction_3[4,1,1,1]
+                                  -1            -1               
+   722 interaction_3[4,1,1,2]
+                                   0            -1               
+   723 interaction_3[4,1,1,3]
+                                   0            -1               
+   724 interaction_3[4,1,2,1]
+                                   0            -1               
+   725 interaction_3[4,1,2,2]
+                                  -1            -1               
+   726 interaction_3[4,1,2,3]
+                                  -1            -1               
+   727 interaction_3[4,1,3,1]
+                                  -1            -1               
+   728 interaction_3[4,1,3,2]
+                                   0            -1               
+   729 interaction_3[4,1,3,3]
+                                  -1            -1               
+   730 interaction_3[4,2,1,1]
+                                  -1            -1               
+   731 interaction_3[4,2,1,2]
+                                  -1            -1               
+   732 interaction_3[4,2,1,3]
+                                   0            -1               
+   733 interaction_3[4,2,2,1]
+                                   0            -1               
+   734 interaction_3[4,2,2,2]
+                                   0            -1               
+   735 interaction_3[4,2,2,3]
+                                  -1            -1               
+   736 interaction_3[4,2,3,1]
+                                   0            -1               
+   737 interaction_3[4,2,3,2]
+                                   0            -1               
+   738 interaction_3[4,2,3,3]
+                                  -1            -1               
+   739 interaction_3[4,3,1,1]
+                                  -1            -1               
+   740 interaction_3[4,3,1,2]
+                                  -1            -1               
+   741 interaction_3[4,3,1,3]
+                                   0            -1               
+   742 interaction_3[4,3,2,1]
+                                  -1            -1               
+   743 interaction_3[4,3,2,2]
+                                   0            -1               
+   744 interaction_3[4,3,2,3]
+                                  -1            -1               
+   745 interaction_3[4,3,3,1]
+                                  -1            -1               
+   746 interaction_3[4,3,3,2]
+                                   0            -1               
+   747 interaction_3[4,3,3,3]
+                                  -1            -1               
+   748 interaction_3[4,4,1,1]
+                                  -1            -1               
+   749 interaction_3[4,4,1,2]
+                                   0            -1               
+   750 interaction_3[4,4,1,3]
+                                   0            -1               
+   751 interaction_3[4,4,2,1]
+                                   0            -1               
+   752 interaction_3[4,4,2,2]
+                                   0            -1               
+   753 interaction_3[4,4,2,3]
+                                  -1            -1               
+   754 interaction_3[4,4,3,1]
+                                   0            -1               
+   755 interaction_3[4,4,3,2]
+                                   0            -1               
+   756 interaction_3[4,4,3,3]
+                                  -1            -1               
+   757 interaction_3[4,5,1,1]
+                                  -1            -1               
+   758 interaction_3[4,5,1,2]
+                                   0            -1               
+   759 interaction_3[4,5,1,3]
+                                  -1            -1               
+   760 interaction_3[4,5,2,1]
+                                   0            -1               
+   761 interaction_3[4,5,2,2]
+                                   0            -1               
+   762 interaction_3[4,5,2,3]
+                                  -1            -1               
+   763 interaction_3[4,5,3,1]
+                                   0            -1               
+   764 interaction_3[4,5,3,2]
+                                  -1            -1               
+   765 interaction_3[4,5,3,3]
+                                  -1            -1               
+   766 interaction_3[5,1,1,1]
+                                   0            -1               
+   767 interaction_3[5,1,1,2]
+                                   0            -1               
+   768 interaction_3[5,1,1,3]
+                                  -1            -1               
+   769 interaction_3[5,1,2,1]
+                                   0            -1               
+   770 interaction_3[5,1,2,2]
+                                  -1            -1               
+   771 interaction_3[5,1,2,3]
+                                   0            -1               
+   772 interaction_3[5,1,3,1]
+                                  -1            -1               
+   773 interaction_3[5,1,3,2]
+                                  -1            -1               
+   774 interaction_3[5,1,3,3]
+                                   0            -1               
+   775 interaction_3[5,2,1,1]
+                                   0            -1               
+   776 interaction_3[5,2,1,2]
+                                  -1            -1               
+   777 interaction_3[5,2,1,3]
+                                  -1            -1               
+   778 interaction_3[5,2,2,1]
+                                   0            -1               
+   779 interaction_3[5,2,2,2]
+                                   0            -1               
+   780 interaction_3[5,2,2,3]
+                                   0            -1               
+   781 interaction_3[5,2,3,1]
+                                   0            -1               
+   782 interaction_3[5,2,3,2]
+                                  -1            -1               
+   783 interaction_3[5,2,3,3]
+                                   0            -1               
+   784 interaction_3[5,3,1,1]
+                                   0            -1               
+   785 interaction_3[5,3,1,2]
+                                  -1            -1               
+   786 interaction_3[5,3,1,3]
+                                  -1            -1               
+   787 interaction_3[5,3,2,1]
+                                  -1            -1               
+   788 interaction_3[5,3,2,2]
+                                   0            -1               
+   789 interaction_3[5,3,2,3]
+                                   0            -1               
+   790 interaction_3[5,3,3,1]
+                                  -1            -1               
+   791 interaction_3[5,3,3,2]
+                                  -1            -1               
+   792 interaction_3[5,3,3,3]
+                                   0            -1               
+   793 interaction_3[5,4,1,1]
+                                  -1            -1               
+   794 interaction_3[5,4,1,2]
+                                   0            -1               
+   795 interaction_3[5,4,1,3]
+                                  -1            -1               
+   796 interaction_3[5,4,2,1]
+                                   0            -1               
+   797 interaction_3[5,4,2,2]
+                                   0            -1               
+   798 interaction_3[5,4,2,3]
+                                  -1            -1               
+   799 interaction_3[5,4,3,1]
+                                   0            -1               
+   800 interaction_3[5,4,3,2]
+                                  -1            -1               
+   801 interaction_3[5,4,3,3]
+                                  -1            -1               
+   802 interaction_3[5,5,1,1]
+                                   0            -1               
+   803 interaction_3[5,5,1,2]
+                                   0            -1               
+   804 interaction_3[5,5,1,3]
+                                  -1            -1               
+   805 interaction_3[5,5,2,1]
+                                   0            -1               
+   806 interaction_3[5,5,2,2]
+                                   0            -1               
+   807 interaction_3[5,5,2,3]
+                                   0            -1               
+   808 interaction_3[5,5,3,1]
+                                   0            -1               
+   809 interaction_3[5,5,3,2]
+                                  -1            -1               
+   810 interaction_3[5,5,3,3]
+                                   0            -1               
+   811 sched_preferred1[1,1,1]
+                                   0                          -0 
+   812 sched_preferred1[1,1,2]
+                                   0                          -0 
+   813 sched_preferred1[1,1,3]
+                                   0                          -0 
+   814 sched_preferred1[1,2,1]
+                                   0                          -0 
+   815 sched_preferred1[1,2,2]
+                                  -1                          -0 
+   816 sched_preferred1[1,2,3]
+                                   0                          -0 
+   817 sched_preferred1[1,3,1]
+                                   0                          -0 
+   818 sched_preferred1[1,3,2]
+                                   0                          -0 
+   819 sched_preferred1[1,3,3]
+                                   0                          -0 
+   820 sched_preferred1[2,1,1]
+                                   0                          -0 
+   821 sched_preferred1[2,1,2]
+                                   0                          -0 
+   822 sched_preferred1[2,1,3]
+                                   0                          -0 
+   823 sched_preferred1[2,2,1]
+                                   0                          -0 
+   824 sched_preferred1[2,2,2]
+                                   0                          -0 
+   825 sched_preferred1[2,2,3]
+                                   0                          -0 
+   826 sched_preferred1[2,3,1]
+                                   0                          -0 
+   827 sched_preferred1[2,3,2]
+                                   0                          -0 
+   828 sched_preferred1[2,3,3]
+                                   0                          -0 
+   829 sched_preferred1[3,1,1]
+                                   0                          -0 
+   830 sched_preferred1[3,1,2]
+                                  -1                          -0 
+   831 sched_preferred1[3,1,3]
+                                   0                          -0 
+   832 sched_preferred1[3,2,1]
+                                   0                          -0 
+   833 sched_preferred1[3,2,2]
+                                   0                          -0 
+   834 sched_preferred1[3,2,3]
+                                   0                          -0 
+   835 sched_preferred1[3,3,1]
+                                  -1                          -0 
+   836 sched_preferred1[3,3,2]
+                                   0                          -0 
+   837 sched_preferred1[3,3,3]
+                                   0                          -0 
+   838 sched_preferred1[4,1,1]
+                                  -1                          -0 
+   839 sched_preferred1[4,1,2]
+                                   0                          -0 
+   840 sched_preferred1[4,1,3]
+                                   0                          -0 
+   841 sched_preferred1[4,2,1]
+                                   0                          -0 
+   842 sched_preferred1[4,2,2]
+                                   0                          -0 
+   843 sched_preferred1[4,2,3]
+                                   0                          -0 
+   844 sched_preferred1[4,3,1]
+                                   0                          -0 
+   845 sched_preferred1[4,3,2]
+                                   0                          -0 
+   846 sched_preferred1[4,3,3]
+                                  -1                          -0 
+   847 sched_preferred1[5,1,1]
+                                   0                          -0 
+   848 sched_preferred1[5,1,2]
+                                   0                          -0 
+   849 sched_preferred1[5,1,3]
+                                  -1                          -0 
+   850 sched_preferred1[5,2,1]
+                                   0                          -0 
+   851 sched_preferred1[5,2,2]
+                                   0                          -0 
+   852 sched_preferred1[5,2,3]
+                                   0                          -0 
+   853 sched_preferred1[5,3,1]
+                                   0                          -0 
+   854 sched_preferred1[5,3,2]
+                                   0                          -0 
+   855 sched_preferred1[5,3,3]
+                                   0                          -0 
+   856 sched_preferred2[1,1,1]
+                                   0                          -0 
+   857 sched_preferred2[1,1,2]
+                                   0                          -0 
+   858 sched_preferred2[1,1,3]
+                                   0                          -0 
+   859 sched_preferred2[1,2,1]
+                                   0                          -0 
+   860 sched_preferred2[1,2,2]
+                                   0                          -0 
+   861 sched_preferred2[1,2,3]
+                                   0                          -0 
+   862 sched_preferred2[1,3,1]
+                                   1                           1 
+   863 sched_preferred2[1,3,2]
+                                   0                          -0 
+   864 sched_preferred2[1,3,3]
+                                   0                          -0 
+   865 sched_preferred2[2,1,1]
+                                   0                          -0 
+   866 sched_preferred2[2,1,2]
+                                   1                           1 
+   867 sched_preferred2[2,1,3]
+                                   0                          -0 
+   868 sched_preferred2[2,2,1]
+                                   0                          -0 
+   869 sched_preferred2[2,2,2]
+                                   0                          -0 
+   870 sched_preferred2[2,2,3]
+                                   0                          -0 
+   871 sched_preferred2[2,3,1]
+                                   0                          -0 
+   872 sched_preferred2[2,3,2]
+                                   0                          -0 
+   873 sched_preferred2[2,3,3]
+                                   0                          -0 
+   874 sched_preferred2[3,1,1]
+                                   0                          -0 
+   875 sched_preferred2[3,1,2]
+                                   0                          -0 
+   876 sched_preferred2[3,1,3]
+                                   0                          -0 
+   877 sched_preferred2[3,2,1]
+                                   1                           1 
+   878 sched_preferred2[3,2,2]
+                                   0                          -0 
+   879 sched_preferred2[3,2,3]
+                                   0                           1 
+   880 sched_preferred2[3,3,1]
+                                   0                          -0 
+   881 sched_preferred2[3,3,2]
+                                   0                          -0 
+   882 sched_preferred2[3,3,3]
+                                   0                          -0 
+   883 sched_preferred2[4,1,1]
+                                   0                          -0 
+   884 sched_preferred2[4,1,2]
+                                   0                          -0 
+   885 sched_preferred2[4,1,3]
+                                   0                          -0 
+   886 sched_preferred2[4,2,1]
+                                   0                          -0 
+   887 sched_preferred2[4,2,2]
+                                   0                          -0 
+   888 sched_preferred2[4,2,3]
+                                   1                           1 
+   889 sched_preferred2[4,3,1]
+                                   0                           1 
+   890 sched_preferred2[4,3,2]
+                                   0                          -0 
+   891 sched_preferred2[4,3,3]
+                                   0                          -0 
+   892 sched_preferred2[5,1,1]
+                                   0                          -0 
+   893 sched_preferred2[5,1,2]
+                                   0                          -0 
+   894 sched_preferred2[5,1,3]
+                                   0                          -0 
+   895 sched_preferred2[5,2,1]
+                                   0                          -0 
+   896 sched_preferred2[5,2,2]
+                                   0                          -0 
+   897 sched_preferred2[5,2,3]
+                                   0                          -0 
+   898 sched_preferred2[5,3,1]
+                                   0                          -0 
+   899 sched_preferred2[5,3,2]
+                                   1                           1 
+   900 sched_preferred2[5,3,3]
+                                   0                          -0 
+   901 sched_unpreferred1[1,1,1]
+                                   0            -0               
+   902 sched_unpreferred1[1,1,2]
+                                   0            -0               
+   903 sched_unpreferred1[1,1,3]
+                                   0            -0               
+   904 sched_unpreferred1[1,2,1]
+                                   0            -0               
+   905 sched_unpreferred1[1,2,2]
+                                   0            -0               
+   906 sched_unpreferred1[1,2,3]
+                                   0            -0               
+   907 sched_unpreferred1[1,3,1]
+                                   0            -0               
+   908 sched_unpreferred1[1,3,2]
+                                   0            -0               
+   909 sched_unpreferred1[1,3,3]
+                                   0            -0               
+   910 sched_unpreferred1[2,1,1]
+                                   0            -0               
+   911 sched_unpreferred1[2,1,2]
+                                   0            -0               
+   912 sched_unpreferred1[2,1,3]
+                                   0            -0               
+   913 sched_unpreferred1[2,2,1]
+                                   0            -0               
+   914 sched_unpreferred1[2,2,2]
+                                   0            -0               
+   915 sched_unpreferred1[2,2,3]
+                                   0            -0               
+   916 sched_unpreferred1[2,3,1]
+                                   0            -0               
+   917 sched_unpreferred1[2,3,2]
+                                   0            -0               
+   918 sched_unpreferred1[2,3,3]
+                                   0            -0               
+   919 sched_unpreferred1[3,1,1]
+                                   0            -0               
+   920 sched_unpreferred1[3,1,2]
+                                   0            -0               
+   921 sched_unpreferred1[3,1,3]
+                                   0            -0               
+   922 sched_unpreferred1[3,2,1]
+                                   0            -0               
+   923 sched_unpreferred1[3,2,2]
+                                   0            -0               
+   924 sched_unpreferred1[3,2,3]
+                                   0            -0               
+   925 sched_unpreferred1[3,3,1]
+                                   0            -0               
+   926 sched_unpreferred1[3,3,2]
+                                   0            -0               
+   927 sched_unpreferred1[3,3,3]
+                                   0            -0               
+   928 sched_unpreferred1[4,1,1]
+                                   0            -0               
+   929 sched_unpreferred1[4,1,2]
+                                   0            -0               
+   930 sched_unpreferred1[4,1,3]
+                                   0            -0               
+   931 sched_unpreferred1[4,2,1]
+                                   0            -0               
+   932 sched_unpreferred1[4,2,2]
+                                   0            -0               
+   933 sched_unpreferred1[4,2,3]
+                                   0            -0               
+   934 sched_unpreferred1[4,3,1]
+                                   0            -0               
+   935 sched_unpreferred1[4,3,2]
+                                   0            -0               
+   936 sched_unpreferred1[4,3,3]
+                                   0            -0               
+   937 sched_unpreferred1[5,1,1]
+                                   0            -0               
+   938 sched_unpreferred1[5,1,2]
+                                   0            -0               
+   939 sched_unpreferred1[5,1,3]
+                                   0            -0               
+   940 sched_unpreferred1[5,2,1]
+                                   0            -0               
+   941 sched_unpreferred1[5,2,2]
+                                   0            -0               
+   942 sched_unpreferred1[5,2,3]
+                                   0            -0               
+   943 sched_unpreferred1[5,3,1]
+                                   0            -0               
+   944 sched_unpreferred1[5,3,2]
+                                   0            -0               
+   945 sched_unpreferred1[5,3,3]
+                                   0            -0               
+   946 sched_unpreferred2[1,1,1]
+                                   0            -1               
+   947 sched_unpreferred2[1,1,2]
+                                   0            -1               
+   948 sched_unpreferred2[1,1,3]
+                                   0            -1               
+   949 sched_unpreferred2[1,2,1]
+                                   0            -0               
+   950 sched_unpreferred2[1,2,2]
+                                  -1            -1               
+   951 sched_unpreferred2[1,2,3]
+                                   0            -1               
+   952 sched_unpreferred2[1,3,1]
+                                  -1            -1               
+   953 sched_unpreferred2[1,3,2]
+                                   0            -1               
+   954 sched_unpreferred2[1,3,3]
+                                   0            -1               
+   955 sched_unpreferred2[2,1,1]
+                                   0            -1               
+   956 sched_unpreferred2[2,1,2]
+                                  -1            -1               
+   957 sched_unpreferred2[2,1,3]
+                                   0            -1               
+   958 sched_unpreferred2[2,2,1]
+                                   0            -1               
+   959 sched_unpreferred2[2,2,2]
+                                   0            -1               
+   960 sched_unpreferred2[2,2,3]
+                                   0            -1               
+   961 sched_unpreferred2[2,3,1]
+                                   0            -1               
+   962 sched_unpreferred2[2,3,2]
+                                   0            -0               
+   963 sched_unpreferred2[2,3,3]
+                                   0            -0               
+   964 sched_unpreferred2[3,1,1]
+                                   0            -0               
+   965 sched_unpreferred2[3,1,2]
+                                  -1            -1               
+   966 sched_unpreferred2[3,1,3]
+                                   0            -1               
+   967 sched_unpreferred2[3,2,1]
+                                  -1            -1               
+   968 sched_unpreferred2[3,2,2]
+                                   0            -1               
+   969 sched_unpreferred2[3,2,3]
+                                   0            -1               
+   970 sched_unpreferred2[3,3,1]
+                                  -1            -1               
+   971 sched_unpreferred2[3,3,2]
+                                   0            -1               
+   972 sched_unpreferred2[3,3,3]
+                                   0            -1               
+   973 sched_unpreferred2[4,1,1]
+                                  -1            -1               
+   974 sched_unpreferred2[4,1,2]
+                                   0            -1               
+   975 sched_unpreferred2[4,1,3]
+                                   0            -0               
+   976 sched_unpreferred2[4,2,1]
+                                   0            -1               
+   977 sched_unpreferred2[4,2,2]
+                                   0            -1               
+   978 sched_unpreferred2[4,2,3]
+                                  -1            -1               
+   979 sched_unpreferred2[4,3,1]
+                                   0            -1               
+   980 sched_unpreferred2[4,3,2]
+                                   0            -1               
+   981 sched_unpreferred2[4,3,3]
+                                  -1            -1               
+   982 sched_unpreferred2[5,1,1]
+                                   0            -1               
+   983 sched_unpreferred2[5,1,2]
+                                   0            -1               
+   984 sched_unpreferred2[5,1,3]
+                                  -1            -1               
+   985 sched_unpreferred2[5,2,1]
+                                   0            -1               
+   986 sched_unpreferred2[5,2,2]
+                                   0            -0               
+   987 sched_unpreferred2[5,2,3]
+                                   0            -1               
+   988 sched_unpreferred2[5,3,1]
+                                   0            -0               
+   989 sched_unpreferred2[5,3,2]
+                                  -1            -1               
+   990 sched_unpreferred2[5,3,3]
+                                   0            -1               
+   991 inter_preferred1[1,1,1,1]
+                                   0                          -0 
+   992 inter_preferred1[1,1,1,2]
+                                   0                          -0 
+   993 inter_preferred1[1,1,1,3]
+                                   0                          -0 
+   994 inter_preferred1[1,1,2,1]
+                                   0                          -0 
+   995 inter_preferred1[1,1,2,2]
+                                  -1                          -0 
+   996 inter_preferred1[1,1,2,3]
+                                   0                          -0 
+   997 inter_preferred1[1,1,3,1]
+                                  -1                          -0 
+   998 inter_preferred1[1,1,3,2]
+                                   0                          -0 
+   999 inter_preferred1[1,1,3,3]
+                                   0                          -0 
+  1000 inter_preferred1[1,2,1,1]
+                                   0                          -0 
+  1001 inter_preferred1[1,2,1,2]
+                                   0                          -0 
+  1002 inter_preferred1[1,2,1,3]
+                                   0                          -0 
+  1003 inter_preferred1[1,2,2,1]
+                                   0                          -0 
+  1004 inter_preferred1[1,2,2,2]
+                                   0                          -0 
+  1005 inter_preferred1[1,2,2,3]
+                                   0                          -0 
+  1006 inter_preferred1[1,2,3,1]
+                                   0                          -0 
+  1007 inter_preferred1[1,2,3,2]
+                                   0                          -0 
+  1008 inter_preferred1[1,2,3,3]
+                                   0                          -0 
+  1009 inter_preferred1[1,3,1,1]
+                                   0                          -0 
+  1010 inter_preferred1[1,3,1,2]
+                                   0                          -0 
+  1011 inter_preferred1[1,3,1,3]
+                                   0                          -0 
+  1012 inter_preferred1[1,3,2,1]
+                                   0                          -0 
+  1013 inter_preferred1[1,3,2,2]
+                                   0                          -0 
+  1014 inter_preferred1[1,3,2,3]
+                                   0                          -0 
+  1015 inter_preferred1[1,3,3,1]
+                                   0                          -0 
+  1016 inter_preferred1[1,3,3,2]
+                                   0                          -0 
+  1017 inter_preferred1[1,3,3,3]
+                                   0                          -0 
+  1018 inter_preferred1[1,4,1,1]
+                                   0                          -0 
+  1019 inter_preferred1[1,4,1,2]
+                                   0                          -0 
+  1020 inter_preferred1[1,4,1,3]
+                                   0                          -0 
+  1021 inter_preferred1[1,4,2,1]
+                                   0                          -0 
+  1022 inter_preferred1[1,4,2,2]
+                                   0                          -0 
+  1023 inter_preferred1[1,4,2,3]
+                                   0                          -0 
+  1024 inter_preferred1[1,4,3,1]
+                                   0                          -0 
+  1025 inter_preferred1[1,4,3,2]
+                                   0                          -0 
+  1026 inter_preferred1[1,4,3,3]
+                                   0                          -0 
+  1027 inter_preferred1[1,5,1,1]
+                                   0                          -0 
+  1028 inter_preferred1[1,5,1,2]
+                                   0                          -0 
+  1029 inter_preferred1[1,5,1,3]
+                                   0                          -0 
+  1030 inter_preferred1[1,5,2,1]
+                                   0                          -0 
+  1031 inter_preferred1[1,5,2,2]
+                                   0                          -0 
+  1032 inter_preferred1[1,5,2,3]
+                                   0                          -0 
+  1033 inter_preferred1[1,5,3,1]
+                                   0                          -0 
+  1034 inter_preferred1[1,5,3,2]
+                                   0                          -0 
+  1035 inter_preferred1[1,5,3,3]
+                                   0                          -0 
+  1036 inter_preferred1[2,1,1,1]
+                                   0                          -0 
+  1037 inter_preferred1[2,1,1,2]
+                                   0                          -0 
+  1038 inter_preferred1[2,1,1,3]
+                                   0                          -0 
+  1039 inter_preferred1[2,1,2,1]
+                                   0                          -0 
+  1040 inter_preferred1[2,1,2,2]
+                                   0                          -0 
+  1041 inter_preferred1[2,1,2,3]
+                                   0                          -0 
+  1042 inter_preferred1[2,1,3,1]
+                                   0                          -0 
+  1043 inter_preferred1[2,1,3,2]
+                                   0                          -0 
+  1044 inter_preferred1[2,1,3,3]
+                                   0                          -0 
+  1045 inter_preferred1[2,2,1,1]
+                                   0                          -0 
+  1046 inter_preferred1[2,2,1,2]
+                                  -1                          -0 
+  1047 inter_preferred1[2,2,1,3]
+                                   0                          -0 
+  1048 inter_preferred1[2,2,2,1]
+                                   0                          -0 
+  1049 inter_preferred1[2,2,2,2]
+                                   0                          -0 
+  1050 inter_preferred1[2,2,2,3]
+                                   0                          -0 
+  1051 inter_preferred1[2,2,3,1]
+                                   0                          -0 
+  1052 inter_preferred1[2,2,3,2]
+                                   0                          -0 
+  1053 inter_preferred1[2,2,3,3]
+                                   0                          -0 
+  1054 inter_preferred1[2,3,1,1]
+                                   0                          -0 
+  1055 inter_preferred1[2,3,1,2]
+                                  -1                          -0 
+  1056 inter_preferred1[2,3,1,3]
+                                   0                          -0 
+  1057 inter_preferred1[2,3,2,1]
+                                   0                          -0 
+  1058 inter_preferred1[2,3,2,2]
+                                   0                          -0 
+  1059 inter_preferred1[2,3,2,3]
+                                   0                          -0 
+  1060 inter_preferred1[2,3,3,1]
+                                   0                          -0 
+  1061 inter_preferred1[2,3,3,2]
+                                   0                          -0 
+  1062 inter_preferred1[2,3,3,3]
+                                   0                          -0 
+  1063 inter_preferred1[2,4,1,1]
+                                   0                          -0 
+  1064 inter_preferred1[2,4,1,2]
+                                   0                          -0 
+  1065 inter_preferred1[2,4,1,3]
+                                   0                          -0 
+  1066 inter_preferred1[2,4,2,1]
+                                   0                          -0 
+  1067 inter_preferred1[2,4,2,2]
+                                   0                          -0 
+  1068 inter_preferred1[2,4,2,3]
+                                   0                          -0 
+  1069 inter_preferred1[2,4,3,1]
+                                   0                          -0 
+  1070 inter_preferred1[2,4,3,2]
+                                   0                          -0 
+  1071 inter_preferred1[2,4,3,3]
+                                   0                          -0 
+  1072 inter_preferred1[2,5,1,1]
+                                   0                          -0 
+  1073 inter_preferred1[2,5,1,2]
+                                   0                          -0 
+  1074 inter_preferred1[2,5,1,3]
+                                   0                          -0 
+  1075 inter_preferred1[2,5,2,1]
+                                   0                          -0 
+  1076 inter_preferred1[2,5,2,2]
+                                   0                          -0 
+  1077 inter_preferred1[2,5,2,3]
+                                   0                          -0 
+  1078 inter_preferred1[2,5,3,1]
+                                   0                          -0 
+  1079 inter_preferred1[2,5,3,2]
+                                   0                          -0 
+  1080 inter_preferred1[2,5,3,3]
+                                   0                          -0 
+  1081 inter_preferred1[3,1,1,1]
+                                   0                          -0 
+  1082 inter_preferred1[3,1,1,2]
+                                   0                          -0 
+  1083 inter_preferred1[3,1,1,3]
+                                   0                          -0 
+  1084 inter_preferred1[3,1,2,1]
+                                   0                          -0 
+  1085 inter_preferred1[3,1,2,2]
+                                   0                          -0 
+  1086 inter_preferred1[3,1,2,3]
+                                   0                          -0 
+  1087 inter_preferred1[3,1,3,1]
+                                  -1                          -0 
+  1088 inter_preferred1[3,1,3,2]
+                                   0                          -0 
+  1089 inter_preferred1[3,1,3,3]
+                                   0                          -0 
+  1090 inter_preferred1[3,2,1,1]
+                                   0                          -0 
+  1091 inter_preferred1[3,2,1,2]
+                                  -1                          -0 
+  1092 inter_preferred1[3,2,1,3]
+                                   0                          -0 
+  1093 inter_preferred1[3,2,2,1]
+                                   0                          -0 
+  1094 inter_preferred1[3,2,2,2]
+                                   0                          -0 
+  1095 inter_preferred1[3,2,2,3]
+                                   0                          -0 
+  1096 inter_preferred1[3,2,3,1]
+                                   0                          -0 
+  1097 inter_preferred1[3,2,3,2]
+                                   0                          -0 
+  1098 inter_preferred1[3,2,3,3]
+                                   0                          -0 
+  1099 inter_preferred1[3,3,1,1]
+                                   0                          -0 
+  1100 inter_preferred1[3,3,1,2]
+                                  -1                          -0 
+  1101 inter_preferred1[3,3,1,3]
+                                   0                          -0 
+  1102 inter_preferred1[3,3,2,1]
+                                  -1                          -0 
+  1103 inter_preferred1[3,3,2,2]
+                                   0                          -0 
+  1104 inter_preferred1[3,3,2,3]
+                                   0                          -0 
+  1105 inter_preferred1[3,3,3,1]
+                                  -1                          -0 
+  1106 inter_preferred1[3,3,3,2]
+                                   0                          -0 
+  1107 inter_preferred1[3,3,3,3]
+                                   0                          -0 
+  1108 inter_preferred1[3,4,1,1]
+                                   0                          -0 
+  1109 inter_preferred1[3,4,1,2]
+                                   0                          -0 
+  1110 inter_preferred1[3,4,1,3]
+                                   0                          -0 
+  1111 inter_preferred1[3,4,2,1]
+                                   0                          -0 
+  1112 inter_preferred1[3,4,2,2]
+                                   0                          -0 
+  1113 inter_preferred1[3,4,2,3]
+                                   0                          -0 
+  1114 inter_preferred1[3,4,3,1]
+                                   0                          -0 
+  1115 inter_preferred1[3,4,3,2]
+                                   0                          -0 
+  1116 inter_preferred1[3,4,3,3]
+                                   0                          -0 
+  1117 inter_preferred1[3,5,1,1]
+                                   0                          -0 
+  1118 inter_preferred1[3,5,1,2]
+                                   0                          -0 
+  1119 inter_preferred1[3,5,1,3]
+                                   0                          -0 
+  1120 inter_preferred1[3,5,2,1]
+                                   0                          -0 
+  1121 inter_preferred1[3,5,2,2]
+                                   0                          -0 
+  1122 inter_preferred1[3,5,2,3]
+                                   0                          -0 
+  1123 inter_preferred1[3,5,3,1]
+                                   0                          -0 
+  1124 inter_preferred1[3,5,3,2]
+                                   0                          -0 
+  1125 inter_preferred1[3,5,3,3]
+                                   0                          -0 
+  1126 inter_preferred1[4,1,1,1]
+                                   0                          -0 
+  1127 inter_preferred1[4,1,1,2]
+                                   0                          -0 
+  1128 inter_preferred1[4,1,1,3]
+                                   0                          -0 
+  1129 inter_preferred1[4,1,2,1]
+                                   0                          -0 
+  1130 inter_preferred1[4,1,2,2]
+                                   0                          -0 
+  1131 inter_preferred1[4,1,2,3]
+                                   0                          -0 
+  1132 inter_preferred1[4,1,3,1]
+                                   0                          -0 
+  1133 inter_preferred1[4,1,3,2]
+                                   0                          -0 
+  1134 inter_preferred1[4,1,3,3]
+                                   0                          -0 
+  1135 inter_preferred1[4,2,1,1]
+                                   0                          -0 
+  1136 inter_preferred1[4,2,1,2]
+                                   0                          -0 
+  1137 inter_preferred1[4,2,1,3]
+                                   0                          -0 
+  1138 inter_preferred1[4,2,2,1]
+                                   0                          -0 
+  1139 inter_preferred1[4,2,2,2]
+                                   0                          -0 
+  1140 inter_preferred1[4,2,2,3]
+                                   0                          -0 
+  1141 inter_preferred1[4,2,3,1]
+                                   0                          -0 
+  1142 inter_preferred1[4,2,3,2]
+                                   0                          -0 
+  1143 inter_preferred1[4,2,3,3]
+                                   0                          -0 
+  1144 inter_preferred1[4,3,1,1]
+                                   0                          -0 
+  1145 inter_preferred1[4,3,1,2]
+                                   0                          -0 
+  1146 inter_preferred1[4,3,1,3]
+                                   0                          -0 
+  1147 inter_preferred1[4,3,2,1]
+                                   0                          -0 
+  1148 inter_preferred1[4,3,2,2]
+                                   0                          -0 
+  1149 inter_preferred1[4,3,2,3]
+                                   0                          -0 
+  1150 inter_preferred1[4,3,3,1]
+                                   0                          -0 
+  1151 inter_preferred1[4,3,3,2]
+                                   0                          -0 
+  1152 inter_preferred1[4,3,3,3]
+                                   0                          -0 
+  1153 inter_preferred1[4,4,1,1]
+                                  -1                          -0 
+  1154 inter_preferred1[4,4,1,2]
+                                   0                          -0 
+  1155 inter_preferred1[4,4,1,3]
+                                   0                          -0 
+  1156 inter_preferred1[4,4,2,1]
+                                   0                          -0 
+  1157 inter_preferred1[4,4,2,2]
+                                   0                          -0 
+  1158 inter_preferred1[4,4,2,3]
+                                  -1                          -0 
+  1159 inter_preferred1[4,4,3,1]
+                                   0                          -0 
+  1160 inter_preferred1[4,4,3,2]
+                                   0                          -0 
+  1161 inter_preferred1[4,4,3,3]
+                                  -1                          -0 
+  1162 inter_preferred1[4,5,1,1]
+                                   0                          -0 
+  1163 inter_preferred1[4,5,1,2]
+                                   0                          -0 
+  1164 inter_preferred1[4,5,1,3]
+                                   0                          -0 
+  1165 inter_preferred1[4,5,2,1]
+                                   0                          -0 
+  1166 inter_preferred1[4,5,2,2]
+                                   0                          -0 
+  1167 inter_preferred1[4,5,2,3]
+                                   0                          -0 
+  1168 inter_preferred1[4,5,3,1]
+                                   0                          -0 
+  1169 inter_preferred1[4,5,3,2]
+                                   0                          -0 
+  1170 inter_preferred1[4,5,3,3]
+                                   0                          -0 
+  1171 inter_preferred1[5,1,1,1]
+                                   0                          -0 
+  1172 inter_preferred1[5,1,1,2]
+                                   0                          -0 
+  1173 inter_preferred1[5,1,1,3]
+                                   0                          -0 
+  1174 inter_preferred1[5,1,2,1]
+                                   0                          -0 
+  1175 inter_preferred1[5,1,2,2]
+                                   0                          -0 
+  1176 inter_preferred1[5,1,2,3]
+                                   0                          -0 
+  1177 inter_preferred1[5,1,3,1]
+                                   0                          -0 
+  1178 inter_preferred1[5,1,3,2]
+                                   0                          -0 
+  1179 inter_preferred1[5,1,3,3]
+                                   0                          -0 
+  1180 inter_preferred1[5,2,1,1]
+                                   0                          -0 
+  1181 inter_preferred1[5,2,1,2]
+                                   0                          -0 
+  1182 inter_preferred1[5,2,1,3]
+                                   0                          -0 
+  1183 inter_preferred1[5,2,2,1]
+                                   0                          -0 
+  1184 inter_preferred1[5,2,2,2]
+                                   0                          -0 
+  1185 inter_preferred1[5,2,2,3]
+                                   0                          -0 
+  1186 inter_preferred1[5,2,3,1]
+                                   0                          -0 
+  1187 inter_preferred1[5,2,3,2]
+                                   0                          -0 
+  1188 inter_preferred1[5,2,3,3]
+                                   0                          -0 
+  1189 inter_preferred1[5,3,1,1]
+                                   0                          -0 
+  1190 inter_preferred1[5,3,1,2]
+                                   0                          -0 
+  1191 inter_preferred1[5,3,1,3]
+                                   0                          -0 
+  1192 inter_preferred1[5,3,2,1]
+                                   0                          -0 
+  1193 inter_preferred1[5,3,2,2]
+                                   0                          -0 
+  1194 inter_preferred1[5,3,2,3]
+                                   0                          -0 
+  1195 inter_preferred1[5,3,3,1]
+                                   0                          -0 
+  1196 inter_preferred1[5,3,3,2]
+                                   0                          -0 
+  1197 inter_preferred1[5,3,3,3]
+                                   0                          -0 
+  1198 inter_preferred1[5,4,1,1]
+                                   0                          -0 
+  1199 inter_preferred1[5,4,1,2]
+                                   0                          -0 
+  1200 inter_preferred1[5,4,1,3]
+                                   0                          -0 
+  1201 inter_preferred1[5,4,2,1]
+                                   0                          -0 
+  1202 inter_preferred1[5,4,2,2]
+                                   0                          -0 
+  1203 inter_preferred1[5,4,2,3]
+                                   0                          -0 
+  1204 inter_preferred1[5,4,3,1]
+                                   0                          -0 
+  1205 inter_preferred1[5,4,3,2]
+                                   0                          -0 
+  1206 inter_preferred1[5,4,3,3]
+                                   0                          -0 
+  1207 inter_preferred1[5,5,1,1]
+                                   0                          -0 
+  1208 inter_preferred1[5,5,1,2]
+                                   0                          -0 
+  1209 inter_preferred1[5,5,1,3]
+                                  -1                          -0 
+  1210 inter_preferred1[5,5,2,1]
+                                   0                          -0 
+  1211 inter_preferred1[5,5,2,2]
+                                   0                          -0 
+  1212 inter_preferred1[5,5,2,3]
+                                   0                          -0 
+  1213 inter_preferred1[5,5,3,1]
+                                   0                          -0 
+  1214 inter_preferred1[5,5,3,2]
+                                  -1                          -0 
+  1215 inter_preferred1[5,5,3,3]
+                                   0                          -0 
+  1216 inter_preferred2[1,1,1,1]
+                                   0                          -0 
+  1217 inter_preferred2[1,1,1,2]
+                                   0                          -0 
+  1218 inter_preferred2[1,1,1,3]
+                                   0                          -0 
+  1219 inter_preferred2[1,1,2,1]
+                                   0                          -0 
+  1220 inter_preferred2[1,1,2,2]
+                                   0                          -0 
+  1221 inter_preferred2[1,1,2,3]
+                                   0                          -0 
+  1222 inter_preferred2[1,1,3,1]
+                                   0                          -0 
+  1223 inter_preferred2[1,1,3,2]
+                                   0                          -0 
+  1224 inter_preferred2[1,1,3,3]
+                                   0                          -0 
+  1225 inter_preferred2[1,2,1,1]
+                                   0                          -0 
+  1226 inter_preferred2[1,2,1,2]
+                                   0                          -0 
+  1227 inter_preferred2[1,2,1,3]
+                                   0                          -0 
+  1228 inter_preferred2[1,2,2,1]
+                                   0                          -0 
+  1229 inter_preferred2[1,2,2,2]
+                                   0                          -0 
+  1230 inter_preferred2[1,2,2,3]
+                                   0                          -0 
+  1231 inter_preferred2[1,2,3,1]
+                                   0                          -0 
+  1232 inter_preferred2[1,2,3,2]
+                                   0                          -0 
+  1233 inter_preferred2[1,2,3,3]
+                                   0                          -0 
+  1234 inter_preferred2[1,3,1,1]
+                                   0                           1 
+  1235 inter_preferred2[1,3,1,2]
+                                   0                           1 
+  1236 inter_preferred2[1,3,1,3]
+                                   0                           1 
+  1237 inter_preferred2[1,3,2,1]
+                                   0                           1 
+  1238 inter_preferred2[1,3,2,2]
+                                   0                           1 
+  1239 inter_preferred2[1,3,2,3]
+                                   0                           1 
+  1240 inter_preferred2[1,3,3,1]
+                                   1                           1 
+  1241 inter_preferred2[1,3,3,2]
+                                   0                           1 
+  1242 inter_preferred2[1,3,3,3]
+                                   0                           1 
+  1243 inter_preferred2[1,4,1,1]
+                                   0                          -0 
+  1244 inter_preferred2[1,4,1,2]
+                                   0                          -0 
+  1245 inter_preferred2[1,4,1,3]
+                                   0                          -0 
+  1246 inter_preferred2[1,4,2,1]
+                                   0                          -0 
+  1247 inter_preferred2[1,4,2,2]
+                                   0                          -0 
+  1248 inter_preferred2[1,4,2,3]
+                                   0                          -0 
+  1249 inter_preferred2[1,4,3,1]
+                                   0                          -0 
+  1250 inter_preferred2[1,4,3,2]
+                                   0                          -0 
+  1251 inter_preferred2[1,4,3,3]
+                                   0                          -0 
+  1252 inter_preferred2[1,5,1,1]
+                                   0                          -0 
+  1253 inter_preferred2[1,5,1,2]
+                                   0                          -0 
+  1254 inter_preferred2[1,5,1,3]
+                                   0                          -0 
+  1255 inter_preferred2[1,5,2,1]
+                                   0                          -0 
+  1256 inter_preferred2[1,5,2,2]
+                                   0                          -0 
+  1257 inter_preferred2[1,5,2,3]
+                                   0                          -0 
+  1258 inter_preferred2[1,5,3,1]
+                                   0                          -0 
+  1259 inter_preferred2[1,5,3,2]
+                                   0                          -0 
+  1260 inter_preferred2[1,5,3,3]
+                                   0                          -0 
+  1261 inter_preferred2[2,1,1,1]
+                                   0                          -0 
+  1262 inter_preferred2[2,1,1,2]
+                                   0                          -0 
+  1263 inter_preferred2[2,1,1,3]
+                                   0                          -0 
+  1264 inter_preferred2[2,1,2,1]
+                                   0                          -0 
+  1265 inter_preferred2[2,1,2,2]
+                                   0                          -0 
+  1266 inter_preferred2[2,1,2,3]
+                                   0                          -0 
+  1267 inter_preferred2[2,1,3,1]
+                                   0                          -0 
+  1268 inter_preferred2[2,1,3,2]
+                                   0                          -0 
+  1269 inter_preferred2[2,1,3,3]
+                                   0                          -0 
+  1270 inter_preferred2[2,2,1,1]
+                                   0                          -0 
+  1271 inter_preferred2[2,2,1,2]
+                                   0                          -0 
+  1272 inter_preferred2[2,2,1,3]
+                                   0                          -0 
+  1273 inter_preferred2[2,2,2,1]
+                                   0                          -0 
+  1274 inter_preferred2[2,2,2,2]
+                                   0                          -0 
+  1275 inter_preferred2[2,2,2,3]
+                                   0                          -0 
+  1276 inter_preferred2[2,2,3,1]
+                                   0                          -0 
+  1277 inter_preferred2[2,2,3,2]
+                                   0                          -0 
+  1278 inter_preferred2[2,2,3,3]
+                                   0                          -0 
+  1279 inter_preferred2[2,3,1,1]
+                                   0                          -0 
+  1280 inter_preferred2[2,3,1,2]
+                                   0                          -0 
+  1281 inter_preferred2[2,3,1,3]
+                                   0                          -0 
+  1282 inter_preferred2[2,3,2,1]
+                                   0                          -0 
+  1283 inter_preferred2[2,3,2,2]
+                                   0                          -0 
+  1284 inter_preferred2[2,3,2,3]
+                                   0                          -0 
+  1285 inter_preferred2[2,3,3,1]
+                                   0                          -0 
+  1286 inter_preferred2[2,3,3,2]
+                                   0                          -0 
+  1287 inter_preferred2[2,3,3,3]
+                                   0                          -0 
+  1288 inter_preferred2[2,4,1,1]
+                                   0                           1 
+  1289 inter_preferred2[2,4,1,2]
+                                   0                           1 
+  1290 inter_preferred2[2,4,1,3]
+                                   0                           1 
+  1291 inter_preferred2[2,4,2,1]
+                                   0                           1 
+  1292 inter_preferred2[2,4,2,2]
+                                   0                           1 
+  1293 inter_preferred2[2,4,2,3]
+                                   0                           1 
+  1294 inter_preferred2[2,4,3,1]
+                                   0                           1 
+  1295 inter_preferred2[2,4,3,2]
+                                   0                           1 
+  1296 inter_preferred2[2,4,3,3]
+                                   0                           1 
+  1297 inter_preferred2[2,5,1,1]
+                                   0                          -0 
+  1298 inter_preferred2[2,5,1,2]
+                                   0                          -0 
+  1299 inter_preferred2[2,5,1,3]
+                                   0                          -0 
+  1300 inter_preferred2[2,5,2,1]
+                                   0                          -0 
+  1301 inter_preferred2[2,5,2,2]
+                                   0                          -0 
+  1302 inter_preferred2[2,5,2,3]
+                                   0                          -0 
+  1303 inter_preferred2[2,5,3,1]
+                                   0                          -0 
+  1304 inter_preferred2[2,5,3,2]
+                                   0                          -0 
+  1305 inter_preferred2[2,5,3,3]
+                                   0                          -0 
+  1306 inter_preferred2[3,1,1,1]
+                                   0                          -0 
+  1307 inter_preferred2[3,1,1,2]
+                                   0                          -0 
+  1308 inter_preferred2[3,1,1,3]
+                                   0                          -0 
+  1309 inter_preferred2[3,1,2,1]
+                                   0                          -0 
+  1310 inter_preferred2[3,1,2,2]
+                                   0                          -0 
+  1311 inter_preferred2[3,1,2,3]
+                                   0                          -0 
+  1312 inter_preferred2[3,1,3,1]
+                                   0                          -0 
+  1313 inter_preferred2[3,1,3,2]
+                                   0                          -0 
+  1314 inter_preferred2[3,1,3,3]
+                                   0                          -0 
+  1315 inter_preferred2[3,2,1,1]
+                                   0                          -0 
+  1316 inter_preferred2[3,2,1,2]
+                                   0                          -0 
+  1317 inter_preferred2[3,2,1,3]
+                                   0                          -0 
+  1318 inter_preferred2[3,2,2,1]
+                                   0                          -0 
+  1319 inter_preferred2[3,2,2,2]
+                                   0                          -0 
+  1320 inter_preferred2[3,2,2,3]
+                                   0                          -0 
+  1321 inter_preferred2[3,2,3,1]
+                                   0                          -0 
+  1322 inter_preferred2[3,2,3,2]
+                                   0                          -0 
+  1323 inter_preferred2[3,2,3,3]
+                                   0                          -0 
+  1324 inter_preferred2[3,3,1,1]
+                                   0                          -0 
+  1325 inter_preferred2[3,3,1,2]
+                                   0                          -0 
+  1326 inter_preferred2[3,3,1,3]
+                                   0                          -0 
+  1327 inter_preferred2[3,3,2,1]
+                                   0                          -0 
+  1328 inter_preferred2[3,3,2,2]
+                                   0                          -0 
+  1329 inter_preferred2[3,3,2,3]
+                                   0                          -0 
+  1330 inter_preferred2[3,3,3,1]
+                                   0                          -0 
+  1331 inter_preferred2[3,3,3,2]
+                                   0                          -0 
+  1332 inter_preferred2[3,3,3,3]
+                                   0                          -0 
+  1333 inter_preferred2[3,4,1,1]
+                                   0                          -0 
+  1334 inter_preferred2[3,4,1,2]
+                                   0                          -0 
+  1335 inter_preferred2[3,4,1,3]
+                                   0                          -0 
+  1336 inter_preferred2[3,4,2,1]
+                                   0                          -0 
+  1337 inter_preferred2[3,4,2,2]
+                                   0                          -0 
+  1338 inter_preferred2[3,4,2,3]
+                                   0                          -0 
+  1339 inter_preferred2[3,4,3,1]
+                                   0                          -0 
+  1340 inter_preferred2[3,4,3,2]
+                                   0                          -0 
+  1341 inter_preferred2[3,4,3,3]
+                                   0                          -0 
+  1342 inter_preferred2[3,5,1,1]
+                                   0                          -0 
+  1343 inter_preferred2[3,5,1,2]
+                                   0                          -0 
+  1344 inter_preferred2[3,5,1,3]
+                                   0                          -0 
+  1345 inter_preferred2[3,5,2,1]
+                                   0                          -0 
+  1346 inter_preferred2[3,5,2,2]
+                                   0                          -0 
+  1347 inter_preferred2[3,5,2,3]
+                                   0                          -0 
+  1348 inter_preferred2[3,5,3,1]
+                                   0                          -0 
+  1349 inter_preferred2[3,5,3,2]
+                                   0                          -0 
+  1350 inter_preferred2[3,5,3,3]
+                                   0                          -0 
+  1351 inter_preferred2[4,1,1,1]
+                                   0                          -0 
+  1352 inter_preferred2[4,1,1,2]
+                                   0                          -0 
+  1353 inter_preferred2[4,1,1,3]
+                                   0                          -0 
+  1354 inter_preferred2[4,1,2,1]
+                                   0                          -0 
+  1355 inter_preferred2[4,1,2,2]
+                                   0                          -0 
+  1356 inter_preferred2[4,1,2,3]
+                                   0                          -0 
+  1357 inter_preferred2[4,1,3,1]
+                                   0                          -0 
+  1358 inter_preferred2[4,1,3,2]
+                                   0                          -0 
+  1359 inter_preferred2[4,1,3,3]
+                                   0                          -0 
+  1360 inter_preferred2[4,2,1,1]
+                                   0                          -0 
+  1361 inter_preferred2[4,2,1,2]
+                                   0                          -0 
+  1362 inter_preferred2[4,2,1,3]
+                                   0                          -0 
+  1363 inter_preferred2[4,2,2,1]
+                                   0                          -0 
+  1364 inter_preferred2[4,2,2,2]
+                                   0                          -0 
+  1365 inter_preferred2[4,2,2,3]
+                                   0                          -0 
+  1366 inter_preferred2[4,2,3,1]
+                                   0                          -0 
+  1367 inter_preferred2[4,2,3,2]
+                                   0                          -0 
+  1368 inter_preferred2[4,2,3,3]
+                                   0                          -0 
+  1369 inter_preferred2[4,3,1,1]
+                                   0                          -0 
+  1370 inter_preferred2[4,3,1,2]
+                                   0                          -0 
+  1371 inter_preferred2[4,3,1,3]
+                                   0                          -0 
+  1372 inter_preferred2[4,3,2,1]
+                                   0                          -0 
+  1373 inter_preferred2[4,3,2,2]
+                                   0                          -0 
+  1374 inter_preferred2[4,3,2,3]
+                                   0                          -0 
+  1375 inter_preferred2[4,3,3,1]
+                                   0                          -0 
+  1376 inter_preferred2[4,3,3,2]
+                                   0                          -0 
+  1377 inter_preferred2[4,3,3,3]
+                                   0                          -0 
+  1378 inter_preferred2[4,4,1,1]
+                                   0                          -0 
+  1379 inter_preferred2[4,4,1,2]
+                                   0                          -0 
+  1380 inter_preferred2[4,4,1,3]
+                                   0                          -0 
+  1381 inter_preferred2[4,4,2,1]
+                                   0                          -0 
+  1382 inter_preferred2[4,4,2,2]
+                                   0                          -0 
+  1383 inter_preferred2[4,4,2,3]
+                                   0                          -0 
+  1384 inter_preferred2[4,4,3,1]
+                                   0                          -0 
+  1385 inter_preferred2[4,4,3,2]
+                                   0                          -0 
+  1386 inter_preferred2[4,4,3,3]
+                                   0                          -0 
+  1387 inter_preferred2[4,5,1,1]
+                                   0                          -0 
+  1388 inter_preferred2[4,5,1,2]
+                                   0                          -0 
+  1389 inter_preferred2[4,5,1,3]
+                                   0                          -0 
+  1390 inter_preferred2[4,5,2,1]
+                                   0                          -0 
+  1391 inter_preferred2[4,5,2,2]
+                                   0                          -0 
+  1392 inter_preferred2[4,5,2,3]
+                                   0                          -0 
+  1393 inter_preferred2[4,5,3,1]
+                                   0                          -0 
+  1394 inter_preferred2[4,5,3,2]
+                                   0                          -0 
+  1395 inter_preferred2[4,5,3,3]
+                                   0                          -0 
+  1396 inter_preferred2[5,1,1,1]
+                                   0                          -0 
+  1397 inter_preferred2[5,1,1,2]
+                                   0                          -0 
+  1398 inter_preferred2[5,1,1,3]
+                                   0                          -0 
+  1399 inter_preferred2[5,1,2,1]
+                                   0                          -0 
+  1400 inter_preferred2[5,1,2,2]
+                                   0                          -0 
+  1401 inter_preferred2[5,1,2,3]
+                                   0                          -0 
+  1402 inter_preferred2[5,1,3,1]
+                                   0                          -0 
+  1403 inter_preferred2[5,1,3,2]
+                                   0                          -0 
+  1404 inter_preferred2[5,1,3,3]
+                                   0                          -0 
+  1405 inter_preferred2[5,2,1,1]
+                                   0                          -0 
+  1406 inter_preferred2[5,2,1,2]
+                                   0                          -0 
+  1407 inter_preferred2[5,2,1,3]
+                                   0                          -0 
+  1408 inter_preferred2[5,2,2,1]
+                                   0                          -0 
+  1409 inter_preferred2[5,2,2,2]
+                                   0                          -0 
+  1410 inter_preferred2[5,2,2,3]
+                                   0                          -0 
+  1411 inter_preferred2[5,2,3,1]
+                                   0                          -0 
+  1412 inter_preferred2[5,2,3,2]
+                                   0                          -0 
+  1413 inter_preferred2[5,2,3,3]
+                                   0                          -0 
+  1414 inter_preferred2[5,3,1,1]
+                                   0                          -0 
+  1415 inter_preferred2[5,3,1,2]
+                                   0                          -0 
+  1416 inter_preferred2[5,3,1,3]
+                                   0                          -0 
+  1417 inter_preferred2[5,3,2,1]
+                                   0                          -0 
+  1418 inter_preferred2[5,3,2,2]
+                                   0                          -0 
+  1419 inter_preferred2[5,3,2,3]
+                                   0                          -0 
+  1420 inter_preferred2[5,3,3,1]
+                                   0                          -0 
+  1421 inter_preferred2[5,3,3,2]
+                                   0                          -0 
+  1422 inter_preferred2[5,3,3,3]
+                                   0                          -0 
+  1423 inter_preferred2[5,4,1,1]
+                                   0                          -0 
+  1424 inter_preferred2[5,4,1,2]
+                                   0                          -0 
+  1425 inter_preferred2[5,4,1,3]
+                                   0                          -0 
+  1426 inter_preferred2[5,4,2,1]
+                                   0                          -0 
+  1427 inter_preferred2[5,4,2,2]
+                                   0                          -0 
+  1428 inter_preferred2[5,4,2,3]
+                                   0                          -0 
+  1429 inter_preferred2[5,4,3,1]
+                                   0                          -0 
+  1430 inter_preferred2[5,4,3,2]
+                                   0                          -0 
+  1431 inter_preferred2[5,4,3,3]
+                                   0                          -0 
+  1432 inter_preferred2[5,5,1,1]
+                                   0                          -0 
+  1433 inter_preferred2[5,5,1,2]
+                                   0                          -0 
+  1434 inter_preferred2[5,5,1,3]
+                                   0                          -0 
+  1435 inter_preferred2[5,5,2,1]
+                                   0                          -0 
+  1436 inter_preferred2[5,5,2,2]
+                                   0                          -0 
+  1437 inter_preferred2[5,5,2,3]
+                                   0                          -0 
+  1438 inter_preferred2[5,5,3,1]
+                                   0                          -0 
+  1439 inter_preferred2[5,5,3,2]
+                                   0                          -0 
+  1440 inter_preferred2[5,5,3,3]
+                                   0                          -0 
+  1441 inter_unpreferred1[1,1,1,1]
+                                   0            -0               
+  1442 inter_unpreferred1[1,1,1,2]
+                                   0            -0               
+  1443 inter_unpreferred1[1,1,1,3]
+                                   0            -0               
+  1444 inter_unpreferred1[1,1,2,1]
+                                   0            -0               
+  1445 inter_unpreferred1[1,1,2,2]
+                                   0            -0               
+  1446 inter_unpreferred1[1,1,2,3]
+                                   0            -0               
+  1447 inter_unpreferred1[1,1,3,1]
+                                   0            -0               
+  1448 inter_unpreferred1[1,1,3,2]
+                                   0            -0               
+  1449 inter_unpreferred1[1,1,3,3]
+                                   0            -0               
+  1450 inter_unpreferred1[1,2,1,1]
+                                   0            -0               
+  1451 inter_unpreferred1[1,2,1,2]
+                                   0            -0               
+  1452 inter_unpreferred1[1,2,1,3]
+                                   0            -0               
+  1453 inter_unpreferred1[1,2,2,1]
+                                   0            -0               
+  1454 inter_unpreferred1[1,2,2,2]
+                                   0            -0               
+  1455 inter_unpreferred1[1,2,2,3]
+                                   0            -0               
+  1456 inter_unpreferred1[1,2,3,1]
+                                   0            -0               
+  1457 inter_unpreferred1[1,2,3,2]
+                                   0            -0               
+  1458 inter_unpreferred1[1,2,3,3]
+                                   0            -0               
+  1459 inter_unpreferred1[1,3,1,1]
+                                   0            -0               
+  1460 inter_unpreferred1[1,3,1,2]
+                                   0            -0               
+  1461 inter_unpreferred1[1,3,1,3]
+                                   0            -0               
+  1462 inter_unpreferred1[1,3,2,1]
+                                   0            -0               
+  1463 inter_unpreferred1[1,3,2,2]
+                                   0            -0               
+  1464 inter_unpreferred1[1,3,2,3]
+                                   0            -0               
+  1465 inter_unpreferred1[1,3,3,1]
+                                   0            -0               
+  1466 inter_unpreferred1[1,3,3,2]
+                                   0            -0               
+  1467 inter_unpreferred1[1,3,3,3]
+                                   0            -0               
+  1468 inter_unpreferred1[1,4,1,1]
+                                   0            -0               
+  1469 inter_unpreferred1[1,4,1,2]
+                                   0            -0               
+  1470 inter_unpreferred1[1,4,1,3]
+                                   0            -0               
+  1471 inter_unpreferred1[1,4,2,1]
+                                   0            -0               
+  1472 inter_unpreferred1[1,4,2,2]
+                                   0            -0               
+  1473 inter_unpreferred1[1,4,2,3]
+                                   0            -0               
+  1474 inter_unpreferred1[1,4,3,1]
+                                   0            -0               
+  1475 inter_unpreferred1[1,4,3,2]
+                                   0            -0               
+  1476 inter_unpreferred1[1,4,3,3]
+                                   0            -0               
+  1477 inter_unpreferred1[1,5,1,1]
+                                   0            -0               
+  1478 inter_unpreferred1[1,5,1,2]
+                                   0            -0               
+  1479 inter_unpreferred1[1,5,1,3]
+                                   0            -0               
+  1480 inter_unpreferred1[1,5,2,1]
+                                   0            -0               
+  1481 inter_unpreferred1[1,5,2,2]
+                                   0            -0               
+  1482 inter_unpreferred1[1,5,2,3]
+                                   0            -0               
+  1483 inter_unpreferred1[1,5,3,1]
+                                   0            -0               
+  1484 inter_unpreferred1[1,5,3,2]
+                                   0            -0               
+  1485 inter_unpreferred1[1,5,3,3]
+                                   0            -0               
+  1486 inter_unpreferred1[2,1,1,1]
+                                   0            -0               
+  1487 inter_unpreferred1[2,1,1,2]
+                                   0            -0               
+  1488 inter_unpreferred1[2,1,1,3]
+                                   0            -0               
+  1489 inter_unpreferred1[2,1,2,1]
+                                   0            -0               
+  1490 inter_unpreferred1[2,1,2,2]
+                                   0            -0               
+  1491 inter_unpreferred1[2,1,2,3]
+                                   0            -0               
+  1492 inter_unpreferred1[2,1,3,1]
+                                   0            -0               
+  1493 inter_unpreferred1[2,1,3,2]
+                                   0            -0               
+  1494 inter_unpreferred1[2,1,3,3]
+                                   0            -0               
+  1495 inter_unpreferred1[2,2,1,1]
+                                   0            -0               
+  1496 inter_unpreferred1[2,2,1,2]
+                                   0            -0               
+  1497 inter_unpreferred1[2,2,1,3]
+                                   0            -0               
+  1498 inter_unpreferred1[2,2,2,1]
+                                   0            -0               
+  1499 inter_unpreferred1[2,2,2,2]
+                                   0            -0               
+  1500 inter_unpreferred1[2,2,2,3]
+                                   0            -0               
+  1501 inter_unpreferred1[2,2,3,1]
+                                   0            -0               
+  1502 inter_unpreferred1[2,2,3,2]
+                                   0            -0               
+  1503 inter_unpreferred1[2,2,3,3]
+                                   0            -0               
+  1504 inter_unpreferred1[2,3,1,1]
+                                   0            -0               
+  1505 inter_unpreferred1[2,3,1,2]
+                                   0            -0               
+  1506 inter_unpreferred1[2,3,1,3]
+                                   0            -0               
+  1507 inter_unpreferred1[2,3,2,1]
+                                   0            -0               
+  1508 inter_unpreferred1[2,3,2,2]
+                                   0            -0               
+  1509 inter_unpreferred1[2,3,2,3]
+                                   0            -0               
+  1510 inter_unpreferred1[2,3,3,1]
+                                   0            -0               
+  1511 inter_unpreferred1[2,3,3,2]
+                                   0            -0               
+  1512 inter_unpreferred1[2,3,3,3]
+                                   0            -0               
+  1513 inter_unpreferred1[2,4,1,1]
+                                   0            -0               
+  1514 inter_unpreferred1[2,4,1,2]
+                                   0            -0               
+  1515 inter_unpreferred1[2,4,1,3]
+                                   0            -0               
+  1516 inter_unpreferred1[2,4,2,1]
+                                   0            -0               
+  1517 inter_unpreferred1[2,4,2,2]
+                                   0            -0               
+  1518 inter_unpreferred1[2,4,2,3]
+                                   0            -0               
+  1519 inter_unpreferred1[2,4,3,1]
+                                   0            -0               
+  1520 inter_unpreferred1[2,4,3,2]
+                                   0            -0               
+  1521 inter_unpreferred1[2,4,3,3]
+                                   0            -0               
+  1522 inter_unpreferred1[2,5,1,1]
+                                   0            -0               
+  1523 inter_unpreferred1[2,5,1,2]
+                                   0            -0               
+  1524 inter_unpreferred1[2,5,1,3]
+                                   0            -0               
+  1525 inter_unpreferred1[2,5,2,1]
+                                   0            -0               
+  1526 inter_unpreferred1[2,5,2,2]
+                                   0            -0               
+  1527 inter_unpreferred1[2,5,2,3]
+                                   0            -0               
+  1528 inter_unpreferred1[2,5,3,1]
+                                   0            -0               
+  1529 inter_unpreferred1[2,5,3,2]
+                                   0            -0               
+  1530 inter_unpreferred1[2,5,3,3]
+                                   0            -0               
+  1531 inter_unpreferred1[3,1,1,1]
+                                   0            -0               
+  1532 inter_unpreferred1[3,1,1,2]
+                                   0            -0               
+  1533 inter_unpreferred1[3,1,1,3]
+                                   0            -0               
+  1534 inter_unpreferred1[3,1,2,1]
+                                   0            -0               
+  1535 inter_unpreferred1[3,1,2,2]
+                                   0            -0               
+  1536 inter_unpreferred1[3,1,2,3]
+                                   0            -0               
+  1537 inter_unpreferred1[3,1,3,1]
+                                   0            -0               
+  1538 inter_unpreferred1[3,1,3,2]
+                                   0            -0               
+  1539 inter_unpreferred1[3,1,3,3]
+                                   0            -0               
+  1540 inter_unpreferred1[3,2,1,1]
+                                   0            -0               
+  1541 inter_unpreferred1[3,2,1,2]
+                                   0            -0               
+  1542 inter_unpreferred1[3,2,1,3]
+                                   0            -0               
+  1543 inter_unpreferred1[3,2,2,1]
+                                   0            -0               
+  1544 inter_unpreferred1[3,2,2,2]
+                                   0            -0               
+  1545 inter_unpreferred1[3,2,2,3]
+                                   0            -0               
+  1546 inter_unpreferred1[3,2,3,1]
+                                   0            -0               
+  1547 inter_unpreferred1[3,2,3,2]
+                                   0            -0               
+  1548 inter_unpreferred1[3,2,3,3]
+                                   0            -0               
+  1549 inter_unpreferred1[3,3,1,1]
+                                   0            -0               
+  1550 inter_unpreferred1[3,3,1,2]
+                                   0            -0               
+  1551 inter_unpreferred1[3,3,1,3]
+                                   0            -0               
+  1552 inter_unpreferred1[3,3,2,1]
+                                   0            -0               
+  1553 inter_unpreferred1[3,3,2,2]
+                                   0            -0               
+  1554 inter_unpreferred1[3,3,2,3]
+                                   0            -0               
+  1555 inter_unpreferred1[3,3,3,1]
+                                   0            -0               
+  1556 inter_unpreferred1[3,3,3,2]
+                                   0            -0               
+  1557 inter_unpreferred1[3,3,3,3]
+                                   0            -0               
+  1558 inter_unpreferred1[3,4,1,1]
+                                   0            -0               
+  1559 inter_unpreferred1[3,4,1,2]
+                                   0            -0               
+  1560 inter_unpreferred1[3,4,1,3]
+                                   0            -0               
+  1561 inter_unpreferred1[3,4,2,1]
+                                   0            -0               
+  1562 inter_unpreferred1[3,4,2,2]
+                                   0            -0               
+  1563 inter_unpreferred1[3,4,2,3]
+                                   0            -0               
+  1564 inter_unpreferred1[3,4,3,1]
+                                   0            -0               
+  1565 inter_unpreferred1[3,4,3,2]
+                                   0            -0               
+  1566 inter_unpreferred1[3,4,3,3]
+                                   0            -0               
+  1567 inter_unpreferred1[3,5,1,1]
+                                   0            -0               
+  1568 inter_unpreferred1[3,5,1,2]
+                                   0            -0               
+  1569 inter_unpreferred1[3,5,1,3]
+                                   0            -0               
+  1570 inter_unpreferred1[3,5,2,1]
+                                   0            -0               
+  1571 inter_unpreferred1[3,5,2,2]
+                                   0            -0               
+  1572 inter_unpreferred1[3,5,2,3]
+                                   0            -0               
+  1573 inter_unpreferred1[3,5,3,1]
+                                   0            -0               
+  1574 inter_unpreferred1[3,5,3,2]
+                                   0            -0               
+  1575 inter_unpreferred1[3,5,3,3]
+                                   0            -0               
+  1576 inter_unpreferred1[4,1,1,1]
+                                   0            -0               
+  1577 inter_unpreferred1[4,1,1,2]
+                                   0            -0               
+  1578 inter_unpreferred1[4,1,1,3]
+                                   0            -0               
+  1579 inter_unpreferred1[4,1,2,1]
+                                   0            -0               
+  1580 inter_unpreferred1[4,1,2,2]
+                                   0            -0               
+  1581 inter_unpreferred1[4,1,2,3]
+                                   0            -0               
+  1582 inter_unpreferred1[4,1,3,1]
+                                   0            -0               
+  1583 inter_unpreferred1[4,1,3,2]
+                                   0            -0               
+  1584 inter_unpreferred1[4,1,3,3]
+                                   0            -0               
+  1585 inter_unpreferred1[4,2,1,1]
+                                   0            -0               
+  1586 inter_unpreferred1[4,2,1,2]
+                                   0            -0               
+  1587 inter_unpreferred1[4,2,1,3]
+                                   0            -0               
+  1588 inter_unpreferred1[4,2,2,1]
+                                   0            -0               
+  1589 inter_unpreferred1[4,2,2,2]
+                                   0            -0               
+  1590 inter_unpreferred1[4,2,2,3]
+                                   0            -0               
+  1591 inter_unpreferred1[4,2,3,1]
+                                   0            -0               
+  1592 inter_unpreferred1[4,2,3,2]
+                                   0            -0               
+  1593 inter_unpreferred1[4,2,3,3]
+                                   0            -0               
+  1594 inter_unpreferred1[4,3,1,1]
+                                   0            -0               
+  1595 inter_unpreferred1[4,3,1,2]
+                                   0            -0               
+  1596 inter_unpreferred1[4,3,1,3]
+                                   0            -0               
+  1597 inter_unpreferred1[4,3,2,1]
+                                   0            -0               
+  1598 inter_unpreferred1[4,3,2,2]
+                                   0            -0               
+  1599 inter_unpreferred1[4,3,2,3]
+                                   0            -0               
+  1600 inter_unpreferred1[4,3,3,1]
+                                   0            -0               
+  1601 inter_unpreferred1[4,3,3,2]
+                                   0            -0               
+  1602 inter_unpreferred1[4,3,3,3]
+                                   0            -0               
+  1603 inter_unpreferred1[4,4,1,1]
+                                   0            -0               
+  1604 inter_unpreferred1[4,4,1,2]
+                                   0            -0               
+  1605 inter_unpreferred1[4,4,1,3]
+                                   0            -0               
+  1606 inter_unpreferred1[4,4,2,1]
+                                   0            -0               
+  1607 inter_unpreferred1[4,4,2,2]
+                                   0            -0               
+  1608 inter_unpreferred1[4,4,2,3]
+                                   0            -0               
+  1609 inter_unpreferred1[4,4,3,1]
+                                   0            -0               
+  1610 inter_unpreferred1[4,4,3,2]
+                                   0            -0               
+  1611 inter_unpreferred1[4,4,3,3]
+                                   0            -0               
+  1612 inter_unpreferred1[4,5,1,1]
+                                   0            -0               
+  1613 inter_unpreferred1[4,5,1,2]
+                                   0            -0               
+  1614 inter_unpreferred1[4,5,1,3]
+                                   0            -0               
+  1615 inter_unpreferred1[4,5,2,1]
+                                   0            -0               
+  1616 inter_unpreferred1[4,5,2,2]
+                                   0            -0               
+  1617 inter_unpreferred1[4,5,2,3]
+                                   0            -0               
+  1618 inter_unpreferred1[4,5,3,1]
+                                   0            -0               
+  1619 inter_unpreferred1[4,5,3,2]
+                                   0            -0               
+  1620 inter_unpreferred1[4,5,3,3]
+                                   0            -0               
+  1621 inter_unpreferred1[5,1,1,1]
+                                   0            -0               
+  1622 inter_unpreferred1[5,1,1,2]
+                                   0            -0               
+  1623 inter_unpreferred1[5,1,1,3]
+                                   0            -0               
+  1624 inter_unpreferred1[5,1,2,1]
+                                   0            -0               
+  1625 inter_unpreferred1[5,1,2,2]
+                                   0            -0               
+  1626 inter_unpreferred1[5,1,2,3]
+                                   0            -0               
+  1627 inter_unpreferred1[5,1,3,1]
+                                   0            -0               
+  1628 inter_unpreferred1[5,1,3,2]
+                                   0            -0               
+  1629 inter_unpreferred1[5,1,3,3]
+                                   0            -0               
+  1630 inter_unpreferred1[5,2,1,1]
+                                   0            -0               
+  1631 inter_unpreferred1[5,2,1,2]
+                                   0            -0               
+  1632 inter_unpreferred1[5,2,1,3]
+                                   0            -0               
+  1633 inter_unpreferred1[5,2,2,1]
+                                   0            -0               
+  1634 inter_unpreferred1[5,2,2,2]
+                                   0            -0               
+  1635 inter_unpreferred1[5,2,2,3]
+                                   0            -0               
+  1636 inter_unpreferred1[5,2,3,1]
+                                   0            -0               
+  1637 inter_unpreferred1[5,2,3,2]
+                                   0            -0               
+  1638 inter_unpreferred1[5,2,3,3]
+                                   0            -0               
+  1639 inter_unpreferred1[5,3,1,1]
+                                   0            -0               
+  1640 inter_unpreferred1[5,3,1,2]
+                                   0            -0               
+  1641 inter_unpreferred1[5,3,1,3]
+                                   0            -0               
+  1642 inter_unpreferred1[5,3,2,1]
+                                   0            -0               
+  1643 inter_unpreferred1[5,3,2,2]
+                                   0            -0               
+  1644 inter_unpreferred1[5,3,2,3]
+                                   0            -0               
+  1645 inter_unpreferred1[5,3,3,1]
+                                   0            -0               
+  1646 inter_unpreferred1[5,3,3,2]
+                                   0            -0               
+  1647 inter_unpreferred1[5,3,3,3]
+                                   0            -0               
+  1648 inter_unpreferred1[5,4,1,1]
+                                   0            -0               
+  1649 inter_unpreferred1[5,4,1,2]
+                                   0            -0               
+  1650 inter_unpreferred1[5,4,1,3]
+                                   0            -0               
+  1651 inter_unpreferred1[5,4,2,1]
+                                   0            -0               
+  1652 inter_unpreferred1[5,4,2,2]
+                                   0            -0               
+  1653 inter_unpreferred1[5,4,2,3]
+                                   0            -0               
+  1654 inter_unpreferred1[5,4,3,1]
+                                   0            -0               
+  1655 inter_unpreferred1[5,4,3,2]
+                                   0            -0               
+  1656 inter_unpreferred1[5,4,3,3]
+                                   0            -0               
+  1657 inter_unpreferred1[5,5,1,1]
+                                   0            -0               
+  1658 inter_unpreferred1[5,5,1,2]
+                                   0            -0               
+  1659 inter_unpreferred1[5,5,1,3]
+                                   0            -0               
+  1660 inter_unpreferred1[5,5,2,1]
+                                   0            -0               
+  1661 inter_unpreferred1[5,5,2,2]
+                                   0            -0               
+  1662 inter_unpreferred1[5,5,2,3]
+                                   0            -0               
+  1663 inter_unpreferred1[5,5,3,1]
+                                   0            -0               
+  1664 inter_unpreferred1[5,5,3,2]
+                                   0            -0               
+  1665 inter_unpreferred1[5,5,3,3]
+                                   0            -0               
+  1666 inter_unpreferred2[1,1,1,1]
+                                   0            -1               
+  1667 inter_unpreferred2[1,1,1,2]
+                                   0            -1               
+  1668 inter_unpreferred2[1,1,1,3]
+                                   0            -1               
+  1669 inter_unpreferred2[1,1,2,1]
+                                   0            -1               
+  1670 inter_unpreferred2[1,1,2,2]
+                                  -1            -1               
+  1671 inter_unpreferred2[1,1,2,3]
+                                   0            -1               
+  1672 inter_unpreferred2[1,1,3,1]
+                                  -1            -1               
+  1673 inter_unpreferred2[1,1,3,2]
+                                   0            -1               
+  1674 inter_unpreferred2[1,1,3,3]
+                                   0            -1               
+  1675 inter_unpreferred2[1,2,1,1]
+                                   0            -1               
+  1676 inter_unpreferred2[1,2,1,2]
+                                   0            -1               
+  1677 inter_unpreferred2[1,2,1,3]
+                                   0            -1               
+  1678 inter_unpreferred2[1,2,2,1]
+                                   0            -1               
+  1679 inter_unpreferred2[1,2,2,2]
+                                   0            -1               
+  1680 inter_unpreferred2[1,2,2,3]
+                                   0            -1               
+  1681 inter_unpreferred2[1,2,3,1]
+                                   0            -1               
+  1682 inter_unpreferred2[1,2,3,2]
+                                   0            -1               
+  1683 inter_unpreferred2[1,2,3,3]
+                                   0            -1               
+  1684 inter_unpreferred2[1,3,1,1]
+                                   0            -1               
+  1685 inter_unpreferred2[1,3,1,2]
+                                   0            -1               
+  1686 inter_unpreferred2[1,3,1,3]
+                                   0            -1               
+  1687 inter_unpreferred2[1,3,2,1]
+                                   0            -1               
+  1688 inter_unpreferred2[1,3,2,2]
+                                   0            -1               
+  1689 inter_unpreferred2[1,3,2,3]
+                                   0            -1               
+  1690 inter_unpreferred2[1,3,3,1]
+                                  -1            -1               
+  1691 inter_unpreferred2[1,3,3,2]
+                                   0            -1               
+  1692 inter_unpreferred2[1,3,3,3]
+                                   0            -1               
+  1693 inter_unpreferred2[1,4,1,1]
+                                   0            -1               
+  1694 inter_unpreferred2[1,4,1,2]
+                                   0            -1               
+  1695 inter_unpreferred2[1,4,1,3]
+                                   0            -1               
+  1696 inter_unpreferred2[1,4,2,1]
+                                   0            -1               
+  1697 inter_unpreferred2[1,4,2,2]
+                                   0            -1               
+  1698 inter_unpreferred2[1,4,2,3]
+                                   0            -1               
+  1699 inter_unpreferred2[1,4,3,1]
+                                   0            -1               
+  1700 inter_unpreferred2[1,4,3,2]
+                                   0            -1               
+  1701 inter_unpreferred2[1,4,3,3]
+                                   0            -1               
+  1702 inter_unpreferred2[1,5,1,1]
+                                   0            -1               
+  1703 inter_unpreferred2[1,5,1,2]
+                                   0            -1               
+  1704 inter_unpreferred2[1,5,1,3]
+                                   0            -1               
+  1705 inter_unpreferred2[1,5,2,1]
+                                   0            -1               
+  1706 inter_unpreferred2[1,5,2,2]
+                                   0            -1               
+  1707 inter_unpreferred2[1,5,2,3]
+                                   0            -1               
+  1708 inter_unpreferred2[1,5,3,1]
+                                   0            -1               
+  1709 inter_unpreferred2[1,5,3,2]
+                                   0            -1               
+  1710 inter_unpreferred2[1,5,3,3]
+                                   0            -1               
+  1711 inter_unpreferred2[2,1,1,1]
+                                   0            -1               
+  1712 inter_unpreferred2[2,1,1,2]
+                                   0            -1               
+  1713 inter_unpreferred2[2,1,1,3]
+                                   0            -1               
+  1714 inter_unpreferred2[2,1,2,1]
+                                   0            -1               
+  1715 inter_unpreferred2[2,1,2,2]
+                                   0            -1               
+  1716 inter_unpreferred2[2,1,2,3]
+                                   0            -1               
+  1717 inter_unpreferred2[2,1,3,1]
+                                   0            -1               
+  1718 inter_unpreferred2[2,1,3,2]
+                                   0            -1               
+  1719 inter_unpreferred2[2,1,3,3]
+                                   0            -1               
+  1720 inter_unpreferred2[2,2,1,1]
+                                   0            -1               
+  1721 inter_unpreferred2[2,2,1,2]
+                                  -1            -1               
+  1722 inter_unpreferred2[2,2,1,3]
+                                   0            -1               
+  1723 inter_unpreferred2[2,2,2,1]
+                                   0            -1               
+  1724 inter_unpreferred2[2,2,2,2]
+                                   0            -1               
+  1725 inter_unpreferred2[2,2,2,3]
+                                   0            -1               
+  1726 inter_unpreferred2[2,2,3,1]
+                                   0            -1               
+  1727 inter_unpreferred2[2,2,3,2]
+                                   0            -1               
+  1728 inter_unpreferred2[2,2,3,3]
+                                   0            -1               
+  1729 inter_unpreferred2[2,3,1,1]
+                                   0            -1               
+  1730 inter_unpreferred2[2,3,1,2]
+                                  -1            -1               
+  1731 inter_unpreferred2[2,3,1,3]
+                                   0            -1               
+  1732 inter_unpreferred2[2,3,2,1]
+                                   0            -1               
+  1733 inter_unpreferred2[2,3,2,2]
+                                   0            -1               
+  1734 inter_unpreferred2[2,3,2,3]
+                                   0            -1               
+  1735 inter_unpreferred2[2,3,3,1]
+                                   0            -1               
+  1736 inter_unpreferred2[2,3,3,2]
+                                   0            -1               
+  1737 inter_unpreferred2[2,3,3,3]
+                                   0            -1               
+  1738 inter_unpreferred2[2,4,1,1]
+                                   0            -1               
+  1739 inter_unpreferred2[2,4,1,2]
+                                   0            -1               
+  1740 inter_unpreferred2[2,4,1,3]
+                                   0            -1               
+  1741 inter_unpreferred2[2,4,2,1]
+                                   0            -1               
+  1742 inter_unpreferred2[2,4,2,2]
+                                   0            -1               
+  1743 inter_unpreferred2[2,4,2,3]
+                                   0            -1               
+  1744 inter_unpreferred2[2,4,3,1]
+                                   0            -1               
+  1745 inter_unpreferred2[2,4,3,2]
+                                   0            -1               
+  1746 inter_unpreferred2[2,4,3,3]
+                                   0            -1               
+  1747 inter_unpreferred2[2,5,1,1]
+                                   0            -1               
+  1748 inter_unpreferred2[2,5,1,2]
+                                   0            -1               
+  1749 inter_unpreferred2[2,5,1,3]
+                                   0            -1               
+  1750 inter_unpreferred2[2,5,2,1]
+                                   0            -1               
+  1751 inter_unpreferred2[2,5,2,2]
+                                   0            -1               
+  1752 inter_unpreferred2[2,5,2,3]
+                                   0            -1               
+  1753 inter_unpreferred2[2,5,3,1]
+                                   0            -1               
+  1754 inter_unpreferred2[2,5,3,2]
+                                   0            -1               
+  1755 inter_unpreferred2[2,5,3,3]
+                                   0            -1               
+  1756 inter_unpreferred2[3,1,1,1]
+                                   0            -1               
+  1757 inter_unpreferred2[3,1,1,2]
+                                   0            -1               
+  1758 inter_unpreferred2[3,1,1,3]
+                                   0            -1               
+  1759 inter_unpreferred2[3,1,2,1]
+                                   0            -1               
+  1760 inter_unpreferred2[3,1,2,2]
+                                   0            -1               
+  1761 inter_unpreferred2[3,1,2,3]
+                                   0            -1               
+  1762 inter_unpreferred2[3,1,3,1]
+                                  -1            -1               
+  1763 inter_unpreferred2[3,1,3,2]
+                                   0            -1               
+  1764 inter_unpreferred2[3,1,3,3]
+                                   0            -1               
+  1765 inter_unpreferred2[3,2,1,1]
+                                   0            -1               
+  1766 inter_unpreferred2[3,2,1,2]
+                                  -1            -1               
+  1767 inter_unpreferred2[3,2,1,3]
+                                   0            -1               
+  1768 inter_unpreferred2[3,2,2,1]
+                                   0            -1               
+  1769 inter_unpreferred2[3,2,2,2]
+                                   0            -1               
+  1770 inter_unpreferred2[3,2,2,3]
+                                   0            -1               
+  1771 inter_unpreferred2[3,2,3,1]
+                                   0            -1               
+  1772 inter_unpreferred2[3,2,3,2]
+                                   0            -1               
+  1773 inter_unpreferred2[3,2,3,3]
+                                   0            -1               
+  1774 inter_unpreferred2[3,3,1,1]
+                                   0            -1               
+  1775 inter_unpreferred2[3,3,1,2]
+                                  -1            -1               
+  1776 inter_unpreferred2[3,3,1,3]
+                                   0            -1               
+  1777 inter_unpreferred2[3,3,2,1]
+                                  -1            -1               
+  1778 inter_unpreferred2[3,3,2,2]
+                                   0            -1               
+  1779 inter_unpreferred2[3,3,2,3]
+                                   0            -1               
+  1780 inter_unpreferred2[3,3,3,1]
+                                  -1            -1               
+  1781 inter_unpreferred2[3,3,3,2]
+                                   0            -1               
+  1782 inter_unpreferred2[3,3,3,3]
+                                   0            -1               
+  1783 inter_unpreferred2[3,4,1,1]
+                                   0            -1               
+  1784 inter_unpreferred2[3,4,1,2]
+                                   0            -1               
+  1785 inter_unpreferred2[3,4,1,3]
+                                   0            -1               
+  1786 inter_unpreferred2[3,4,2,1]
+                                   0            -1               
+  1787 inter_unpreferred2[3,4,2,2]
+                                   0            -1               
+  1788 inter_unpreferred2[3,4,2,3]
+                                   0            -1               
+  1789 inter_unpreferred2[3,4,3,1]
+                                   0            -1               
+  1790 inter_unpreferred2[3,4,3,2]
+                                   0            -1               
+  1791 inter_unpreferred2[3,4,3,3]
+                                   0            -1               
+  1792 inter_unpreferred2[3,5,1,1]
+                                   0            -1               
+  1793 inter_unpreferred2[3,5,1,2]
+                                   0            -1               
+  1794 inter_unpreferred2[3,5,1,3]
+                                   0            -1               
+  1795 inter_unpreferred2[3,5,2,1]
+                                   0            -1               
+  1796 inter_unpreferred2[3,5,2,2]
+                                   0            -1               
+  1797 inter_unpreferred2[3,5,2,3]
+                                   0            -1               
+  1798 inter_unpreferred2[3,5,3,1]
+                                   0            -1               
+  1799 inter_unpreferred2[3,5,3,2]
+                                   0            -1               
+  1800 inter_unpreferred2[3,5,3,3]
+                                   0            -1               
+  1801 inter_unpreferred2[4,1,1,1]
+                                   0            -0               
+  1802 inter_unpreferred2[4,1,1,2]
+                                   0            -0               
+  1803 inter_unpreferred2[4,1,1,3]
+                                   0            -0               
+  1804 inter_unpreferred2[4,1,2,1]
+                                   0            -0               
+  1805 inter_unpreferred2[4,1,2,2]
+                                   0            -0               
+  1806 inter_unpreferred2[4,1,2,3]
+                                   0            -0               
+  1807 inter_unpreferred2[4,1,3,1]
+                                   0            -0               
+  1808 inter_unpreferred2[4,1,3,2]
+                                   0            -0               
+  1809 inter_unpreferred2[4,1,3,3]
+                                   0            -0               
+  1810 inter_unpreferred2[4,2,1,1]
+                                   0            -1               
+  1811 inter_unpreferred2[4,2,1,2]
+                                   0            -1               
+  1812 inter_unpreferred2[4,2,1,3]
+                                   0            -1               
+  1813 inter_unpreferred2[4,2,2,1]
+                                   0            -1               
+  1814 inter_unpreferred2[4,2,2,2]
+                                   0            -1               
+  1815 inter_unpreferred2[4,2,2,3]
+                                   0            -1               
+  1816 inter_unpreferred2[4,2,3,1]
+                                   0            -1               
+  1817 inter_unpreferred2[4,2,3,2]
+                                   0            -1               
+  1818 inter_unpreferred2[4,2,3,3]
+                                   0            -1               
+  1819 inter_unpreferred2[4,3,1,1]
+                                   0            -1               
+  1820 inter_unpreferred2[4,3,1,2]
+                                   0            -1               
+  1821 inter_unpreferred2[4,3,1,3]
+                                   0            -1               
+  1822 inter_unpreferred2[4,3,2,1]
+                                   0            -1               
+  1823 inter_unpreferred2[4,3,2,2]
+                                   0            -1               
+  1824 inter_unpreferred2[4,3,2,3]
+                                   0            -1               
+  1825 inter_unpreferred2[4,3,3,1]
+                                   0            -1               
+  1826 inter_unpreferred2[4,3,3,2]
+                                   0            -1               
+  1827 inter_unpreferred2[4,3,3,3]
+                                   0            -1               
+  1828 inter_unpreferred2[4,4,1,1]
+                                  -1            -1               
+  1829 inter_unpreferred2[4,4,1,2]
+                                   0            -1               
+  1830 inter_unpreferred2[4,4,1,3]
+                                   0            -1               
+  1831 inter_unpreferred2[4,4,2,1]
+                                   0            -1               
+  1832 inter_unpreferred2[4,4,2,2]
+                                   0            -1               
+  1833 inter_unpreferred2[4,4,2,3]
+                                  -1            -1               
+  1834 inter_unpreferred2[4,4,3,1]
+                                   0            -1               
+  1835 inter_unpreferred2[4,4,3,2]
+                                   0            -1               
+  1836 inter_unpreferred2[4,4,3,3]
+                                  -1            -1               
+  1837 inter_unpreferred2[4,5,1,1]
+                                   0            -1               
+  1838 inter_unpreferred2[4,5,1,2]
+                                   0            -1               
+  1839 inter_unpreferred2[4,5,1,3]
+                                   0            -1               
+  1840 inter_unpreferred2[4,5,2,1]
+                                   0            -1               
+  1841 inter_unpreferred2[4,5,2,2]
+                                   0            -1               
+  1842 inter_unpreferred2[4,5,2,3]
+                                   0            -1               
+  1843 inter_unpreferred2[4,5,3,1]
+                                   0            -1               
+  1844 inter_unpreferred2[4,5,3,2]
+                                   0            -1               
+  1845 inter_unpreferred2[4,5,3,3]
+                                   0            -1               
+  1846 inter_unpreferred2[5,1,1,1]
+                                   0            -0               
+  1847 inter_unpreferred2[5,1,1,2]
+                                   0            -0               
+  1848 inter_unpreferred2[5,1,1,3]
+                                   0            -0               
+  1849 inter_unpreferred2[5,1,2,1]
+                                   0            -0               
+  1850 inter_unpreferred2[5,1,2,2]
+                                   0            -0               
+  1851 inter_unpreferred2[5,1,2,3]
+                                   0            -0               
+  1852 inter_unpreferred2[5,1,3,1]
+                                   0            -0               
+  1853 inter_unpreferred2[5,1,3,2]
+                                   0            -0               
+  1854 inter_unpreferred2[5,1,3,3]
+                                   0            -0               
+  1855 inter_unpreferred2[5,2,1,1]
+                                   0            -1               
+  1856 inter_unpreferred2[5,2,1,2]
+                                   0            -1               
+  1857 inter_unpreferred2[5,2,1,3]
+                                   0            -1               
+  1858 inter_unpreferred2[5,2,2,1]
+                                   0            -1               
+  1859 inter_unpreferred2[5,2,2,2]
+                                   0            -1               
+  1860 inter_unpreferred2[5,2,2,3]
+                                   0            -1               
+  1861 inter_unpreferred2[5,2,3,1]
+                                   0            -1               
+  1862 inter_unpreferred2[5,2,3,2]
+                                   0            -1               
+  1863 inter_unpreferred2[5,2,3,3]
+                                   0            -1               
+  1864 inter_unpreferred2[5,3,1,1]
+                                   0            -1               
+  1865 inter_unpreferred2[5,3,1,2]
+                                   0            -1               
+  1866 inter_unpreferred2[5,3,1,3]
+                                   0            -1               
+  1867 inter_unpreferred2[5,3,2,1]
+                                   0            -1               
+  1868 inter_unpreferred2[5,3,2,2]
+                                   0            -1               
+  1869 inter_unpreferred2[5,3,2,3]
+                                   0            -1               
+  1870 inter_unpreferred2[5,3,3,1]
+                                   0            -1               
+  1871 inter_unpreferred2[5,3,3,2]
+                                   0            -1               
+  1872 inter_unpreferred2[5,3,3,3]
+                                   0            -1               
+  1873 inter_unpreferred2[5,4,1,1]
+                                   0            -1               
+  1874 inter_unpreferred2[5,4,1,2]
+                                   0            -1               
+  1875 inter_unpreferred2[5,4,1,3]
+                                   0            -1               
+  1876 inter_unpreferred2[5,4,2,1]
+                                   0            -1               
+  1877 inter_unpreferred2[5,4,2,2]
+                                   0            -1               
+  1878 inter_unpreferred2[5,4,2,3]
+                                   0            -1               
+  1879 inter_unpreferred2[5,4,3,1]
+                                   0            -1               
+  1880 inter_unpreferred2[5,4,3,2]
+                                   0            -1               
+  1881 inter_unpreferred2[5,4,3,3]
+                                   0            -1               
+  1882 inter_unpreferred2[5,5,1,1]
+                                   0            -1               
+  1883 inter_unpreferred2[5,5,1,2]
+                                   0            -1               
+  1884 inter_unpreferred2[5,5,1,3]
+                                  -1            -1               
+  1885 inter_unpreferred2[5,5,2,1]
+                                   0            -1               
+  1886 inter_unpreferred2[5,5,2,2]
+                                   0            -1               
+  1887 inter_unpreferred2[5,5,2,3]
+                                   0            -1               
+  1888 inter_unpreferred2[5,5,3,1]
+                                   0            -1               
+  1889 inter_unpreferred2[5,5,3,2]
+                                  -1            -1               
+  1890 inter_unpreferred2[5,5,3,3]
+                                   0            -1               
 
    No. Column name       Activity     Lower bound   Upper bound
 ------ ------------    ------------- ------------- -------------
      1 schedule[1,1,1]
                     *              0             0             1 
      2 schedule[2,1,1]
-                    *              1             0             1 
+                    *              0             0             1 
      3 schedule[3,1,1]
-                    *              1             0             1 
+                    *              0             0             1 
      4 schedule[4,1,1]
                     *              1             0             1 
      5 schedule[5,1,1]
                     *              0             0             1 
-     6 schedule[6,1,1]
+     6 schedule[1,1,2]
                     *              0             0             1 
-     7 schedule[7,1,1]
-                    *              0             0             1 
-     8 schedule[8,1,1]
-                    *              1             0             1 
-     9 schedule[9,1,1]
-                    *              0             0             1 
-    10 schedule[10,1,1]
-                    *              0             0             1 
-    11 schedule[11,1,1]
-                    *              0             0             1 
-    12 schedule[12,1,1]
-                    *              0             0             1 
-    13 schedule[13,1,1]
-                    *              0             0             1 
-    14 schedule[14,1,1]
-                    *              0             0             1 
-    15 schedule[15,1,1]
-                    *              0             0             1 
-    16 schedule[1,1,2]
-                    *              0             0             1 
-    17 schedule[2,1,2]
-                    *              0             0             1 
-    18 schedule[3,1,2]
-                    *              0             0             1 
-    19 schedule[4,1,2]
-                    *              0             0             1 
-    20 schedule[5,1,2]
-                    *              1             0             1 
-    21 schedule[6,1,2]
-                    *              1             0             1 
-    22 schedule[7,1,2]
-                    *              0             0             1 
-    23 schedule[8,1,2]
-                    *              0             0             1 
-    24 schedule[9,1,2]
-                    *              0             0             1 
-    25 schedule[10,1,2]
-                    *              0             0             1 
-    26 schedule[11,1,2]
-                    *              0             0             1 
-    27 schedule[12,1,2]
-                    *              0             0             1 
-    28 schedule[13,1,2]
-                    *              0             0             1 
-    29 schedule[14,1,2]
-                    *              0             0             1 
-    30 schedule[15,1,2]
-                    *              1             0             1 
-    31 schedule[1,1,3]
-                    *              1             0             1 
-    32 schedule[2,1,3]
-                    *              0             0             1 
-    33 schedule[3,1,3]
-                    *              0             0             1 
-    34 schedule[4,1,3]
-                    *              0             0             1 
-    35 schedule[5,1,3]
-                    *              0             0             1 
-    36 schedule[6,1,3]
-                    *              0             0             1 
-    37 schedule[7,1,3]
-                    *              1             0             1 
-    38 schedule[8,1,3]
-                    *              0             0             1 
-    39 schedule[9,1,3]
-                    *              0             0             1 
-    40 schedule[10,1,3]
-                    *              0             0             1 
-    41 schedule[11,1,3]
-                    *              0             0             1 
-    42 schedule[12,1,3]
-                    *              0             0             1 
-    43 schedule[13,1,3]
-                    *              0             0             1 
-    44 schedule[14,1,3]
-                    *              0             0             1 
-    45 schedule[15,1,3]
-                    *              0             0             1 
-    46 schedule[1,2,1]
-                    *              0             0             1 
-    47 schedule[2,2,1]
-                    *              1             0             1 
-    48 schedule[3,2,1]
-                    *              1             0             1 
-    49 schedule[4,2,1]
-                    *              0             0             1 
-    50 schedule[5,2,1]
-                    *              0             0             1 
-    51 schedule[6,2,1]
-                    *              0             0             1 
-    52 schedule[7,2,1]
-                    *              0             0             1 
-    53 schedule[8,2,1]
-                    *              1             0             1 
-    54 schedule[9,2,1]
-                    *              0             0             1 
-    55 schedule[10,2,1]
-                    *              0             0             1 
-    56 schedule[11,2,1]
-                    *              0             0             1 
-    57 schedule[12,2,1]
-                    *              0             0             1 
-    58 schedule[13,2,1]
-                    *              0             0             1 
-    59 schedule[14,2,1]
-                    *              0             0             1 
-    60 schedule[15,2,1]
-                    *              0             0             1 
-    61 schedule[1,2,2]
-                    *              0             0             1 
-    62 schedule[2,2,2]
-                    *              0             0             1 
-    63 schedule[3,2,2]
-                    *              0             0             1 
-    64 schedule[4,2,2]
-                    *              1             0             1 
-    65 schedule[5,2,2]
-                    *              1             0             1 
-    66 schedule[6,2,2]
-                    *              1             0             1 
-    67 schedule[7,2,2]
-                    *              0             0             1 
-    68 schedule[8,2,2]
-                    *              0             0             1 
-    69 schedule[9,2,2]
-                    *              0             0             1 
-    70 schedule[10,2,2]
-                    *              0             0             1 
-    71 schedule[11,2,2]
-                    *              0             0             1 
-    72 schedule[12,2,2]
-                    *              0             0             1 
-    73 schedule[13,2,2]
-                    *              0             0             1 
-    74 schedule[14,2,2]
-                    *              0             0             1 
-    75 schedule[15,2,2]
-                    *              1             0             1 
-    76 schedule[1,2,3]
-                    *              1             0             1 
-    77 schedule[2,2,3]
-                    *              0             0             1 
-    78 schedule[3,2,3]
-                    *              0             0             1 
-    79 schedule[4,2,3]
-                    *              0             0             1 
-    80 schedule[5,2,3]
-                    *              0             0             1 
-    81 schedule[6,2,3]
-                    *              0             0             1 
-    82 schedule[7,2,3]
-                    *              1             0             1 
-    83 schedule[8,2,3]
-                    *              0             0             1 
-    84 schedule[9,2,3]
-                    *              0             0             1 
-    85 schedule[10,2,3]
-                    *              0             0             1 
-    86 schedule[11,2,3]
-                    *              0             0             1 
-    87 schedule[12,2,3]
-                    *              0             0             1 
-    88 schedule[13,2,3]
-                    *              0             0             1 
-    89 schedule[14,2,3]
-                    *              0             0             1 
-    90 schedule[15,2,3]
-                    *              0             0             1 
-    91 schedule[1,3,1]
-                    *              0             0             1 
-    92 schedule[2,3,1]
-                    *              1             0             1 
-    93 schedule[3,3,1]
-                    *              1             0             1 
-    94 schedule[4,3,1]
-                    *              0             0             1 
-    95 schedule[5,3,1]
-                    *              0             0             1 
-    96 schedule[6,3,1]
-                    *              0             0             1 
-    97 schedule[7,3,1]
-                    *              0             0             1 
-    98 schedule[8,3,1]
-                    *              0             0             1 
-    99 schedule[9,3,1]
-                    *              1             0             1 
-   100 schedule[10,3,1]
-                    *              0             0             1 
-   101 schedule[11,3,1]
-                    *              0             0             1 
-   102 schedule[12,3,1]
-                    *              0             0             1 
-   103 schedule[13,3,1]
-                    *              0             0             1 
-   104 schedule[14,3,1]
-                    *              0             0             1 
-   105 schedule[15,3,1]
-                    *              0             0             1 
-   106 schedule[1,3,2]
-                    *              0             0             1 
-   107 schedule[2,3,2]
-                    *              0             0             1 
-   108 schedule[3,3,2]
-                    *              0             0             1 
-   109 schedule[4,3,2]
-                    *              0             0             1 
-   110 schedule[5,3,2]
-                    *              0             0             1 
-   111 schedule[6,3,2]
+     7 schedule[2,1,2]
                     *              1             0             1 
-   112 schedule[7,3,2]
+     8 schedule[3,1,2]
                     *              1             0             1 
-   113 schedule[8,3,2]
+     9 schedule[4,1,2]
                     *              0             0             1 
-   114 schedule[9,3,2]
+    10 schedule[5,1,2]
                     *              0             0             1 
-   115 schedule[10,3,2]
+    11 schedule[1,1,3]
                     *              0             0             1 
-   116 schedule[11,3,2]
+    12 schedule[2,1,3]
                     *              0             0             1 
-   117 schedule[12,3,2]
+    13 schedule[3,1,3]
                     *              0             0             1 
-   118 schedule[13,3,2]
+    14 schedule[4,1,3]
                     *              0             0             1 
-   119 schedule[14,3,2]
-                    *              0             0             1 
-   120 schedule[15,3,2]
+    15 schedule[5,1,3]
                     *              1             0             1 
-   121 schedule[1,3,3]
-                    *              1             0             1 
-   122 schedule[2,3,3]
+    16 schedule[1,2,1]
                     *              0             0             1 
-   123 schedule[3,3,3]
+    17 schedule[2,2,1]
                     *              0             0             1 
-   124 schedule[4,3,3]
-                    *              1             0             1 
-   125 schedule[5,3,3]
+    18 schedule[3,2,1]
                     *              1             0             1 
-   126 schedule[6,3,3]
+    19 schedule[4,2,1]
                     *              0             0             1 
-   127 schedule[7,3,3]
+    20 schedule[5,2,1]
                     *              0             0             1 
-   128 schedule[8,3,3]
+    21 schedule[1,2,2]
                     *              1             0             1 
-   129 schedule[9,3,3]
+    22 schedule[2,2,2]
                     *              0             0             1 
-   130 schedule[10,3,3]
+    23 schedule[3,2,2]
                     *              0             0             1 
-   131 schedule[11,3,3]
+    24 schedule[4,2,2]
                     *              0             0             1 
-   132 schedule[12,3,3]
+    25 schedule[5,2,2]
                     *              0             0             1 
-   133 schedule[13,3,3]
+    26 schedule[1,2,3]
                     *              0             0             1 
-   134 schedule[14,3,3]
+    27 schedule[2,2,3]
                     *              0             0             1 
-   135 schedule[15,3,3]
+    28 schedule[3,2,3]
                     *              0             0             1 
-   136 schedule[1,4,1]
-                    *              0             0             1 
-   137 schedule[2,4,1]
-                    *              1             0             1 
-   138 schedule[3,4,1]
-                    *              1             0             1 
-   139 schedule[4,4,1]
-                    *              0             0             1 
-   140 schedule[5,4,1]
-                    *              0             0             1 
-   141 schedule[6,4,1]
+    29 schedule[4,2,3]
                     *              1             0             1 
-   142 schedule[7,4,1]
-                    *              0             0             1 
-   143 schedule[8,4,1]
+    30 schedule[5,2,3]
                     *              0             0             1 
-   144 schedule[9,4,1]
+    31 schedule[1,3,1]
                     *              1             0             1 
-   145 schedule[10,4,1]
+    32 schedule[2,3,1]
                     *              0             0             1 
-   146 schedule[11,4,1]
-                    *              0             0             1 
-   147 schedule[12,4,1]
-                    *              0             0             1 
-   148 schedule[13,4,1]
-                    *              0             0             1 
-   149 schedule[14,4,1]
-                    *              0             0             1 
-   150 schedule[15,4,1]
-                    *              0             0             1 
-   151 schedule[1,4,2]
-                    *              0             0             1 
-   152 schedule[2,4,2]
-                    *              0             0             1 
-   153 schedule[3,4,2]
-                    *              0             0             1 
-   154 schedule[4,4,2]
-                    *              1             0             1 
-   155 schedule[5,4,2]
+    33 schedule[3,3,1]
                     *              1             0             1 
-   156 schedule[6,4,2]
+    34 schedule[4,3,1]
                     *              0             0             1 
-   157 schedule[7,4,2]
+    35 schedule[5,3,1]
                     *              0             0             1 
-   158 schedule[8,4,2]
+    36 schedule[1,3,2]
                     *              0             0             1 
-   159 schedule[9,4,2]
+    37 schedule[2,3,2]
                     *              0             0             1 
-   160 schedule[10,4,2]
+    38 schedule[3,3,2]
                     *              0             0             1 
-   161 schedule[11,4,2]
+    39 schedule[4,3,2]
                     *              0             0             1 
-   162 schedule[12,4,2]
-                    *              0             0             1 
-   163 schedule[13,4,2]
-                    *              0             0             1 
-   164 schedule[14,4,2]
-                    *              0             0             1 
-   165 schedule[15,4,2]
-                    *              1             0             1 
-   166 schedule[1,4,3]
+    40 schedule[5,3,2]
                     *              1             0             1 
-   167 schedule[2,4,3]
+    41 schedule[1,3,3]
                     *              0             0             1 
-   168 schedule[3,4,3]
+    42 schedule[2,3,3]
                     *              0             0             1 
-   169 schedule[4,4,3]
+    43 schedule[3,3,3]
                     *              0             0             1 
-   170 schedule[5,4,3]
-                    *              0             0             1 
-   171 schedule[6,4,3]
-                    *              0             0             1 
-   172 schedule[7,4,3]
+    44 schedule[4,3,3]
                     *              1             0             1 
-   173 schedule[8,4,3]
-                    *              0             0             1 
-   174 schedule[9,4,3]
-                    *              0             0             1 
-   175 schedule[10,4,3]
-                    *              0             0             1 
-   176 schedule[11,4,3]
-                    *              0             0             1 
-   177 schedule[12,4,3]
+    45 schedule[5,3,3]
                     *              0             0             1 
-   178 schedule[13,4,3]
+    46 interaction[1,1,1,1]
                     *              0             0             1 
-   179 schedule[14,4,3]
+    47 interaction[1,1,1,2]
                     *              0             0             1 
-   180 schedule[15,4,3]
+    48 interaction[1,1,1,3]
                     *              0             0             1 
-   181 schedule[1,5,1]
+    49 interaction[1,1,2,1]
                     *              0             0             1 
-   182 schedule[2,5,1]
+    50 interaction[1,1,2,2]
                     *              1             0             1 
-   183 schedule[3,5,1]
-                    *              1             0             1 
-   184 schedule[4,5,1]
+    51 interaction[1,1,2,3]
                     *              0             0             1 
-   185 schedule[5,5,1]
-                    *              0             0             1 
-   186 schedule[6,5,1]
+    52 interaction[1,1,3,1]
                     *              1             0             1 
-   187 schedule[7,5,1]
-                    *              0             0             1 
-   188 schedule[8,5,1]
-                    *              0             0             1 
-   189 schedule[9,5,1]
-                    *              0             0             1 
-   190 schedule[10,5,1]
-                    *              0             0             1 
-   191 schedule[11,5,1]
+    53 interaction[1,1,3,2]
                     *              0             0             1 
-   192 schedule[12,5,1]
+    54 interaction[1,1,3,3]
                     *              0             0             1 
-   193 schedule[13,5,1]
+    55 interaction[1,2,1,1]
                     *              0             0             1 
-   194 schedule[14,5,1]
+    56 interaction[1,2,1,2]
                     *              0             0             1 
-   195 schedule[15,5,1]
+    57 interaction[1,2,1,3]
                     *              0             0             1 
-   196 schedule[1,5,2]
+    58 interaction[1,2,2,1]
                     *              0             0             1 
-   197 schedule[2,5,2]
+    59 interaction[1,2,2,2]
                     *              0             0             1 
-   198 schedule[3,5,2]
+    60 interaction[1,2,2,3]
                     *              0             0             1 
-   199 schedule[4,5,2]
-                    *              1             0             1 
-   200 schedule[5,5,2]
-                    *              0             0             1 
-   201 schedule[6,5,2]
-                    *              0             0             1 
-   202 schedule[7,5,2]
+    61 interaction[1,2,3,1]
                     *              0             0             1 
-   203 schedule[8,5,2]
+    62 interaction[1,2,3,2]
                     *              0             0             1 
-   204 schedule[9,5,2]
+    63 interaction[1,2,3,3]
                     *              0             0             1 
-   205 schedule[10,5,2]
+    64 interaction[1,3,1,1]
                     *              0             0             1 
-   206 schedule[11,5,2]
+    65 interaction[1,3,1,2]
                     *              0             0             1 
-   207 schedule[12,5,2]
+    66 interaction[1,3,1,3]
                     *              0             0             1 
-   208 schedule[13,5,2]
-                    *              0             0             1 
-   209 schedule[14,5,2]
-                    *              0             0             1 
-   210 schedule[15,5,2]
-                    *              1             0             1 
-   211 schedule[1,5,3]
-                    *              1             0             1 
-   212 schedule[2,5,3]
+    67 interaction[1,3,2,1]
                     *              0             0             1 
-   213 schedule[3,5,3]
+    68 interaction[1,3,2,2]
                     *              0             0             1 
-   214 schedule[4,5,3]
+    69 interaction[1,3,2,3]
                     *              0             0             1 
-   215 schedule[5,5,3]
+    70 interaction[1,3,3,1]
                     *              1             0             1 
-   216 schedule[6,5,3]
-                    *              0             0             1 
-   217 schedule[7,5,3]
-                    *              0             0             1 
-   218 schedule[8,5,3]
-                    *              0             0             1 
-   219 schedule[9,5,3]
-                    *              0             0             1 
-   220 schedule[10,5,3]
-                    *              0             0             1 
-   221 schedule[11,5,3]
-                    *              0             0             1 
-   222 schedule[12,5,3]
+    71 interaction[1,3,3,2]
                     *              0             0             1 
-   223 schedule[13,5,3]
+    72 interaction[1,3,3,3]
                     *              0             0             1 
-   224 schedule[14,5,3]
+    73 interaction[1,4,1,1]
                     *              0             0             1 
-   225 schedule[15,5,3]
+    74 interaction[1,4,1,2]
                     *              0             0             1 
-   226 schedule[1,6,1]
+    75 interaction[1,4,1,3]
                     *              0             0             1 
-   227 schedule[2,6,1]
-                    *              1             0             1 
-   228 schedule[3,6,1]
-                    *              1             0             1 
-   229 schedule[4,6,1]
-                    *              0             0             1 
-   230 schedule[5,6,1]
+    76 interaction[1,4,2,1]
                     *              0             0             1 
-   231 schedule[6,6,1]
+    77 interaction[1,4,2,2]
                     *              0             0             1 
-   232 schedule[7,6,1]
-                    *              1             0             1 
-   233 schedule[8,6,1]
+    78 interaction[1,4,2,3]
                     *              0             0             1 
-   234 schedule[9,6,1]
+    79 interaction[1,4,3,1]
                     *              0             0             1 
-   235 schedule[10,6,1]
+    80 interaction[1,4,3,2]
                     *              0             0             1 
-   236 schedule[11,6,1]
+    81 interaction[1,4,3,3]
                     *              0             0             1 
-   237 schedule[12,6,1]
+    82 interaction[1,5,1,1]
                     *              0             0             1 
-   238 schedule[13,6,1]
+    83 interaction[1,5,1,2]
                     *              0             0             1 
-   239 schedule[14,6,1]
+    84 interaction[1,5,1,3]
                     *              0             0             1 
-   240 schedule[15,6,1]
+    85 interaction[1,5,2,1]
                     *              0             0             1 
-   241 schedule[1,6,2]
+    86 interaction[1,5,2,2]
                     *              0             0             1 
-   242 schedule[2,6,2]
+    87 interaction[1,5,2,3]
                     *              0             0             1 
-   243 schedule[3,6,2]
+    88 interaction[1,5,3,1]
                     *              0             0             1 
-   244 schedule[4,6,2]
-                    *              0             0             1 
-   245 schedule[5,6,2]
-                    *              1             0             1 
-   246 schedule[6,6,2]
+    89 interaction[1,5,3,2]
                     *              0             0             1 
-   247 schedule[7,6,2]
+    90 interaction[1,5,3,3]
                     *              0             0             1 
-   248 schedule[8,6,2]
+    91 interaction[2,1,1,1]
                     *              0             0             1 
-   249 schedule[9,6,2]
+    92 interaction[2,1,1,2]
                     *              0             0             1 
-   250 schedule[10,6,2]
+    93 interaction[2,1,1,3]
                     *              0             0             1 
-   251 schedule[11,6,2]
+    94 interaction[2,1,2,1]
                     *              0             0             1 
-   252 schedule[12,6,2]
+    95 interaction[2,1,2,2]
                     *              0             0             1 
-   253 schedule[13,6,2]
+    96 interaction[2,1,2,3]
                     *              0             0             1 
-   254 schedule[14,6,2]
+    97 interaction[2,1,3,1]
                     *              0             0             1 
-   255 schedule[15,6,2]
-                    *              1             0             1 
-   256 schedule[1,6,3]
-                    *              1             0             1 
-   257 schedule[2,6,3]
+    98 interaction[2,1,3,2]
                     *              0             0             1 
-   258 schedule[3,6,3]
+    99 interaction[2,1,3,3]
                     *              0             0             1 
-   259 schedule[4,6,3]
-                    *              1             0             1 
-   260 schedule[5,6,3]
+   100 interaction[2,2,1,1]
                     *              0             0             1 
-   261 schedule[6,6,3]
+   101 interaction[2,2,1,2]
                     *              1             0             1 
-   262 schedule[7,6,3]
-                    *              0             0             1 
-   263 schedule[8,6,3]
-                    *              0             0             1 
-   264 schedule[9,6,3]
-                    *              0             0             1 
-   265 schedule[10,6,3]
+   102 interaction[2,2,1,3]
                     *              0             0             1 
-   266 schedule[11,6,3]
+   103 interaction[2,2,2,1]
                     *              0             0             1 
-   267 schedule[12,6,3]
+   104 interaction[2,2,2,2]
                     *              0             0             1 
-   268 schedule[13,6,3]
+   105 interaction[2,2,2,3]
                     *              0             0             1 
-   269 schedule[14,6,3]
+   106 interaction[2,2,3,1]
                     *              0             0             1 
-   270 schedule[15,6,3]
+   107 interaction[2,2,3,2]
                     *              0             0             1 
-   271 schedule[1,7,1]
+   108 interaction[2,2,3,3]
                     *              0             0             1 
-   272 schedule[2,7,1]
-                    *              1             0             1 
-   273 schedule[3,7,1]
-                    *              0             0             1 
-   274 schedule[4,7,1]
-                    *              0             0             1 
-   275 schedule[5,7,1]
+   109 interaction[2,3,1,1]
                     *              0             0             1 
-   276 schedule[6,7,1]
-                    *              0             0             1 
-   277 schedule[7,7,1]
+   110 interaction[2,3,1,2]
                     *              1             0             1 
-   278 schedule[8,7,1]
-                    *              0             0             1 
-   279 schedule[9,7,1]
-                    *              0             0             1 
-   280 schedule[10,7,1]
+   111 interaction[2,3,1,3]
                     *              0             0             1 
-   281 schedule[11,7,1]
+   112 interaction[2,3,2,1]
                     *              0             0             1 
-   282 schedule[12,7,1]
+   113 interaction[2,3,2,2]
                     *              0             0             1 
-   283 schedule[13,7,1]
+   114 interaction[2,3,2,3]
                     *              0             0             1 
-   284 schedule[14,7,1]
+   115 interaction[2,3,3,1]
                     *              0             0             1 
-   285 schedule[15,7,1]
+   116 interaction[2,3,3,2]
                     *              0             0             1 
-   286 schedule[1,7,2]
+   117 interaction[2,3,3,3]
                     *              0             0             1 
-   287 schedule[2,7,2]
+   118 interaction[2,4,1,1]
                     *              0             0             1 
-   288 schedule[3,7,2]
-                    *              1             0             1 
-   289 schedule[4,7,2]
-                    *              0             0             1 
-   290 schedule[5,7,2]
-                    *              0             0             1 
-   291 schedule[6,7,2]
+   119 interaction[2,4,1,2]
                     *              0             0             1 
-   292 schedule[7,7,2]
+   120 interaction[2,4,1,3]
                     *              0             0             1 
-   293 schedule[8,7,2]
+   121 interaction[2,4,2,1]
                     *              0             0             1 
-   294 schedule[9,7,2]
+   122 interaction[2,4,2,2]
                     *              0             0             1 
-   295 schedule[10,7,2]
+   123 interaction[2,4,2,3]
                     *              0             0             1 
-   296 schedule[11,7,2]
+   124 interaction[2,4,3,1]
                     *              0             0             1 
-   297 schedule[12,7,2]
+   125 interaction[2,4,3,2]
                     *              0             0             1 
-   298 schedule[13,7,2]
-                    *              0             0             1 
-   299 schedule[14,7,2]
-                    *              0             0             1 
-   300 schedule[15,7,2]
-                    *              1             0             1 
-   301 schedule[1,7,3]
-                    *              1             0             1 
-   302 schedule[2,7,3]
+   126 interaction[2,4,3,3]
                     *              0             0             1 
-   303 schedule[3,7,3]
+   127 interaction[2,5,1,1]
                     *              0             0             1 
-   304 schedule[4,7,3]
+   128 interaction[2,5,1,2]
                     *              0             0             1 
-   305 schedule[5,7,3]
-                    *              1             0             1 
-   306 schedule[6,7,3]
+   129 interaction[2,5,1,3]
                     *              0             0             1 
-   307 schedule[7,7,3]
+   130 interaction[2,5,2,1]
                     *              0             0             1 
-   308 schedule[8,7,3]
+   131 interaction[2,5,2,2]
                     *              0             0             1 
-   309 schedule[9,7,3]
+   132 interaction[2,5,2,3]
                     *              0             0             1 
-   310 schedule[10,7,3]
+   133 interaction[2,5,3,1]
                     *              0             0             1 
-   311 schedule[11,7,3]
+   134 interaction[2,5,3,2]
                     *              0             0             1 
-   312 schedule[12,7,3]
+   135 interaction[2,5,3,3]
                     *              0             0             1 
-   313 schedule[13,7,3]
+   136 interaction[3,1,1,1]
                     *              0             0             1 
-   314 schedule[14,7,3]
+   137 interaction[3,1,1,2]
                     *              0             0             1 
-   315 schedule[15,7,3]
+   138 interaction[3,1,1,3]
                     *              0             0             1 
-   316 schedule[1,8,1]
+   139 interaction[3,1,2,1]
                     *              0             0             1 
-   317 schedule[2,8,1]
-                    *              1             0             1 
-   318 schedule[3,8,1]
-                    *              1             0             1 
-   319 schedule[4,8,1]
-                    *              1             0             1 
-   320 schedule[5,8,1]
+   140 interaction[3,1,2,2]
                     *              0             0             1 
-   321 schedule[6,8,1]
+   141 interaction[3,1,2,3]
                     *              0             0             1 
-   322 schedule[7,8,1]
+   142 interaction[3,1,3,1]
                     *              1             0             1 
-   323 schedule[8,8,1]
-                    *              0             0             1 
-   324 schedule[9,8,1]
-                    *              0             0             1 
-   325 schedule[10,8,1]
-                    *              0             0             1 
-   326 schedule[11,8,1]
-                    *              0             0             1 
-   327 schedule[12,8,1]
-                    *              0             0             1 
-   328 schedule[13,8,1]
-                    *              0             0             1 
-   329 schedule[14,8,1]
-                    *              0             0             1 
-   330 schedule[15,8,1]
-                    *              0             0             1 
-   331 schedule[1,8,2]
-                    *              0             0             1 
-   332 schedule[2,8,2]
+   143 interaction[3,1,3,2]
                     *              0             0             1 
-   333 schedule[3,8,2]
+   144 interaction[3,1,3,3]
                     *              0             0             1 
-   334 schedule[4,8,2]
+   145 interaction[3,2,1,1]
                     *              0             0             1 
-   335 schedule[5,8,2]
+   146 interaction[3,2,1,2]
                     *              1             0             1 
-   336 schedule[6,8,2]
+   147 interaction[3,2,1,3]
                     *              0             0             1 
-   337 schedule[7,8,2]
+   148 interaction[3,2,2,1]
                     *              0             0             1 
-   338 schedule[8,8,2]
+   149 interaction[3,2,2,2]
                     *              0             0             1 
-   339 schedule[9,8,2]
+   150 interaction[3,2,2,3]
                     *              0             0             1 
-   340 schedule[10,8,2]
+   151 interaction[3,2,3,1]
                     *              0             0             1 
-   341 schedule[11,8,2]
+   152 interaction[3,2,3,2]
                     *              0             0             1 
-   342 schedule[12,8,2]
+   153 interaction[3,2,3,3]
                     *              0             0             1 
-   343 schedule[13,8,2]
+   154 interaction[3,3,1,1]
                     *              0             0             1 
-   344 schedule[14,8,2]
-                    *              0             0             1 
-   345 schedule[15,8,2]
-                    *              1             0             1 
-   346 schedule[1,8,3]
-                    *              1             0             1 
-   347 schedule[2,8,3]
-                    *              0             0             1 
-   348 schedule[3,8,3]
-                    *              0             0             1 
-   349 schedule[4,8,3]
-                    *              0             0             1 
-   350 schedule[5,8,3]
-                    *              0             0             1 
-   351 schedule[6,8,3]
+   155 interaction[3,3,1,2]
                     *              1             0             1 
-   352 schedule[7,8,3]
-                    *              0             0             1 
-   353 schedule[8,8,3]
-                    *              0             0             1 
-   354 schedule[9,8,3]
-                    *              0             0             1 
-   355 schedule[10,8,3]
-                    *              0             0             1 
-   356 schedule[11,8,3]
-                    *              0             0             1 
-   357 schedule[12,8,3]
-                    *              0             0             1 
-   358 schedule[13,8,3]
+   156 interaction[3,3,1,3]
                     *              0             0             1 
-   359 schedule[14,8,3]
-                    *              0             0             1 
-   360 schedule[15,8,3]
-                    *              0             0             1 
-   361 schedule[1,9,1]
-                    *              0             0             1 
-   362 schedule[2,9,1]
+   157 interaction[3,3,2,1]
                     *              1             0             1 
-   363 schedule[3,9,1]
+   158 interaction[3,3,2,2]
                     *              0             0             1 
-   364 schedule[4,9,1]
+   159 interaction[3,3,2,3]
                     *              0             0             1 
-   365 schedule[5,9,1]
-                    *              0             0             1 
-   366 schedule[6,9,1]
-                    *              0             0             1 
-   367 schedule[7,9,1]
+   160 interaction[3,3,3,1]
                     *              1             0             1 
-   368 schedule[8,9,1]
-                    *              0             0             1 
-   369 schedule[9,9,1]
-                    *              0             0             1 
-   370 schedule[10,9,1]
-                    *              0             0             1 
-   371 schedule[11,9,1]
-                    *              0             0             1 
-   372 schedule[12,9,1]
-                    *              0             0             1 
-   373 schedule[13,9,1]
-                    *              0             0             1 
-   374 schedule[14,9,1]
-                    *              0             0             1 
-   375 schedule[15,9,1]
+   161 interaction[3,3,3,2]
                     *              0             0             1 
-   376 schedule[1,9,2]
+   162 interaction[3,3,3,3]
                     *              0             0             1 
-   377 schedule[2,9,2]
+   163 interaction[3,4,1,1]
                     *              0             0             1 
-   378 schedule[3,9,2]
+   164 interaction[3,4,1,2]
                     *              0             0             1 
-   379 schedule[4,9,2]
+   165 interaction[3,4,1,3]
                     *              0             0             1 
-   380 schedule[5,9,2]
-                    *              1             0             1 
-   381 schedule[6,9,2]
+   166 interaction[3,4,2,1]
                     *              0             0             1 
-   382 schedule[7,9,2]
+   167 interaction[3,4,2,2]
                     *              0             0             1 
-   383 schedule[8,9,2]
+   168 interaction[3,4,2,3]
                     *              0             0             1 
-   384 schedule[9,9,2]
+   169 interaction[3,4,3,1]
                     *              0             0             1 
-   385 schedule[10,9,2]
+   170 interaction[3,4,3,2]
                     *              0             0             1 
-   386 schedule[11,9,2]
+   171 interaction[3,4,3,3]
                     *              0             0             1 
-   387 schedule[12,9,2]
+   172 interaction[3,5,1,1]
                     *              0             0             1 
-   388 schedule[13,9,2]
+   173 interaction[3,5,1,2]
                     *              0             0             1 
-   389 schedule[14,9,2]
-                    *              0             0             1 
-   390 schedule[15,9,2]
-                    *              1             0             1 
-   391 schedule[1,9,3]
-                    *              1             0             1 
-   392 schedule[2,9,3]
+   174 interaction[3,5,1,3]
                     *              0             0             1 
-   393 schedule[3,9,3]
-                    *              1             0             1 
-   394 schedule[4,9,3]
-                    *              1             0             1 
-   395 schedule[5,9,3]
+   175 interaction[3,5,2,1]
                     *              0             0             1 
-   396 schedule[6,9,3]
-                    *              1             0             1 
-   397 schedule[7,9,3]
+   176 interaction[3,5,2,2]
                     *              0             0             1 
-   398 schedule[8,9,3]
+   177 interaction[3,5,2,3]
                     *              0             0             1 
-   399 schedule[9,9,3]
+   178 interaction[3,5,3,1]
                     *              0             0             1 
-   400 schedule[10,9,3]
+   179 interaction[3,5,3,2]
                     *              0             0             1 
-   401 schedule[11,9,3]
+   180 interaction[3,5,3,3]
                     *              0             0             1 
-   402 schedule[12,9,3]
+   181 interaction[4,1,1,1]
                     *              0             0             1 
-   403 schedule[13,9,3]
+   182 interaction[4,1,1,2]
                     *              0             0             1 
-   404 schedule[14,9,3]
+   183 interaction[4,1,1,3]
                     *              0             0             1 
-   405 schedule[15,9,3]
+   184 interaction[4,1,2,1]
                     *              0             0             1 
-   406 schedule[1,10,1]
+   185 interaction[4,1,2,2]
                     *              0             0             1 
-   407 schedule[2,10,1]
-                    *              1             0             1 
-   408 schedule[3,10,1]
+   186 interaction[4,1,2,3]
                     *              0             0             1 
-   409 schedule[4,10,1]
+   187 interaction[4,1,3,1]
                     *              0             0             1 
-   410 schedule[5,10,1]
-                    *              1             0             1 
-   411 schedule[6,10,1]
+   188 interaction[4,1,3,2]
                     *              0             0             1 
-   412 schedule[7,10,1]
+   189 interaction[4,1,3,3]
                     *              0             0             1 
-   413 schedule[8,10,1]
-                    *              1             0             1 
-   414 schedule[9,10,1]
+   190 interaction[4,2,1,1]
                     *              0             0             1 
-   415 schedule[10,10,1]
+   191 interaction[4,2,1,2]
                     *              0             0             1 
-   416 schedule[11,10,1]
+   192 interaction[4,2,1,3]
                     *              0             0             1 
-   417 schedule[12,10,1]
+   193 interaction[4,2,2,1]
                     *              0             0             1 
-   418 schedule[13,10,1]
+   194 interaction[4,2,2,2]
                     *              0             0             1 
-   419 schedule[14,10,1]
+   195 interaction[4,2,2,3]
                     *              0             0             1 
-   420 schedule[15,10,1]
+   196 interaction[4,2,3,1]
                     *              0             0             1 
-   421 schedule[1,10,2]
+   197 interaction[4,2,3,2]
                     *              0             0             1 
-   422 schedule[2,10,2]
+   198 interaction[4,2,3,3]
                     *              0             0             1 
-   423 schedule[3,10,2]
-                    *              1             0             1 
-   424 schedule[4,10,2]
-                    *              1             0             1 
-   425 schedule[5,10,2]
+   199 interaction[4,3,1,1]
                     *              0             0             1 
-   426 schedule[6,10,2]
-                    *              1             0             1 
-   427 schedule[7,10,2]
+   200 interaction[4,3,1,2]
                     *              0             0             1 
-   428 schedule[8,10,2]
+   201 interaction[4,3,1,3]
                     *              0             0             1 
-   429 schedule[9,10,2]
+   202 interaction[4,3,2,1]
                     *              0             0             1 
-   430 schedule[10,10,2]
+   203 interaction[4,3,2,2]
                     *              0             0             1 
-   431 schedule[11,10,2]
+   204 interaction[4,3,2,3]
                     *              0             0             1 
-   432 schedule[12,10,2]
+   205 interaction[4,3,3,1]
                     *              0             0             1 
-   433 schedule[13,10,2]
+   206 interaction[4,3,3,2]
                     *              0             0             1 
-   434 schedule[14,10,2]
+   207 interaction[4,3,3,3]
                     *              0             0             1 
-   435 schedule[15,10,2]
+   208 interaction[4,4,1,1]
                     *              1             0             1 
-   436 schedule[1,10,3]
-                    *              1             0             1 
-   437 schedule[2,10,3]
+   209 interaction[4,4,1,2]
                     *              0             0             1 
-   438 schedule[3,10,3]
+   210 interaction[4,4,1,3]
                     *              0             0             1 
-   439 schedule[4,10,3]
+   211 interaction[4,4,2,1]
                     *              0             0             1 
-   440 schedule[5,10,3]
+   212 interaction[4,4,2,2]
                     *              0             0             1 
-   441 schedule[6,10,3]
-                    *              0             0             1 
-   442 schedule[7,10,3]
+   213 interaction[4,4,2,3]
                     *              1             0             1 
-   443 schedule[8,10,3]
-                    *              0             0             1 
-   444 schedule[9,10,3]
-                    *              0             0             1 
-   445 schedule[10,10,3]
-                    *              0             0             1 
-   446 schedule[11,10,3]
-                    *              0             0             1 
-   447 schedule[12,10,3]
+   214 interaction[4,4,3,1]
                     *              0             0             1 
-   448 schedule[13,10,3]
+   215 interaction[4,4,3,2]
                     *              0             0             1 
-   449 schedule[14,10,3]
-                    *              0             0             1 
-   450 schedule[15,10,3]
-                    *              0             0             1 
-   451 schedule[1,11,1]
-                    *              0             0             1 
-   452 schedule[2,11,1]
+   216 interaction[4,4,3,3]
                     *              1             0             1 
-   453 schedule[3,11,1]
-                    *              1             0             1 
-   454 schedule[4,11,1]
-                    *              1             0             1 
-   455 schedule[5,11,1]
-                    *              0             0             1 
-   456 schedule[6,11,1]
+   217 interaction[4,5,1,1]
                     *              0             0             1 
-   457 schedule[7,11,1]
+   218 interaction[4,5,1,2]
                     *              0             0             1 
-   458 schedule[8,11,1]
+   219 interaction[4,5,1,3]
                     *              0             0             1 
-   459 schedule[9,11,1]
-                    *              1             0             1 
-   460 schedule[10,11,1]
+   220 interaction[4,5,2,1]
                     *              0             0             1 
-   461 schedule[11,11,1]
+   221 interaction[4,5,2,2]
                     *              0             0             1 
-   462 schedule[12,11,1]
+   222 interaction[4,5,2,3]
                     *              0             0             1 
-   463 schedule[13,11,1]
+   223 interaction[4,5,3,1]
                     *              0             0             1 
-   464 schedule[14,11,1]
+   224 interaction[4,5,3,2]
                     *              0             0             1 
-   465 schedule[15,11,1]
+   225 interaction[4,5,3,3]
                     *              0             0             1 
-   466 schedule[1,11,2]
+   226 interaction[5,1,1,1]
                     *              0             0             1 
-   467 schedule[2,11,2]
+   227 interaction[5,1,1,2]
                     *              0             0             1 
-   468 schedule[3,11,2]
+   228 interaction[5,1,1,3]
                     *              0             0             1 
-   469 schedule[4,11,2]
+   229 interaction[5,1,2,1]
                     *              0             0             1 
-   470 schedule[5,11,2]
+   230 interaction[5,1,2,2]
                     *              0             0             1 
-   471 schedule[6,11,2]
-                    *              0             0             1 
-   472 schedule[7,11,2]
-                    *              1             0             1 
-   473 schedule[8,11,2]
+   231 interaction[5,1,2,3]
                     *              0             0             1 
-   474 schedule[9,11,2]
+   232 interaction[5,1,3,1]
                     *              0             0             1 
-   475 schedule[10,11,2]
+   233 interaction[5,1,3,2]
                     *              0             0             1 
-   476 schedule[11,11,2]
+   234 interaction[5,1,3,3]
                     *              0             0             1 
-   477 schedule[12,11,2]
+   235 interaction[5,2,1,1]
                     *              0             0             1 
-   478 schedule[13,11,2]
+   236 interaction[5,2,1,2]
                     *              0             0             1 
-   479 schedule[14,11,2]
+   237 interaction[5,2,1,3]
                     *              0             0             1 
-   480 schedule[15,11,2]
-                    *              1             0             1 
-   481 schedule[1,11,3]
-                    *              1             0             1 
-   482 schedule[2,11,3]
+   238 interaction[5,2,2,1]
                     *              0             0             1 
-   483 schedule[3,11,3]
+   239 interaction[5,2,2,2]
                     *              0             0             1 
-   484 schedule[4,11,3]
+   240 interaction[5,2,2,3]
                     *              0             0             1 
-   485 schedule[5,11,3]
-                    *              1             0             1 
-   486 schedule[6,11,3]
-                    *              1             0             1 
-   487 schedule[7,11,3]
+   241 interaction[5,2,3,1]
                     *              0             0             1 
-   488 schedule[8,11,3]
-                    *              1             0             1 
-   489 schedule[9,11,3]
+   242 interaction[5,2,3,2]
                     *              0             0             1 
-   490 schedule[10,11,3]
+   243 interaction[5,2,3,3]
                     *              0             0             1 
-   491 schedule[11,11,3]
+   244 interaction[5,3,1,1]
                     *              0             0             1 
-   492 schedule[12,11,3]
+   245 interaction[5,3,1,2]
                     *              0             0             1 
-   493 schedule[13,11,3]
+   246 interaction[5,3,1,3]
                     *              0             0             1 
-   494 schedule[14,11,3]
+   247 interaction[5,3,2,1]
                     *              0             0             1 
-   495 schedule[15,11,3]
+   248 interaction[5,3,2,2]
                     *              0             0             1 
-   496 schedule[1,12,1]
+   249 interaction[5,3,2,3]
                     *              0             0             1 
-   497 schedule[2,12,1]
-                    *              1             0             1 
-   498 schedule[3,12,1]
+   250 interaction[5,3,3,1]
                     *              0             0             1 
-   499 schedule[4,12,1]
+   251 interaction[5,3,3,2]
                     *              0             0             1 
-   500 schedule[5,12,1]
+   252 interaction[5,3,3,3]
                     *              0             0             1 
-   501 schedule[6,12,1]
+   253 interaction[5,4,1,1]
                     *              0             0             1 
-   502 schedule[7,12,1]
-                    *              1             0             1 
-   503 schedule[8,12,1]
+   254 interaction[5,4,1,2]
                     *              0             0             1 
-   504 schedule[9,12,1]
+   255 interaction[5,4,1,3]
                     *              0             0             1 
-   505 schedule[10,12,1]
+   256 interaction[5,4,2,1]
                     *              0             0             1 
-   506 schedule[11,12,1]
+   257 interaction[5,4,2,2]
                     *              0             0             1 
-   507 schedule[12,12,1]
+   258 interaction[5,4,2,3]
                     *              0             0             1 
-   508 schedule[13,12,1]
+   259 interaction[5,4,3,1]
                     *              0             0             1 
-   509 schedule[14,12,1]
+   260 interaction[5,4,3,2]
                     *              0             0             1 
-   510 schedule[15,12,1]
+   261 interaction[5,4,3,3]
                     *              0             0             1 
-   511 schedule[1,12,2]
+   262 interaction[5,5,1,1]
                     *              0             0             1 
-   512 schedule[2,12,2]
+   263 interaction[5,5,1,2]
                     *              0             0             1 
-   513 schedule[3,12,2]
-                    *              1             0             1 
-   514 schedule[4,12,2]
+   264 interaction[5,5,1,3]
                     *              1             0             1 
-   515 schedule[5,12,2]
-                    *              0             0             1 
-   516 schedule[6,12,2]
-                    *              0             0             1 
-   517 schedule[7,12,2]
+   265 interaction[5,5,2,1]
                     *              0             0             1 
-   518 schedule[8,12,2]
+   266 interaction[5,5,2,2]
                     *              0             0             1 
-   519 schedule[9,12,2]
+   267 interaction[5,5,2,3]
                     *              0             0             1 
-   520 schedule[10,12,2]
+   268 interaction[5,5,3,1]
                     *              0             0             1 
-   521 schedule[11,12,2]
-                    *              0             0             1 
-   522 schedule[12,12,2]
-                    *              0             0             1 
-   523 schedule[13,12,2]
-                    *              0             0             1 
-   524 schedule[14,12,2]
-                    *              0             0             1 
-   525 schedule[15,12,2]
-                    *              1             0             1 
-   526 schedule[1,12,3]
-                    *              1             0             1 
-   527 schedule[2,12,3]
-                    *              0             0             1 
-   528 schedule[3,12,3]
-                    *              0             0             1 
-   529 schedule[4,12,3]
-                    *              0             0             1 
-   530 schedule[5,12,3]
+   269 interaction[5,5,3,2]
                     *              1             0             1 
-   531 schedule[6,12,3]
-                    *              0             0             1 
-   532 schedule[7,12,3]
-                    *              0             0             1 
-   533 schedule[8,12,3]
-                    *              0             0             1 
-   534 schedule[9,12,3]
+   270 interaction[5,5,3,3]
                     *              0             0             1 
-   535 schedule[10,12,3]
+   271 sched_preferred[1,1,1]
                     *              0             0             1 
-   536 schedule[11,12,3]
+   272 sched_preferred[1,1,2]
                     *              0             0             1 
-   537 schedule[12,12,3]
+   273 sched_preferred[1,1,3]
                     *              0             0             1 
-   538 schedule[13,12,3]
+   274 sched_preferred[1,2,1]
                     *              0             0             1 
-   539 schedule[14,12,3]
+   275 sched_preferred[1,2,2]
                     *              0             0             1 
-   540 schedule[15,12,3]
+   276 sched_preferred[1,2,3]
                     *              0             0             1 
-   541 schedule[1,13,1]
-                    *              0             0             1 
-   542 schedule[2,13,1]
+   277 sched_preferred[1,3,1]
                     *              1             0             1 
-   543 schedule[3,13,1]
-                    *              0             0             1 
-   544 schedule[4,13,1]
-                    *              0             0             1 
-   545 schedule[5,13,1]
+   278 sched_preferred[1,3,2]
                     *              0             0             1 
-   546 schedule[6,13,1]
+   279 sched_preferred[1,3,3]
                     *              0             0             1 
-   547 schedule[7,13,1]
+   280 sched_preferred[2,1,1]
                     *              0             0             1 
-   548 schedule[8,13,1]
+   281 sched_preferred[2,1,2]
                     *              1             0             1 
-   549 schedule[9,13,1]
+   282 sched_preferred[2,1,3]
                     *              0             0             1 
-   550 schedule[10,13,1]
+   283 sched_preferred[2,2,1]
                     *              0             0             1 
-   551 schedule[11,13,1]
+   284 sched_preferred[2,2,2]
                     *              0             0             1 
-   552 schedule[12,13,1]
+   285 sched_preferred[2,2,3]
                     *              0             0             1 
-   553 schedule[13,13,1]
+   286 sched_preferred[2,3,1]
                     *              0             0             1 
-   554 schedule[14,13,1]
+   287 sched_preferred[2,3,2]
                     *              0             0             1 
-   555 schedule[15,13,1]
+   288 sched_preferred[2,3,3]
                     *              0             0             1 
-   556 schedule[1,13,2]
+   289 sched_preferred[3,1,1]
                     *              0             0             1 
-   557 schedule[2,13,2]
+   290 sched_preferred[3,1,2]
                     *              0             0             1 
-   558 schedule[3,13,2]
+   291 sched_preferred[3,1,3]
                     *              0             0             1 
-   559 schedule[4,13,2]
-                    *              0             0             1 
-   560 schedule[5,13,2]
+   292 sched_preferred[3,2,1]
                     *              1             0             1 
-   561 schedule[6,13,2]
-                    *              1             0             1 
-   562 schedule[7,13,2]
-                    *              0             0             1 
-   563 schedule[8,13,2]
+   293 sched_preferred[3,2,2]
                     *              0             0             1 
-   564 schedule[9,13,2]
+   294 sched_preferred[3,2,3]
                     *              0             0             1 
-   565 schedule[10,13,2]
+   295 sched_preferred[3,3,1]
                     *              0             0             1 
-   566 schedule[11,13,2]
+   296 sched_preferred[3,3,2]
                     *              0             0             1 
-   567 schedule[12,13,2]
+   297 sched_preferred[3,3,3]
                     *              0             0             1 
-   568 schedule[13,13,2]
+   298 sched_preferred[4,1,1]
                     *              0             0             1 
-   569 schedule[14,13,2]
+   299 sched_preferred[4,1,2]
                     *              0             0             1 
-   570 schedule[15,13,2]
-                    *              1             0             1 
-   571 schedule[1,13,3]
-                    *              1             0             1 
-   572 schedule[2,13,3]
+   300 sched_preferred[4,1,3]
                     *              0             0             1 
-   573 schedule[3,13,3]
-                    *              1             0             1 
-   574 schedule[4,13,3]
-                    *              1             0             1 
-   575 schedule[5,13,3]
+   301 sched_preferred[4,2,1]
                     *              0             0             1 
-   576 schedule[6,13,3]
+   302 sched_preferred[4,2,2]
                     *              0             0             1 
-   577 schedule[7,13,3]
+   303 sched_preferred[4,2,3]
                     *              1             0             1 
-   578 schedule[8,13,3]
-                    *              0             0             1 
-   579 schedule[9,13,3]
-                    *              0             0             1 
-   580 schedule[10,13,3]
-                    *              0             0             1 
-   581 schedule[11,13,3]
+   304 sched_preferred[4,3,1]
                     *              0             0             1 
-   582 schedule[12,13,3]
+   305 sched_preferred[4,3,2]
                     *              0             0             1 
-   583 schedule[13,13,3]
+   306 sched_preferred[4,3,3]
                     *              0             0             1 
-   584 schedule[14,13,3]
+   307 sched_preferred[5,1,1]
                     *              0             0             1 
-   585 schedule[15,13,3]
+   308 sched_preferred[5,1,2]
                     *              0             0             1 
-   586 schedule[1,14,1]
+   309 sched_preferred[5,1,3]
                     *              0             0             1 
-   587 schedule[2,14,1]
-                    *              1             0             1 
-   588 schedule[3,14,1]
+   310 sched_preferred[5,2,1]
                     *              0             0             1 
-   589 schedule[4,14,1]
+   311 sched_preferred[5,2,2]
                     *              0             0             1 
-   590 schedule[5,14,1]
+   312 sched_preferred[5,2,3]
                     *              0             0             1 
-   591 schedule[6,14,1]
+   313 sched_preferred[5,3,1]
                     *              0             0             1 
-   592 schedule[7,14,1]
-                    *              0             0             1 
-   593 schedule[8,14,1]
+   314 sched_preferred[5,3,2]
                     *              1             0             1 
-   594 schedule[9,14,1]
-                    *              0             0             1 
-   595 schedule[10,14,1]
+   315 sched_preferred[5,3,3]
                     *              0             0             1 
-   596 schedule[11,14,1]
+   316 sched_unpreferred[1,1,1]
                     *              0             0             1 
-   597 schedule[12,14,1]
+   317 sched_unpreferred[1,1,2]
                     *              0             0             1 
-   598 schedule[13,14,1]
+   318 sched_unpreferred[1,1,3]
                     *              0             0             1 
-   599 schedule[14,14,1]
+   319 sched_unpreferred[1,2,1]
                     *              0             0             1 
-   600 schedule[15,14,1]
+   320 sched_unpreferred[1,2,2]
                     *              0             0             1 
-   601 schedule[1,14,2]
+   321 sched_unpreferred[1,2,3]
                     *              0             0             1 
-   602 schedule[2,14,2]
+   322 sched_unpreferred[1,3,1]
                     *              0             0             1 
-   603 schedule[3,14,2]
-                    *              1             0             1 
-   604 schedule[4,14,2]
-                    *              1             0             1 
-   605 schedule[5,14,2]
-                    *              1             0             1 
-   606 schedule[6,14,2]
+   323 sched_unpreferred[1,3,2]
                     *              0             0             1 
-   607 schedule[7,14,2]
+   324 sched_unpreferred[1,3,3]
                     *              0             0             1 
-   608 schedule[8,14,2]
+   325 sched_unpreferred[2,1,1]
                     *              0             0             1 
-   609 schedule[9,14,2]
+   326 sched_unpreferred[2,1,2]
                     *              0             0             1 
-   610 schedule[10,14,2]
+   327 sched_unpreferred[2,1,3]
                     *              0             0             1 
-   611 schedule[11,14,2]
+   328 sched_unpreferred[2,2,1]
                     *              0             0             1 
-   612 schedule[12,14,2]
+   329 sched_unpreferred[2,2,2]
                     *              0             0             1 
-   613 schedule[13,14,2]
+   330 sched_unpreferred[2,2,3]
                     *              0             0             1 
-   614 schedule[14,14,2]
+   331 sched_unpreferred[2,3,1]
                     *              0             0             1 
-   615 schedule[15,14,2]
-                    *              1             0             1 
-   616 schedule[1,14,3]
-                    *              1             0             1 
-   617 schedule[2,14,3]
+   332 sched_unpreferred[2,3,2]
                     *              0             0             1 
-   618 schedule[3,14,3]
+   333 sched_unpreferred[2,3,3]
                     *              0             0             1 
-   619 schedule[4,14,3]
+   334 sched_unpreferred[3,1,1]
                     *              0             0             1 
-   620 schedule[5,14,3]
+   335 sched_unpreferred[3,1,2]
                     *              0             0             1 
-   621 schedule[6,14,3]
-                    *              1             0             1 
-   622 schedule[7,14,3]
+   336 sched_unpreferred[3,1,3]
                     *              0             0             1 
-   623 schedule[8,14,3]
+   337 sched_unpreferred[3,2,1]
                     *              0             0             1 
-   624 schedule[9,14,3]
+   338 sched_unpreferred[3,2,2]
                     *              0             0             1 
-   625 schedule[10,14,3]
+   339 sched_unpreferred[3,2,3]
                     *              0             0             1 
-   626 schedule[11,14,3]
+   340 sched_unpreferred[3,3,1]
                     *              0             0             1 
-   627 schedule[12,14,3]
+   341 sched_unpreferred[3,3,2]
                     *              0             0             1 
-   628 schedule[13,14,3]
+   342 sched_unpreferred[3,3,3]
                     *              0             0             1 
-   629 schedule[14,14,3]
+   343 sched_unpreferred[4,1,1]
                     *              0             0             1 
-   630 schedule[15,14,3]
+   344 sched_unpreferred[4,1,2]
                     *              0             0             1 
-   631 schedule[1,15,1]
+   345 sched_unpreferred[4,1,3]
                     *              0             0             1 
-   632 schedule[2,15,1]
-                    *              1             0             1 
-   633 schedule[3,15,1]
+   346 sched_unpreferred[4,2,1]
                     *              0             0             1 
-   634 schedule[4,15,1]
+   347 sched_unpreferred[4,2,2]
                     *              0             0             1 
-   635 schedule[5,15,1]
+   348 sched_unpreferred[4,2,3]
                     *              0             0             1 
-   636 schedule[6,15,1]
+   349 sched_unpreferred[4,3,1]
                     *              0             0             1 
-   637 schedule[7,15,1]
+   350 sched_unpreferred[4,3,2]
                     *              0             0             1 
-   638 schedule[8,15,1]
-                    *              1             0             1 
-   639 schedule[9,15,1]
+   351 sched_unpreferred[4,3,3]
                     *              0             0             1 
-   640 schedule[10,15,1]
+   352 sched_unpreferred[5,1,1]
                     *              0             0             1 
-   641 schedule[11,15,1]
+   353 sched_unpreferred[5,1,2]
                     *              0             0             1 
-   642 schedule[12,15,1]
+   354 sched_unpreferred[5,1,3]
                     *              0             0             1 
-   643 schedule[13,15,1]
+   355 sched_unpreferred[5,2,1]
                     *              0             0             1 
-   644 schedule[14,15,1]
+   356 sched_unpreferred[5,2,2]
                     *              0             0             1 
-   645 schedule[15,15,1]
+   357 sched_unpreferred[5,2,3]
                     *              0             0             1 
-   646 schedule[1,15,2]
+   358 sched_unpreferred[5,3,1]
                     *              0             0             1 
-   647 schedule[2,15,2]
+   359 sched_unpreferred[5,3,2]
                     *              0             0             1 
-   648 schedule[3,15,2]
+   360 sched_unpreferred[5,3,3]
                     *              0             0             1 
-   649 schedule[4,15,2]
+   361 inter_preferred[1,1,1,1]
                     *              0             0             1 
-   650 schedule[5,15,2]
-                    *              1             0             1 
-   651 schedule[6,15,2]
-                    *              1             0             1 
-   652 schedule[7,15,2]
+   362 inter_preferred[1,1,1,2]
                     *              0             0             1 
-   653 schedule[8,15,2]
+   363 inter_preferred[1,1,1,3]
                     *              0             0             1 
-   654 schedule[9,15,2]
+   364 inter_preferred[1,1,2,1]
                     *              0             0             1 
-   655 schedule[10,15,2]
+   365 inter_preferred[1,1,2,2]
                     *              0             0             1 
-   656 schedule[11,15,2]
+   366 inter_preferred[1,1,2,3]
                     *              0             0             1 
-   657 schedule[12,15,2]
+   367 inter_preferred[1,1,3,1]
                     *              0             0             1 
-   658 schedule[13,15,2]
+   368 inter_preferred[1,1,3,2]
                     *              0             0             1 
-   659 schedule[14,15,2]
+   369 inter_preferred[1,1,3,3]
                     *              0             0             1 
-   660 schedule[15,15,2]
-                    *              1             0             1 
-   661 schedule[1,15,3]
-                    *              1             0             1 
-   662 schedule[2,15,3]
+   370 inter_preferred[1,2,1,1]
                     *              0             0             1 
-   663 schedule[3,15,3]
-                    *              1             0             1 
-   664 schedule[4,15,3]
-                    *              1             0             1 
-   665 schedule[5,15,3]
+   371 inter_preferred[1,2,1,2]
                     *              0             0             1 
-   666 schedule[6,15,3]
+   372 inter_preferred[1,2,1,3]
                     *              0             0             1 
-   667 schedule[7,15,3]
-                    *              1             0             1 
-   668 schedule[8,15,3]
+   373 inter_preferred[1,2,2,1]
                     *              0             0             1 
-   669 schedule[9,15,3]
+   374 inter_preferred[1,2,2,2]
                     *              0             0             1 
-   670 schedule[10,15,3]
+   375 inter_preferred[1,2,2,3]
                     *              0             0             1 
-   671 schedule[11,15,3]
+   376 inter_preferred[1,2,3,1]
                     *              0             0             1 
-   672 schedule[12,15,3]
+   377 inter_preferred[1,2,3,2]
                     *              0             0             1 
-   673 schedule[13,15,3]
+   378 inter_preferred[1,2,3,3]
                     *              0             0             1 
-   674 schedule[14,15,3]
+   379 inter_preferred[1,3,1,1]
                     *              0             0             1 
-   675 schedule[15,15,3]
+   380 inter_preferred[1,3,1,2]
                     *              0             0             1 
-   676 schedule[1,16,1]
+   381 inter_preferred[1,3,1,3]
                     *              0             0             1 
-   677 schedule[2,16,1]
-                    *              1             0             1 
-   678 schedule[3,16,1]
+   382 inter_preferred[1,3,2,1]
                     *              0             0             1 
-   679 schedule[4,16,1]
+   383 inter_preferred[1,3,2,2]
                     *              0             0             1 
-   680 schedule[5,16,1]
-                    *              1             0             1 
-   681 schedule[6,16,1]
-                    *              1             0             1 
-   682 schedule[7,16,1]
+   384 inter_preferred[1,3,2,3]
                     *              0             0             1 
-   683 schedule[8,16,1]
+   385 inter_preferred[1,3,3,1]
                     *              1             0             1 
-   684 schedule[9,16,1]
-                    *              0             0             1 
-   685 schedule[10,16,1]
+   386 inter_preferred[1,3,3,2]
                     *              0             0             1 
-   686 schedule[11,16,1]
+   387 inter_preferred[1,3,3,3]
                     *              0             0             1 
-   687 schedule[12,16,1]
+   388 inter_preferred[1,4,1,1]
                     *              0             0             1 
-   688 schedule[13,16,1]
+   389 inter_preferred[1,4,1,2]
                     *              0             0             1 
-   689 schedule[14,16,1]
+   390 inter_preferred[1,4,1,3]
                     *              0             0             1 
-   690 schedule[15,16,1]
+   391 inter_preferred[1,4,2,1]
                     *              0             0             1 
-   691 schedule[1,16,2]
+   392 inter_preferred[1,4,2,2]
                     *              0             0             1 
-   692 schedule[2,16,2]
+   393 inter_preferred[1,4,2,3]
                     *              0             0             1 
-   693 schedule[3,16,2]
+   394 inter_preferred[1,4,3,1]
                     *              0             0             1 
-   694 schedule[4,16,2]
-                    *              1             0             1 
-   695 schedule[5,16,2]
+   395 inter_preferred[1,4,3,2]
                     *              0             0             1 
-   696 schedule[6,16,2]
+   396 inter_preferred[1,4,3,3]
                     *              0             0             1 
-   697 schedule[7,16,2]
+   397 inter_preferred[1,5,1,1]
                     *              0             0             1 
-   698 schedule[8,16,2]
+   398 inter_preferred[1,5,1,2]
                     *              0             0             1 
-   699 schedule[9,16,2]
+   399 inter_preferred[1,5,1,3]
                     *              0             0             1 
-   700 schedule[10,16,2]
+   400 inter_preferred[1,5,2,1]
                     *              0             0             1 
-   701 schedule[11,16,2]
+   401 inter_preferred[1,5,2,2]
                     *              0             0             1 
-   702 schedule[12,16,2]
+   402 inter_preferred[1,5,2,3]
                     *              0             0             1 
-   703 schedule[13,16,2]
+   403 inter_preferred[1,5,3,1]
                     *              0             0             1 
-   704 schedule[14,16,2]
+   404 inter_preferred[1,5,3,2]
                     *              0             0             1 
-   705 schedule[15,16,2]
-                    *              1             0             1 
-   706 schedule[1,16,3]
-                    *              1             0             1 
-   707 schedule[2,16,3]
+   405 inter_preferred[1,5,3,3]
                     *              0             0             1 
-   708 schedule[3,16,3]
-                    *              1             0             1 
-   709 schedule[4,16,3]
+   406 inter_preferred[2,1,1,1]
                     *              0             0             1 
-   710 schedule[5,16,3]
+   407 inter_preferred[2,1,1,2]
                     *              0             0             1 
-   711 schedule[6,16,3]
+   408 inter_preferred[2,1,1,3]
                     *              0             0             1 
-   712 schedule[7,16,3]
-                    *              1             0             1 
-   713 schedule[8,16,3]
+   409 inter_preferred[2,1,2,1]
                     *              0             0             1 
-   714 schedule[9,16,3]
+   410 inter_preferred[2,1,2,2]
                     *              0             0             1 
-   715 schedule[10,16,3]
+   411 inter_preferred[2,1,2,3]
                     *              0             0             1 
-   716 schedule[11,16,3]
+   412 inter_preferred[2,1,3,1]
                     *              0             0             1 
-   717 schedule[12,16,3]
+   413 inter_preferred[2,1,3,2]
                     *              0             0             1 
-   718 schedule[13,16,3]
+   414 inter_preferred[2,1,3,3]
                     *              0             0             1 
-   719 schedule[14,16,3]
+   415 inter_preferred[2,2,1,1]
                     *              0             0             1 
-   720 schedule[15,16,3]
+   416 inter_preferred[2,2,1,2]
                     *              0             0             1 
-   721 schedule[1,17,1]
+   417 inter_preferred[2,2,1,3]
                     *              0             0             1 
-   722 schedule[2,17,1]
-                    *              1             0             1 
-   723 schedule[3,17,1]
+   418 inter_preferred[2,2,2,1]
                     *              0             0             1 
-   724 schedule[4,17,1]
-                    *              1             0             1 
-   725 schedule[5,17,1]
+   419 inter_preferred[2,2,2,2]
                     *              0             0             1 
-   726 schedule[6,17,1]
+   420 inter_preferred[2,2,2,3]
                     *              0             0             1 
-   727 schedule[7,17,1]
+   421 inter_preferred[2,2,3,1]
                     *              0             0             1 
-   728 schedule[8,17,1]
-                    *              1             0             1 
-   729 schedule[9,17,1]
+   422 inter_preferred[2,2,3,2]
                     *              0             0             1 
-   730 schedule[10,17,1]
+   423 inter_preferred[2,2,3,3]
                     *              0             0             1 
-   731 schedule[11,17,1]
+   424 inter_preferred[2,3,1,1]
                     *              0             0             1 
-   732 schedule[12,17,1]
+   425 inter_preferred[2,3,1,2]
                     *              0             0             1 
-   733 schedule[13,17,1]
+   426 inter_preferred[2,3,1,3]
                     *              0             0             1 
-   734 schedule[14,17,1]
+   427 inter_preferred[2,3,2,1]
                     *              0             0             1 
-   735 schedule[15,17,1]
+   428 inter_preferred[2,3,2,2]
                     *              0             0             1 
-   736 schedule[1,17,2]
+   429 inter_preferred[2,3,2,3]
                     *              0             0             1 
-   737 schedule[2,17,2]
+   430 inter_preferred[2,3,3,1]
                     *              0             0             1 
-   738 schedule[3,17,2]
+   431 inter_preferred[2,3,3,2]
                     *              0             0             1 
-   739 schedule[4,17,2]
+   432 inter_preferred[2,3,3,3]
                     *              0             0             1 
-   740 schedule[5,17,2]
+   433 inter_preferred[2,4,1,1]
                     *              0             0             1 
-   741 schedule[6,17,2]
-                    *              1             0             1 
-   742 schedule[7,17,2]
+   434 inter_preferred[2,4,1,2]
                     *              0             0             1 
-   743 schedule[8,17,2]
+   435 inter_preferred[2,4,1,3]
                     *              0             0             1 
-   744 schedule[9,17,2]
+   436 inter_preferred[2,4,2,1]
                     *              0             0             1 
-   745 schedule[10,17,2]
+   437 inter_preferred[2,4,2,2]
                     *              0             0             1 
-   746 schedule[11,17,2]
+   438 inter_preferred[2,4,2,3]
                     *              0             0             1 
-   747 schedule[12,17,2]
+   439 inter_preferred[2,4,3,1]
                     *              0             0             1 
-   748 schedule[13,17,2]
+   440 inter_preferred[2,4,3,2]
                     *              0             0             1 
-   749 schedule[14,17,2]
+   441 inter_preferred[2,4,3,3]
                     *              0             0             1 
-   750 schedule[15,17,2]
-                    *              1             0             1 
-   751 schedule[1,17,3]
-                    *              1             0             1 
-   752 schedule[2,17,3]
+   442 inter_preferred[2,5,1,1]
                     *              0             0             1 
-   753 schedule[3,17,3]
-                    *              1             0             1 
-   754 schedule[4,17,3]
+   443 inter_preferred[2,5,1,2]
                     *              0             0             1 
-   755 schedule[5,17,3]
-                    *              1             0             1 
-   756 schedule[6,17,3]
+   444 inter_preferred[2,5,1,3]
                     *              0             0             1 
-   757 schedule[7,17,3]
-                    *              1             0             1 
-   758 schedule[8,17,3]
+   445 inter_preferred[2,5,2,1]
                     *              0             0             1 
-   759 schedule[9,17,3]
+   446 inter_preferred[2,5,2,2]
                     *              0             0             1 
-   760 schedule[10,17,3]
+   447 inter_preferred[2,5,2,3]
                     *              0             0             1 
-   761 schedule[11,17,3]
+   448 inter_preferred[2,5,3,1]
                     *              0             0             1 
-   762 schedule[12,17,3]
+   449 inter_preferred[2,5,3,2]
                     *              0             0             1 
-   763 schedule[13,17,3]
+   450 inter_preferred[2,5,3,3]
                     *              0             0             1 
-   764 schedule[14,17,3]
+   451 inter_preferred[3,1,1,1]
                     *              0             0             1 
-   765 schedule[15,17,3]
+   452 inter_preferred[3,1,1,2]
                     *              0             0             1 
-   766 schedule[1,18,1]
+   453 inter_preferred[3,1,1,3]
                     *              0             0             1 
-   767 schedule[2,18,1]
-                    *              1             0             1 
-   768 schedule[3,18,1]
+   454 inter_preferred[3,1,2,1]
                     *              0             0             1 
-   769 schedule[4,18,1]
-                    *              1             0             1 
-   770 schedule[5,18,1]
+   455 inter_preferred[3,1,2,2]
                     *              0             0             1 
-   771 schedule[6,18,1]
-                    *              1             0             1 
-   772 schedule[7,18,1]
+   456 inter_preferred[3,1,2,3]
                     *              0             0             1 
-   773 schedule[8,18,1]
+   457 inter_preferred[3,1,3,1]
                     *              0             0             1 
-   774 schedule[9,18,1]
+   458 inter_preferred[3,1,3,2]
                     *              0             0             1 
-   775 schedule[10,18,1]
+   459 inter_preferred[3,1,3,3]
                     *              0             0             1 
-   776 schedule[11,18,1]
+   460 inter_preferred[3,2,1,1]
                     *              0             0             1 
-   777 schedule[12,18,1]
+   461 inter_preferred[3,2,1,2]
                     *              0             0             1 
-   778 schedule[13,18,1]
+   462 inter_preferred[3,2,1,3]
                     *              0             0             1 
-   779 schedule[14,18,1]
+   463 inter_preferred[3,2,2,1]
                     *              0             0             1 
-   780 schedule[15,18,1]
+   464 inter_preferred[3,2,2,2]
                     *              0             0             1 
-   781 schedule[1,18,2]
+   465 inter_preferred[3,2,2,3]
                     *              0             0             1 
-   782 schedule[2,18,2]
+   466 inter_preferred[3,2,3,1]
                     *              0             0             1 
-   783 schedule[3,18,2]
-                    *              1             0             1 
-   784 schedule[4,18,2]
+   467 inter_preferred[3,2,3,2]
                     *              0             0             1 
-   785 schedule[5,18,2]
+   468 inter_preferred[3,2,3,3]
                     *              0             0             1 
-   786 schedule[6,18,2]
+   469 inter_preferred[3,3,1,1]
                     *              0             0             1 
-   787 schedule[7,18,2]
+   470 inter_preferred[3,3,1,2]
                     *              0             0             1 
-   788 schedule[8,18,2]
+   471 inter_preferred[3,3,1,3]
                     *              0             0             1 
-   789 schedule[9,18,2]
+   472 inter_preferred[3,3,2,1]
                     *              0             0             1 
-   790 schedule[10,18,2]
+   473 inter_preferred[3,3,2,2]
                     *              0             0             1 
-   791 schedule[11,18,2]
+   474 inter_preferred[3,3,2,3]
                     *              0             0             1 
-   792 schedule[12,18,2]
+   475 inter_preferred[3,3,3,1]
                     *              0             0             1 
-   793 schedule[13,18,2]
+   476 inter_preferred[3,3,3,2]
                     *              0             0             1 
-   794 schedule[14,18,2]
+   477 inter_preferred[3,3,3,3]
                     *              0             0             1 
-   795 schedule[15,18,2]
-                    *              1             0             1 
-   796 schedule[1,18,3]
-                    *              1             0             1 
-   797 schedule[2,18,3]
+   478 inter_preferred[3,4,1,1]
                     *              0             0             1 
-   798 schedule[3,18,3]
+   479 inter_preferred[3,4,1,2]
                     *              0             0             1 
-   799 schedule[4,18,3]
+   480 inter_preferred[3,4,1,3]
                     *              0             0             1 
-   800 schedule[5,18,3]
-                    *              1             0             1 
-   801 schedule[6,18,3]
+   481 inter_preferred[3,4,2,1]
                     *              0             0             1 
-   802 schedule[7,18,3]
+   482 inter_preferred[3,4,2,2]
                     *              0             0             1 
-   803 schedule[8,18,3]
+   483 inter_preferred[3,4,2,3]
                     *              0             0             1 
-   804 schedule[9,18,3]
+   484 inter_preferred[3,4,3,1]
                     *              0             0             1 
-   805 schedule[10,18,3]
+   485 inter_preferred[3,4,3,2]
                     *              0             0             1 
-   806 schedule[11,18,3]
+   486 inter_preferred[3,4,3,3]
                     *              0             0             1 
-   807 schedule[12,18,3]
+   487 inter_preferred[3,5,1,1]
                     *              0             0             1 
-   808 schedule[13,18,3]
+   488 inter_preferred[3,5,1,2]
                     *              0             0             1 
-   809 schedule[14,18,3]
+   489 inter_preferred[3,5,1,3]
                     *              0             0             1 
-   810 schedule[15,18,3]
+   490 inter_preferred[3,5,2,1]
                     *              0             0             1 
-   811 schedule[1,19,1]
+   491 inter_preferred[3,5,2,2]
                     *              0             0             1 
-   812 schedule[2,19,1]
-                    *              1             0             1 
-   813 schedule[3,19,1]
-                    *              1             0             1 
-   814 schedule[4,19,1]
+   492 inter_preferred[3,5,2,3]
                     *              0             0             1 
-   815 schedule[5,19,1]
+   493 inter_preferred[3,5,3,1]
                     *              0             0             1 
-   816 schedule[6,19,1]
+   494 inter_preferred[3,5,3,2]
                     *              0             0             1 
-   817 schedule[7,19,1]
+   495 inter_preferred[3,5,3,3]
                     *              0             0             1 
-   818 schedule[8,19,1]
-                    *              1             0             1 
-   819 schedule[9,19,1]
+   496 inter_preferred[4,1,1,1]
                     *              0             0             1 
-   820 schedule[10,19,1]
+   497 inter_preferred[4,1,1,2]
                     *              0             0             1 
-   821 schedule[11,19,1]
+   498 inter_preferred[4,1,1,3]
                     *              0             0             1 
-   822 schedule[12,19,1]
+   499 inter_preferred[4,1,2,1]
                     *              0             0             1 
-   823 schedule[13,19,1]
+   500 inter_preferred[4,1,2,2]
                     *              0             0             1 
-   824 schedule[14,19,1]
+   501 inter_preferred[4,1,2,3]
                     *              0             0             1 
-   825 schedule[15,19,1]
+   502 inter_preferred[4,1,3,1]
                     *              0             0             1 
-   826 schedule[1,19,2]
+   503 inter_preferred[4,1,3,2]
                     *              0             0             1 
-   827 schedule[2,19,2]
+   504 inter_preferred[4,1,3,3]
                     *              0             0             1 
-   828 schedule[3,19,2]
+   505 inter_preferred[4,2,1,1]
                     *              0             0             1 
-   829 schedule[4,19,2]
+   506 inter_preferred[4,2,1,2]
                     *              0             0             1 
-   830 schedule[5,19,2]
-                    *              1             0             1 
-   831 schedule[6,19,2]
-                    *              1             0             1 
-   832 schedule[7,19,2]
+   507 inter_preferred[4,2,1,3]
                     *              0             0             1 
-   833 schedule[8,19,2]
+   508 inter_preferred[4,2,2,1]
                     *              0             0             1 
-   834 schedule[9,19,2]
+   509 inter_preferred[4,2,2,2]
                     *              0             0             1 
-   835 schedule[10,19,2]
+   510 inter_preferred[4,2,2,3]
                     *              0             0             1 
-   836 schedule[11,19,2]
+   511 inter_preferred[4,2,3,1]
                     *              0             0             1 
-   837 schedule[12,19,2]
+   512 inter_preferred[4,2,3,2]
                     *              0             0             1 
-   838 schedule[13,19,2]
+   513 inter_preferred[4,2,3,3]
                     *              0             0             1 
-   839 schedule[14,19,2]
+   514 inter_preferred[4,3,1,1]
                     *              0             0             1 
-   840 schedule[15,19,2]
-                    *              1             0             1 
-   841 schedule[1,19,3]
-                    *              1             0             1 
-   842 schedule[2,19,3]
+   515 inter_preferred[4,3,1,2]
                     *              0             0             1 
-   843 schedule[3,19,3]
+   516 inter_preferred[4,3,1,3]
                     *              0             0             1 
-   844 schedule[4,19,3]
-                    *              1             0             1 
-   845 schedule[5,19,3]
+   517 inter_preferred[4,3,2,1]
                     *              0             0             1 
-   846 schedule[6,19,3]
+   518 inter_preferred[4,3,2,2]
                     *              0             0             1 
-   847 schedule[7,19,3]
-                    *              1             0             1 
-   848 schedule[8,19,3]
+   519 inter_preferred[4,3,2,3]
                     *              0             0             1 
-   849 schedule[9,19,3]
+   520 inter_preferred[4,3,3,1]
                     *              0             0             1 
-   850 schedule[10,19,3]
+   521 inter_preferred[4,3,3,2]
                     *              0             0             1 
-   851 schedule[11,19,3]
+   522 inter_preferred[4,3,3,3]
                     *              0             0             1 
-   852 schedule[12,19,3]
+   523 inter_preferred[4,4,1,1]
                     *              0             0             1 
-   853 schedule[13,19,3]
+   524 inter_preferred[4,4,1,2]
                     *              0             0             1 
-   854 schedule[14,19,3]
+   525 inter_preferred[4,4,1,3]
                     *              0             0             1 
-   855 schedule[15,19,3]
+   526 inter_preferred[4,4,2,1]
                     *              0             0             1 
-   856 schedule[1,20,1]
+   527 inter_preferred[4,4,2,2]
                     *              0             0             1 
-   857 schedule[2,20,1]
-                    *              1             0             1 
-   858 schedule[3,20,1]
+   528 inter_preferred[4,4,2,3]
                     *              0             0             1 
-   859 schedule[4,20,1]
+   529 inter_preferred[4,4,3,1]
                     *              0             0             1 
-   860 schedule[5,20,1]
+   530 inter_preferred[4,4,3,2]
                     *              0             0             1 
-   861 schedule[6,20,1]
+   531 inter_preferred[4,4,3,3]
                     *              0             0             1 
-   862 schedule[7,20,1]
+   532 inter_preferred[4,5,1,1]
                     *              0             0             1 
-   863 schedule[8,20,1]
-                    *              1             0             1 
-   864 schedule[9,20,1]
+   533 inter_preferred[4,5,1,2]
                     *              0             0             1 
-   865 schedule[10,20,1]
+   534 inter_preferred[4,5,1,3]
                     *              0             0             1 
-   866 schedule[11,20,1]
+   535 inter_preferred[4,5,2,1]
                     *              0             0             1 
-   867 schedule[12,20,1]
+   536 inter_preferred[4,5,2,2]
                     *              0             0             1 
-   868 schedule[13,20,1]
+   537 inter_preferred[4,5,2,3]
                     *              0             0             1 
-   869 schedule[14,20,1]
+   538 inter_preferred[4,5,3,1]
                     *              0             0             1 
-   870 schedule[15,20,1]
+   539 inter_preferred[4,5,3,2]
                     *              0             0             1 
-   871 schedule[1,20,2]
+   540 inter_preferred[4,5,3,3]
                     *              0             0             1 
-   872 schedule[2,20,2]
+   541 inter_preferred[5,1,1,1]
                     *              0             0             1 
-   873 schedule[3,20,2]
+   542 inter_preferred[5,1,1,2]
                     *              0             0             1 
-   874 schedule[4,20,2]
-                    *              1             0             1 
-   875 schedule[5,20,2]
-                    *              1             0             1 
-   876 schedule[6,20,2]
-                    *              1             0             1 
-   877 schedule[7,20,2]
+   543 inter_preferred[5,1,1,3]
                     *              0             0             1 
-   878 schedule[8,20,2]
+   544 inter_preferred[5,1,2,1]
                     *              0             0             1 
-   879 schedule[9,20,2]
+   545 inter_preferred[5,1,2,2]
                     *              0             0             1 
-   880 schedule[10,20,2]
+   546 inter_preferred[5,1,2,3]
                     *              0             0             1 
-   881 schedule[11,20,2]
+   547 inter_preferred[5,1,3,1]
                     *              0             0             1 
-   882 schedule[12,20,2]
+   548 inter_preferred[5,1,3,2]
                     *              0             0             1 
-   883 schedule[13,20,2]
+   549 inter_preferred[5,1,3,3]
                     *              0             0             1 
-   884 schedule[14,20,2]
+   550 inter_preferred[5,2,1,1]
                     *              0             0             1 
-   885 schedule[15,20,2]
-                    *              1             0             1 
-   886 schedule[1,20,3]
-                    *              1             0             1 
-   887 schedule[2,20,3]
+   551 inter_preferred[5,2,1,2]
                     *              0             0             1 
-   888 schedule[3,20,3]
-                    *              1             0             1 
-   889 schedule[4,20,3]
+   552 inter_preferred[5,2,1,3]
                     *              0             0             1 
-   890 schedule[5,20,3]
+   553 inter_preferred[5,2,2,1]
                     *              0             0             1 
-   891 schedule[6,20,3]
+   554 inter_preferred[5,2,2,2]
                     *              0             0             1 
-   892 schedule[7,20,3]
-                    *              1             0             1 
-   893 schedule[8,20,3]
+   555 inter_preferred[5,2,2,3]
                     *              0             0             1 
-   894 schedule[9,20,3]
+   556 inter_preferred[5,2,3,1]
                     *              0             0             1 
-   895 schedule[10,20,3]
+   557 inter_preferred[5,2,3,2]
                     *              0             0             1 
-   896 schedule[11,20,3]
+   558 inter_preferred[5,2,3,3]
                     *              0             0             1 
-   897 schedule[12,20,3]
+   559 inter_preferred[5,3,1,1]
                     *              0             0             1 
-   898 schedule[13,20,3]
+   560 inter_preferred[5,3,1,2]
                     *              0             0             1 
-   899 schedule[14,20,3]
+   561 inter_preferred[5,3,1,3]
                     *              0             0             1 
-   900 schedule[15,20,3]
+   562 inter_preferred[5,3,2,1]
                     *              0             0             1 
-   901 schedule[1,21,1]
+   563 inter_preferred[5,3,2,2]
                     *              0             0             1 
-   902 schedule[2,21,1]
-                    *              1             0             1 
-   903 schedule[3,21,1]
+   564 inter_preferred[5,3,2,3]
                     *              0             0             1 
-   904 schedule[4,21,1]
-                    *              1             0             1 
-   905 schedule[5,21,1]
+   565 inter_preferred[5,3,3,1]
                     *              0             0             1 
-   906 schedule[6,21,1]
+   566 inter_preferred[5,3,3,2]
                     *              0             0             1 
-   907 schedule[7,21,1]
+   567 inter_preferred[5,3,3,3]
                     *              0             0             1 
-   908 schedule[8,21,1]
-                    *              1             0             1 
-   909 schedule[9,21,1]
+   568 inter_preferred[5,4,1,1]
                     *              0             0             1 
-   910 schedule[10,21,1]
+   569 inter_preferred[5,4,1,2]
                     *              0             0             1 
-   911 schedule[11,21,1]
+   570 inter_preferred[5,4,1,3]
                     *              0             0             1 
-   912 schedule[12,21,1]
+   571 inter_preferred[5,4,2,1]
                     *              0             0             1 
-   913 schedule[13,21,1]
+   572 inter_preferred[5,4,2,2]
                     *              0             0             1 
-   914 schedule[14,21,1]
+   573 inter_preferred[5,4,2,3]
                     *              0             0             1 
-   915 schedule[15,21,1]
+   574 inter_preferred[5,4,3,1]
                     *              0             0             1 
-   916 schedule[1,21,2]
+   575 inter_preferred[5,4,3,2]
                     *              0             0             1 
-   917 schedule[2,21,2]
+   576 inter_preferred[5,4,3,3]
                     *              0             0             1 
-   918 schedule[3,21,2]
+   577 inter_preferred[5,5,1,1]
                     *              0             0             1 
-   919 schedule[4,21,2]
+   578 inter_preferred[5,5,1,2]
                     *              0             0             1 
-   920 schedule[5,21,2]
-                    *              1             0             1 
-   921 schedule[6,21,2]
+   579 inter_preferred[5,5,1,3]
                     *              0             0             1 
-   922 schedule[7,21,2]
+   580 inter_preferred[5,5,2,1]
                     *              0             0             1 
-   923 schedule[8,21,2]
+   581 inter_preferred[5,5,2,2]
                     *              0             0             1 
-   924 schedule[9,21,2]
+   582 inter_preferred[5,5,2,3]
                     *              0             0             1 
-   925 schedule[10,21,2]
+   583 inter_preferred[5,5,3,1]
                     *              0             0             1 
-   926 schedule[11,21,2]
+   584 inter_preferred[5,5,3,2]
                     *              0             0             1 
-   927 schedule[12,21,2]
+   585 inter_preferred[5,5,3,3]
                     *              0             0             1 
-   928 schedule[13,21,2]
+   586 inter_unpreferred[1,1,1,1]
                     *              0             0             1 
-   929 schedule[14,21,2]
+   587 inter_unpreferred[1,1,1,2]
                     *              0             0             1 
-   930 schedule[15,21,2]
-                    *              1             0             1 
-   931 schedule[1,21,3]
-                    *              1             0             1 
-   932 schedule[2,21,3]
+   588 inter_unpreferred[1,1,1,3]
                     *              0             0             1 
-   933 schedule[3,21,3]
-                    *              1             0             1 
-   934 schedule[4,21,3]
+   589 inter_unpreferred[1,1,2,1]
                     *              0             0             1 
-   935 schedule[5,21,3]
+   590 inter_unpreferred[1,1,2,2]
                     *              0             0             1 
-   936 schedule[6,21,3]
-                    *              1             0             1 
-   937 schedule[7,21,3]
+   591 inter_unpreferred[1,1,2,3]
                     *              0             0             1 
-   938 schedule[8,21,3]
+   592 inter_unpreferred[1,1,3,1]
                     *              0             0             1 
-   939 schedule[9,21,3]
+   593 inter_unpreferred[1,1,3,2]
                     *              0             0             1 
-   940 schedule[10,21,3]
+   594 inter_unpreferred[1,1,3,3]
                     *              0             0             1 
-   941 schedule[11,21,3]
+   595 inter_unpreferred[1,2,1,1]
                     *              0             0             1 
-   942 schedule[12,21,3]
+   596 inter_unpreferred[1,2,1,2]
                     *              0             0             1 
-   943 schedule[13,21,3]
+   597 inter_unpreferred[1,2,1,3]
                     *              0             0             1 
-   944 schedule[14,21,3]
+   598 inter_unpreferred[1,2,2,1]
                     *              0             0             1 
-   945 schedule[15,21,3]
+   599 inter_unpreferred[1,2,2,2]
                     *              0             0             1 
-   946 schedule[1,22,1]
+   600 inter_unpreferred[1,2,2,3]
                     *              0             0             1 
-   947 schedule[2,22,1]
-                    *              1             0             1 
-   948 schedule[3,22,1]
+   601 inter_unpreferred[1,2,3,1]
                     *              0             0             1 
-   949 schedule[4,22,1]
-                    *              1             0             1 
-   950 schedule[5,22,1]
+   602 inter_unpreferred[1,2,3,2]
                     *              0             0             1 
-   951 schedule[6,22,1]
+   603 inter_unpreferred[1,2,3,3]
                     *              0             0             1 
-   952 schedule[7,22,1]
+   604 inter_unpreferred[1,3,1,1]
                     *              0             0             1 
-   953 schedule[8,22,1]
+   605 inter_unpreferred[1,3,1,2]
                     *              0             0             1 
-   954 schedule[9,22,1]
-                    *              1             0             1 
-   955 schedule[10,22,1]
+   606 inter_unpreferred[1,3,1,3]
                     *              0             0             1 
-   956 schedule[11,22,1]
+   607 inter_unpreferred[1,3,2,1]
                     *              0             0             1 
-   957 schedule[12,22,1]
+   608 inter_unpreferred[1,3,2,2]
                     *              0             0             1 
-   958 schedule[13,22,1]
+   609 inter_unpreferred[1,3,2,3]
                     *              0             0             1 
-   959 schedule[14,22,1]
+   610 inter_unpreferred[1,3,3,1]
                     *              0             0             1 
-   960 schedule[15,22,1]
+   611 inter_unpreferred[1,3,3,2]
                     *              0             0             1 
-   961 schedule[1,22,2]
+   612 inter_unpreferred[1,3,3,3]
                     *              0             0             1 
-   962 schedule[2,22,2]
+   613 inter_unpreferred[1,4,1,1]
                     *              0             0             1 
-   963 schedule[3,22,2]
+   614 inter_unpreferred[1,4,1,2]
                     *              0             0             1 
-   964 schedule[4,22,2]
+   615 inter_unpreferred[1,4,1,3]
                     *              0             0             1 
-   965 schedule[5,22,2]
+   616 inter_unpreferred[1,4,2,1]
                     *              0             0             1 
-   966 schedule[6,22,2]
-                    *              1             0             1 
-   967 schedule[7,22,2]
-                    *              1             0             1 
-   968 schedule[8,22,2]
+   617 inter_unpreferred[1,4,2,2]
                     *              0             0             1 
-   969 schedule[9,22,2]
+   618 inter_unpreferred[1,4,2,3]
                     *              0             0             1 
-   970 schedule[10,22,2]
+   619 inter_unpreferred[1,4,3,1]
                     *              0             0             1 
-   971 schedule[11,22,2]
+   620 inter_unpreferred[1,4,3,2]
                     *              0             0             1 
-   972 schedule[12,22,2]
+   621 inter_unpreferred[1,4,3,3]
                     *              0             0             1 
-   973 schedule[13,22,2]
+   622 inter_unpreferred[1,5,1,1]
                     *              0             0             1 
-   974 schedule[14,22,2]
+   623 inter_unpreferred[1,5,1,2]
                     *              0             0             1 
-   975 schedule[15,22,2]
-                    *              1             0             1 
-   976 schedule[1,22,3]
-                    *              1             0             1 
-   977 schedule[2,22,3]
+   624 inter_unpreferred[1,5,1,3]
                     *              0             0             1 
-   978 schedule[3,22,3]
-                    *              1             0             1 
-   979 schedule[4,22,3]
+   625 inter_unpreferred[1,5,2,1]
                     *              0             0             1 
-   980 schedule[5,22,3]
-                    *              1             0             1 
-   981 schedule[6,22,3]
+   626 inter_unpreferred[1,5,2,2]
                     *              0             0             1 
-   982 schedule[7,22,3]
+   627 inter_unpreferred[1,5,2,3]
                     *              0             0             1 
-   983 schedule[8,22,3]
-                    *              1             0             1 
-   984 schedule[9,22,3]
+   628 inter_unpreferred[1,5,3,1]
                     *              0             0             1 
-   985 schedule[10,22,3]
+   629 inter_unpreferred[1,5,3,2]
                     *              0             0             1 
-   986 schedule[11,22,3]
+   630 inter_unpreferred[1,5,3,3]
                     *              0             0             1 
-   987 schedule[12,22,3]
+   631 inter_unpreferred[2,1,1,1]
                     *              0             0             1 
-   988 schedule[13,22,3]
+   632 inter_unpreferred[2,1,1,2]
                     *              0             0             1 
-   989 schedule[14,22,3]
+   633 inter_unpreferred[2,1,1,3]
                     *              0             0             1 
-   990 schedule[15,22,3]
+   634 inter_unpreferred[2,1,2,1]
                     *              0             0             1 
-   991 schedule[1,23,1]
+   635 inter_unpreferred[2,1,2,2]
                     *              0             0             1 
-   992 schedule[2,23,1]
-                    *              1             0             1 
-   993 schedule[3,23,1]
+   636 inter_unpreferred[2,1,2,3]
                     *              0             0             1 
-   994 schedule[4,23,1]
-                    *              1             0             1 
-   995 schedule[5,23,1]
+   637 inter_unpreferred[2,1,3,1]
                     *              0             0             1 
-   996 schedule[6,23,1]
+   638 inter_unpreferred[2,1,3,2]
                     *              0             0             1 
-   997 schedule[7,23,1]
-                    *              1             0             1 
-   998 schedule[8,23,1]
+   639 inter_unpreferred[2,1,3,3]
                     *              0             0             1 
-   999 schedule[9,23,1]
+   640 inter_unpreferred[2,2,1,1]
                     *              0             0             1 
-  1000 schedule[10,23,1]
+   641 inter_unpreferred[2,2,1,2]
                     *              0             0             1 
-  1001 schedule[11,23,1]
+   642 inter_unpreferred[2,2,1,3]
                     *              0             0             1 
-  1002 schedule[12,23,1]
+   643 inter_unpreferred[2,2,2,1]
                     *              0             0             1 
-  1003 schedule[13,23,1]
+   644 inter_unpreferred[2,2,2,2]
                     *              0             0             1 
-  1004 schedule[14,23,1]
+   645 inter_unpreferred[2,2,2,3]
                     *              0             0             1 
-  1005 schedule[15,23,1]
+   646 inter_unpreferred[2,2,3,1]
                     *              0             0             1 
-  1006 schedule[1,23,2]
+   647 inter_unpreferred[2,2,3,2]
                     *              0             0             1 
-  1007 schedule[2,23,2]
+   648 inter_unpreferred[2,2,3,3]
                     *              0             0             1 
-  1008 schedule[3,23,2]
-                    *              1             0             1 
-  1009 schedule[4,23,2]
+   649 inter_unpreferred[2,3,1,1]
                     *              0             0             1 
-  1010 schedule[5,23,2]
-                    *              1             0             1 
-  1011 schedule[6,23,2]
+   650 inter_unpreferred[2,3,1,2]
                     *              0             0             1 
-  1012 schedule[7,23,2]
+   651 inter_unpreferred[2,3,1,3]
                     *              0             0             1 
-  1013 schedule[8,23,2]
+   652 inter_unpreferred[2,3,2,1]
                     *              0             0             1 
-  1014 schedule[9,23,2]
+   653 inter_unpreferred[2,3,2,2]
                     *              0             0             1 
-  1015 schedule[10,23,2]
+   654 inter_unpreferred[2,3,2,3]
                     *              0             0             1 
-  1016 schedule[11,23,2]
+   655 inter_unpreferred[2,3,3,1]
                     *              0             0             1 
-  1017 schedule[12,23,2]
+   656 inter_unpreferred[2,3,3,2]
                     *              0             0             1 
-  1018 schedule[13,23,2]
+   657 inter_unpreferred[2,3,3,3]
                     *              0             0             1 
-  1019 schedule[14,23,2]
+   658 inter_unpreferred[2,4,1,1]
                     *              0             0             1 
-  1020 schedule[15,23,2]
-                    *              1             0             1 
-  1021 schedule[1,23,3]
-                    *              1             0             1 
-  1022 schedule[2,23,3]
+   659 inter_unpreferred[2,4,1,2]
                     *              0             0             1 
-  1023 schedule[3,23,3]
+   660 inter_unpreferred[2,4,1,3]
                     *              0             0             1 
-  1024 schedule[4,23,3]
+   661 inter_unpreferred[2,4,2,1]
                     *              0             0             1 
-  1025 schedule[5,23,3]
+   662 inter_unpreferred[2,4,2,2]
                     *              0             0             1 
-  1026 schedule[6,23,3]
-                    *              1             0             1 
-  1027 schedule[7,23,3]
+   663 inter_unpreferred[2,4,2,3]
                     *              0             0             1 
-  1028 schedule[8,23,3]
+   664 inter_unpreferred[2,4,3,1]
                     *              0             0             1 
-  1029 schedule[9,23,3]
+   665 inter_unpreferred[2,4,3,2]
                     *              0             0             1 
-  1030 schedule[10,23,3]
+   666 inter_unpreferred[2,4,3,3]
                     *              0             0             1 
-  1031 schedule[11,23,3]
+   667 inter_unpreferred[2,5,1,1]
                     *              0             0             1 
-  1032 schedule[12,23,3]
+   668 inter_unpreferred[2,5,1,2]
                     *              0             0             1 
-  1033 schedule[13,23,3]
+   669 inter_unpreferred[2,5,1,3]
                     *              0             0             1 
-  1034 schedule[14,23,3]
+   670 inter_unpreferred[2,5,2,1]
                     *              0             0             1 
-  1035 schedule[15,23,3]
+   671 inter_unpreferred[2,5,2,2]
                     *              0             0             1 
-  1036 schedule[1,24,1]
+   672 inter_unpreferred[2,5,2,3]
                     *              0             0             1 
-  1037 schedule[2,24,1]
-                    *              1             0             1 
-  1038 schedule[3,24,1]
-                    *              1             0             1 
-  1039 schedule[4,24,1]
-                    *              1             0             1 
-  1040 schedule[5,24,1]
+   673 inter_unpreferred[2,5,3,1]
                     *              0             0             1 
-  1041 schedule[6,24,1]
+   674 inter_unpreferred[2,5,3,2]
                     *              0             0             1 
-  1042 schedule[7,24,1]
+   675 inter_unpreferred[2,5,3,3]
                     *              0             0             1 
-  1043 schedule[8,24,1]
+   676 inter_unpreferred[3,1,1,1]
                     *              0             0             1 
-  1044 schedule[9,24,1]
-                    *              1             0             1 
-  1045 schedule[10,24,1]
+   677 inter_unpreferred[3,1,1,2]
                     *              0             0             1 
-  1046 schedule[11,24,1]
+   678 inter_unpreferred[3,1,1,3]
                     *              0             0             1 
-  1047 schedule[12,24,1]
+   679 inter_unpreferred[3,1,2,1]
                     *              0             0             1 
-  1048 schedule[13,24,1]
+   680 inter_unpreferred[3,1,2,2]
                     *              0             0             1 
-  1049 schedule[14,24,1]
+   681 inter_unpreferred[3,1,2,3]
                     *              0             0             1 
-  1050 schedule[15,24,1]
+   682 inter_unpreferred[3,1,3,1]
                     *              0             0             1 
-  1051 schedule[1,24,2]
+   683 inter_unpreferred[3,1,3,2]
                     *              0             0             1 
-  1052 schedule[2,24,2]
+   684 inter_unpreferred[3,1,3,3]
                     *              0             0             1 
-  1053 schedule[3,24,2]
+   685 inter_unpreferred[3,2,1,1]
                     *              0             0             1 
-  1054 schedule[4,24,2]
+   686 inter_unpreferred[3,2,1,2]
                     *              0             0             1 
-  1055 schedule[5,24,2]
+   687 inter_unpreferred[3,2,1,3]
                     *              0             0             1 
-  1056 schedule[6,24,2]
-                    *              1             0             1 
-  1057 schedule[7,24,2]
-                    *              1             0             1 
-  1058 schedule[8,24,2]
+   688 inter_unpreferred[3,2,2,1]
                     *              0             0             1 
-  1059 schedule[9,24,2]
+   689 inter_unpreferred[3,2,2,2]
                     *              0             0             1 
-  1060 schedule[10,24,2]
+   690 inter_unpreferred[3,2,2,3]
                     *              0             0             1 
-  1061 schedule[11,24,2]
+   691 inter_unpreferred[3,2,3,1]
                     *              0             0             1 
-  1062 schedule[12,24,2]
+   692 inter_unpreferred[3,2,3,2]
                     *              0             0             1 
-  1063 schedule[13,24,2]
+   693 inter_unpreferred[3,2,3,3]
                     *              0             0             1 
-  1064 schedule[14,24,2]
+   694 inter_unpreferred[3,3,1,1]
                     *              0             0             1 
-  1065 schedule[15,24,2]
-                    *              1             0             1 
-  1066 schedule[1,24,3]
-                    *              1             0             1 
-  1067 schedule[2,24,3]
+   695 inter_unpreferred[3,3,1,2]
                     *              0             0             1 
-  1068 schedule[3,24,3]
+   696 inter_unpreferred[3,3,1,3]
                     *              0             0             1 
-  1069 schedule[4,24,3]
+   697 inter_unpreferred[3,3,2,1]
                     *              0             0             1 
-  1070 schedule[5,24,3]
-                    *              1             0             1 
-  1071 schedule[6,24,3]
+   698 inter_unpreferred[3,3,2,2]
                     *              0             0             1 
-  1072 schedule[7,24,3]
+   699 inter_unpreferred[3,3,2,3]
                     *              0             0             1 
-  1073 schedule[8,24,3]
-                    *              1             0             1 
-  1074 schedule[9,24,3]
+   700 inter_unpreferred[3,3,3,1]
                     *              0             0             1 
-  1075 schedule[10,24,3]
+   701 inter_unpreferred[3,3,3,2]
                     *              0             0             1 
-  1076 schedule[11,24,3]
+   702 inter_unpreferred[3,3,3,3]
                     *              0             0             1 
-  1077 schedule[12,24,3]
+   703 inter_unpreferred[3,4,1,1]
                     *              0             0             1 
-  1078 schedule[13,24,3]
+   704 inter_unpreferred[3,4,1,2]
                     *              0             0             1 
-  1079 schedule[14,24,3]
+   705 inter_unpreferred[3,4,1,3]
                     *              0             0             1 
-  1080 schedule[15,24,3]
+   706 inter_unpreferred[3,4,2,1]
                     *              0             0             1 
-  1081 schedule[1,25,1]
+   707 inter_unpreferred[3,4,2,2]
                     *              0             0             1 
-  1082 schedule[2,25,1]
-                    *              1             0             1 
-  1083 schedule[3,25,1]
-                    *              1             0             1 
-  1084 schedule[4,25,1]
+   708 inter_unpreferred[3,4,2,3]
                     *              0             0             1 
-  1085 schedule[5,25,1]
+   709 inter_unpreferred[3,4,3,1]
                     *              0             0             1 
-  1086 schedule[6,25,1]
+   710 inter_unpreferred[3,4,3,2]
                     *              0             0             1 
-  1087 schedule[7,25,1]
+   711 inter_unpreferred[3,4,3,3]
                     *              0             0             1 
-  1088 schedule[8,25,1]
+   712 inter_unpreferred[3,5,1,1]
                     *              0             0             1 
-  1089 schedule[9,25,1]
-                    *              1             0             1 
-  1090 schedule[10,25,1]
+   713 inter_unpreferred[3,5,1,2]
                     *              0             0             1 
-  1091 schedule[11,25,1]
+   714 inter_unpreferred[3,5,1,3]
                     *              0             0             1 
-  1092 schedule[12,25,1]
+   715 inter_unpreferred[3,5,2,1]
                     *              0             0             1 
-  1093 schedule[13,25,1]
+   716 inter_unpreferred[3,5,2,2]
                     *              0             0             1 
-  1094 schedule[14,25,1]
+   717 inter_unpreferred[3,5,2,3]
                     *              0             0             1 
-  1095 schedule[15,25,1]
+   718 inter_unpreferred[3,5,3,1]
                     *              0             0             1 
-  1096 schedule[1,25,2]
+   719 inter_unpreferred[3,5,3,2]
                     *              0             0             1 
-  1097 schedule[2,25,2]
+   720 inter_unpreferred[3,5,3,3]
                     *              0             0             1 
-  1098 schedule[3,25,2]
+   721 inter_unpreferred[4,1,1,1]
                     *              0             0             1 
-  1099 schedule[4,25,2]
+   722 inter_unpreferred[4,1,1,2]
                     *              0             0             1 
-  1100 schedule[5,25,2]
-                    *              1             0             1 
-  1101 schedule[6,25,2]
-                    *              1             0             1 
-  1102 schedule[7,25,2]
-                    *              1             0             1 
-  1103 schedule[8,25,2]
+   723 inter_unpreferred[4,1,1,3]
                     *              0             0             1 
-  1104 schedule[9,25,2]
+   724 inter_unpreferred[4,1,2,1]
                     *              0             0             1 
-  1105 schedule[10,25,2]
+   725 inter_unpreferred[4,1,2,2]
                     *              0             0             1 
-  1106 schedule[11,25,2]
+   726 inter_unpreferred[4,1,2,3]
                     *              0             0             1 
-  1107 schedule[12,25,2]
+   727 inter_unpreferred[4,1,3,1]
                     *              0             0             1 
-  1108 schedule[13,25,2]
+   728 inter_unpreferred[4,1,3,2]
                     *              0             0             1 
-  1109 schedule[14,25,2]
+   729 inter_unpreferred[4,1,3,3]
                     *              0             0             1 
-  1110 schedule[15,25,2]
-                    *              1             0             1 
-  1111 schedule[1,25,3]
-                    *              1             0             1 
-  1112 schedule[2,25,3]
+   730 inter_unpreferred[4,2,1,1]
                     *              0             0             1 
-  1113 schedule[3,25,3]
+   731 inter_unpreferred[4,2,1,2]
                     *              0             0             1 
-  1114 schedule[4,25,3]
-                    *              1             0             1 
-  1115 schedule[5,25,3]
+   732 inter_unpreferred[4,2,1,3]
                     *              0             0             1 
-  1116 schedule[6,25,3]
+   733 inter_unpreferred[4,2,2,1]
                     *              0             0             1 
-  1117 schedule[7,25,3]
+   734 inter_unpreferred[4,2,2,2]
                     *              0             0             1 
-  1118 schedule[8,25,3]
-                    *              1             0             1 
-  1119 schedule[9,25,3]
+   735 inter_unpreferred[4,2,2,3]
                     *              0             0             1 
-  1120 schedule[10,25,3]
+   736 inter_unpreferred[4,2,3,1]
                     *              0             0             1 
-  1121 schedule[11,25,3]
+   737 inter_unpreferred[4,2,3,2]
                     *              0             0             1 
-  1122 schedule[12,25,3]
+   738 inter_unpreferred[4,2,3,3]
                     *              0             0             1 
-  1123 schedule[13,25,3]
+   739 inter_unpreferred[4,3,1,1]
                     *              0             0             1 
-  1124 schedule[14,25,3]
+   740 inter_unpreferred[4,3,1,2]
                     *              0             0             1 
-  1125 schedule[15,25,3]
+   741 inter_unpreferred[4,3,1,3]
                     *              0             0             1 
-  1126 schedule[1,26,1]
+   742 inter_unpreferred[4,3,2,1]
                     *              0             0             1 
-  1127 schedule[2,26,1]
-                    *              1             0             1 
-  1128 schedule[3,26,1]
-                    *              1             0             1 
-  1129 schedule[4,26,1]
+   743 inter_unpreferred[4,3,2,2]
                     *              0             0             1 
-  1130 schedule[5,26,1]
+   744 inter_unpreferred[4,3,2,3]
                     *              0             0             1 
-  1131 schedule[6,26,1]
+   745 inter_unpreferred[4,3,3,1]
                     *              0             0             1 
-  1132 schedule[7,26,1]
-                    *              1             0             1 
-  1133 schedule[8,26,1]
+   746 inter_unpreferred[4,3,3,2]
                     *              0             0             1 
-  1134 schedule[9,26,1]
+   747 inter_unpreferred[4,3,3,3]
                     *              0             0             1 
-  1135 schedule[10,26,1]
+   748 inter_unpreferred[4,4,1,1]
                     *              0             0             1 
-  1136 schedule[11,26,1]
+   749 inter_unpreferred[4,4,1,2]
                     *              0             0             1 
-  1137 schedule[12,26,1]
+   750 inter_unpreferred[4,4,1,3]
                     *              0             0             1 
-  1138 schedule[13,26,1]
+   751 inter_unpreferred[4,4,2,1]
                     *              0             0             1 
-  1139 schedule[14,26,1]
+   752 inter_unpreferred[4,4,2,2]
                     *              0             0             1 
-  1140 schedule[15,26,1]
+   753 inter_unpreferred[4,4,2,3]
                     *              0             0             1 
-  1141 schedule[1,26,2]
+   754 inter_unpreferred[4,4,3,1]
                     *              0             0             1 
-  1142 schedule[2,26,2]
+   755 inter_unpreferred[4,4,3,2]
                     *              0             0             1 
-  1143 schedule[3,26,2]
+   756 inter_unpreferred[4,4,3,3]
                     *              0             0             1 
-  1144 schedule[4,26,2]
+   757 inter_unpreferred[4,5,1,1]
                     *              0             0             1 
-  1145 schedule[5,26,2]
-                    *              1             0             1 
-  1146 schedule[6,26,2]
+   758 inter_unpreferred[4,5,1,2]
                     *              0             0             1 
-  1147 schedule[7,26,2]
+   759 inter_unpreferred[4,5,1,3]
                     *              0             0             1 
-  1148 schedule[8,26,2]
+   760 inter_unpreferred[4,5,2,1]
                     *              0             0             1 
-  1149 schedule[9,26,2]
+   761 inter_unpreferred[4,5,2,2]
                     *              0             0             1 
-  1150 schedule[10,26,2]
+   762 inter_unpreferred[4,5,2,3]
                     *              0             0             1 
-  1151 schedule[11,26,2]
+   763 inter_unpreferred[4,5,3,1]
                     *              0             0             1 
-  1152 schedule[12,26,2]
+   764 inter_unpreferred[4,5,3,2]
                     *              0             0             1 
-  1153 schedule[13,26,2]
+   765 inter_unpreferred[4,5,3,3]
                     *              0             0             1 
-  1154 schedule[14,26,2]
+   766 inter_unpreferred[5,1,1,1]
                     *              0             0             1 
-  1155 schedule[15,26,2]
-                    *              1             0             1 
-  1156 schedule[1,26,3]
-                    *              1             0             1 
-  1157 schedule[2,26,3]
+   767 inter_unpreferred[5,1,1,2]
                     *              0             0             1 
-  1158 schedule[3,26,3]
+   768 inter_unpreferred[5,1,1,3]
                     *              0             0             1 
-  1159 schedule[4,26,3]
-                    *              1             0             1 
-  1160 schedule[5,26,3]
+   769 inter_unpreferred[5,1,2,1]
                     *              0             0             1 
-  1161 schedule[6,26,3]
-                    *              1             0             1 
-  1162 schedule[7,26,3]
+   770 inter_unpreferred[5,1,2,2]
                     *              0             0             1 
-  1163 schedule[8,26,3]
+   771 inter_unpreferred[5,1,2,3]
                     *              0             0             1 
-  1164 schedule[9,26,3]
+   772 inter_unpreferred[5,1,3,1]
                     *              0             0             1 
-  1165 schedule[10,26,3]
+   773 inter_unpreferred[5,1,3,2]
                     *              0             0             1 
-  1166 schedule[11,26,3]
+   774 inter_unpreferred[5,1,3,3]
                     *              0             0             1 
-  1167 schedule[12,26,3]
+   775 inter_unpreferred[5,2,1,1]
                     *              0             0             1 
-  1168 schedule[13,26,3]
+   776 inter_unpreferred[5,2,1,2]
                     *              0             0             1 
-  1169 schedule[14,26,3]
+   777 inter_unpreferred[5,2,1,3]
                     *              0             0             1 
-  1170 schedule[15,26,3]
+   778 inter_unpreferred[5,2,2,1]
                     *              0             0             1 
-  1171 schedule[1,27,1]
+   779 inter_unpreferred[5,2,2,2]
                     *              0             0             1 
-  1172 schedule[2,27,1]
-                    *              1             0             1 
-  1173 schedule[3,27,1]
+   780 inter_unpreferred[5,2,2,3]
                     *              0             0             1 
-  1174 schedule[4,27,1]
+   781 inter_unpreferred[5,2,3,1]
                     *              0             0             1 
-  1175 schedule[5,27,1]
+   782 inter_unpreferred[5,2,3,2]
                     *              0             0             1 
-  1176 schedule[6,27,1]
+   783 inter_unpreferred[5,2,3,3]
                     *              0             0             1 
-  1177 schedule[7,27,1]
-                    *              1             0             1 
-  1178 schedule[8,27,1]
+   784 inter_unpreferred[5,3,1,1]
                     *              0             0             1 
-  1179 schedule[9,27,1]
+   785 inter_unpreferred[5,3,1,2]
                     *              0             0             1 
-  1180 schedule[10,27,1]
+   786 inter_unpreferred[5,3,1,3]
                     *              0             0             1 
-  1181 schedule[11,27,1]
+   787 inter_unpreferred[5,3,2,1]
                     *              0             0             1 
-  1182 schedule[12,27,1]
+   788 inter_unpreferred[5,3,2,2]
                     *              0             0             1 
-  1183 schedule[13,27,1]
+   789 inter_unpreferred[5,3,2,3]
                     *              0             0             1 
-  1184 schedule[14,27,1]
+   790 inter_unpreferred[5,3,3,1]
                     *              0             0             1 
-  1185 schedule[15,27,1]
+   791 inter_unpreferred[5,3,3,2]
                     *              0             0             1 
-  1186 schedule[1,27,2]
+   792 inter_unpreferred[5,3,3,3]
                     *              0             0             1 
-  1187 schedule[2,27,2]
+   793 inter_unpreferred[5,4,1,1]
                     *              0             0             1 
-  1188 schedule[3,27,2]
+   794 inter_unpreferred[5,4,1,2]
                     *              0             0             1 
-  1189 schedule[4,27,2]
-                    *              1             0             1 
-  1190 schedule[5,27,2]
+   795 inter_unpreferred[5,4,1,3]
                     *              0             0             1 
-  1191 schedule[6,27,2]
+   796 inter_unpreferred[5,4,2,1]
                     *              0             0             1 
-  1192 schedule[7,27,2]
+   797 inter_unpreferred[5,4,2,2]
                     *              0             0             1 
-  1193 schedule[8,27,2]
+   798 inter_unpreferred[5,4,2,3]
                     *              0             0             1 
-  1194 schedule[9,27,2]
+   799 inter_unpreferred[5,4,3,1]
                     *              0             0             1 
-  1195 schedule[10,27,2]
+   800 inter_unpreferred[5,4,3,2]
                     *              0             0             1 
-  1196 schedule[11,27,2]
+   801 inter_unpreferred[5,4,3,3]
                     *              0             0             1 
-  1197 schedule[12,27,2]
+   802 inter_unpreferred[5,5,1,1]
                     *              0             0             1 
-  1198 schedule[13,27,2]
+   803 inter_unpreferred[5,5,1,2]
                     *              0             0             1 
-  1199 schedule[14,27,2]
+   804 inter_unpreferred[5,5,1,3]
                     *              0             0             1 
-  1200 schedule[15,27,2]
-                    *              1             0             1 
-  1201 schedule[1,27,3]
-                    *              1             0             1 
-  1202 schedule[2,27,3]
+   805 inter_unpreferred[5,5,2,1]
                     *              0             0             1 
-  1203 schedule[3,27,3]
-                    *              1             0             1 
-  1204 schedule[4,27,3]
+   806 inter_unpreferred[5,5,2,2]
                     *              0             0             1 
-  1205 schedule[5,27,3]
-                    *              1             0             1 
-  1206 schedule[6,27,3]
+   807 inter_unpreferred[5,5,2,3]
                     *              0             0             1 
-  1207 schedule[7,27,3]
+   808 inter_unpreferred[5,5,3,1]
                     *              0             0             1 
-  1208 schedule[8,27,3]
+   809 inter_unpreferred[5,5,3,2]
                     *              0             0             1 
-  1209 schedule[9,27,3]
+   810 inter_unpreferred[5,5,3,3]
                     *              0             0             1 
-  1210 schedule[10,27,3]
+   811 sched_vacation[1,1,1]
                     *              0             0             1 
-  1211 schedule[11,27,3]
+   812 sched_vacation[1,1,2]
                     *              0             0             1 
-  1212 schedule[12,27,3]
+   813 sched_vacation[1,1,3]
                     *              0             0             1 
-  1213 schedule[13,27,3]
+   814 sched_vacation[1,2,1]
                     *              0             0             1 
-  1214 schedule[14,27,3]
+   815 sched_vacation[1,2,2]
                     *              0             0             1 
-  1215 schedule[15,27,3]
+   816 sched_vacation[1,2,3]
                     *              0             0             1 
-  1216 schedule[1,28,1]
+   817 sched_vacation[1,3,1]
                     *              0             0             1 
-  1217 schedule[2,28,1]
-                    *              1             0             1 
-  1218 schedule[3,28,1]
+   818 sched_vacation[1,3,2]
                     *              0             0             1 
-  1219 schedule[4,28,1]
-                    *              1             0             1 
-  1220 schedule[5,28,1]
+   819 sched_vacation[1,3,3]
                     *              0             0             1 
-  1221 schedule[6,28,1]
+   820 sched_vacation[2,1,1]
                     *              0             0             1 
-  1222 schedule[7,28,1]
+   821 sched_vacation[2,1,2]
                     *              0             0             1 
-  1223 schedule[8,28,1]
+   822 sched_vacation[2,1,3]
                     *              0             0             1 
-  1224 schedule[9,28,1]
+   823 sched_vacation[2,2,1]
                     *              0             0             1 
-  1225 schedule[10,28,1]
+   824 sched_vacation[2,2,2]
                     *              0             0             1 
-  1226 schedule[11,28,1]
+   825 sched_vacation[2,2,3]
                     *              0             0             1 
-  1227 schedule[12,28,1]
+   826 sched_vacation[2,3,1]
                     *              0             0             1 
-  1228 schedule[13,28,1]
+   827 sched_vacation[2,3,2]
                     *              0             0             1 
-  1229 schedule[14,28,1]
+   828 sched_vacation[2,3,3]
                     *              0             0             1 
-  1230 schedule[15,28,1]
+   829 sched_vacation[3,1,1]
                     *              0             0             1 
-  1231 schedule[1,28,2]
-                    *              1             0             1 
-  1232 schedule[2,28,2]
+   830 sched_vacation[3,1,2]
                     *              0             0             1 
-  1233 schedule[3,28,2]
+   831 sched_vacation[3,1,3]
                     *              0             0             1 
-  1234 schedule[4,28,2]
+   832 sched_vacation[3,2,1]
                     *              0             0             1 
-  1235 schedule[5,28,2]
-                    *              1             0             1 
-  1236 schedule[6,28,2]
+   833 sched_vacation[3,2,2]
                     *              0             0             1 
-  1237 schedule[7,28,2]
+   834 sched_vacation[3,2,3]
                     *              0             0             1 
-  1238 schedule[8,28,2]
+   835 sched_vacation[3,3,1]
                     *              0             0             1 
-  1239 schedule[9,28,2]
+   836 sched_vacation[3,3,2]
                     *              0             0             1 
-  1240 schedule[10,28,2]
+   837 sched_vacation[3,3,3]
                     *              0             0             1 
-  1241 schedule[11,28,2]
+   838 sched_vacation[4,1,1]
                     *              0             0             1 
-  1242 schedule[12,28,2]
+   839 sched_vacation[4,1,2]
                     *              0             0             1 
-  1243 schedule[13,28,2]
+   840 sched_vacation[4,1,3]
                     *              0             0             1 
-  1244 schedule[14,28,2]
+   841 sched_vacation[4,2,1]
                     *              0             0             1 
-  1245 schedule[15,28,2]
+   842 sched_vacation[4,2,2]
                     *              0             0             1 
-  1246 schedule[1,28,3]
+   843 sched_vacation[4,2,3]
                     *              0             0             1 
-  1247 schedule[2,28,3]
+   844 sched_vacation[4,3,1]
                     *              0             0             1 
-  1248 schedule[3,28,3]
-                    *              1             0             1 
-  1249 schedule[4,28,3]
+   845 sched_vacation[4,3,2]
                     *              0             0             1 
-  1250 schedule[5,28,3]
+   846 sched_vacation[4,3,3]
                     *              0             0             1 
-  1251 schedule[6,28,3]
+   847 sched_vacation[5,1,1]
                     *              0             0             1 
-  1252 schedule[7,28,3]
+   848 sched_vacation[5,1,2]
                     *              0             0             1 
-  1253 schedule[8,28,3]
+   849 sched_vacation[5,1,3]
                     *              0             0             1 
-  1254 schedule[9,28,3]
+   850 sched_vacation[5,2,1]
                     *              0             0             1 
-  1255 schedule[10,28,3]
+   851 sched_vacation[5,2,2]
                     *              0             0             1 
-  1256 schedule[11,28,3]
+   852 sched_vacation[5,2,3]
                     *              0             0             1 
-  1257 schedule[12,28,3]
+   853 sched_vacation[5,3,1]
                     *              0             0             1 
-  1258 schedule[13,28,3]
+   854 sched_vacation[5,3,2]
                     *              0             0             1 
-  1259 schedule[14,28,3]
+   855 sched_vacation[5,3,3]
                     *              0             0             1 
-  1260 schedule[15,28,3]
-                    *              1             0             1 
 
 Integer feasibility conditions:
 
