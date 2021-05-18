@@ -6,14 +6,12 @@ reset;
 
 #load the model
 
-model Model.mod;
+model model.mod;
 
 #load the data
 
-data TestMini.dat;
+data testmini.dat;
 
 #solve
 
 solve;
-
-display schedule > mysol.txt;

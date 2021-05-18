@@ -32,7 +32,8 @@ maximize happyness:
     schedule[n,d,s]*unpreferred_slots[n,d,s]
     )+
     lambda_PC*sum{i in nurses,j in nurses, d in days, s in shifts}(
-    interaction[i,j,d,s]*preferred_companions[i,j])-
+    interaction[i,j,d,s]*preferred_companions[i,j]
+    )-
     lambda_UC*sum{i in nurses,j in nurses, d in days, s in shifts}(
     interaction[i,j,d,s]*unpreferred_companions[i,j]
     )

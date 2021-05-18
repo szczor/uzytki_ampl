@@ -1,4 +1,4 @@
-Problem:    Model
+Problem:    model
 Rows:       720
 Columns:    270 (270 integer, 270 binary)
 Non-zeros:  1741
