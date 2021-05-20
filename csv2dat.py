@@ -176,8 +176,8 @@ def write_model(output_file, data: ModelDTO, logger: logging.Logger):
 
 
 def main(argv):
-    if len(argv) != 2:
-        print(f"Usage: python {argv[0]} path/to/model_description.ini")
+    if len(argv) < 2:
+        print(f"Usage: python {argv[0]} path/to/model_description.ini [path/to/output.dat]")
         return 1
     
     config = configparser.ConfigParser()
@@ -201,7 +201,7 @@ def main(argv):
         s = int(config["Params"]["NumberOfShifts"])
     model = ModelDTO(n, d, s)
     read_model(config, model, logger)
-    write_model(config["Output"]["FileName"], model, logger)
+    write_model(config["Output"]["FileName"] if len(argv) == 2 else argv[2], model, logger)
 
     return 0
 
