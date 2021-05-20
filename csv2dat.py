@@ -75,13 +75,17 @@ class ModelDTO:
         self.work_hours_limit = np.zeros(n_nurses)
         self.demand = np.zeros((n_days, n_shifts), dtype=int)
         self.preferred_shifts = np.zeros((n_nurses, n_days, n_shifts), dtype=bool)
+        self.non_preferred_shifts = np.zeros((n_nurses, n_days, n_shifts), dtype=bool)
+        self.vacation = np.zeros((n_days, n_nurses), dtype=bool)
+        self.liked_coworkers = np.zeros((n_nurses, n_nurses), dtype=bool)
+        self.disliked_coworkers = np.zeros((n_nurses, n_nurses), dtype=bool)
 
 
 def detect_size_params(model_input_files):
     n, d, s = 0, 0, 0
-    for row in csv.reader(open(model_input_files["NurseWorkHoursLimits"])):
+    for row in csv.reader(open(model_input_files["WorkHoursLimits"])):
         n = max(n, int(float(row[0])))
-    for row in csv.reader(open(model_input_files["NursesDemandPerShift"])):
+    for row in csv.reader(open(model_input_files["Demand"])):
         d = max(d, int(float(row[0])))
         s = max(s, len(row) - 1)
     return n, d, s
@@ -93,8 +97,11 @@ def read_model(options, target: ModelDTO, logger: logging.Logger):
         if val != int(val):
             logger.warning(f"expected {value_desc} should be integer, but has fractional value {val}")
         return int(val)
+    def open_csv(name_in_model):
+        return csv.reader(open(options["Files"][name_in_model]))
 
-    for row in csv.reader(open(options["Files"]["NurseWorkHoursLimits"])):
+    # PARAM: work_hours_limit
+    for row in open_csv("WorkHoursLimits"):
         nurse = convert_int("nurse id", row[0]) - 1
         if nurse >= target.n:
             logger.error(f"nurse index {nurse + 1} is out of range")
@@ -104,8 +111,9 @@ def read_model(options, target: ModelDTO, logger: logging.Logger):
             logger.warning(f"nurse {nurse + 1} has work hours defined twice")
         target.work_hours_limit[nurse] = limit
 
+    # PARAM: demand
     isset = [False] * target.d
-    for row in csv.reader(open(options["Files"]["NursesDemandPerShift"])):
+    for row in open_csv("Demand"):
         day = convert_int("day number", row[0]) - 1
         if day >= target.d:
             logger.error(f"day index {day + 1} is out of range")
@@ -118,11 +126,39 @@ def read_model(options, target: ModelDTO, logger: logging.Logger):
         for s in range(min(target.s, len(row) - 1)):
             target.demand[day, s] = float(row[s + 1])
 
-    for row in csv.reader(open(options["Files"]["NursePreferredShifts"])):
+    # PARAM: preferred_shifts
+    for row in open_csv("PreferredShifts"):
         nurse = convert_int("nurse id", row[0]) - 1
         day = convert_int("day number", row[1]) - 1
         shift = convert_int("shift number", row[2]) - 1
         target.preferred_shifts[nurse, day, shift] = True
+
+    # PARAM: preferred_shifts
+    for row in open_csv("NonPreferredShifts"):
+        nurse = convert_int("nurse id", row[0]) - 1
+        day = convert_int("day number", row[1]) - 1
+        shift = convert_int("shift number", row[2]) - 1
+        target.non_preferred_shifts[nurse, day, shift] = True
+
+    # PARAM: vacation
+    for row in open_csv("Vacation"):
+        nurse = convert_int("nurse id", row[0]) - 1
+        for day in row[1:]:
+            day = convert_int("day number", day)
+            if day > 0:
+                target.vacation[day - 1, nurse] = True
+
+    # PARAM: preferred_companions
+    for row in open_csv("LikedCoworkers"):
+        nurse1 = convert_int("nurse id", row[0]) - 1
+        nurse2 = convert_int("nurse id", row[1]) - 1
+        target.liked_coworkers[nurse1, nurse2] = True
+
+    # PARAM: unpreferred_companions
+    for row in open_csv("DislikedCoworkers"):
+        nurse1 = convert_int("nurse id", row[0]) - 1
+        nurse2 = convert_int("nurse id", row[1]) - 1
+        target.disliked_coworkers[nurse1, nurse2] = True
 
 
 def write_model(output_file, data: ModelDTO, logger: logging.Logger):
@@ -133,6 +169,10 @@ def write_model(output_file, data: ModelDTO, logger: logging.Logger):
         dat.write_param("workhours_limit", data.work_hours_limit)
         dat.write_param("demand", data.demand)
         dat.write_param("preferred_slots", data.preferred_shifts)
+        dat.write_param("unpreferred_slots", data.non_preferred_shifts)
+        dat.write_param("vacation", data.vacation)
+        dat.write_param("preferred_companions", data.liked_coworkers)
+        dat.write_param("unpreferred_companions", data.disliked_coworkers)
 
 
 def main(argv):
