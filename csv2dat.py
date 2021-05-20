@@ -97,6 +97,7 @@ def read_model(options, target: ModelDTO, logger: logging.Logger):
         if val != int(val):
             logger.warning(f"expected {value_desc} should be integer, but has fractional value {val}")
         return int(val)
+
     def open_csv(name_in_model):
         return csv.reader(open(options["Files"][name_in_model]))
 
@@ -106,7 +107,7 @@ def read_model(options, target: ModelDTO, logger: logging.Logger):
         if nurse >= target.n:
             logger.error(f"nurse index {nurse + 1} is out of range")
             continue
-        limit = float(row[0])
+        limit = float(row[1])
         if target.work_hours_limit[nurse] != 0:
             logger.warning(f"nurse {nurse + 1} has work hours defined twice")
         target.work_hours_limit[nurse] = limit
@@ -178,6 +179,9 @@ def write_model(output_file, data: ModelDTO, logger: logging.Logger):
 def main(argv):
     if len(argv) < 2:
         print(f"Usage: python {argv[0]} path/to/model_description.ini [path/to/output.dat]")
+        return 1
+    if not os.path.isfile(argv[1]):
+        print(f"Error: file {argv[1]} does not exist")
         return 1
     
     config = configparser.ConfigParser()
