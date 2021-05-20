@@ -49,7 +49,7 @@ class DatWriter:
         f = self._file
         f.write(f"param {name} :=")
         for i in range(array.shape[0]):
-            f.write(f"\n\t[{i + 1}, *, *]\t")
+            f.write(f"\n\t[{i + 1}, *, *]:\t")
             self._write_matrix(array[i, :, :])
         f.write(";\n")
 
