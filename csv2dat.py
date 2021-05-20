@@ -77,6 +77,16 @@ class ModelDTO:
         self.preferred_shifts = np.zeros((n_nurses, n_days, n_shifts), dtype=bool)
 
 
+def detect_size_params(model_input_files):
+    n, d, s = 0, 0, 0
+    for row in csv.reader(open(model_input_files["NurseWorkHoursLimits"])):
+        n = max(n, int(float(row[0])))
+    for row in csv.reader(open(model_input_files["NursesDemandPerShift"])):
+        d = max(d, int(float(row[0])))
+        s = max(s, len(row) - 1)
+    return n, d, s
+
+
 def read_model(options, target: ModelDTO, logger: logging.Logger):
     def convert_int(value_desc, str_value):
         val = float(str_value)
@@ -139,11 +149,17 @@ def main(argv):
         if not os.path.isabs(config["Files"][file_key]):
             config["Files"][file_key] = os.path.join(rel_dir, config["Files"][file_key])
 
-    logger = logging.getLogger("")
-    model = ModelDTO(
-        int(config["Params"]["NumberOfNurses"]), 
-        int(config["Params"]["NumberOfDays"]), 
-        int(config["Params"]["NumberOfShifts"]))
+    logging.basicConfig(stream=sys.stdout, level=logging.INFO, format="[%(asctime)s] [%(levelname)s]  %(message)s")
+    logger = logging.getLogger()
+    n, d, s = 0, 0, 0
+    if config["Params"]["Autodetect"] == "Yes":
+        n, d, s = detect_size_params(config["Files"])
+        logger.info(f"Detected problem size: {n} nurses, {d} days, {s} shifts")
+    else:
+        n = int(config["Params"]["NumberOfNurses"])
+        d = int(config["Params"]["NumberOfDays"])
+        s = int(config["Params"]["NumberOfShifts"])
+    model = ModelDTO(n, d, s)
     read_model(config, model, logger)
     write_model(config["Output"]["FileName"], model, logger)
 
