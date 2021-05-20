@@ -1,0 +1,154 @@
+import numpy as np
+import csv
+import configparser
+import sys
+import os.path
+import logging
+
+
+class DatWriter:
+    def __init__(self, file_name):
+        self._file = open(file_name, "w")
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        if exc_type is None:
+            self.close()
+
+    def close(self):
+        self._file.close()
+
+    def write_param(self, name, value):
+        if isinstance(value, np.ndarray):
+            if len(value.shape) == 1:
+                self._write_array_1d(name, value)
+            elif len(value.shape) == 2:
+                self._write_array_2d(name, value)
+            elif len(value.shape) == 3:
+                self._write_array_3d(name, value)
+            else:
+                raise ValueError("unsupported ndarray dimmention")
+        else:
+            self._file.write(f"param {name} := {value};\n")
+    
+    def _write_array_1d(self, name, array):
+        f = self._file
+        f.write(f"param {name} :=")
+        for i in range(array.shape[0]):
+            f.write(f"\n\t{i+1}\t{array[i]}")
+        f.write(";\n")
+
+    def _write_array_2d(self, name, array):
+        self._file.write(f"param {name}:\n\t\t")
+        self._write_matrix(array)
+        self._file.write(";\n")
+
+    def _write_array_3d(self, name, array):
+        f = self._file
+        f.write(f"param {name} :=")
+        for i in range(array.shape[0]):
+            f.write(f"\n\t[{i + 1}, *, *]\t")
+            self._write_matrix(array[i, :, :])
+        f.write(";\n")
+
+    def _write_matrix(self, subarray):
+        f = self._file
+        for j in range(subarray.shape[1]):
+            f.write(f"{j+1}\t")
+        f.write(":=")
+        for i in range(subarray.shape[0]):
+            f.write(f"\n\t{i+1}")
+            for j in range(subarray.shape[1]):
+                if subarray.dtype == bool:
+                    f.write(f"\t{1 if subarray[i, j] else 0}")
+                else:
+                    f.write(f"\t{subarray[i, j]}")
+
+
+class ModelDTO:
+    def __init__(self, n_nurses, n_days, n_shifts):
+        self.n = n_nurses
+        self.d = n_days
+        self.s = n_shifts
+        self.work_hours_limit = np.zeros(n_nurses)
+        self.demand = np.zeros((n_days, n_shifts), dtype=int)
+        self.preferred_shifts = np.zeros((n_nurses, n_days, n_shifts), dtype=bool)
+
+
+def read_model(options, target: ModelDTO, logger: logging.Logger):
+    def convert_int(value_desc, str_value):
+        val = float(str_value)
+        if val != int(val):
+            logger.warning(f"expected {value_desc} should be integer, but has fractional value {val}")
+        return int(val)
+
+    for row in csv.reader(open(options["Files"]["NurseWorkHoursLimits"])):
+        nurse = convert_int("nurse id", row[0]) - 1
+        if nurse >= target.n:
+            logger.error(f"nurse index {nurse + 1} is out of range")
+            continue
+        limit = float(row[0])
+        if target.work_hours_limit[nurse] != 0:
+            logger.warning(f"nurse {nurse + 1} has work hours defined twice")
+        target.work_hours_limit[nurse] = limit
+
+    isset = [False] * target.d
+    for row in csv.reader(open(options["Files"]["NursesDemandPerShift"])):
+        day = convert_int("day number", row[0]) - 1
+        if day >= target.d:
+            logger.error(f"day index {day + 1} is out of range")
+            continue
+        if len(row) - 1 != target.s:
+            logger.warning(f"day {day + 1} has invalid number of values as demand param")
+        if isset[day]:
+            logger.warning(f"day {day + 1} has demand defined twice")
+        isset[day] = True
+        for s in range(min(target.s, len(row) - 1)):
+            target.demand[day, s] = float(row[s + 1])
+
+    for row in csv.reader(open(options["Files"]["NursePreferredShifts"])):
+        nurse = convert_int("nurse id", row[0]) - 1
+        day = convert_int("day number", row[1]) - 1
+        shift = convert_int("shift number", row[2]) - 1
+        target.preferred_shifts[nurse, day, shift] = True
+
+
+def write_model(output_file, data: ModelDTO, logger: logging.Logger):
+    with DatWriter(output_file) as dat:
+        dat.write_param("N", data.n)
+        dat.write_param("D", data.d)
+        dat.write_param("S", data.s)
+        dat.write_param("workhours_limit", data.work_hours_limit)
+        dat.write_param("demand", data.demand)
+        dat.write_param("preferred_slots", data.preferred_shifts)
+
+
+def main(argv):
+    if len(argv) != 2:
+        print(f"Usage: python {argv[0]} path/to/model_description.ini")
+        return 1
+    
+    config = configparser.ConfigParser()
+    config.read(argv[1])
+
+    # translate config-relative paths
+    rel_dir = os.path.dirname(argv[1])
+    for file_key in config["Files"]:
+        if not os.path.isabs(config["Files"][file_key]):
+            config["Files"][file_key] = os.path.join(rel_dir, config["Files"][file_key])
+
+    logger = logging.getLogger("")
+    model = ModelDTO(
+        int(config["Params"]["NumberOfNurses"]), 
+        int(config["Params"]["NumberOfDays"]), 
+        int(config["Params"]["NumberOfShifts"]))
+    read_model(config, model, logger)
+    write_model(config["Output"]["FileName"], model, logger)
+
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))
