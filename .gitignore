@@ -1,4 +1,6 @@
 amplide.mswin64/
-.idea/
 versions/
-/input.dat
+.idea/
+*.dat
+*.sol
+wykresy/

@@ -44,8 +44,8 @@ subject to demand_shift{d in days, s in shifts}:
     sum{n in nurses} schedule[n, d, s] = demand[d, s];
     
 # Respect work hours limit
-subject to work_hours_limit{n in nurses}:
-    sum{s in shifts, d in days} 24/S*schedule[n, d, s] <= workhours_limit[n];
+# subject to work_hours_limit{n in nurses}:
+    # sum{s in shifts, d in days} 24/S*schedule[n, d, s] <= workhours_limit[n];
     
 # Every nurse can work at most one shift per day
 subject to daily_shift_limit{nurse in nurses, day in days}:

@@ -1,25 +1,66 @@
-Model mozna uruchomic za pomoca glpsol:
+# Nurse Rostering
 
-```
-glpsol -m model.mod -d testmini.dat -o uzytki.sol
-```
+The model itself is in `model/` directore. In the repo there are also several utility scripts:
 
-A nastepnie wygenerowac wizualizacje
+- `csv2dat.py` that converts input from a number of CSV files into single `.dat` file suitable for model `model/main.mod`.
+- `visualization.py` that presents the solution in a human readable way.
 
-```
-python sol_parser.py
-```
-stworzona wizualizacje wyniku mozna zobazyc w folderze wykresy.
+The model is linear and it seems to work with `glpsol`.
 
-## Konwersja danych wejściowych
 
-Generowanie plików `.dat` z plików `.csv` odbywa sie za pomocą skryptu `csv2dat.py`. Skrypt przyjmuje dwa parametry do uruchomienia:
+## Running the model
 
-- Pierwszy (wymagany) to ścieżka do pliku z opisem danych wejściowych — zobacz przykładowy taki plik: `tabele/example.ini`
-- Drugi (opcjonalny) to nazwa pliku `.dat` do wygenerowania. Jeżeli zostanie podany, to ustawienie `FileName` w sekcji `Output` zostanie zignorowany.
-
-Przykładowe wywołanie:
+First to generate data from CSV files you can use `csv2dat.py` script (se following section for more info):
 
 ```sh
-python3 csv2dat.py tabele/example.ini uzytki.dat
+python cav2dat.py example_data/example.ini test.dat
+```
+
+This should generate `test.dat` with input suitable for the model. You can run it with `glpsol` (currently it seems to take 
+several minutes for `glpsol` to find a solution; however it then stucks for omptimizing it for at least very long time):
+
+```sh
+glpsol -m model/main.mod -d test.dat -o solution.sol --tmlim 1800
+```
+
+Or from `ampl` CLI (assuming `model.mod` and `test.dat` are copied to the working directory):
+
+```
+option solver cplex;
+model model.mod;
+data testmini.dat;
+solve;
+```
+
+
+## Visualizing the solution
+
+Assuming that you have a `glpsol`–generated solution in file `solution.sol` you can generate visualisation like this:
+
+```
+cp solution.sol uzytki.sol
+mkdir wykresy
+python sol_parser.py
+```
+
+This should generate some visualization in directory `wykresy/`.
+
+
+## Converting input from CSV files
+
+CSV files are converted to `.dat` input for our model by `cav2dat.py` script. Foor convenience the script uses a config file with 
+a list of files to process (and several other options). When run, it expects one or two command line parameters:
+
+- The first (required) is path to the config file describing which CAV files to use. For more info, check out example of cuch 
+  file: `example_data/example.ini` (every option is commented there). Keep in mind that relative paths to CSV files defined in 
+  that file are taken relative to the location of the INI file.
+- The second (optional) parameter is the desired path to output file. If present it will override the option `FileName` from 
+  `Output` section (otherwise this option must be set in the INI file). The relative path to output is treated as relative to the 
+  directory from which the script is invoked.
+
+An example invocation that produces `test.dat` from sample data provided in `example_data/` directory (that were given to us by 
+F33) would be:
+
+```sh
+python3 cav2dat.py example_data/example.ini test.dat
 ```
