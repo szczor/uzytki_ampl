@@ -13,7 +13,7 @@ The model is linear and it seems to work with `glpsol`.
 First to generate data from CSV files you can use `csv2dat.py` script (se following section for more info):
 
 ```sh
-python cav2dat.py example_data/example.ini test.dat
+python csv2dat.py example_data/example.ini test.dat
 ```
 
 This should generate `test.dat` with input suitable for the model. You can run it with `glpsol` (currently it seems to take 
@@ -48,7 +48,7 @@ This should generate some visualization in directory `wykresy/`.
 
 ## Converting input from CSV files
 
-CSV files are converted to `.dat` input for our model by `cav2dat.py` script. Foor convenience the script uses a config file with 
+CSV files are converted to `.dat` input for our model by `csv2dat.py` script. Foor convenience the script uses a config file with 
 a list of files to process (and several other options). When run, it expects one or two command line parameters:
 
 - The first (required) is path to the config file describing which CAV files to use. For more info, check out example of cuch 
@@ -62,5 +62,5 @@ An example invocation that produces `test.dat` from sample data provided in `exa
 F33) would be:
 
 ```sh
-python3 cav2dat.py example_data/example.ini test.dat
+python3 csv2dat.py example_data/example.ini test.dat
 ```
