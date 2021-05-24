@@ -39,11 +39,10 @@ Assuming that you have a `glpsol`–generated solution in file `solution.sol` yo
 
 ```
 cp solution.sol uzytki.sol
-mkdir wykresy
-python sol_parser.py
+python visualization.py solution.sol output_name
 ```
 
-This should generate some visualization in directory `wykresy/`.
+This should generate visualization output_name.png in a directory `wykresy/`.
 
 
 ## Converting input from CSV files
