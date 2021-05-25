@@ -46,6 +46,15 @@ def create_lists(li):
     return lista1, lista2, lista3
 
 
+def chunk_based_on_size(lst, n):
+    for x in range(0, len(lst), n):
+        each_chunk = lst[x: n + x]
+
+        if len(each_chunk) < n:
+            each_chunk = each_chunk + [None for y in range(n - len(each_chunk))]
+        yield each_chunk
+
+
 def plot1(df, name):
     order = list(range(1, df["nurses"].max() + 1))
     df['nurses'] = [order.index(x) for x in df['nurses']]
@@ -64,34 +73,33 @@ def plot1(df, name):
     fig.savefig(os.path.join(cwd, "wykresy", name + '.png'))
 
 
-def plot2(df, name):
-    order = list(range(1, df["nurses"].max() + 1))
-    df['nurses'] = [order.index(x) for x in df['nurses']]
-    df['xaxis'] = (df.days - 1) * 3 + df['shift']
+def plot2(df_plot, name):
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    plt.yticks(range(len(order)), order)
-    sns.scatterplot(x='xaxis', y='nurses', data=df, marker=',', color='r', s=1000)
-    index_max = df['xaxis'].max()
-    shift_names = ['S1', 'S2', 'S3'] * int((index_max / 3))
-    for j in range(int(index_max)):
+    order_nurses = list(range(1, df["nurses"].max() + 1))
+    plt.yticks(range(len(order_nurses)), order)
+    sns.scatterplot(x='xaxis', y='nurses', data=df_plot, marker=',', color='r', s=350,ci=100,alpha=1, edgecolor='None')
+    index_max = df_plot['xaxis'].max()
+    index_min = df_plot['xaxis'].min()
+    shift_names = ['S1', 'S2', 'S3'] * int((((index_max+1)-index_min) / 3))
+    for j in range(int(index_min),int(index_max)):
         plt.axvline(x=j + 1 / 2, color='grey')
-    for j in range(int(index_max/3)):
-        plt.axvline(x=3*j + 1 / 2, color='black',lw=4.5)
-    positions = list(range(int(index_max))[1::3])
-    positions = [x + 1 for x in positions]
+    for j in range(int(index_min/3),int(index_max / 3)+1):
+        plt.axvline(x=3 * j + 1 / 2, color='black', lw=4.5)
+    positions = list(range(int(index_min), int(index_max))[1::3])
+    positions = [x for x in positions]
     labels = []
-    #Maybe will want to change fontsize of days?
-    #fontsize=[10]*len(list(range(1, index_max + 1)))+[15]*len(positions)
-    for i in range(1,df['days'].max() + 1):
+    # Maybe will want to change fontsize of days?
+    # fontsize=[10]*len(list(range(1, index_max + 1)))+[15]*len(positions)
+    for i in range(df_plot['days'].min(), df_plot['days'].max() + 1):
         labels.append('\n\nD' + str(i))
-    plt.xticks(ticks=list(range(1, index_max + 1))+positions, labels=shift_names+labels)
-    ax.set_ylim([-1/2, df['nurses'].max()+1/2])
-    yticks=[]
-    for i in list(range(1,df['nurses'].max() + 2)):
+    plt.xticks(ticks=list(range(index_min, index_max + 1)) + positions, labels=shift_names + labels)
+    ax.set_ylim([-1 / 2, df_plot['nurses'].max() + 1 / 2])
+    yticks = []
+    for i in list(range(1, df_plot['nurses'].max()+2)):
         yticks.append('N' + str(i))
-    ax.set_yticklabels(yticks)
-    for j in range(df['nurses'].max()):
+    plt.yticks(ticks=list(range(0,df_plot['nurses'].max()+1)),labels=yticks)
+    for j in range(df_plot['nurses'].min(), df_plot['nurses'].max()):
         plt.axhline(y=j + 1 / 2, color='black')
     ax.set_xlabel("")
     plt.title('Nurse schedules')
@@ -114,7 +122,25 @@ if __name__ == '__main__':
     schedule = list(map(parse_second_string, schedule))
     nurses, days, shifts = create_lists(lista1)
     d = {'nurses': nurses, 'days': days, 'shift': shifts, 'schedule': schedule}
+
     df = pd.DataFrame(d)
     df = df.astype(int)
     df = df[df.schedule == 1]
-    plot2(df, p.output_name)
+    order = list(range(1, df["nurses"].max() + 1))
+    df['nurses'] = [order.index(x) for x in df['nurses']]
+    df['xaxis'] = (df.days - 1) * 3 + df['shift']
+    if df.empty:
+        print('There is no solution')
+        exit()
+    days_max = df['days'].max()
+    day_list = list(range(1, days_max + 1))
+    ## divide into weeks
+    weeks = list(chunk_based_on_size(day_list, 7))
+    i = 1
+    for week in weeks:
+        boolean_series = df.days.isin(week)
+        df_week = df[boolean_series]
+        if df_week.empty:
+            exit()
+        plot2(df_week, p.output_name + '_week_' + str(i))
+        i += 1
