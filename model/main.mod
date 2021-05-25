@@ -57,7 +57,7 @@ subject to give_sleep_time{nurse in nurses, day in {1..(D-1)}}:
     
 #Vacations are respected
 subject to vacations:
-	sum{(n,d) in vacation, s in shifts} schedule[n,d,s] = 0;
+	sum{(d,n) in vacation, s in shifts} schedule[n,d,s] = 0;
 
 #interaction 1
 subject to interaction_1{i in nurses, j in nurses, d in days, s in shifts}:
