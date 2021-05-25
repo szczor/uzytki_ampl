@@ -4,6 +4,8 @@ import seaborn as sns
 import os
 import matplotlib.pyplot as plt
 import numpy as np
+import argparse
+from pathlib import Path
 
 
 def parse_sol(nazwa):
@@ -44,17 +46,63 @@ def create_lists(li):
     return lista1, lista2, lista3
 
 
-def plot(df, name):
-    order = list(range(1, df["nurses"].max()+1))
+def chunk_based_on_size(lst, n):
+    for x in range(0, len(lst), n):
+        each_chunk = lst[x: n + x]
+
+        if len(each_chunk) < n:
+            each_chunk = each_chunk + [None for y in range(n - len(each_chunk))]
+        yield each_chunk
+
+
+def plot1(df, name):
+    order = list(range(1, df["nurses"].max() + 1))
     df['nurses'] = [order.index(x) for x in df['nurses']]
     fig, ax = plt.subplots()
     plt.yticks(range(len(order)), order)
     sns.scatterplot(x='days', y='nurses', hue='shift', data=df)
-    ax.xaxis.set_ticks(np.arange(df["days"].min(), df["days"].max()+1), 1)
-    plt.xticks(np.arange(df["days"].min(), df["days"].max()+1))
+    ax.xaxis.set_ticks(ticks=np.arange(df["days"].min(), df["days"].max() + 1), minor=1)
+    plt.xticks(np.arange(df["days"].min(), df["days"].max() + 1))
     plt.setp(ax.get_xticklabels(), fontsize='x-small')
     plt.title('Nurse schedules')
-    plt.legend(bbox_to_anchor=(1.05, 1),title='Shift')
+    plt.legend(bbox_to_anchor=(1.05, 1), title='Shift')
+    plt.tight_layout()
+    if not os.path.exists('wykresy'):
+        os.makedirs('wykresy')
+    cwd = os.getcwd()
+    fig.savefig(os.path.join(cwd, "wykresy", name + '.png'))
+
+
+def plot2(df_plot, name):
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    order_nurses = list(range(1, df["nurses"].max() + 1))
+    plt.yticks(range(len(order_nurses)), order)
+    sns.scatterplot(x='xaxis', y='nurses', data=df_plot, marker=',', color='r', s=350,ci=100,alpha=1, edgecolor='None')
+    index_max = df_plot['xaxis'].max()
+    index_min = df_plot['xaxis'].min()
+    shift_names = ['S1', 'S2', 'S3'] * int((((index_max+1)-index_min) / 3))
+    for j in range(int(index_min),int(index_max)):
+        plt.axvline(x=j + 1 / 2, color='grey')
+    for j in range(int(index_min/3),int(index_max / 3)+1):
+        plt.axvline(x=3 * j + 1 / 2, color='black', lw=4.5)
+    positions = list(range(int(index_min), int(index_max))[1::3])
+    positions = [x for x in positions]
+    labels = []
+    # Maybe will want to change fontsize of days?
+    # fontsize=[10]*len(list(range(1, index_max + 1)))+[15]*len(positions)
+    for i in range(df_plot['days'].min(), df_plot['days'].max() + 1):
+        labels.append('\n\nD' + str(i))
+    plt.xticks(ticks=list(range(index_min, index_max + 1)) + positions, labels=shift_names + labels)
+    ax.set_ylim([-1 / 2, df_plot['nurses'].max() + 1 / 2])
+    yticks = []
+    for i in list(range(1, df_plot['nurses'].max()+2)):
+        yticks.append('N' + str(i))
+    plt.yticks(ticks=list(range(0,df_plot['nurses'].max()+1)),labels=yticks)
+    for j in range(df_plot['nurses'].min(), df_plot['nurses'].max()):
+        plt.axhline(y=j + 1 / 2, color='black')
+    ax.set_xlabel("")
+    plt.title('Nurse schedules')
     plt.tight_layout()
     if not os.path.exists('wykresy'):
         os.makedirs('wykresy')
@@ -63,12 +111,36 @@ def plot(df, name):
 
 
 if __name__ == '__main__':
-    lista1, schedule = parse_sol('uzytki.sol')
+    # command line path for solution file
+    parser = argparse.ArgumentParser()
+    parser.add_argument("file_path", type=Path, help='Path for .sol file')
+    parser.add_argument("output_name", type=str, help='Output name')
+    p = parser.parse_args()
+
+    lista1, schedule = parse_sol(p.file_path)
     lista1 = list(map(parse_first_string, lista1))
     schedule = list(map(parse_second_string, schedule))
     nurses, days, shifts = create_lists(lista1)
     d = {'nurses': nurses, 'days': days, 'shift': shifts, 'schedule': schedule}
+
     df = pd.DataFrame(d)
     df = df.astype(int)
     df = df[df.schedule == 1]
-    plot(df, 'output')
+    order = list(range(1, df["nurses"].max() + 1))
+    df['nurses'] = [order.index(x) for x in df['nurses']]
+    df['xaxis'] = (df.days - 1) * 3 + df['shift']
+    if df.empty:
+        print('There is no solution')
+        exit()
+    days_max = df['days'].max()
+    day_list = list(range(1, days_max + 1))
+    ## divide into weeks
+    weeks = list(chunk_based_on_size(day_list, 7))
+    i = 1
+    for week in weeks:
+        boolean_series = df.days.isin(week)
+        df_week = df[boolean_series]
+        if df_week.empty:
+            exit()
+        plot2(df_week, p.output_name + '_week_' + str(i))
+        i += 1
