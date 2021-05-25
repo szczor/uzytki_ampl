@@ -30,6 +30,11 @@ class DatWriter:
                 self._write_array_3d(name, value)
             else:
                 raise ValueError("unsupported ndarray dimmention")
+        elif isinstance(value, set):
+            self._file.write(f"set {name} :=")
+            for item in value:
+                self._file.write(f"\n\t{' '.join(str(x) for x in item) if isinstance(item, tuple) else item}")
+            self._file.write(";\n")
         else:
             self._file.write(f"param {name} := {value};\n")
     
@@ -74,11 +79,11 @@ class ModelDTO:
         self.s = n_shifts
         self.work_hours_limit = np.zeros(n_nurses)
         self.demand = np.zeros((n_days, n_shifts), dtype=int)
-        self.preferred_shifts = np.zeros((n_nurses, n_days, n_shifts), dtype=bool)
-        self.non_preferred_shifts = np.zeros((n_nurses, n_days, n_shifts), dtype=bool)
-        self.vacation = np.zeros((n_days, n_nurses), dtype=bool)
-        self.liked_coworkers = np.zeros((n_nurses, n_nurses), dtype=bool)
-        self.disliked_coworkers = np.zeros((n_nurses, n_nurses), dtype=bool)
+        self.preferred_shifts = set()
+        self.non_preferred_shifts = set()
+        self.vacation = set()
+        self.liked_coworkers = set()
+        self.disliked_coworkers = set()
 
 
 def detect_size_params(model_input_files):
@@ -129,37 +134,37 @@ def read_model(options, target: ModelDTO, logger: logging.Logger):
 
     # PARAM: preferred_shifts
     for row in open_csv("PreferredShifts"):
-        nurse = convert_int("nurse id", row[0]) - 1
-        day = convert_int("day number", row[1]) - 1
-        shift = convert_int("shift number", row[2]) - 1
-        target.preferred_shifts[nurse, day, shift] = True
+        nurse = convert_int("nurse id", row[0])
+        day = convert_int("day number", row[1])
+        shift = convert_int("shift number", row[2])
+        target.preferred_shifts.add((nurse, day, shift))
 
-    # PARAM: preferred_shifts
+    # PARAM: unpreferred_shifts
     for row in open_csv("NonPreferredShifts"):
-        nurse = convert_int("nurse id", row[0]) - 1
-        day = convert_int("day number", row[1]) - 1
-        shift = convert_int("shift number", row[2]) - 1
-        target.non_preferred_shifts[nurse, day, shift] = True
+        nurse = convert_int("nurse id", row[0])
+        day = convert_int("day number", row[1])
+        shift = convert_int("shift number", row[2])
+        target.non_preferred_shifts.add((nurse, day, shift))
 
     # PARAM: vacation
     for row in open_csv("Vacation"):
-        nurse = convert_int("nurse id", row[0]) - 1
+        nurse = convert_int("nurse id", row[0])
         for day in row[1:]:
             day = convert_int("day number", day)
             if day > 0:
-                target.vacation[day - 1, nurse] = True
+                target.vacation.add((day, nurse))
 
     # PARAM: preferred_companions
     for row in open_csv("LikedCoworkers"):
-        nurse1 = convert_int("nurse id", row[0]) - 1
-        nurse2 = convert_int("nurse id", row[1]) - 1
-        target.liked_coworkers[nurse1, nurse2] = True
+        nurse1 = convert_int("nurse id", row[0])
+        nurse2 = convert_int("nurse id", row[1])
+        target.liked_coworkers.add((nurse1, nurse2))
 
     # PARAM: unpreferred_companions
     for row in open_csv("DislikedCoworkers"):
-        nurse1 = convert_int("nurse id", row[0]) - 1
-        nurse2 = convert_int("nurse id", row[1]) - 1
-        target.disliked_coworkers[nurse1, nurse2] = True
+        nurse1 = convert_int("nurse id", row[0])
+        nurse2 = convert_int("nurse id", row[1])
+        target.disliked_coworkers.add((nurse1, nurse2))
 
 
 def write_model(output_file, data: ModelDTO, logger: logging.Logger):
