@@ -54,7 +54,10 @@ def chunk_based_on_size(lst, n):
             each_chunk = each_chunk + [None for y in range(n - len(each_chunk))]
         yield each_chunk
 
-
+def create_folder():
+    if not os.path.exists('wykresy'):
+        os.makedirs('wykresy')
+    return 0
 def plot_workhours(df, name):
     pass
 
@@ -62,8 +65,6 @@ def plot_workhours(df, name):
 def plot_schedule(df_plot, name):
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    order_nurses = list(range(1, df["nurses"].max() + 1))
-    plt.yticks(range(len(order_nurses)), order)
     sns.scatterplot(x='xaxis', y='nurses', data=df_plot, marker=',', color='r', s=350,ci=100,alpha=1, edgecolor='None')
     index_max = df_plot['xaxis'].max()
     index_min = df_plot['xaxis'].min()
@@ -90,10 +91,7 @@ def plot_schedule(df_plot, name):
     ax.set_xlabel("")
     plt.title('Nurse schedules')
     plt.tight_layout()
-    if not os.path.exists('wykresy'):
-        os.makedirs('wykresy')
-    cwd = os.getcwd()
-    fig.savefig(os.path.join(cwd, "wykresy", name + '.png'))
+    fig.savefig(os.path.join(os.getcwd(), "wykresy", name + '.png'))
 
 
 if __name__ == '__main__':
@@ -120,6 +118,8 @@ if __name__ == '__main__':
         exit()
     days_max = df['days'].max()
     day_list = list(range(1, days_max + 1))
+    #create a folder for plots
+    create_folder()
     ## divide into weeks
     weeks = list(chunk_based_on_size(day_list, 7))
     i = 1
