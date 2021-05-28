@@ -55,25 +55,11 @@ def chunk_based_on_size(lst, n):
         yield each_chunk
 
 
-def plot1(df, name):
-    order = list(range(1, df["nurses"].max() + 1))
-    df['nurses'] = [order.index(x) for x in df['nurses']]
-    fig, ax = plt.subplots()
-    plt.yticks(range(len(order)), order)
-    sns.scatterplot(x='days', y='nurses', hue='shift', data=df)
-    ax.xaxis.set_ticks(ticks=np.arange(df["days"].min(), df["days"].max() + 1), minor=1)
-    plt.xticks(np.arange(df["days"].min(), df["days"].max() + 1))
-    plt.setp(ax.get_xticklabels(), fontsize='x-small')
-    plt.title('Nurse schedules')
-    plt.legend(bbox_to_anchor=(1.05, 1), title='Shift')
-    plt.tight_layout()
-    if not os.path.exists('wykresy'):
-        os.makedirs('wykresy')
-    cwd = os.getcwd()
-    fig.savefig(os.path.join(cwd, "wykresy", name + '.png'))
+def plot_workhours(df, name):
+    pass
 
 
-def plot2(df_plot, name):
+def plot_schedule(df_plot, name):
     fig = plt.figure()
     ax = fig.add_subplot(111)
     order_nurses = list(range(1, df["nurses"].max() + 1))
@@ -142,5 +128,5 @@ if __name__ == '__main__':
         df_week = df[boolean_series]
         if df_week.empty:
             exit()
-        plot2(df_week, p.output_name + '_week_' + str(i))
+        plot_schedule(df_week, p.output_name + '_week_' + str(i))
         i += 1
