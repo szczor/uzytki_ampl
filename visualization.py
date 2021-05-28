@@ -74,7 +74,7 @@ def plot_schedule(df_plot, name):
     for j in range(int(index_min/3),int(index_max / 3)+1):
         plt.axvline(x=3 * j + 1 / 2, color='black', lw=4.5)
     positions = list(range(int(index_min), int(index_max))[1::3])
-    positions = [x for x in positions]
+    positions = [x+0.000001 for x in positions]
     labels = []
     # Maybe will want to change fontsize of days?
     # fontsize=[10]*len(list(range(1, index_max + 1)))+[15]*len(positions)
