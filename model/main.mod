@@ -5,11 +5,13 @@ param N;
 set shifts := {1..S};
 set days := {1..D};
 set nurses := {1..N};
+set weeks := {1..(D/7)};
 
 param lambda_PC := 1;
 param lambda_UC := 1;
-param lambda_PS :=1;
-param lambda_US :=1;
+param lambda_PS := 1;
+param lambda_US := 1;
+param lambda_WHS := 100;
 
 param demand{days, shifts} >= 0, integer;
 param workhours_limit{nurses} > 0, integer;
@@ -22,6 +24,11 @@ set unpreferred_slots within {nurses,days,shifts};
 var schedule{nurses, days, shifts}, binary;
 
 var interaction{nurses,nurses,days,shifts},binary;
+
+var weekend{nurses, weeks}, binary;
+
+var alpha_min;
+var alpha_max;
 
 
 maximize happyness: 
@@ -37,6 +44,7 @@ maximize happyness:
     lambda_UC*sum{(i, j) in unpreferred_companions, d in days, s in shifts}(
     interaction[i,j,d,s]
     )
+    -lambda_WHS * (alpha_max - alpha_min)
 ;
 
 # Demand for every shiift is satisfied
@@ -44,12 +52,16 @@ subject to demand_shift{d in days, s in shifts}:
     sum{n in nurses} schedule[n, d, s] = demand[d, s];
     
 # Respect work hours limit
-# subject to work_hours_limit{n in nurses}:
-    # sum{s in shifts, d in days} 24/S*schedule[n, d, s] <= workhours_limit[n];
+subject to work_hours_limit{n in nurses}:
+    sum{s in shifts, d in days} 24/S*schedule[n, d, s] <= workhours_limit[n];
     
 # Every nurse can work at most one shift per day
 subject to daily_shift_limit{nurse in nurses, day in days}:
     sum{shift in shifts} schedule[nurse, day, shift] <= 1;
+    
+# max 6 night shifts per week
+subject to night_limit{n in nurses, w in weeks}:
+    sum{d in {(7 * w + 1) .. min(7 * (w + 1), D)}} schedule[n, d, S] <= 6;
     
 # Schedule where a nurse works in the last shift and in the first on the next day is forbidden
 subject to give_sleep_time{nurse in nurses, day in {1..(D-1)}}:
@@ -70,3 +82,15 @@ subject to interaction_2{i in nurses, j in nurses, d in days, s in shifts}:
 #interaction 3
 subject to interaction_3{i in nurses, j in nurses, d in days, s in shifts}:
 	interaction[i,j,d,s]>=schedule[i,d,s]+schedule[j,d,s]-1;
+
+# weekend work indicators constraints
+subject to weekends_1{n in nurses, w in weeks}:
+    weekend[n, w] >= (sum{s in shifts} (schedule[n, w + 6, s] + schedule[n, w + 7, s])) / S;
+subject to weekends_2{n in nurses, w in weeks}:
+    weekend[n, w] <= sum{s in shifts} (schedule[n, w + 6, s] + schedule[n, w + 7, s]);
+
+# alphas with bounds
+subject to alpha_min_bounds{n in nurses}:
+    sum{d in days, s in shifts} schedule[n, d, s] * 24 / S / workhours_limit[n] >= alpha_min;
+subject to alpha_max_bounds{n in nurses}:
+    sum{d in days, s in shifts} schedule[n, d, s] * 24 / S / workhours_limit[n] <= alpha_max;
