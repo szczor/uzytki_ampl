@@ -2,10 +2,13 @@ param pNumberOfShifts;
 param pNumberOfDays;
 param pNumberOfNurses;
 
+param pShiftLength := 24/pNumberOfShifts;
+param pMaxNightShifts := 6;
+
 set sShifts := {1..pNumberOfShifts};
 set sDays := {1..pNumberOfDays};
 set sNurses := {1..pNumberOfNurses};
-set sWeeks := {1..(pNumberOfDays/7)};  # todo: fix?
+set sWeeks := {1..(pNumberOfDays/7)};
 
 param pLambdaPC := 1;
 param pLambdaUC := 1;
@@ -53,15 +56,15 @@ subject to cDemandShift{d in sDays, s in sShifts}:
     
 # Respect work hours limit
 subject to cWorkHoursLimit{n in sNurses}:
-    sum{s in sShifts, d in sDays} 24/pNumberOfShifts*vSchedule[n, d, s] <= pWorkhoursLimit[n];
+    sum{s in sShifts, d in sDays} pShiftLength*vSchedule[n, d, s] <= pWorkhoursLimit[n];
     
 # Every nurse can work at most one shift per day
 subject to cDailyShiftLimit{nurse in sNurses, day in sDays}:
     sum{shift in sShifts} vSchedule[nurse, day, shift] <= 1;
     
-# max 6 night shifts per week
+# respect night shifts per week limit
 subject to cNightLimit{n in sNurses, w in sWeeks}:
-    sum{d in {(7 * (w-1) + 1) .. min(7 * w , pNumberOfDays)}} vSchedule[n, d, pNumberOfShifts] <= 6;
+    sum{d in {(7 * (w-1) + 1) .. min(7 * w , pNumberOfDays)}} vSchedule[n, d, pNumberOfShifts] <= pMaxNightShifts;
     
 # Schedule where a nurse works in the last shift and in the first on the next day is forbidden
 subject to cGiveSleepTime{nurse in sNurses, day in {1..(pNumberOfDays-1)}}:
@@ -92,6 +95,6 @@ subject to cWeekends2{n in sNurses, w in sWeeks}:
 
 # alphas with bounds
 subject to cAlphaMin{n in sNurses}:
-    sum{d in sDays, s in sShifts} vSchedule[n, d, s] * 24 / pNumberOfShifts / pWorkhoursLimit[n] >= vAlphaMin;
+    sum{d in sDays, s in sShifts} vSchedule[n, d, s] * pShiftLength / pWorkhoursLimit[n] >= vAlphaMin;
 subject to cAlphaMax{n in sNurses}:
-    sum{d in sDays, s in sShifts} vSchedule[n, d, s] * 24 / pNumberOfShifts / pWorkhoursLimit[n] <= vAlphaMax;
+    sum{d in sDays, s in sShifts} vSchedule[n, d, s] * pShiftLength / pWorkhoursLimit[n] <= vAlphaMax;
