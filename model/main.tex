@@ -47,8 +47,8 @@ $$\alpha_{min},\ \alpha_{max}$$
 &\forall_{n,n',d,s}\ interaction_{n,n',d,s} \leq schedule_{n,d,s}\quad \text{(interactions 1)} \\
 &\forall_{n,n',d,s}\ interaction_{n,n',d,s} \leq schedule_{n',d,s}\quad \text{(interactions 2)} \\
 &\forall_{n,n',d,s}\ interaction_{n,n',d,s} \geq schedule_{n,d,s}+schedule_{n',d,s}-1\quad \text{(interactions 3)} \\
-&\forall_{n, w}\ weekend_{n, w} \geq \frac{1}{S}\sum_s (schedule_{n, w+6, s} + schedule_{n, w+7, s}) \quad \text{(weekends 1)} \\
-&\forall_{n, w}\ weekend_{n, w} \leq \sum_s (schedule_{n, w+6, s} + schedule_{n, w+7, s}) \quad \text{(weekends 2)} \\
+&\forall_{n, w}\ weekend_{n, w} \geq \frac{1}{S}\sum_s (schedule_{n, 7w+6, s} + schedule_{n, 7w+7, s}) \quad \text{(weekends 1)} \\
+&\forall_{n, w}\ weekend_{n, w} \leq \sum_s (schedule_{n, 7w+6, s} + schedule_{n, 7w+7, s}) \quad \text{(weekends 2)} \\
 &\forall_{n}\ \alpha_{min} \leq \frac{\frac{24}{S}\sum_{d,s}schedule_{n,d,s}}{workhours_n} \leq \alpha_{max}\quad \text{(alphas with bounds)}
 \end{align*}
 

@@ -5,7 +5,7 @@ param N;
 set shifts := {1..S};
 set days := {1..D};
 set nurses := {1..N};
-set weeks := {1..(D/7)};
+set weeks := {0..(D/7)};
 
 param lambda_PC := 1;
 param lambda_UC := 1;
@@ -85,9 +85,9 @@ subject to interaction_3{i in nurses, j in nurses, d in days, s in shifts}:
 
 # weekend work indicators constraints
 subject to weekends_1{n in nurses, w in weeks}:
-    weekend[n, w] >= (sum{s in shifts} (schedule[n, w + 6, s] + schedule[n, w + 7, s])) / S;
+    weekend[n, w] >= (sum{s in shifts} (schedule[n, 7 * w + 6, s] + schedule[n, 7 * w + 7, s])) / S;
 subject to weekends_2{n in nurses, w in weeks}:
-    weekend[n, w] <= sum{s in shifts} (schedule[n, w + 6, s] + schedule[n, w + 7, s]);
+    weekend[n, w] <= sum{s in shifts} (schedule[n, 7 * w + 6, s] + schedule[n, 7 * w + 7, s]);
 
 # alphas with bounds
 subject to alpha_min_bounds{n in nurses}:
