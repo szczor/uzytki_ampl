@@ -41,7 +41,7 @@ Assuming that you have a `glpsol`–generated solution in file `solution.sol` yo
 python visualization.py solution.sol output_name
 ```
 
-The script generates visualizations of 7-day schedules in a form output_name_week_i.png in a directory `wykresy/`. For example if your data contains of
+The script generates visualizations of 7-day schedules in a form output_name_week_i.png in a directory `wykresy/`. For example if your data contains
 28 days, it will generate 4 plots where each plot represents one week. If your data is shorter than one week, it will generate just one plot.
 
 How to read the schedule plots:
