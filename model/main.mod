@@ -5,7 +5,7 @@ param N;
 set shifts := {1..S};
 set days := {1..D};
 set nurses := {1..N};
-set weeks := {0..(D/7)};
+set weeks := {0 .. (floor(D/7) - 1)};
 
 param lambda_PC := 1;
 param lambda_UC := 1;
