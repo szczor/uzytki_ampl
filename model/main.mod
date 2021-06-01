@@ -1,96 +1,97 @@
-param S;
-param D;
-param N;
+param pNumberOfShifts;
+param pNumberOfDays;
+param pNumberOfNurses;
 
-set shifts := {1..S};
-set days := {1..D};
-set nurses := {1..N};
-set weeks := {1..(D/7)};
+set sShifts := {1..pNumberOfShifts};
+set sDays := {1..pNumberOfDays};
+set sNurses := {1..pNumberOfNurses};
+set sWeeks := {1..(pNumberOfDays/7)};  # todo: fix?
 
-param lambda_PC := 1;
-param lambda_UC := 1;
-param lambda_PS := 1;
-param lambda_US := 1;
-param lambda_WHS := 100;
+param pLambdaPC := 1;
+param pLambdaUC := 1;
+param pLambdaPS := 1;
+param pLambdaUS := 1;
+param pLambdaWHS := 100;
 
-param demand{days, shifts} >= 0, integer;
-param workhours_limit{nurses} > 0, integer;
-set vacation within {days, nurses};
-set preferred_companions within {nurses, nurses};
-set unpreferred_companions within {nurses, nurses};
-set preferred_slots within {nurses,days,shifts};
-set unpreferred_slots within {nurses,days,shifts};
+param pDemand{sDays, sShifts} >= 0, integer;
+param pWorkhoursLimit{sNurses} > 0, integer;
 
-var schedule{nurses, days, shifts}, binary;
+set sVacations within {sDays, sNurses};
+set sPreferredCompanions within {sNurses, sNurses};
+set sUnpreferredCompanions within {sNurses, sNurses};
+set sPreferredSlots within {sNurses, sDays, sShifts};
+set sUnpreferredSlots within {sNurses, sDays, sShifts};
 
-var interaction{nurses,nurses,days,shifts},binary;
+var vSchedule{sNurses, sDays, sShifts}, binary;
 
-var weekend{nurses, weeks}, binary;
+var vInteraction{sNurses, sNurses, sDays, sShifts}, binary;
 
-var alpha_min;
-var alpha_max;
+var vWeekend{sNurses, sWeeks}, binary;
 
+var vAlphaMin;
+var vAlphaMax;
 
 maximize happyness: 
-	lambda_PS*sum{(n, d, s) in preferred_slots}(
-    schedule[n,d,s]
+	pLambdaPS*sum{(n, d, s) in sPreferredSlots}(
+    vSchedule[n,d,s]
     )-
-	lambda_US*sum{(n, d, s) in unpreferred_slots}(
-    schedule[n,d,s]
+	pLambdaUS*sum{(n, d, s) in sUnpreferredSlots}(
+    vSchedule[n,d,s]
     )+
-    lambda_PC*sum{(i, j) in preferred_companions, d in days, s in shifts}(
-    interaction[i,j,d,s]
+    pLambdaPC*sum{(i, j) in sPreferredCompanions, d in sDays, s in sShifts}(
+    vInteraction[i,j,d,s]
     )-
-    lambda_UC*sum{(i, j) in unpreferred_companions, d in days, s in shifts}(
-    interaction[i,j,d,s]
+    pLambdaUC*sum{(i, j) in sUnpreferredCompanions, d in sDays, s in sShifts}(
+    vInteraction[i,j,d,s]
     )
-    -lambda_WHS * (alpha_max - alpha_min)
+    -pLambdaWHS * (vAlphaMax - vAlphaMin)
 ;
 
 # Demand for every shiift is satisfied
-subject to demand_shift{d in days, s in shifts}:
-    sum{n in nurses} schedule[n, d, s] = demand[d, s];
+subject to cDemandShift{d in sDays, s in sShifts}:
+    sum{n in sNurses} vSchedule[n, d, s] = pDemand[d, s];
     
 # Respect work hours limit
-subject to work_hours_limit{n in nurses}:
-    sum{s in shifts, d in days} 24/S*schedule[n, d, s] <= workhours_limit[n];
+subject to cWorkHoursLimit{n in sNurses}:
+    sum{s in sShifts, d in sDays} 24/pNumberOfShifts*vSchedule[n, d, s] <= pWorkhoursLimit[n];
     
 # Every nurse can work at most one shift per day
-subject to daily_shift_limit{nurse in nurses, day in days}:
-    sum{shift in shifts} schedule[nurse, day, shift] <= 1;
+subject to cDailyShiftLimit{nurse in sNurses, day in sDays}:
+    sum{shift in sShifts} vSchedule[nurse, day, shift] <= 1;
     
 # max 6 night shifts per week
-subject to night_limit{n in nurses, w in weeks}:
-    sum{d in {(7 * (w-1) + 1) .. min(7 * w , D)}} schedule[n, d, S] <= 6;
+subject to cNightLimit{n in sNurses, w in sWeeks}:
+    sum{d in {(7 * (w-1) + 1) .. min(7 * w , pNumberOfDays)}} vSchedule[n, d, pNumberOfShifts] <= 6;
     
 # Schedule where a nurse works in the last shift and in the first on the next day is forbidden
-subject to give_sleep_time{nurse in nurses, day in {1..(D-1)}}:
-    schedule[nurse, day, S] + schedule[nurse, day + 1, 1] <= 1;
+subject to cGiveSleepTime{nurse in sNurses, day in {1..(pNumberOfDays-1)}}:
+    vSchedule[nurse, day, pNumberOfShifts] + vSchedule[nurse, day + 1, 1] <= 1;
     
 #Vacations are respected
-subject to vacations:
-	sum{(d,n) in vacation, s in shifts} schedule[n,d,s] = 0;
+subject to cVacations:
+	sum{(d,n) in sVacations, s in sShifts} vSchedule[n,d,s] = 0;
 
 #interaction 1
-subject to interaction_1{i in nurses, j in nurses, d in days, s in shifts}:
-	interaction[i,j,d,s]<=schedule[i,d,s];
+subject to cInteraction1{i in sNurses, j in sNurses, d in sDays, s in sShifts}:
+	vInteraction[i,j,d,s]<=vSchedule[i,d,s];
 
 #interaction 2
-subject to interaction_2{i in nurses, j in nurses, d in days, s in shifts}:
-	interaction[i,j,d,s]<=schedule[j,d,s];
+subject to cInteraction2{i in sNurses, j in sNurses, d in sDays, s in sShifts}:
+	vInteraction[i,j,d,s]<=vSchedule[j,d,s];
 
 #interaction 3
-subject to interaction_3{i in nurses, j in nurses, d in days, s in shifts}:
-	interaction[i,j,d,s]>=schedule[i,d,s]+schedule[j,d,s]-1;
+subject to cInteraction3{i in sNurses, j in sNurses, d in sDays, s in sShifts}:
+	vInteraction[i,j,d,s]>=vSchedule[i,d,s]+vSchedule[j,d,s]-1;
 
 # weekend work indicators constraints
-subject to weekends_1{n in nurses, w in weeks}:
-    weekend[n, w] >= (sum{s in shifts} (schedule[n, 7*(w-1) + 6, s] + schedule[n, 7*(w-1) + 7, s])) / S;
-subject to weekends_2{n in nurses, w in weeks}:
-    weekend[n, w] <= sum{s in shifts} (schedule[n, 7*(w-1) + 6, s] + schedule[n, 7*(w-1) + 7, s]);
+subject to cWeekends1{n in sNurses, w in sWeeks}:
+    vWeekend[n, w] >= (sum{s in sShifts} (vSchedule[n, 7*(w-1) + 6, s] + vSchedule[n, 7*(w-1) + 7, s])) / pNumberOfShifts;
+
+subject to cWeekends2{n in sNurses, w in sWeeks}:
+    vWeekend[n, w] <= sum{s in sShifts} (vSchedule[n, 7*(w-1) + 6, s] + vSchedule[n, 7*(w-1) + 7, s]);
 
 # alphas with bounds
-subject to alpha_min_bounds{n in nurses}:
-    sum{d in days, s in shifts} schedule[n, d, s] * 24 / S / workhours_limit[n] >= alpha_min;
-subject to alpha_max_bounds{n in nurses}:
-    sum{d in days, s in shifts} schedule[n, d, s] * 24 / S / workhours_limit[n] <= alpha_max;
+subject to cAlphaMin{n in sNurses}:
+    sum{d in sDays, s in sShifts} vSchedule[n, d, s] * 24 / pNumberOfShifts / pWorkhoursLimit[n] >= vAlphaMin;
+subject to cAlphaMax{n in sNurses}:
+    sum{d in sDays, s in sShifts} vSchedule[n, d, s] * 24 / pNumberOfShifts / pWorkhoursLimit[n] <= vAlphaMax;
