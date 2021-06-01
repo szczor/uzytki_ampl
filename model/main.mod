@@ -61,7 +61,7 @@ subject to daily_shift_limit{nurse in nurses, day in days}:
     
 # max 6 night shifts per week
 subject to night_limit{n in nurses, w in weeks}:
-    sum{d in {(7 * w + 1) .. min(7 * (w + 1), D)}} schedule[n, d, S] <= 6;
+    sum{d in {(7 * (w-1) + 1) .. min(7 * w , D)}} schedule[n, d, S] <= 6;
     
 # Schedule where a nurse works in the last shift and in the first on the next day is forbidden
 subject to give_sleep_time{nurse in nurses, day in {1..(D-1)}}:
@@ -85,9 +85,9 @@ subject to interaction_3{i in nurses, j in nurses, d in days, s in shifts}:
 
 # weekend work indicators constraints
 subject to weekends_1{n in nurses, w in weeks}:
-    weekend[n, w] >= (sum{s in shifts} (schedule[n, w + 6, s] + schedule[n, w + 7, s])) / S;
+    weekend[n, w] >= (sum{s in shifts} (schedule[n, 7*(w-1) + 6, s] + schedule[n, 7*(w-1) + 7, s])) / S;
 subject to weekends_2{n in nurses, w in weeks}:
-    weekend[n, w] <= sum{s in shifts} (schedule[n, w + 6, s] + schedule[n, w + 7, s]);
+    weekend[n, w] <= sum{s in shifts} (schedule[n, 7*(w-1) + 6, s] + schedule[n, 7*(w-1) + 7, s]);
 
 # alphas with bounds
 subject to alpha_min_bounds{n in nurses}:
