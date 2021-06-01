@@ -1,0 +1,7 @@
+Maciek:
+ - wrzucenie modelu na NEOSa, odpalenie go tam pod innym solverem i pobranie wyników
+ - ujednolicenie nazw w modelu TeXowym i AMPLowym
+ - [done] pododawanie innych prefiksów zimiennym/parametrom
+ - [done] parametr na długość zmiany i na maksymalną liczbę nocnych zmian
+ ~ porównanie rozwiązania z NEOSa z rozwiązaniem glpsola
+ + pojawia się problem z odpowiednimi nazwami zmiennych w plikach `.dat`
