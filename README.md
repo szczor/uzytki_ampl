@@ -41,8 +41,17 @@ Assuming that you have a `glpsol`–generated solution in file `solution.sol` yo
 python visualization.py solution.sol output_name
 ```
 
-This should generate visualizations of 7-day schedules in a form output_name_week_i.png in a directory `wykresy/`. For example if your data contains
-28 days, it will generate 4 plots where each plot represents one week. If your data is shorter than one week, it will generate one plot.
+The script generates visualizations of 7-day schedules in a form output_name_week_i.png in a directory `wykresy/`. For example if your data contains
+28 days, it will generate 4 plots where each plot represents one week. If your data is shorter than one week, it will generate just one plot.
+
+How to read the schedule plots:
+Yellow - nurse has a vacation break
+Green  - nurse works on a preferred shift/ nurse works with a preferred companion
+Red    - nurse works on an unpreferred shift/ nurse works with an unpreferred companion
+Black  - nurse works on a shift that is ambivalent to him/her /nurse works with neither preferred nor unpreferred companions
+
+This script generates also a workhour plot. 
+The salmon part shows the number of hours which a nurse has worked throughout the analysed period. The red part shows a nurse's workhour limit.
 
 
 ## Converting input from CSV files
