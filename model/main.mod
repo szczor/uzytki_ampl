@@ -12,6 +12,7 @@ param lambda_UC := 1;
 param lambda_PS := 1;
 param lambda_US := 1;
 param lambda_WHS := 100;
+param lambda_W := 15;
 
 param demand{days, shifts} >= 0, integer;
 param workhours_limit{nurses} > 0, integer;
@@ -26,6 +27,9 @@ var schedule{nurses, days, shifts}, binary;
 var interaction{nurses,nurses,days,shifts},binary;
 
 var weekend{nurses, weeks}, binary;
+# Two variables below are not declared integers, because it prevents fpump heurestic.
+var max_weekends_worked;
+var min_weekends_worked;
 
 var alpha_min;
 var alpha_max;
@@ -45,6 +49,7 @@ maximize happyness:
     interaction[i,j,d,s]
     )
     -lambda_WHS * (alpha_max - alpha_min)
+    - lambda_W * (max_weekends_worked - min_weekends_worked)
 ;
 
 # Demand for every shiift is satisfied
@@ -88,9 +93,15 @@ subject to weekends_1{n in nurses, w in weeks}:
     weekend[n, w] >= (sum{s in shifts} (schedule[n, 7 * w + 6, s] + schedule[n, 7 * w + 7, s])) / S;
 subject to weekends_2{n in nurses, w in weeks}:
     weekend[n, w] <= sum{s in shifts} (schedule[n, 7 * w + 6, s] + schedule[n, 7 * w + 7, s]);
+subject to min_weekends_worked_constraint{n in nurses}:
+    min_weekends_worked <= sum{w in weeks} weekend[n, w];
+subject to max_weekends_worked_constraint{n in nurses}:
+    max_weekends_worked >= sum{w in weeks} weekend[n, w];
 
 # alphas with bounds
 subject to alpha_min_bounds{n in nurses}:
     sum{d in days, s in shifts} schedule[n, d, s] * 24 / S / workhours_limit[n] >= alpha_min;
 subject to alpha_max_bounds{n in nurses}:
     sum{d in days, s in shifts} schedule[n, d, s] * 24 / S / workhours_limit[n] <= alpha_max;
+    
+# 

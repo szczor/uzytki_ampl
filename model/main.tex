@@ -6,6 +6,9 @@
 \usepackage[margin=2cm]{geometry}
 
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\varWeekendWorkedIndicator}[2]{\texttt{\small weekend}_{#1, #2}}
+\newcommand{\varMinWeekendsWorked}{\texttt{\small min\_weekends\_worked}}
+\newcommand{\varMaxWeekendsWorked}{\texttt{\small max\_weekends\_worked}}
 
 \begin{document}
 \noindent \textbf{Input data}
@@ -25,7 +28,7 @@ $$schedule_{n,d,s} \in \{0,1\}$$
 and interactions of nurses \quad \text{(weekends 2)}
 $$interaction_{n,n',d,s} \in \{0,1\}$$
 and "worked in given weekend" indicators
-$$weekend_{n, w} \in \{0, 1\}$$
+$$\varWeekendWorkedIndicator{n}{s} \in \{0, 1\}, \varMinWeekendsWorked, \varMaxWeekendsWorked$$
 and "fraction of contract fulfilled" proportions, as well as lower and upper bound for those
 $$\alpha_{min},\ \alpha_{max}$$
 \textbf{Reward function}
@@ -34,7 +37,8 @@ $$\alpha_{min},\ \alpha_{max}$$
     -&\lambda_{UC}\cdot\sum_{(n, n')\in UC}\sum_{d,s} interaction_{n,n',d,s} \\ 
     +&\lambda_{PS}\cdot\sum_{(n, d, s)\in PS} schedule_{n,d,s} \\ 
     -&\lambda_{US}\cdot\sum_{(n, d, s)\in US} schedule_{n,d,s} \\
-    -&\lambda_\text{WHS} (\alpha_{max} - \alpha_{min})\quad \text{(tight alpha gap iff work distributed proportionately to wokrhours specified)}
+    -&\lambda_\text{WHS} (\alpha_{max} - \alpha_{min})\quad \text{(prefer equal work to max work hours ratio)} \\
+    -&\lambda_\text{W} (\varMaxWeekendsWorked - \varMinWeekendsWorked)\quad \text{(prefer equal busy weekends distribution)}
 \end{align*}
 \textbf{Constraints}
 \begin{align*}
@@ -49,6 +53,7 @@ $$\alpha_{min},\ \alpha_{max}$$
 &\forall_{n,n',d,s}\ interaction_{n,n',d,s} \geq schedule_{n,d,s}+schedule_{n',d,s}-1\quad \text{(interactions 3)} \\
 &\forall_{n, w}\ weekend_{n, w} \geq \frac{1}{S}\sum_s (schedule_{n, 7w+6, s} + schedule_{n, 7w+7, s}) \quad \text{(weekends 1)} \\
 &\forall_{n, w}\ weekend_{n, w} \leq \sum_s (schedule_{n, 7w+6, s} + schedule_{n, 7w+7, s}) \quad \text{(weekends 2)} \\
+&\forall_{n}\ \varMinWeekendsWorked \le \sum_n \varWeekendWorkedIndicator{n}{s} \le \varMaxWeekendsWorked \quad \text{(min/max weekends worked are computed)} \\
 &\forall_{n}\ \alpha_{min} \leq \frac{\frac{24}{S}\sum_{d,s}schedule_{n,d,s}}{workhours_n} \leq \alpha_{max}\quad \text{(alphas with bounds)}
 \end{align*}
 
