@@ -6,6 +6,7 @@ set shifts := {1..S};
 set days := {1..D};
 set nurses := {1..N};
 set weeks := {0 .. (floor(D/7) - 1)};
+set weekdays := {0 .. 6};
 
 param lambda_PC := 1;
 param lambda_UC := 1;
@@ -30,6 +31,14 @@ var weekend{nurses, weeks}, binary;
 # Two variables below are not declared integers, because it prevents fpump heurestic.
 var max_weekends_worked;
 var min_weekends_worked;
+
+# Binary indicator whether S consecutive shifts starting from given shift 
+# on given day are free for given nurse. 
+# This assumes that S shifts cover entire day, however length can be arbitrary.
+var rest_24h_indicator{nurses, weeks, weekdays, shifts}, binary;
+# Maximal allowed value of sum of rest_24h_indicator[n, w, *, *]:
+# there are S in each of 7 days; one oth them must be free
+param WORKED_24H_LIMIT := 6 * S;
 
 var alpha_min;
 var alpha_max;
@@ -104,4 +113,11 @@ subject to alpha_min_bounds{n in nurses}:
 subject to alpha_max_bounds{n in nurses}:
     sum{d in days, s in shifts} schedule[n, d, s] * 24 / S / workhours_limit[n] <= alpha_max;
     
-# 
+# Define rest_24h_indicator using schedule; for the last day of week this must be defined separately
+subject to define_rest_24h_indicator{n in nurses, w in weeks, wd in {0 .. 5}, s in shifts}:
+    rest_24h_indicator[n, w, wd, s] >= 0.999 / S * sum{i in {0 .. (S-1)}} schedule[n, 1 + 7 * w + wd + floor((s + i) / S), 1 + (s - 1 + i) mod S];
+subject to define_rest_24h_indicator_last{n in nurses, w in weeks}:
+    rest_24h_indicator[n, w, 6, 1] >= 0.999 / S * sum{i in shifts} schedule[n, 1 + 7 * w + 6, i];
+# Now use it to ensure nurses have contiguous 24h rest time
+subject to contiguous_24h_break{n in nurses, w in weeks}:
+    sum{wd in weekdays, s in shifts} rest_24h_indicator[n, w, wd, s] <= WORKED_24H_LIMIT;

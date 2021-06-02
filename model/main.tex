@@ -10,11 +10,13 @@
 \newcommand{\varMinWeekendsWorked}{\texttt{\small min\_weekends\_worked}}
 \newcommand{\varMaxWeekendsWorked}{\texttt{\small max\_weekends\_worked}}
 
+\newcommand{\varDayLengthBreakIndicator}[4]{\texttt{\small rest\_24h\_indicator}_{#1, #2, #3, #4}}
+
 \begin{document}
 \noindent \textbf{Input data}
 \begin{itemize}
     \item nurses $n\in \{1, \dots, N\}$, days $d\in \{1, \dots, D\}$, shifts $s\in \{1, \dots, S\}$
-    \item week numbers $w\in\{0, \dots, W\}, W=\lfloor D/7 \rfloor - 1$
+    \item week numbers $w\in\{0, \dots, W\}, W=\lfloor D/7 \rfloor - 1$, weekdays $\delta \in \{0, ..., 6\}$
     \item nurses demand per day and shift - $demand_{d,s} \in \N$
     \item workhours lower and upper limit per nurse - $maxhours_n \in \N$
     \item vacation requests - $VR \subset N \times D$
@@ -54,7 +56,9 @@ $$\alpha_{min},\ \alpha_{max}$$
 &\forall_{n, w}\ weekend_{n, w} \geq \frac{1}{S}\sum_s (schedule_{n, 7w+6, s} + schedule_{n, 7w+7, s}) \quad \text{(weekends 1)} \\
 &\forall_{n, w}\ weekend_{n, w} \leq \sum_s (schedule_{n, 7w+6, s} + schedule_{n, 7w+7, s}) \quad \text{(weekends 2)} \\
 &\forall_{n}\ \varMinWeekendsWorked \le \sum_n \varWeekendWorkedIndicator{n}{s} \le \varMaxWeekendsWorked \quad \text{(min/max weekends worked are computed)} \\
-&\forall_{n}\ \alpha_{min} \leq \frac{\frac{24}{S}\sum_{d,s}schedule_{n,d,s}}{workhours_n} \leq \alpha_{max}\quad \text{(alphas with bounds)}
+&\forall_{n}\ \alpha_{min} \leq \frac{\frac{24}{S}\sum_{d,s}schedule_{n,d,s}}{workhours_n} \leq \alpha_{max}\quad \text{(alphas with bounds)} \\
+&\forall_{n,w,\delta,s}\ \varDayLengthBreakIndicator{n}{w}{\delta}{s} \ge \frac{\sum_{0 \le i \le S - 1} schedule_{n, 1+7w+\delta+\left\lfloor\frac{s+i}{s}\right\rfloor, 1 + (s - 1 + i) \operatorname{mod} S}}{S} \\
+&\forall_{n, w}\ \sum_{\delta, s} \varDayLengthBreakIndicator{n}{w}{\delta}{s} \le 6S
 \end{align*}
 
 \end{document}
