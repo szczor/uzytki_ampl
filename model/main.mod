@@ -115,7 +115,7 @@ subject to alpha_max_bounds{n in nurses}:
     
 # Define rest_24h_indicator using schedule; for the last day of week this must be defined separately
 subject to define_rest_24h_indicator{n in nurses, w in weeks, wd in {0 .. 5}, s in shifts}:
-    rest_24h_indicator[n, w, wd, s] >= 0.999 / S * sum{i in {0 .. (S-1)}} schedule[n, 1 + 7 * w + wd + floor((s + i) / S), 1 + (s - 1 + i) mod S];
+    rest_24h_indicator[n, w, wd, s] >= 0.999 / S * sum{i in {0 .. (S-1)}} schedule[n, 1 + 7 * w + wd + ((s - 1 + i) div S), 1 + ((s - 1 + i) mod S)];
 subject to define_rest_24h_indicator_last{n in nurses, w in weeks}:
     rest_24h_indicator[n, w, 6, 1] >= 0.999 / S * sum{i in shifts} schedule[n, 1 + 7 * w + 6, i];
 # Now use it to ensure nurses have contiguous 24h rest time
