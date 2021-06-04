@@ -6,58 +6,63 @@
 \usepackage[margin=2cm]{geometry}
 
 \newcommand{\N}{\mathbb{N}}
-\newcommand{\varWeekendWorkedIndicator}[2]{\texttt{\small weekend}_{#1, #2}}
-\newcommand{\varMinWeekendsWorked}{\texttt{\small min\_weekends\_worked}}
-\newcommand{\varMaxWeekendsWorked}{\texttt{\small max\_weekends\_worked}}
+\newcommand{\varWeekendWorkedIndicator}[2]{\texttt{\small vWeekend}_{#1, #2}}
+\newcommand{\varMinWeekendsWorked}{\texttt{\small vMinWeekendsWorked}}
+\newcommand{\varMaxWeekendsWorked}{\texttt{\small vMaxWeekendsWorked}}
 
-\newcommand{\varDayLengthBreakIndicator}[4]{\texttt{\small rest\_24h\_indicator}_{#1, #2, #3, #4}}
+\newcommand{\varDayLengthBreakIndicator}[4]{\texttt{\small vRest24hIndicator}_{#1, #2, #3, #4}}
 
 \begin{document}
 \noindent \textbf{Input data}
 \begin{itemize}
-    \item nurses $n\in \{1, \dots, N\}$, days $d\in \{1, \dots, D\}$, shifts $s\in \{1, \dots, S\}$
-    \item week numbers $w\in\{0, \dots, W\}, W=\lfloor D/7 \rfloor - 1$, weekdays $\delta \in \{0, ..., 6\}$
-    \item nurses demand per day and shift - $demand_{d,s} \in \N$
-    \item workhours lower and upper limit per nurse - $maxhours_n \in \N$
-    \item vacation requests - $VR \subset N \times D$
-    \item preferred companions - $PC \subset N \times N$
-    \item unpreferred companions - $UC \subset N \times N$
-    \item preferred slots - $PS \subset N \times D \times S$
-    \item unpreferred slots - $US \subset N \times D \times S$
+    \item nurses $n\in \{1, \dots, pNumerOfNurses\} = sNurses$
+    \item days $d\in \{1, \dots, pNumberOfDays\} = sDays$
+    \item shifts $s\in \{1, \dots, pNumberOfShifts\} = sShifts$ and $pShiftLength = 24/pNumberOfShifts$
+    \item week numbers $w\in\{0, \dots, pNumberOfWeeks\} = sWeeks, pNumberOfWeeks=\lceil pNumberOfDays/7 \rceil - 1$, weekdays $\delta \in \{0, ..., 6\}$
+    \item $pMaxNightShifts$
+    \item nurses demand per day and shift - $pDemand_{d,s} \in \N$
+    \item workhours upper limit per nurse - $pWorkhoursLimit_n \in \N$
+    \item vacation requests - $sVacations \subset sNurses \times sDays$
+    \item preferred companions - $sPreferredCompanions \subset sNurses \times sNurses$
+    \item unpreferred companions - $sUnpreferredCompanions \subset sNurses \times sNurses$
+    \item preferred slots - $sPreferredSlots \subset sNurses \times sDays \times sShifts$
+    \item unpreferred slots - $sUnpreferredSlots \subset sNurses \times sDays \times sShifts$
 \end{itemize}
 \textbf{Optimization variables:} schedule for each nurse, day and shift 
-$$schedule_{n,d,s} \in \{0,1\}$$
-and interactions of nurses \quad \text{(weekends 2)}
-$$interaction_{n,n',d,s} \in \{0,1\}$$
-and "worked in given weekend" indicators
-$$\varWeekendWorkedIndicator{n}{s} \in \{0, 1\}, \varMinWeekendsWorked, \varMaxWeekendsWorked$$
-and "fraction of contract fulfilled" proportions, as well as lower and upper bound for those
-$$\alpha_{min},\ \alpha_{max}$$
+$$vSchedule_{n,d,s} \in \{0,1\}$$
+and interactions of nurses
+$$vInteraction_{n,n',d,s} \in \{0,1\}$$
+and minimal and maximal number of worked weekends
+$$vWeekend_{n, w} \in \{0, 1\}$$
+and lower and upper bound of "fraction of contract fulfilled" proportions ($\frac{pShiftLength\cdot\sum_{d,s}vSchedule_{n,d,s}}{pWorkhoursLimit_n}$)
+$$vAlphaMin,\ vAlphaMax$$
 \textbf{Reward function}
 \begin{align*}
-     &\lambda_{PC}\cdot\sum_{(n, n')\in PC}\sum_{d,s} interaction_{n,n',d,s} \\
-    -&\lambda_{UC}\cdot\sum_{(n, n')\in UC}\sum_{d,s} interaction_{n,n',d,s} \\ 
-    +&\lambda_{PS}\cdot\sum_{(n, d, s)\in PS} schedule_{n,d,s} \\ 
-    -&\lambda_{US}\cdot\sum_{(n, d, s)\in US} schedule_{n,d,s} \\
-    -&\lambda_\text{WHS} (\alpha_{max} - \alpha_{min})\quad \text{(prefer equal work to max work hours ratio)} \\
-    -&\lambda_\text{W} (\varMaxWeekendsWorked - \varMinWeekendsWorked)\quad \text{(prefer equal busy weekends distribution)}
+     &\lambda_{PC}\cdot\sum_{(n, n')\in PC}\sum_{d,s} vInteraction_{n,n',d,s} \\
+    -&\lambda_{UC}\cdot\sum_{(n, n')\in UC}\sum_{d,s} vInteraction_{n,n',d,s} \\ 
+    +&\lambda_{PS}\cdot\sum_{(n, d, s)\in PS} vSchedule_{n,d,s} \\ 
+    -&\lambda_{US}\cdot\sum_{(n, d, s)\in US} vSchedule_{n,d,s} \\
+    -&(\alpha_{max} - \alpha_{min})\\%\quad \text{(tight alpha gap iff work distributed proportionately to wokrhours specified)}
+     &\lambda_\text{WHS} (\alpha_{max} - \alpha_{min})\quad \text{(prefer equal work to max work hours ratio)} \\
+     &\lambda_\text{W} (\varMaxWeekendsWorked - \varMinWeekendsWorked)\quad \text{(prefer equal busy weekends distribution)}
 \end{align*}
 \textbf{Constraints}
 \begin{align*}
-&\forall_{d,s}\ \sum_n schedule_{n,d,s} = demand_{d, s}\quad \text{(demand is met)} \\
-&\forall_{n}\ \frac{24}S \sum_{d, s} schedule_{n,d,s} \leq maxhours_n \quad \text{(workhours limits are not exceeded)} \\
-&\forall_{n,d}\ \sum_s schedule_{n,d,s} \leq 1\quad \text{(max 1 shift per day)} \\
-&\forall_{n,w}\ \sum_{d=7w+1}^{\min(7(w+1), D)} schedule_{n,d,S} \leq 6\quad \text{(max 6 night shifts per week)} \\
-&\forall_{n,d}\ schedule_{n,d,S}+schedule_{n,d+1,1} \leq 1\quad \text{(can't continue past midnight)} \\
-&\forall_{(n,d)\in VR}\ \forall_s\ schedule_{n,d,s} = 0\quad \text{(vacations are respected)} \\
-&\forall_{n,n',d,s}\ interaction_{n,n',d,s} \leq schedule_{n,d,s}\quad \text{(interactions 1)} \\
-&\forall_{n,n',d,s}\ interaction_{n,n',d,s} \leq schedule_{n',d,s}\quad \text{(interactions 2)} \\
-&\forall_{n,n',d,s}\ interaction_{n,n',d,s} \geq schedule_{n,d,s}+schedule_{n',d,s}-1\quad \text{(interactions 3)} \\
-&\forall_{n, w}\ weekend_{n, w} \geq \frac{1}{S}\sum_s (schedule_{n, 7w+6, s} + schedule_{n, 7w+7, s}) \quad \text{(weekends 1)} \\
-&\forall_{n, w}\ weekend_{n, w} \leq \sum_s (schedule_{n, 7w+6, s} + schedule_{n, 7w+7, s}) \quad \text{(weekends 2)} \\
+&\forall_{d,s}\ \sum_n vSchedule_{n,d,s} = vDemand_{d, s}\quad \text{(demand is met)} \\
+&\forall_{n}\ pShiftLegth\cdot\sum_{d, s} vSchedule_{n,d,s} \leq pWorkhoursLimit_n \quad \text{(workhours limits are not exceeded)} \\
+&\forall_{n,d}\ \sum_s vSchedule_{n,d,s} \leq 1\quad \text{(max 1 shift per day)} \\
+&\forall_{n,w}\ \sum_{d=7w+1}^{\min(7(w+1), D)} vSchedule_{n,d,S} \leq pMaxNightShifts \quad \text{(respect night shifts weekly limit)} \\
+&\forall_{n,d}\ vSchedule_{n,d,S}+vSchedule_{n,d+1,1} \leq 1\quad \text{(can't continue past midnight)} \\
+&\forall_{(n,d)\in sVacations}\ \forall_s\ vSchedule_{n,d,s} = 0\quad \text{(vacations are respected)} \\
+&\forall_{n,n',d,s}\ vInteraction_{n,n',d,s} \leq vSchedule_{n,d,s}\quad \text{(interactions 1)} \\
+&\forall_{n,n',d,s}\ vInteraction_{n,n',d,s} \leq vSchedule_{n',d,s}\quad \text{(interactions 2)} \\
+&\forall_{n,n',d,s}\ vInteraction_{n,n',d,s} \geq vSchedule_{n,d,s}+vSchedule_{n',d,s}-1\quad \text{(interactions 3)} \\
+&\forall_{n}\ vAlphaMin \leq \frac{pShiftLength\cdot\sum_{d,s}vSchedule_{n,d,s}}{pWorkhoursLimit_n} \leq vAlphaMax\quad \text{(alphas with bounds)} \\
+&\forall_{n, w}\ vWeekend_{n, w} \geq \frac{1}{S}\sum_s (vSchedule_{n, 7w+6, s} + vSchedule_{n, 7w+7, s}) \quad \text{(weekends 1)} \\
+&\forall_{n, w}\ vWeekend_{n, w} \leq \sum_s (vSchedule_{n, 7w+6, s} + vSchedule_{n, 7w+7, s}) \quad \text{(weekends 2)} \\
 &\forall_{n}\ \varMinWeekendsWorked \le \sum_n \varWeekendWorkedIndicator{n}{s} \le \varMaxWeekendsWorked \quad \text{(min/max weekends worked are computed)} \\
-&\forall_{n}\ \alpha_{min} \leq \frac{\frac{24}{S}\sum_{d,s}schedule_{n,d,s}}{workhours_n} \leq \alpha_{max}\quad \text{(alphas with bounds)} \\
-&\forall_{n,w,\delta,s}\ \varDayLengthBreakIndicator{n}{w}{\delta}{s} \ge \frac{\sum_{0 \le i \le S - 1} schedule_{n, 1+7w+\delta+\left\lfloor\frac{s+i}{s}\right\rfloor, 1 + (s - 1 + i) \operatorname{mod} S}}{S} \\
+&\forall_{n,w,\delta,s}\ \varDayLengthBreakIndicator{n}{w}{\delta}{s} \ge \frac{\sum_{0 \le i \le pNumberOfShifts - 1} vSchedule_{n, d', s'}}{pNumberOfShifts}, \\
+    &\qquad\text{where } d' := 1+7w+\delta+\left\lfloor\frac{s+i}{pNumberOfShifts}\right\rfloor, s' := 1 + (s - 1 + i) \operatorname{mod} pNumberOfShifts \\
 &\forall_{n, w}\ \sum_{\delta, s} \varDayLengthBreakIndicator{n}{w}{\delta}{s} \le 6S
 \end{align*}
 
