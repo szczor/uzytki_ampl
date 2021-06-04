@@ -169,16 +169,16 @@ def read_model(options, target: ModelDTO, logger: logging.Logger):
 
 def write_model(output_file, data: ModelDTO, logger: logging.Logger):
     with DatWriter(output_file) as dat:
-        dat.write_param("N", data.n)
-        dat.write_param("D", data.d)
-        dat.write_param("S", data.s)
-        dat.write_param("workhours_limit", data.work_hours_limit)
-        dat.write_param("demand", data.demand)
-        dat.write_param("preferred_slots", data.preferred_shifts)
-        dat.write_param("unpreferred_slots", data.non_preferred_shifts)
-        dat.write_param("vacation", data.vacation)
-        dat.write_param("preferred_companions", data.liked_coworkers)
-        dat.write_param("unpreferred_companions", data.disliked_coworkers)
+        dat.write_param("pNumberOfNurses", data.n)
+        dat.write_param("pNumberOfDays", data.d)
+        dat.write_param("pNumberOfShifts", data.s)
+        dat.write_param("pWorkhoursLimit", data.work_hours_limit)
+        dat.write_param("pDemand", data.demand)
+        dat.write_param("sPreferredSlots", data.preferred_shifts)
+        dat.write_param("sUnpreferredSlots", data.non_preferred_shifts)
+        dat.write_param("sVacations", data.vacation)
+        dat.write_param("sPreferredCompanions", data.liked_coworkers)
+        dat.write_param("sUnpreferredCompanions", data.disliked_coworkers)
 
 
 def main(argv):

@@ -1,16 +1,16 @@
-param S := 3;
-param D := 3;
-param N := 5;
+param pNumberOfShifts := 3;
+param pNumberOfDays := 3;
+param pNumberOfNurses := 5;
 
 
-param demand: 
+param pDemand: 
         1   2   3  :=
     1   1   2   1
     2   1   1   1
     3   2   1   1  ;
     
     
-param workhours_limit :=
+param pWorkhoursLimit :=
     1   17
     2   10
     3   24
@@ -18,22 +18,22 @@ param workhours_limit :=
     5   24 ;
     
     
-set vacation :=
+set sVacations :=
      1 1
      3 2;
     
     
-set preferred_companions :=
+set sPreferredCompanions :=
      1 3
      2 4;
     
 
-set unpreferred_companions :=
+set sUnpreferredCompanions :=
      4 1
      5 1;
 
 
-set preferred_slots :=
+set sPreferredSlots :=
      1 3 1
      2 2 1
      2 1 2
@@ -42,7 +42,7 @@ set preferred_slots :=
      4 2 3;
      
      
-set unpreferred_slots :=
+set sUnpreferredSlots :=
      1 2 1
      3 1 1
      5 3 1
