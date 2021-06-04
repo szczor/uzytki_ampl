@@ -38,7 +38,7 @@ solve;
 Assuming that you have a `glpsol`–generated solution in file `solution.sol` you can generate visualisation like this:
 
 ```
-python visualization.py solution.sol output_name
+python visualization.py solution.sol example_data/example.ini output_name
 ```
 
 The script generates visualizations of 7-day schedules in a form output_name_week_i.png in a directory `wykresy/`. For example if your data contains
