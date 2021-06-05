@@ -10,7 +10,7 @@ from pathlib import Path
 
 
 def parse_sol(nazwa):
-    looking = 'schedule'
+    looking = 'Vschedule'
     i = 0
     lista1, lista2 = [], []
     with open(nazwa, newline='\n') as csvfile:
