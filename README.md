@@ -48,10 +48,10 @@ where each plot represents one week. If your data is shorter than one week, it w
 shifts, it will produce just one type of plot.
 
 How to read the schedule plots:
-Yellow - nurse has a vacation break
-Green  - nurse works on a preferred shift/ nurse works with a preferred companion
-Red    - nurse works on an unpreferred shift/ nurse works with an unpreferred companion
-Black  - nurse works on a shift that is ambivalent to him/her /nurse works with neither preferred nor unpreferred companions
+- Yellow - nurse has a vacation break
+- Green  - nurse works on a preferred shift/ nurse works with a preferred companion
+- Red    - nurse works on an unpreferred shift/ nurse works with an unpreferred companion
+- Black  - nurse works on a shift that is ambivalent to him/her /nurse works with neither preferred nor unpreferred companions
 
 This script generates also a workhour plot. 
 The salmon part shows the number of hours which a nurse has worked throughout the analysed period. The red part shows a nurse's workhour limit.
