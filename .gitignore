@@ -4,4 +4,5 @@ versions/
 *.dat
 *.sol
 wykresy/
+small_data/
 *.txt

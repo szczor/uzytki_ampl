@@ -5,11 +5,12 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import argparse
+import configparser
 from pathlib import Path
 
 
 def parse_sol(nazwa):
-    looking = 'schedule'
+    looking = 'vSchedule'
     i = 0
     lista1, lista2 = [], []
     with open(nazwa, newline='\n') as csvfile:
@@ -61,8 +62,8 @@ def create_folder():
     return 0
 
 
-def import_df(name, index_col=0, header=None):
-    df = pd.read_csv(os.getcwd() + '/example_data/' + name + '.csv', header=header, index_col=index_col)
+def import_df(name, index_col=None, header=None):
+    df = pd.read_csv(name, header=header, index_col=index_col)
     df = df.astype(int)
     df = df.loc[:, (df != 0).any(axis=0)]
     return df
@@ -78,15 +79,16 @@ def check_companions(row, df, df_comp):
         else:
             return 0
 
-
+#########SOLVE THIS SHIT
 def check_shifts(row, df_shift):
     nurse = row['nurses']
-    pom = list(df_shift.loc[nurse])
-    day, shift = pom[0], pom[1]
-    if row['days'] == day and row['shift'] == shift:
-        return 1
-    else:
+    pom_df=df_shift.reset_index()
+    pom_df.columns=['nurses','days','shift']
+    day, shift = row['days'], row['shift']
+    pom_df=pom_df.loc[(pom_df['nurses']==nurse) & (pom_df['days'] ==day) & (pom_df['shift'] == shift)]
+    if pom_df.empty:
         return 0
+    return 1
 
 
 def plot_workhours(df, name):
@@ -95,22 +97,25 @@ def plot_workhours(df, name):
     sns.barplot(x=df['nurses'], y=df['workhours_limit'], palette=['red'])
     sns.barplot(x=df['nurses'], y=df['work'], palette=['salmon'])
     locs, labels = plt.xticks()
-    x_ticks=[]
+    x_ticks = []
     for i in list(range(1, df['nurses'].max() + 1)):
         x_ticks.append('N' + str(i))
-    plt.xticks(ticks=locs,labels=x_ticks)
+    plt.xticks(ticks=locs, labels=x_ticks)
     for index, row in df.iterrows():
-        ax.text(index, row.workhours_limit+3 , round(row.workhours_limit), color='black', ha="center", fontsize=10)
+        ax.text(index, row.workhours_limit + 2.5, round(row.workhours_limit), color='black', ha="center", fontsize=10)
     for index, row in df.iterrows():
-        ax.text(index, row.work-6 , round(row.work), color='black', ha="center", fontsize=10)
+        ax.text(index, row.work - 5, round(row.work), color='black', ha="center", fontsize=10)
     plt.title('Workhours for nurses')
     plt.tight_layout()
     fig.savefig(os.path.join(os.getcwd(), "wykresy", name + '.png'))
-def plot_schedule(df_plot, name, plot, df_vacation):
+
+
+def plot_schedule(df_plot, name, plot, df_vacation=None):
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    sns.scatterplot(x='xaxis', y='nurses', data=df_vacation, marker=',',
-                    color='y', s=350, ci=100, alpha=1, edgecolor='None')
+    if df_vacation is not None:
+        sns.scatterplot(x='xaxis', y='nurses', data=df_vacation, marker=',',
+                        color='#ffff7f', s=350, ci=100, alpha=1, edgecolor='None')
     color_dict = dict({1: 'green',
                        0: 'black',
                        -1: 'red'})
@@ -147,6 +152,7 @@ if __name__ == '__main__':
     # command line path for solution file
     parser = argparse.ArgumentParser()
     parser.add_argument("file_path", type=Path, help='Path for .sol file')
+    parser.add_argument("data_folder", type=str, help='Output name')
     parser.add_argument("output_name", type=str, help='Output name')
     p = parser.parse_args()
 
@@ -155,17 +161,25 @@ if __name__ == '__main__':
     schedule = list(map(parse_second_string, schedule))
     nurses, days, shifts = create_lists(lista1)
 
-    preferred_companions = import_df('preferred_companions')
-    unpreferred_companions = import_df('unpreferred_companions')
-    preferred_shifts = import_df('preferred_shifts')
-    unpreferred_shifts = import_df('unpreferred_shifts')
-    workhours= import_df('workhours',index_col=None)
-    workhours.columns = ['nurses', 'workhours_limit']
-    vacation = import_df('vacation', index_col=None)
-    vacation.columns = ['nurses', 'days']
-    vacation = vacation.reindex(vacation.index.repeat(3))
-    vacation['shift'] = vacation.groupby(level=0).cumcount() + 1
-    vacation = vacation.reset_index(drop=True)
+    data_folder = p.data_folder
+    config = configparser.ConfigParser()
+    config.read(p.data_folder)
+
+    data_frames = {}
+    # translate config-relative paths
+    rel_dir = os.path.dirname(p.data_folder)
+    for file_key in config["Files"]:
+        if not os.path.isabs(config["Files"][file_key]):
+            config["Files"][file_key] = os.path.join(rel_dir, config["Files"][file_key])
+    for csv in list(config["Files"]):
+        try:
+            if csv == 'vacation' or csv == 'workhourslimits':
+                df = import_df(config["Files"][csv], index_col=None)
+            else:
+                df = import_df(config["Files"][csv], index_col=0)
+        except:
+            continue
+        data_frames[csv] = df
     d = {'nurses': nurses, 'days': days, 'shift': shifts, 'schedule': schedule}
 
     df = pd.DataFrame(d)
@@ -174,52 +188,106 @@ if __name__ == '__main__':
     if df.empty:
         print('There is no solution')
         exit()
+    ##COMPANIONS
     preferred_companions_schedule = []
     unpreferred_companions_schedule = []
+    for index, row in df.iterrows():
+        try:
+            pc = check_companions(row, df, data_frames['likedcoworkers'])
+            preferred_companions_schedule.append(pc)
+        except:
+            pass
+        try:
+            upc = check_companions(row, df, data_frames['dislikedcoworkers'])
+            unpreferred_companions_schedule.append(upc * (-1))
+        except:
+            pass
+    companions = []
+    if (preferred_companions_schedule) and (unpreferred_companions_schedule):
+        for (item1, item2) in zip(preferred_companions_schedule, unpreferred_companions_schedule):
+            companions.append(item1 + item2)
+        df['companions'] = companions
+    elif preferred_companions_schedule:
+        df['preferred_slots'] = preferred_companions_schedule
+    elif unpreferred_companions_schedule:
+        df['preferred_slots'] = unpreferred_companions_schedule
+    ##SLOTS
     preferred_shifts_schedule = []
     unpreferred_shifts_schedule = []
     for index, row in df.iterrows():
-        pc = check_companions(row, df, preferred_companions)
-        upc = check_companions(row, df, unpreferred_companions)
-        preferred_companions_schedule.append(pc)
-        unpreferred_companions_schedule.append(upc * (-1))
-        ps = check_shifts(row, preferred_shifts)
-        ups = check_shifts(row, unpreferred_shifts)
-        preferred_shifts_schedule.append(ps)
-        unpreferred_shifts_schedule.append(ups * (-1))
-    companions = []
-    for (item1, item2) in zip(preferred_companions_schedule, unpreferred_companions_schedule):
-        companions.append(item1 + item2)
-    df['companions'] = companions
-    preferres_slots = []
-    for (item1, item2) in zip(preferred_shifts_schedule, unpreferred_shifts_schedule):
-        preferres_slots.append(item1 + item2)
-    df['preferred_slots'] = preferres_slots
+        try:
+            ps = check_shifts(row, data_frames['preferredshifts'])
+            preferred_shifts_schedule.append(ps)
+        except:
+            pass
+        try:
+            ups = check_shifts(row, data_frames['nonpreferredshifts'])
+            unpreferred_shifts_schedule.append(ups * (-1))
+        except:
+            pass
+    preferred_slots = []
+    if (preferred_shifts_schedule) and (unpreferred_shifts_schedule):
+        for (item1, item2) in zip(preferred_shifts_schedule, unpreferred_shifts_schedule):
+            preferred_slots.append(item1 + item2)
+        df['preferred_slots'] = preferred_slots
+    elif preferred_shifts_schedule:
+        df['preferred_slots'] = preferred_shifts_schedule
+    elif unpreferred_shifts_schedule:
+        df['preferred_slots'] = unpreferred_shifts_schedule
 
-    order = list(range(1, df["nurses"].max() + 1))
+    order = list(range(1, df['nurses'].max() + 1))
     df['nurses'] = [order.index(x) for x in df['nurses']]
     df['xaxis'] = (df.days - 1) * 3 + df['shift']
-    order_vacation = list(range(1, vacation["nurses"].max() + 1))
-    vacation['nurses'] = [order_vacation.index(x) for x in vacation['nurses']]
-    vacation['xaxis'] = (vacation.days - 1) * 3 + vacation['shift']
-    work = df.groupby(['nurses']).sum()['schedule'] * 8
-    workhours['work']=work
+
+    # VACATION
+    try:
+        vacation = data_frames['vacation']
+        vacation.columns = ['nurses', 'days']
+        vacation = vacation.reindex(vacation.index.repeat(3))
+        vacation['shift'] = vacation.groupby(level=0).cumcount() + 1
+        vacation = vacation.reset_index(drop=True)
+        order_vacation = list(range(1, vacation["nurses"].max() + 1))
+        vacation['nurses'] = [order_vacation.index(x) for x in vacation['nurses']]
+        vacation['xaxis'] = (vacation.days - 1) * 3 + vacation['shift']
+    except:
+        pass
+
+    # WORKHOURS
+    try:
+        workhours = data_frames['workhourslimits']
+        workhours.columns = ['nurses', 'workhours_limit']
+        work = df.groupby(['nurses']).sum()['schedule'] * 8
+        workhours['work'] = work
+    except:
+        pass
+
     days_max = df['days'].max()
     day_list = list(range(1, days_max + 1))
+
     # create a folder for plots
     create_folder()
-    ## divide into weeks
+    ## divide days into weeks
     weeks = list(chunk_based_on_size(day_list, 7))
-    visualisations = ['companions', 'preferred_slots']
+    if companions and preferred_slots:
+        visualisations = ['companions', 'preferred_slots']
+    elif preferred_companions_schedule or unpreferred_companions_schedule:
+        visualisations = ['companions']
+    elif preferred_shifts_schedule or unpreferred_shifts_schedule:
+        visualisations = ['preferred_slots']
     for plot in visualisations:
         i = 1
         for week in weeks:
             boolean_series = df.days.isin(week)
             df_week = df[boolean_series]
-            boolean_vacation = vacation.days.isin(week)
-            vacation_week = vacation[boolean_vacation]
-            if df_week.empty:
-                exit()
+            vacation_week = None
+            try:
+                boolean_vacation = vacation.days.isin(week)
+                vacation_week = vacation[boolean_vacation]
+            except:
+                pass
             plot_schedule(df_week, p.output_name + '_' + plot + '_week_' + str(i), plot, vacation_week)
             i += 1
-    plot_workhours(workhours, 'workhours')
+    try:
+        plot_workhours(workhours, p.output_name+'_'+'workhours')
+    except:
+        print('No workhours in csv')
