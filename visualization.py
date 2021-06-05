@@ -10,7 +10,7 @@ from pathlib import Path
 
 
 def parse_sol(nazwa):
-    looking = 'Vschedule'
+    looking = 'vSchedule'
     i = 0
     lista1, lista2 = [], []
     with open(nazwa, newline='\n') as csvfile:
@@ -115,7 +115,7 @@ def plot_schedule(df_plot, name, plot, df_vacation=None):
     ax = fig.add_subplot(111)
     if df_vacation is not None:
         sns.scatterplot(x='xaxis', y='nurses', data=df_vacation, marker=',',
-                        color='y', s=350, ci=100, alpha=1, edgecolor='None')
+                        color='#ffff7f', s=350, ci=100, alpha=1, edgecolor='None')
     color_dict = dict({1: 'green',
                        0: 'black',
                        -1: 'red'})
