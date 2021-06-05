@@ -42,10 +42,9 @@ python visualization.py solution.sol example_data/example.ini output_name
 ```
 
 The script generates visualizations of 7-day schedules in a form output_name_week_i.png in a directory `wykresy/`. It produces two types of plots, the ones
-where we take into account if nurse works on preferred/unpreferred shifts and the ones where we take into account if nurse works with a preferred/unpreferred
-companions. For example if your data contains 28 days and data on preferred/unpreferred shifts and preferred/unpreferred companions, it will generate 4 plots
-where each plot represents one week. If your data is shorter than one week, it will generate two plots. If there is no data on for example preferred/unpreferred
-shifts, it will produce just one type of plot.
+where we take into account if a nurse works on preferred/unpreferred shifts and the ones where we take into account if a nurse works with preferred/unpreferred
+companions. For example if your data contains 28 days and the data on preferred/unpreferred shifts and preferred/unpreferred companions, it will generate 8 plots (4 plots on preferred/unpreferred shifts and 4 on preferred/unpreferred companions)where each plot represents one week. If your data is shorter than one week, it will generate two plots.
+If there is no data on for example preferred/unpreferredshifts, it will produce just one type of plot.
 
 How to read the schedule plots:
 - Yellow - nurse has a vacation break
