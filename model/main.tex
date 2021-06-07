@@ -36,15 +36,16 @@ and minimal and maximal number of worked weekends
 $$vWeekend_{n, w} \in \{0, 1\}$$
 and lower and upper bound of "fraction of contract fulfilled" proportions ($\frac{pShiftLength\cdot\sum_{d,s}vSchedule_{n,d,s}}{pWorkhoursLimit_n}$)
 $$vAlphaMin,\ vAlphaMax$$
+and binary indicators whether a~nurse $n$ has a~continuous 24--hours break on the week day $\delta$ od week $w$ starting from shift $s$:
+$$\varDayLengthBreakIndicator{n}{w}{\delta}{s}$$
 \textbf{Reward function}
 \begin{align*}
      &\lambda_{PC}\cdot\sum_{(n, n')\in PC}\sum_{d,s} vInteraction_{n,n',d,s} \\
     -&\lambda_{UC}\cdot\sum_{(n, n')\in UC}\sum_{d,s} vInteraction_{n,n',d,s} \\ 
     +&\lambda_{PS}\cdot\sum_{(n, d, s)\in PS} vSchedule_{n,d,s} \\ 
     -&\lambda_{US}\cdot\sum_{(n, d, s)\in US} vSchedule_{n,d,s} \\
-    -&(\alpha_{max} - \alpha_{min})\\%\quad \text{(tight alpha gap iff work distributed proportionately to wokrhours specified)}
-     &\lambda_\text{WHS} (\alpha_{max} - \alpha_{min})\quad \text{(prefer equal work to max work hours ratio)} \\
-     &\lambda_\text{W} (\varMaxWeekendsWorked - \varMinWeekendsWorked)\quad \text{(prefer equal busy weekends distribution)}
+    - &\lambda_\text{WHS} (\alpha_{max} - \alpha_{min})\quad \text{(prefer equal work to max work hours ratio)} \\
+    - &\lambda_\text{W} (\varMaxWeekendsWorked - \varMinWeekendsWorked)\quad \text{(prefer equal busy weekends distribution)}
 \end{align*}
 \textbf{Constraints}
 \begin{align*}
@@ -62,7 +63,7 @@ $$vAlphaMin,\ vAlphaMax$$
 &\forall_{n, w}\ vWeekend_{n, w} \leq \sum_s (vSchedule_{n, 7w+6, s} + vSchedule_{n, 7w+7, s}) \quad \text{(weekends 2)} \\
 &\forall_{n}\ \varMinWeekendsWorked \le \sum_n \varWeekendWorkedIndicator{n}{s} \le \varMaxWeekendsWorked \quad \text{(min/max weekends worked are computed)} \\
 &\forall_{n,w,\delta,s}\ \varDayLengthBreakIndicator{n}{w}{\delta}{s} \ge \frac{\sum_{0 \le i \le pNumberOfShifts - 1} vSchedule_{n, d', s'}}{pNumberOfShifts}, \\
-    &\qquad\text{where } d' := 1+7w+\delta+\left\lfloor\frac{s+i}{pNumberOfShifts}\right\rfloor, s' := 1 + (s - 1 + i) \operatorname{mod} pNumberOfShifts \\
+    &\qquad\text{where } d' := 1+7w+\delta+\left\lfloor\frac{s+i}{pNumberOfShifts}\right\rfloor, s' := 1 + ((s - 1 + i) \operatorname{mod} pNumberOfShifts) \\
 &\forall_{n, w}\ \sum_{\delta, s} \varDayLengthBreakIndicator{n}{w}{\delta}{s} \le 6S
 \end{align*}
 

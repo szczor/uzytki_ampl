@@ -33,7 +33,7 @@ set sUnpreferredSlots within {sNurses, sDays, sShifts};
 var vRest24hIndicator{sNurses, sWeeks, sWeekdays, sShifts}, binary;
 # Maximal allowed value of sum of vRest24hIndicator[n, w, *, *]:
 # there are S in each of 7 days; one oth them must be free
-param WORKED_24H_LIMIT := 6 * pNumberOfShifts;
+param pMaxDaysWithout24BreakInWeek := 6 * pNumberOfShifts;
 
 var vSchedule{sNurses, sDays, sShifts}, binary;
 
@@ -76,7 +76,7 @@ subject to cWorkHoursLimit{n in sNurses}:
 subject to cDailyShiftLimit{nurse in sNurses, day in sDays}:
     sum{shift in sShifts} vSchedule[nurse, day, shift] <= 1;
     
-# max 6 night shifts per week
+# respect night shifts per week limit
 subject to cNightLimit{n in sNurses, w in sWeeks}:
     sum{d in {(7 * w + 1) .. min(7 * (w + 1), pNumberOfDays)}} vSchedule[n, d, pNumberOfShifts] <= pMaxNightShifts;
     
