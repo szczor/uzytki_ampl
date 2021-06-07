@@ -3,11 +3,11 @@
 
 \subsection{Limitations and Assumptions}
 
-Being a~kind of prototype/POC, the model has several oversimlifications, namely:
+Being a~kind of prototype/POC, the model has several oversimplification, namely:
 
 \begin{itemize}
     \item It is not allowed to schedule more nurses on any shift than specified by demand.
-    \item The first day is always monday and thus the first day of a~week. This assumption is used by the 24h break every week requiremetn and by counting of busy weeks.
+    \item The first day is always Monday and thus the first day of a~week. This assumption is used by the 24h break every week requirement and by counting of busy weeks.
     \item No starting conditions are taken into account --- every nurse is assumed to be allowed to work on the first shift on the first day.
     \item Only full weeks are taken into account when imposing the requirement for 24h break.
 \end{itemize}
@@ -159,7 +159,7 @@ Other constraints are straightforward.
     \item Weekends are marked as worked by nurse consistently with $\vSchedule$: 
     \[ \forall_{n, w}\ \vWeekend_{n, w} \geq \frac{1}{S}\sum_s (\vSchedule_{n, 7w+6, s} + \vSchedule_{n, 7w+7, s}) \]
     \[ \forall_{n, w}\ \vWeekend_{n, w} \leq \sum_s (\vSchedule_{n, 7w+6, s} + \vSchedule_{n, 7w+7, s}) \]
-    \item Minimal and maximal number of worked weekends are computed consistently with $vWeekend$:
+    \item Minimal and maximal number of worked weekends are computed consistently with $\vWeekend$:
     \[ \forall_{n}\ \vMinWeekendsWorked \le \sum_n \vWeekend_{n, s} \le \vMaxWeekendsWorked \]
     \item $\vDayLengthBreakIndicator$ is consistent with $\vSchedule$:
     \[ \forall_{n,w,\delta  \in \{0, \dots, 6\},s}\ \vDayLengthBreakIndicator_{n, w, \delta, s} \ge \frac{\sum_{0 \le i \le \pNumberOfShifts - 1} \vSchedule_{n, d', s'}}{\pNumberOfShifts}, \]

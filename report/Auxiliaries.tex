@@ -2,10 +2,10 @@
 
 \subsection{Converting data from CSV}
 
-CSV files are converted to \texttt{.dat} input for our model by \texttt{csv2dat.py} script. Foor convenience the script uses a config file with a list of files to process (and several other options). When run, it expects one or two command line parameters:
+CSV files are converted to \texttt{.dat} input for our model by \texttt{csv2dat.py} script. For convenience the script uses a config file with a list of files to process (and several other options). When run, it expects one or two command line parameters:
 
 \begin{enumerate}
-    \item The first (required) is path to the config file describing which CSV files to use. For more info, check out example of cuch file: \texttt{example\_data/example.ini} (every option is commented there). Keep in mind that relative paths to CSV files defined in that file are taken relative to the location of the INI file.
+    \item The first (required) is path to the config file describing which CSV files to use. For more info, check out example of such file: \texttt{example\_data/example.ini} (every option is commented there). Keep in mind that relative paths to CSV files defined in that file are taken relative to the location of the INI file.
     \item The second (optional) parameter is the desired path to output file. If present it will override the option FileName from Output section (otherwise this option must be set in the INI file). The relative path to output is treated as relative to the directory from which the script is invoked.
 \end{enumerate}
 
@@ -36,4 +36,4 @@ How to read the schedule plots:
     \item[Black] --- nurse works on a shift that is ambivalent to him/her /nurse works with neither preferred nor unpreferred companions
 \end{description}
 
-This script generates also a workhour plot. The salmon part shows the number of hours which a nurse has worked throughout the analysed period. The red part shows a nurse's workhour limit.
+This script generates also a work hour plot. The salmon part shows the number of hours which a nurse has worked throughout the analysed period. The red part shows a nurse's work hour limit.
