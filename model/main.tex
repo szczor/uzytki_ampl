@@ -33,7 +33,7 @@ $$vSchedule_{n,d,s} \in \{0,1\}$$
 and interactions of nurses
 $$vInteraction_{n,n',d,s} \in \{0,1\}$$
 and minimal and maximal number of worked weekends
-$$vWeekend_{n, w} \in \{0, 1\}$$
+$$vWeekend_{n, w} \in \{0, 1\}, \varMinWeekendsWorked, \varMaxWeekendsWorked$$
 and lower and upper bound of "fraction of contract fulfilled" proportions ($\frac{pShiftLength\cdot\sum_{d,s}vSchedule_{n,d,s}}{pWorkhoursLimit_n}$)
 $$vAlphaMin,\ vAlphaMax$$
 and binary indicators whether a~nurse $n$ has a~continuous 24--hours break on the week day $\delta$ od week $w$ starting from shift $s$:
@@ -59,8 +59,8 @@ $$\varDayLengthBreakIndicator{n}{w}{\delta}{s}$$
 &\forall_{n,n',d,s}\ vInteraction_{n,n',d,s} \leq vSchedule_{n',d,s}\quad \text{(interactions 2)} \\
 &\forall_{n,n',d,s}\ vInteraction_{n,n',d,s} \geq vSchedule_{n,d,s}+vSchedule_{n',d,s}-1\quad \text{(interactions 3)} \\
 &\forall_{n}\ vAlphaMin \leq \frac{pShiftLength\cdot\sum_{d,s}vSchedule_{n,d,s}}{pWorkhoursLimit_n} \leq vAlphaMax\quad \text{(alphas with bounds)} \\
-&\forall_{n, w}\ vWeekend_{n, w} \geq \frac{1}{S}\sum_s (vSchedule_{n, 7w+6, s} + vSchedule_{n, 7w+7, s}) \quad \text{(weekends 1)} \\
-&\forall_{n, w}\ vWeekend_{n, w} \leq \sum_s (vSchedule_{n, 7w+6, s} + vSchedule_{n, 7w+7, s}) \quad \text{(weekends 2)} \\
+&\forall_{n, w}\ varWeekendWorkedIndicator_{n, w} \geq \frac{1}{S}\sum_s (vSchedule_{n, 7w+6, s} + vSchedule_{n, 7w+7, s}) \quad \text{(weekends 1)} \\
+&\forall_{n, w}\ varWeekendWorkedIndicator_{n, w} \leq \sum_s (vSchedule_{n, 7w+6, s} + vSchedule_{n, 7w+7, s}) \quad \text{(weekends 2)} \\
 &\forall_{n}\ \varMinWeekendsWorked \le \sum_n \varWeekendWorkedIndicator{n}{s} \le \varMaxWeekendsWorked \quad \text{(min/max weekends worked are computed)} \\
 &\forall_{n,w,\delta,s}\ \varDayLengthBreakIndicator{n}{w}{\delta}{s} \ge \frac{\sum_{0 \le i \le pNumberOfShifts - 1} vSchedule_{n, d', s'}}{pNumberOfShifts}, \\
     &\qquad\text{where } d' := 1+7w+\delta+\left\lfloor\frac{s+i}{pNumberOfShifts}\right\rfloor, s' := 1 + ((s - 1 + i) \operatorname{mod} pNumberOfShifts) \\
