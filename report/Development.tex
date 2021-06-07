@@ -1,0 +1,45 @@
+\section{Development of our Model}
+
+\subsection{Problem Description by F33}
+
+The problem to solve was a~prototype version of mathematical--programming based scheduler that would generate rosters for nurses working in a~hospital. 
+
+Every day of a~scheduling period is broken into shifts and for every shift on every day there is a~known \textit{demand} for work. The \textit{demand} is given as a~number of nurses that must be present on the shift.
+
+Apart from this basic requirements there are several additional constraints were grouped into three levels of complexity reflecting subsequent upgrades of the base model:
+
+\begin{itemize}
+    \item A~nurse can take a~day off and scheduler must respect it. (\textit{V1 --- basic variant})
+    \item Nurses have prererences regarding their coworkers --- one can like or dislike to work with another and scheduler should prefer rosters where these preferences are taken into account. (\textit{V1 --- basic variant})
+    \item A nurse cannot have more than 6 night shifts in a week. (\textit{V2 --- intermediate variant})
+    \item Nurses have prererences regarding when they would or wouldn't like to work. (\textit{V2 --- intermediate variant})
+    \item Every nurse has an amount of hours they should work during this period. (\textit{V2 --- intermediate variant})
+    \item The number of free weekends should be equally given to all nurses. (\textit{V2 --- intermediate variant})
+    \item Every nurse must have a~continuous 24 hours of break on every week. (\textit{V3 --- advanced variant})
+\end{itemize}
+
+\subsubsection{Input Data}
+
+The input data were specified in a~group of several CSV files:
+
+\begin{description}
+    \item[demand] --- each row contains number of a day followed by demand for nurses on each shift
+    \item[workhours] --- each row contains nurse id followed by maximum number of working hours
+    \item[vacation] --- each row contains nurse id followed by number of vacation day
+    \item[preferred\_companions] --- each row contains pair of nurses \texttt{id; 1;7;} means that nurse 1 prefers to work with nurse 7
+    \item[unpreferred\_companions] --- each row contains pair of nurses \texttt{id; 1;7;} means that nurse 1 prefers not to work with nurse
+    \item[preferred\_shifts] --- each row contains nurse id followed by number of preferred day and shift
+    \item[unpreferred\_shifts] --- each row contains nurse id followed by number of unpreferred day and shift
+\end{description}
+
+\subsection{Versions of our Model}
+
+Source code of our model can be found in \href{https://github.com/szczor/uzytki\_ampl}{this repository}, but the mathematical desctiption of the model was initially stored elsewhere (on Overleaf).
+
+The constraints described in previous sections with numbers 1 to 4 were easily incorporated into relatively early versions of our model. We usually followed the scheme where everything was first described in a~human readable yet formal way in a~\LaTeX file and then implementad as AMPL code.
+
+The first version of model was not linear --- it assumed schedule for every nurse to be stored in a~binary matrix (of quadratic size assuming number of shifts is constant) and constraints relating to coworkers were expressed using multiplication of elemets of this matrix.
+
+Later we linearized the model using a~cubic number of additional variables to get rid of the product.
+
+Constraints 5 and 6 were added later in the same time. Hovever we could not see any results given by GLPK for this version with constant 6. This latest version is in the main branch of our repository, while previous (for which GLPK worked fine) is tagged as \texttt{version\_intermediate}.
