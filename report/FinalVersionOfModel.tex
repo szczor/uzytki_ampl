@@ -1,15 +1,84 @@
 \section{A Final Version of the Model}
 
+
 \subsection{Limitations and Assumptions}
 
 Being a~kind of prototype/POC, the model has several oversimlifications, namely:
 
 \begin{itemize}
     \item It is not allowed to schedule more nurses on any shift than specified by demand.
+    \item The first day is always monday and thus the first day of a~week. This assumption is used by the 24h break every week requiremetn and by counting of busy weeks.
+    \item No starting conditions are taken into account --- every nurse is assumed to be allowed to work on the first shift on the first day.
+    \item Only full weeks are taken into account when imposing the requirement for 24h break.
 \end{itemize}
 
+
 \subsection{The Intuitive description of the Model (without linearization)}
+\newcommand{\vSchedule}{\texttt{\small vSchedule}}
+\newcommand{\vInteraction}{\texttt{\small vInteraction}}
+\newcommand{\vWeekendWorkedIndicator}{\texttt{\small vWeekend}}
+\newcommand{\vMinWeekendsWorked}{\texttt{\small vMinWeekendsWorked}}
+\newcommand{\vMaxWeekendsWorked}{\texttt{\small vMaxWeekendsWorked}}
+\newcommand{\pShiftLegth}{\texttt{\small pShiftLegth}}
+\newcommand{\pWorkhoursLimit}{\texttt{\small pWorkhoursLimit}}
+\newcommand{\vDayLengthBreakIndicator}{\texttt{\small vDayLengthBreakIndicator}}
+\newcommand{\pNumerOfNurses}{\texttt{\small pNumerOfNurses}}
+\newcommand{\pNumberOfDays}{\texttt{\small pNumberOfDays}}
+\newcommand{\pNumberOfShifts}{\texttt{\small pNumberOfShifts}}
+\newcommand{\pNumberOfWeeks}{\texttt{\small pNumberOfWeeks}}
+\newcommand{\pMaxNightShifts}{\texttt{\small pMaxNightShifts}}
+\newcommand{\pDemand}{\texttt{\small pDemand}}
+\newcommand{\sNurses}{\texttt{\small sNurses}}
+\newcommand{\sDays}{\texttt{\small sDays}}
+\newcommand{\sVacations}{\texttt{\small sVacations}}
+\newcommand{\sPreferredCompanions}{\texttt{\small sPreferredCompanions}}
+\newcommand{\sUnpreferredCompanions}{\texttt{\small sUnpreferredCompanions}}
+\newcommand{\sPreferredSlots}{\texttt{\small sPreferredSlots}}
+\newcommand{\sUnpreferredSlots}{\texttt{\small sUnpreferredSlots}}
+\newcommand{\vAlphaMin}{\texttt{\small vAlphaMin}}
+\newcommand{\vAlphaMax}{\texttt{\small vAlphaMax}}
+
+The ``output'' variable of our model is an array $\vSchedule \in \{0, 1\}^{N \times D \times S}$. $\vSchedule_{n, d, s} = 1$ means that nurse $n$ works on day $d$, shift $s$.
+
+The objective function could be expressed as follows only in terms of $\vSchedule$ but in an non--linear manner. It would be a~sum weighted of following terms:
+
+\begin{itemize}
+    \item \textit{Reward for liked coworkers}: the summation takes place over all pairs of nurses $(n, n')$ that like to work together and every shift $s$ of every day $d$:
+    \[ S_\text{p. c.} := \sum_{d,s} \sum_{(n, n')} \vSchedule_{n,d,s} \cdot \vSchedule_{n',d,s} \]
+    \item \textit{Penalty for disliked coworkers}: the summation takes place over all pairs of nurses $(n, n')$ that do not like to work together and every shift $s$ of every day $d$:
+    \[ S_\text{up. c.} := \sum_{d,s} \sum_{(n, n')} \vSchedule_{n,d,s} \cdot \vSchedule_{n',d,s} \]
+    \item \textit{Reward for work during preferred shifts}: the summation takes place over all nurses $n$ and shifts $(d, s)$ during which the nurse $n$ prefers to work:
+    \[ S_\text{p. s.} := \sum_{n} \sum_{(d, s)} \vSchedule_{n,d,s} \]
+    \item \textit{Penalty for work during non preferred shifts}: the summation takes place over all nurses $n$ and shifts $(d, s)$ during which the nurse $n$ prefers not to work:
+    \[ S_\text{up. s.} := \sum_{n} \sum_{(d, s)} \vSchedule_{n,d,s} \]
+    \item \textit{Penalty for unequal distribution of work}: for every nurse we take the amount of hours they work, normalize it by the number of thours that nurse should work and penaltize large difference between minimal and maximal of such values across all nurses:
+    \[ S_\text{w. h.} := \max_{n} \alpha_n - \min_n \alpha_n, \]
+    where 
+    \[ \alpha_n := \frac{\sum_{(d, s)} \pShiftLegth_s \cdot \vSchedule_{n, d, s}}{\pWorkhoursLimit_n} \]
+    \item \textit{Penalty for unequal distribution of weekends}: the nurse works on $k--th$ weekend when they has at least one working shift on day $7(k-1) + 6$ or $7(k-1) + 7$; denoting by $\vWeekendWorkedIndicator_{n, w}$ whether nurse $n$ worked on $w$--th weekend we have:
+    \[ S_\text{w-end.} := \max_n \sum_w \vWeekendWorkedIndicator_{n, w} - \min_n \sum_w \vWeekendWorkedIndicator_{n, w} \]
+\end{itemize}
+
+The maximized ``happiness function'' is defined as weighted sum of terms defined above.
+
+The requirement that every nurse has 24 hours of a~continous break at least once every week works under the assumption that all lengths of all shifts $1, 2, ..., S$ add up to 24 hours. Then we use an indicator:
+
+\[ \vDayLengthBreakIndicator_{n, w, \delta, s} \]
+
+It is set to $0$ only when nurse $n$ has all $S$ subsequent shifts free starting from shift $s$ on weekday $\delta$ of a week $w$. If not all subsequent shifts lie within the week $w$, we allow the solver to set the value of this indicator arbitrarily. Then we require that for every nurse and every week:
+
+\[ \sum_{\delta, s} \vDayLengthBreakIndicator_{n, w, \delta, s} \le 6S \]
+
+This follows from the fact that:
+\begin{itemize}
+    \item There are $7S$ shifts in every full week.
+    \item $S - 1$ indicators have their shifts spanning to the next week and the solver is free to set this to 0.
+    \item Thus in any week there are $6S + 1$ indicators that are defined by our constraints and we want at least of them to be set to $0$.
+\end{itemize}
+
+Other constraints are straightforward.
 
 \subsection{The Final Linear Model}
+
 
 \subsection{Running on NEOS}
