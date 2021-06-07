@@ -16,10 +16,10 @@ Being a~kind of prototype/POC, the model has several oversimlifications, namely:
 \subsection{The Intuitive description of the Model (without linearization)}
 \newcommand{\vSchedule}{\texttt{\small vSchedule}}
 \newcommand{\vInteraction}{\texttt{\small vInteraction}}
-\newcommand{\vWeekendWorkedIndicator}{\texttt{\small vWeekend}}
+\newcommand{\vWeekend}{\texttt{\small vWeekend}}
 \newcommand{\vMinWeekendsWorked}{\texttt{\small vMinWeekendsWorked}}
 \newcommand{\vMaxWeekendsWorked}{\texttt{\small vMaxWeekendsWorked}}
-\newcommand{\pShiftLegth}{\texttt{\small pShiftLegth}}
+\newcommand{\pShiftLength}{\texttt{\small pShiftLength}}
 \newcommand{\pWorkhoursLimit}{\texttt{\small pWorkhoursLimit}}
 \newcommand{\vDayLengthBreakIndicator}{\texttt{\small vDayLengthBreakIndicator}}
 \newcommand{\pNumerOfNurses}{\texttt{\small pNumerOfNurses}}
@@ -29,7 +29,9 @@ Being a~kind of prototype/POC, the model has several oversimlifications, namely:
 \newcommand{\pMaxNightShifts}{\texttt{\small pMaxNightShifts}}
 \newcommand{\pDemand}{\texttt{\small pDemand}}
 \newcommand{\sNurses}{\texttt{\small sNurses}}
+\newcommand{\sShifts}{\texttt{\small sShifts}}
 \newcommand{\sDays}{\texttt{\small sDays}}
+\newcommand{\sWeeks}{\texttt{\small sWeeks}}
 \newcommand{\sVacations}{\texttt{\small sVacations}}
 \newcommand{\sPreferredCompanions}{\texttt{\small sPreferredCompanions}}
 \newcommand{\sUnpreferredCompanions}{\texttt{\small sUnpreferredCompanions}}
@@ -37,6 +39,13 @@ Being a~kind of prototype/POC, the model has several oversimlifications, namely:
 \newcommand{\sUnpreferredSlots}{\texttt{\small sUnpreferredSlots}}
 \newcommand{\vAlphaMin}{\texttt{\small vAlphaMin}}
 \newcommand{\vAlphaMax}{\texttt{\small vAlphaMax}}
+\newcommand{\pLambdaPC}{\texttt{\small pLambdaPS}}
+\newcommand{\pLambdaUC}{\texttt{\small pLambdaUS}}
+\newcommand{\pLambdaPS}{\texttt{\small pLambdaPC}}
+\newcommand{\pLambdaUS}{\texttt{\small pLambdaUS}}
+\newcommand{\pLambdaWHS}{\texttt{\small pLambdaWHS}}
+\newcommand{\pLambdaW}{\texttt{\small pLambdaW}}
+\newcommand{\vDemand}{\texttt{\small vDemand}}
 
 The ``output'' variable of our model is an array $\vSchedule \in \{0, 1\}^{N \times D \times S}$. $\vSchedule_{n, d, s} = 1$ means that nurse $n$ works on day $d$, shift $s$.
 
@@ -54,9 +63,9 @@ The objective function could be expressed as follows only in terms of $\vSchedul
     \item \textit{Penalty for unequal distribution of work}: for every nurse we take the amount of hours they work, normalize it by the number of thours that nurse should work and penaltize large difference between minimal and maximal of such values across all nurses:
     \[ S_\text{w. h.} := \max_{n} \alpha_n - \min_n \alpha_n, \]
     where 
-    \[ \alpha_n := \frac{\sum_{(d, s)} \pShiftLegth_s \cdot \vSchedule_{n, d, s}}{\pWorkhoursLimit_n} \]
-    \item \textit{Penalty for unequal distribution of weekends}: the nurse works on $k--th$ weekend when they has at least one working shift on day $7(k-1) + 6$ or $7(k-1) + 7$; denoting by $\vWeekendWorkedIndicator_{n, w}$ whether nurse $n$ worked on $w$--th weekend we have:
-    \[ S_\text{w-end.} := \max_n \sum_w \vWeekendWorkedIndicator_{n, w} - \min_n \sum_w \vWeekendWorkedIndicator_{n, w} \]
+    \[ \alpha_n := \frac{\sum_{(d, s)} \pShiftLength_s \cdot \vSchedule_{n, d, s}}{\pWorkhoursLimit_n} \]
+    \item \textit{Penalty for unequal distribution of weekends}: the nurse works on $k--th$ weekend when they has at least one working shift on day $7(k-1) + 6$ or $7(k-1) + 7$; denoting by $\vWeekend{n, w}$ whether nurse $n$ worked on $w$--th weekend we have:
+    \[ S_\text{w-end.} := \max_n \sum_w \vWeekend_{n, w} - \min_n \sum_w \vWeekend{n, w} \]
 \end{itemize}
 
 The maximized ``happiness function'' is defined as weighted sum of terms defined above.
@@ -78,7 +87,90 @@ This follows from the fact that:
 
 Other constraints are straightforward.
 
+
 \subsection{The Final Linear Model}
 
+\noindent\textbf{Input data}
+\begin{itemize}
+    \item nurses $n\in \{1, \dots, \pNumerOfNurses\} = \sNurses$
+    \item days $d\in \{1, \dots, \pNumberOfDays\} = \sDays$
+    \item shifts $s\in \{1, \dots, \pNumberOfShifts\} = \sShifts$ and $\pShiftLength = 24 / \pNumberOfShifts$
+    \item week numbers $w\in\{0, \dots, \pNumberOfWeeks\} = \sWeeks, \pNumberOfWeeks=\lceil \pNumberOfDays/7 \rceil - 1$, weekdays $\delta \in \{0, ..., 6\}$
+    \item $\pMaxNightShifts$
+    \item nurses demand per day and shift - $\pDemand_{d,s} \in \sNurses$
+    \item workhours upper limit per nurse - $\pWorkhoursLimit_n \in \sNurses$
+    \item vacation requests - $\sVacations \subset \sNurses \times \sDays$
+    \item preferred companions - $\sPreferredCompanions \subset \sNurses \times \sNurses$
+    \item unpreferred companions - $\sUnpreferredCompanions \subset \sNurses \times \sNurses$
+    \item preferred slots - $\sPreferredSlots \subset \sNurses \times \sDays \times \sShifts$
+    \item unpreferred slots - $\sUnpreferredSlots \subset \sNurses \times \sDays \times \sShifts$
+\end{itemize}
+
+\noindent\textbf{Optimization variables}
+\begin{itemize}
+    \item Schedule for each nurse, day and shift  
+    \[ \vSchedule_{n,d,s} \in \{0,1\} \]
+    \item Interactions of nurses --- set when $n$ and $n'$ work during the same shift $(d, s)$
+    \[ \vInteraction_{n,n',d,s} \in \{0,1\} \]
+    \item Indicator $\vWeekend_{n, w}$ set when nurse $n$ works druing weekend $w$. Then we compute maximal and minimal number of worked weeknds using these:
+    \[ \vWeekend_{n, w} \in \{0, 1\}, \vMinWeekendsWorked, \vMaxWeekendsWorked \]
+    \item lower and upper bound of ``fraction of contract fulfilled'' proportions
+    \[ \vAlphaMin, \vAlphaMax \in [0, 1] \]
+    \item binary indicators whether a~nurse $n$ has a~continuous 24--hours break on the week day $\delta$ od week $w$ starting from shift $s$:
+    \[ \vDayLengthBreakIndicator_{n, w, \delta, s} \]
+\end{itemize}
+
+\noindent\textbf{Reward function}
+\begin{align*}
+    &\pLambdaPC \cdot \sum_{(n, n')} \sum_{d,s} \vInteraction_{n,n',d,s} 
+        \qquad\text{(reward for liked coworkers)}\\
+    -&\pLambdaUC \cdot \sum_{(n, n')} \sum_{d,s} \vInteraction_{n,n',d,s} 
+        \qquad\text{(penalty for disliked coworkers)}\\
+    +&\pLambdaPS \cdot \sum_{(n, d, s)} \vSchedule_{n,d,s} 
+        \qquad\text{(reward for work during preferred shifts)}\\
+    -&\pLambdaUS \cdot \sum_{(n, d, s)} \vSchedule_{n,d,s} 
+        \qquad\text{(penalty for work during non preferred shifts)}\\
+    -&\pLambdaWHS \cdot (\vAlphaMax_{max} - \vAlphaMin_{min})  
+        \qquad\text{(penalty for unequal distribution of work)}\\
+    -&\pLambdaW \cdot (\vMaxWeekendsWorked - \vMinWeekendsWorked)
+        \qquad\text{(penalty for unequal distribution of weekends)}\\
+\end{align*}
+
+\noindent\textbf{Constraints}
+\begin{itemize}
+    \item Demand is met:
+    \[ \forall_{d,s}\ \sum_n \vSchedule_{n,d,s} = \vDemand_{d, s} \]
+    \item Workhours limits are not exceeded
+    \[ \forall_{n}\ \pShiftLength\cdot\sum_{d, s} \vSchedule_{n,d,s} \leq \pWorkhoursLimit_n \]
+    \item No more than one shift every day:
+    \[ \forall_{n,d}\ \sum_s \vSchedule_{n,d,s} \leq 1 \]
+    \item Respect night shifts weekly limit:
+    \[ \forall_{n,w}\ \sum_{d=7w+1}^{\min(7(w+1), D)} \vSchedule_{n,d,S} \leq \pMaxNightShifts \] \\
+    \item Can't continue past midnight:
+    \[ \forall_{n,d} \vSchedule_{n,d,S} + \vSchedule_{n,d+1,1} \leq 1 \]
+    \item Vacations are respected:
+    \[ \forall_{(n,d)\in \sVacations}\ \forall_s\ \vSchedule_{n,d,s} = 0 \]
+    \item Interactions are consistent with $\vSchedule$: 
+    \[ \forall_{n,n',d,s}\ \vInteraction_{n,n',d,s} \leq \vSchedule_{n,d,s} \]
+    \[ \forall_{n,n',d,s}\ \vInteraction_{n,n',d,s} \leq \vSchedule_{n',d,s} \]
+    \[ \forall_{n,n',d,s}\ \vInteraction_{n,n',d,s} \geq \vSchedule_{n,d,s} + \vSchedule_{n',d,s} - 1 \]
+    \item Min and max fraction of contract fulfilled are consistent with schedule:
+    \[ \forall_{n}\ \vAlphaMin \leq \frac{\pShiftLength \cdot \sum_{d,s} \vSchedule_{n,d,s}}{\pWorkhoursLimit_n} \leq \vAlphaMax \]
+    \item Weekends are marked as worked by nurse consistently with $\vSchedule$: 
+    \[ \forall_{n, w}\ \vWeekend_{n, w} \geq \frac{1}{S}\sum_s (\vSchedule_{n, 7w+6, s} + \vSchedule_{n, 7w+7, s}) \]
+    \[ \forall_{n, w}\ \vWeekend_{n, w} \leq \sum_s (\vSchedule_{n, 7w+6, s} + \vSchedule_{n, 7w+7, s}) \]
+    \item Minimal and maximal number of worked weekends are computed consistently with $vWeekend$:
+    \[ \forall_{n}\ \vMinWeekendsWorked \le \sum_n \vWeekend_{n, s} \le \vMaxWeekendsWorked \]
+    \item $\vDayLengthBreakIndicator$ is consistent with $\vSchedule$:
+    \[ \forall_{n,w,\delta  \in \{0, \dots, 6\},s}\ \vDayLengthBreakIndicator_{n, w, \delta, s} \ge \frac{\sum_{0 \le i \le \pNumberOfShifts - 1} \vSchedule_{n, d', s'}}{\pNumberOfShifts}, \]
+    \[ \forall_{n,w}\ \vDayLengthBreakIndicator_{n, w, 7, 1} \ge \frac{\sum_{0 \le i \le \pNumberOfShifts - 1} \vSchedule_{n, 7, 1 + i}}{\pNumberOfShifts}, \]
+    where
+    \begin{align*}
+        d' &:= 1+7w+\delta+\left\lfloor\frac{s+i}{\pNumberOfShifts}\right\rfloor, \\
+        s' &:= 1 + ((s - 1 + i) \operatorname{mod} \pNumberOfShifts)
+    \end{align*}
+    \item Every nurse has at least 24h continous break every week:
+    \[ \forall_{n, w}\ \sum_{\delta, s} \vDayLengthBreakIndicator_{n, w, \delta, s} \le 6 \]
+\end{itemize}
 
 \subsection{Running on NEOS}
