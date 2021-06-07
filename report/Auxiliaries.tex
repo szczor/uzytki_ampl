@@ -1,1 +1,39 @@
 \section{Auxiliary Scripts}
+
+\subsection{Converting data from CSV}
+
+CSV files are converted to \texttt{.dat} input for our model by \texttt{csv2dat.py} script. Foor convenience the script uses a config file with a list of files to process (and several other options). When run, it expects one or two command line parameters:
+
+\begin{enumerate}
+    \item The first (required) is path to the config file describing which CSV files to use. For more info, check out example of cuch file: \texttt{example\_data/example.ini} (every option is commented there). Keep in mind that relative paths to CSV files defined in that file are taken relative to the location of the INI file.
+    \item The second (optional) parameter is the desired path to output file. If present it will override the option FileName from Output section (otherwise this option must be set in the INI file). The relative path to output is treated as relative to the directory from which the script is invoked.
+\end{enumerate}
+
+An example invocation that produces \texttt{test.dat} from sample data provided in \texttt{example\_data/} directory (that were given to us by F33) would be:
+
+\begin{verbatim}
+    $ python3 csv2dat.py example_data/example.ini test.dat
+\end{verbatim}
+
+
+\subsection{Visualizing the solution}
+
+Assuming that you have a~\texttt{glpsol}--generated solution in file \texttt{solution.sol} you can generate visualisation like this:
+
+\begin{verbatim}
+    $ python visualization.py solution.sol example_data/example.ini output_name
+\end{verbatim}
+
+
+The script generates visualizations of 7-day schedules in a form \texttt{output\_name\_week\_N.png} in a directory \texttt{wykresy/}. It produces two types of plots, the ones where we take into account if a nurse works on preferred/unpreferred shifts and the ones where we take into account if a nurse works with preferred/unpreferred companions. For example if your data contains 28 days and the data on preferred/unpreferred shifts and preferred/unpreferred companions, it will generate 8 plots (4 plots on preferred/unpreferred shifts and 4 on preferred/unpreferred companions)where each plot represents one week. If your data is shorter than one week, it will generate two plots. If there is no data on for example preferred/unpreferredshifts, it will produce just one type of plot.
+
+How to read the schedule plots:
+
+\begin{description}
+    \item[Yellow] --- nurse has a vacation break
+    \item[Green] --- nurse works on a preferred shift/ nurse works with a preferred companion
+    \item[Red] --- nurse works on an unpreferred shift/ nurse works with an unpreferred companion
+    \item[Black] --- nurse works on a shift that is ambivalent to him/her /nurse works with neither preferred nor unpreferred companions
+\end{description}
+
+This script generates also a workhour plot. The salmon part shows the number of hours which a nurse has worked throughout the analysed period. The red part shows a nurse's workhour limit.
