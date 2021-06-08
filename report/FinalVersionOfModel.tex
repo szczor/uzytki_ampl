@@ -162,15 +162,15 @@ Other constraints are straightforward.
     \item Minimal and maximal number of worked weekends are computed consistently with $\vWeekend$:
     \[ \forall_{n}\ \vMinWeekendsWorked \le \sum_n \vWeekend_{n, s} \le \vMaxWeekendsWorked \]
     \item $\vDayLengthBreakIndicator$ is consistent with $\vSchedule$:
-    \[ \forall_{n,w,\delta  \in \{0, \dots, 6\},s}\ \vDayLengthBreakIndicator_{n, w, \delta, s} \ge \frac{\sum_{0 \le i \le \pNumberOfShifts - 1} \vSchedule_{n, d', s'}}{\pNumberOfShifts}, \]
-    \[ \forall_{n,w}\ \vDayLengthBreakIndicator_{n, w, 7, 1} \ge \frac{\sum_{0 \le i \le \pNumberOfShifts - 1} \vSchedule_{n, 7, 1 + i}}{\pNumberOfShifts}, \]
+    \[ \forall_{n,w,\delta  \in \{0, \dots, 5\},s}\ \vDayLengthBreakIndicator_{n, w, \delta, s} \ge \frac{\sum_{0 \le i \le \pNumberOfShifts - 1} \vSchedule_{n, d', s'}}{\pNumberOfShifts}, \]
+    \[ \forall_{n,w}\ \vDayLengthBreakIndicator_{n, w, 6, 1} \ge \frac{\sum_{0 \le i \le \pNumberOfShifts - 1} \vSchedule_{n, 7, 1 + i}}{\pNumberOfShifts}, \]
     where
     \begin{align*}
         d' &:= 1+7w+\delta+\left\lfloor\frac{s+i}{\pNumberOfShifts}\right\rfloor, \\
         s' &:= 1 + ((s - 1 + i) \operatorname{mod} \pNumberOfShifts)
     \end{align*}
     \item Every nurse has at least 24h continous break every week:
-    \[ \forall_{n, w}\ \sum_{\delta, s} \vDayLengthBreakIndicator_{n, w, \delta, s} \le 6 \]
+    \[ \forall_{n, w}\ \sum_{\delta, s} \vDayLengthBreakIndicator_{n, w, \delta, s} \le 6 \pNumberOfShifts \]
 \end{itemize}
 
 \subsection{Running on NEOS}
